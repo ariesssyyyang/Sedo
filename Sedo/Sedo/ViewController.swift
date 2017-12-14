@@ -14,15 +14,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // try send request //
-        let request = Request()
-        let customer = Customer()
-        let designer = Designer()
-        RequestManager.sendRequest(send: request, from: customer, to: designer)
+//        let request = Request()
+//        let customer = Customer()
+//        let designer = Designer()
+//        RequestManager.sendRequest(send: request, from: customer, to: designer)
         // try send request //
 
         // try fetch request //
 //        let designer = Designer()
-        RequestManager.fetchRequest(receipient: designer)
+//        RequestManager.fetchRequest(receipient: designer)
         // try fetch request //
     }
 
