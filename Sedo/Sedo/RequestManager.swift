@@ -62,7 +62,7 @@ class RequestManager {
         let date = Date()
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "MMM d, h:mm a"
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
         let dateString = dateFormatter.string(from: date)
         return dateString
     }

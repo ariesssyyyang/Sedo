@@ -14,6 +14,16 @@
 		7FA138011FE22FEE006455B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA137FF1FE22FEE006455B1 /* LaunchScreen.storyboard */; };
 		7FA1380A1FE24E04006455B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FA138091FE24E04006455B1 /* GoogleService-Info.plist */; };
 		7FA1380C1FE2505B006455B1 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1380B1FE2505B006455B1 /* RequestManager.swift */; };
+		7FA1380E1FE26E48006455B1 /* CustomerTabBarItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1380D1FE26E48006455B1 /* CustomerTabBarItemType.swift */; };
+		7FA138111FE27179006455B1 /* CustomerTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138101FE27179006455B1 /* CustomerTabBarItem.swift */; };
+		7FA138131FE28554006455B1 /* CustomerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138121FE28554006455B1 /* CustomerTabBarController.swift */; };
+		7FA138151FE2869E006455B1 /* DesignerTabBarItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138141FE2869E006455B1 /* DesignerTabBarItemType.swift */; };
+		7FA138171FE28870006455B1 /* DesignerTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138161FE28870006455B1 /* DesignerTabBarItem.swift */; };
+		7FA138191FE28928006455B1 /* DesignerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138181FE28928006455B1 /* DesignerTabBarController.swift */; };
+		7FA1381D1FE2AE1D006455B1 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1381C1FE2AE1D006455B1 /* TabBarItem.swift */; };
+		7FA1381F1FE2AE2F006455B1 /* TabBarItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1381E1FE2AE2F006455B1 /* TabBarItemType.swift */; };
+		7FA138211FE2AE3F006455B1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138201FE2AE3F006455B1 /* TabBarController.swift */; };
+		7FA138251FE2B8ED006455B1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138241FE2B8ED006455B1 /* TestViewController.swift */; };
 		E0440DF82D43F499F003D66B /* Pods_Sedo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD7528F16E09A0E1A7C2C50 /* Pods_Sedo.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +39,16 @@
 		7FA138021FE22FEE006455B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FA138091FE24E04006455B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7FA1380B1FE2505B006455B1 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		7FA1380D1FE26E48006455B1 /* CustomerTabBarItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTabBarItemType.swift; sourceTree = "<group>"; };
+		7FA138101FE27179006455B1 /* CustomerTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTabBarItem.swift; sourceTree = "<group>"; };
+		7FA138121FE28554006455B1 /* CustomerTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTabBarController.swift; sourceTree = "<group>"; };
+		7FA138141FE2869E006455B1 /* DesignerTabBarItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerTabBarItemType.swift; sourceTree = "<group>"; };
+		7FA138161FE28870006455B1 /* DesignerTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerTabBarItem.swift; sourceTree = "<group>"; };
+		7FA138181FE28928006455B1 /* DesignerTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerTabBarController.swift; sourceTree = "<group>"; };
+		7FA1381C1FE2AE1D006455B1 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		7FA1381E1FE2AE2F006455B1 /* TabBarItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemType.swift; sourceTree = "<group>"; };
+		7FA138201FE2AE3F006455B1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		7FA138241FE2B8ED006455B1 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		BF8A0C4547578D0E3655D68D /* Pods-Sedo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sedo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sedo/Pods-Sedo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,8 +95,10 @@
 			isa = PBXGroup;
 			children = (
 				7FA137F61FE22FEE006455B1 /* AppDelegate.swift */,
-				7FA1380B1FE2505B006455B1 /* RequestManager.swift */,
+				7FA1380F1FE26E7E006455B1 /* Tab Bar */,
 				7FA137F81FE22FEE006455B1 /* ViewController.swift */,
+				7FA138241FE2B8ED006455B1 /* TestViewController.swift */,
+				7FA1380B1FE2505B006455B1 /* RequestManager.swift */,
 				7FA137FA1FE22FEE006455B1 /* Main.storyboard */,
 				7FA137FD1FE22FEE006455B1 /* Assets.xcassets */,
 				7FA137FF1FE22FEE006455B1 /* LaunchScreen.storyboard */,
@@ -84,6 +106,38 @@
 				7FA138021FE22FEE006455B1 /* Info.plist */,
 			);
 			path = Sedo;
+			sourceTree = "<group>";
+		};
+		7FA1380F1FE26E7E006455B1 /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				7FA1381B1FE289DA006455B1 /* Designer */,
+				7FA1381A1FE289D0006455B1 /* Customer */,
+				7FA1381C1FE2AE1D006455B1 /* TabBarItem.swift */,
+				7FA1381E1FE2AE2F006455B1 /* TabBarItemType.swift */,
+				7FA138201FE2AE3F006455B1 /* TabBarController.swift */,
+			);
+			path = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		7FA1381A1FE289D0006455B1 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				7FA138101FE27179006455B1 /* CustomerTabBarItem.swift */,
+				7FA1380D1FE26E48006455B1 /* CustomerTabBarItemType.swift */,
+				7FA138121FE28554006455B1 /* CustomerTabBarController.swift */,
+			);
+			path = Customer;
+			sourceTree = "<group>";
+		};
+		7FA1381B1FE289DA006455B1 /* Designer */ = {
+			isa = PBXGroup;
+			children = (
+				7FA138161FE28870006455B1 /* DesignerTabBarItem.swift */,
+				7FA138141FE2869E006455B1 /* DesignerTabBarItemType.swift */,
+				7FA138181FE28928006455B1 /* DesignerTabBarController.swift */,
+			);
+			path = Designer;
 			sourceTree = "<group>";
 		};
 		9EB2CDEAD44A59578BB6FA4F /* Frameworks */ = {
@@ -246,9 +300,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FA1380E1FE26E48006455B1 /* CustomerTabBarItemType.swift in Sources */,
 				7FA1380C1FE2505B006455B1 /* RequestManager.swift in Sources */,
+				7FA1381D1FE2AE1D006455B1 /* TabBarItem.swift in Sources */,
+				7FA138151FE2869E006455B1 /* DesignerTabBarItemType.swift in Sources */,
+				7FA138111FE27179006455B1 /* CustomerTabBarItem.swift in Sources */,
+				7FA138251FE2B8ED006455B1 /* TestViewController.swift in Sources */,
+				7FA138131FE28554006455B1 /* CustomerTabBarController.swift in Sources */,
 				7FA137F91FE22FEE006455B1 /* ViewController.swift in Sources */,
+				7FA1381F1FE2AE2F006455B1 /* TabBarItemType.swift in Sources */,
 				7FA137F71FE22FEE006455B1 /* AppDelegate.swift in Sources */,
+				7FA138211FE2AE3F006455B1 /* TabBarController.swift in Sources */,
+				7FA138191FE28928006455B1 /* DesignerTabBarController.swift in Sources */,
+				7FA138171FE28870006455B1 /* DesignerTabBarItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
