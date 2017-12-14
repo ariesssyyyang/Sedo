@@ -12,14 +12,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+        // try send request //
+        let request = Request()
+        let customer = Customer()
+        let designer = Designer()
+        RequestManager.sendRequest(send: request, from: customer, to: designer)
+        // try send request //
 
+        // try fetch request //
+//        let designer = Designer()
+        RequestManager.fetchRequest(receipient: designer)
+        // try fetch request //
+    }
 
 }
-

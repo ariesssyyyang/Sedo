@@ -13,6 +13,7 @@
 		7FA137FE1FE22FEE006455B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA137FD1FE22FEE006455B1 /* Assets.xcassets */; };
 		7FA138011FE22FEE006455B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA137FF1FE22FEE006455B1 /* LaunchScreen.storyboard */; };
 		7FA1380A1FE24E04006455B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FA138091FE24E04006455B1 /* GoogleService-Info.plist */; };
+		7FA1380C1FE2505B006455B1 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1380B1FE2505B006455B1 /* RequestManager.swift */; };
 		E0440DF82D43F499F003D66B /* Pods_Sedo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD7528F16E09A0E1A7C2C50 /* Pods_Sedo.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		7FA138001FE22FEE006455B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FA138021FE22FEE006455B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FA138091FE24E04006455B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7FA1380B1FE2505B006455B1 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		BF8A0C4547578D0E3655D68D /* Pods-Sedo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sedo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sedo/Pods-Sedo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				7FA137F61FE22FEE006455B1 /* AppDelegate.swift */,
+				7FA1380B1FE2505B006455B1 /* RequestManager.swift */,
 				7FA137F81FE22FEE006455B1 /* ViewController.swift */,
 				7FA137FA1FE22FEE006455B1 /* Main.storyboard */,
 				7FA137FD1FE22FEE006455B1 /* Assets.xcassets */,
@@ -243,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FA1380C1FE2505B006455B1 /* RequestManager.swift in Sources */,
 				7FA137F91FE22FEE006455B1 /* ViewController.swift in Sources */,
 				7FA137F71FE22FEE006455B1 /* AppDelegate.swift in Sources */,
 			);
