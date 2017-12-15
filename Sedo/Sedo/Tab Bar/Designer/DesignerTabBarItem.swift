@@ -28,6 +28,8 @@ class DesignerTabBarItem: UITabBarItem {
 
         self.image = itemType.image
 
+        self.selectedImage = itemType.selectedImage
+
     }
 
     required init?(coder aDecoder: NSCoder) {

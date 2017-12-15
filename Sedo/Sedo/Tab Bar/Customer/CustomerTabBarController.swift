@@ -76,7 +76,7 @@ class CustomerTabBarController: UITabBarController {
 //            )
 //
 //            return navigationController
-            let navigationController = UINavigationController(rootViewController: CustomerSettingController())
+            let navigationController = UINavigationController(rootViewController: TestRequestController())
             navigationController.tabBarItem = CustomerTabBarItem(itemType: itemType)
             return navigationController
 

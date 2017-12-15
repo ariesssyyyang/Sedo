@@ -10,24 +10,24 @@ import Foundation
 import Firebase
 
 struct Customer {
-    
+    let name: String
 }
 
 struct Designer {
-    
+    let name: String
 }
 
 struct Request {
-    
+    let service: String
 }
 
 class RequestManager {
 
     static func sendRequest(send request: Request, from customer: Customer, to designer: Designer) {
         let date = self.requestDate()
-        let ref = Database.database().reference().child("request").child("Andy")
+        let ref = Database.database().reference().child("request").child(designer.name)
         let requestRef = ref.childByAutoId()
-        let value = ["customer": "cow", "date": date, "service": "tatoo", "check": false] as [String : Any]
+        let value = ["customer": customer.name, "date": date, "service": request.service, "check": false] as [String : Any]
         requestRef.updateChildValues(value) { (error, ref) in
             // Todo: error handling
             if error != nil {

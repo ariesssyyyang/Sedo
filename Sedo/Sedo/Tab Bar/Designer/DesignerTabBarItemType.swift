@@ -79,7 +79,7 @@ extension DesignerTabBarItemType {
 
         case .calendar:
 
-            return #imageLiteral(resourceName: "selected-calendar").withRenderingMode(.alwaysTemplate)
+            return nil
 
         case .portfolio:
 

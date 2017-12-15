@@ -18,8 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
 
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let firstViewController = storyboard.instantiateViewController(withIdentifier: "firstPage")
         let customerController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
         let designerController = DesignerTabBarController(itemTypes: [.calendar, .portfolio, .service, .profile])
         let window = UIWindow(frame: UIScreen.main.bounds)
