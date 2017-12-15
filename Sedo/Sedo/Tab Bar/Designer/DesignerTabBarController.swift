@@ -11,29 +11,29 @@
 import UIKit
 
 class DesignerTabBarController: UITabBarController {
-    
+
     // MARK: Init
-    
+
     init(itemTypes: [DesignerTabBarItemType]) {
-        
+
         super.init(nibName: nil, bundle: nil)
 
         let viewControllers: [UIViewController] = itemTypes.map(
             DesignerTabBarController.prepare
         )
-        
+
         setViewControllers(viewControllers, animated: false)
-        
+
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
-        
+
         super.init(coder: aDecoder)
-        
+
     }
-    
+
     // MARK: View Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -76,10 +76,10 @@ class DesignerTabBarController: UITabBarController {
             //            )
             //
             //            return navigationController
-            let navigationController = UINavigationController(rootViewController: TestViewController())
+            let navigationController = UINavigationController(rootViewController: DesignerSettingController())
             navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
             return navigationController
-            
+
         case .portfolio:
 
             //            let profileTableViewController = ProfileTableViewController(style: .plain)
@@ -93,7 +93,7 @@ class DesignerTabBarController: UITabBarController {
             //            )
             //
             //            return navigationController
-            let navigationController = UINavigationController(rootViewController: TestViewController())
+            let navigationController = UINavigationController(rootViewController: DesignerSettingController())
             navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
             return navigationController
 
@@ -111,13 +111,13 @@ class DesignerTabBarController: UITabBarController {
             //            )
             //
             //            return navigationController
-            let navigationController = UINavigationController(rootViewController: TestViewController())
+            let navigationController = UINavigationController(rootViewController: DesignerSettingController())
             navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
             return navigationController
 
         case .profile:
 
-            let navigationController = UINavigationController(rootViewController: TestViewController())
+            let navigationController = UINavigationController(rootViewController: DesignerSettingController())
             navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
             return navigationController
         }

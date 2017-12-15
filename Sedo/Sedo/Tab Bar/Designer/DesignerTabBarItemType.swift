@@ -23,28 +23,28 @@ enum DesignerTabBarItemType {
 extension DesignerTabBarItemType {
     
     var title: String {
-        
+
         switch self {
-            
+
         case .calendar:
-            
+
             return NSLocalizedString("Calendar", comment: "")
-            
+
         case .profile:
-            
+
             return NSLocalizedString("Profile", comment: "")
-            
+
         case .portfolio:
-            
+
             return NSLocalizedString("Portfolio", comment: "")
 
         case .service:
 
             return NSLocalizedString("Service", comment: "")
         }
-        
+
     }
-    
+
 }
 
 // MARK: - Image
@@ -64,9 +64,11 @@ extension DesignerTabBarItemType {
             return #imageLiteral(resourceName: "icon-works").withRenderingMode(.alwaysTemplate)
 
         case .service:
+
             return #imageLiteral(resourceName: "icon-list").withRenderingMode(.alwaysTemplate)
 
         case .profile:
+
             return #imageLiteral(resourceName: "icon-user").withRenderingMode(.alwaysTemplate)
         }
     }

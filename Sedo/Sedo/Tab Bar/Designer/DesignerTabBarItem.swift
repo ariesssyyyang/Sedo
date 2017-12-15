@@ -11,29 +11,29 @@
 import UIKit
 
 class DesignerTabBarItem: UITabBarItem {
-    
+
     // MARK: Property
-    
+
     var itemType: DesignerTabBarItemType?
-    
+
     // MARK: Init
-    
+
     init(itemType: DesignerTabBarItemType) {
-        
+
         super.init()
-        
+
         self.itemType = itemType
-        
+
         self.title = itemType.title
-        
+
         self.image = itemType.image
-        
+
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
-        
+
         super.init(coder: aDecoder)
-        
+
     }
-    
+
 }

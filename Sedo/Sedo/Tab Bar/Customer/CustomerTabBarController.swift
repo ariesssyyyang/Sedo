@@ -11,44 +11,44 @@
 import UIKit
 
 class CustomerTabBarController: UITabBarController {
-    
+
     // MARK: Init
-    
+
     init(itemTypes: [CustomerTabBarItemType]) {
-        
+
         super.init(nibName: nil, bundle: nil)
-        
+
         let viewControllers: [UIViewController] = itemTypes.map(
             CustomerTabBarController.prepare
         )
-        
+
         setViewControllers(viewControllers, animated: false)
-        
+
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
-        
+
         super.init(coder: aDecoder)
-        
+
     }
-    
+
     // MARK: View Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setUpTabBar()
-        
+
     }
-    
+
     // MARK: Set Up
-    
+
     private func setUpTabBar() {
-        
+
         tabBar.barStyle = .default
-        
+
         tabBar.isTranslucent = false
-        
+
         // Todo: palette
         tabBar.tintColor = UIColor(
             red: 53.0 / 255.0,
@@ -76,7 +76,7 @@ class CustomerTabBarController: UITabBarController {
 //            )
 //
 //            return navigationController
-            let navigationController = UINavigationController(rootViewController: TestViewController())
+            let navigationController = UINavigationController(rootViewController: CustomerSettingController())
             navigationController.tabBarItem = CustomerTabBarItem(itemType: itemType)
             return navigationController
 
@@ -93,7 +93,7 @@ class CustomerTabBarController: UITabBarController {
 //            )
 //
 //            return navigationController
-            let navigationController = UINavigationController(rootViewController: TestViewController())
+            let navigationController = UINavigationController(rootViewController: CustomerSettingController())
             navigationController.tabBarItem = CustomerTabBarItem(itemType: itemType)
             return navigationController
 
@@ -111,7 +111,7 @@ class CustomerTabBarController: UITabBarController {
 //            )
 //
 //            return navigationController
-            let navigationController = UINavigationController(rootViewController: TestViewController())
+            let navigationController = UINavigationController(rootViewController: CustomerSettingController())
             navigationController.tabBarItem = CustomerTabBarItem(itemType: itemType)
             return navigationController
         }

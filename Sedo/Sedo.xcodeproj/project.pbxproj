@@ -24,6 +24,8 @@
 		7FA1381F1FE2AE2F006455B1 /* TabBarItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1381E1FE2AE2F006455B1 /* TabBarItemType.swift */; };
 		7FA138211FE2AE3F006455B1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138201FE2AE3F006455B1 /* TabBarController.swift */; };
 		7FA138251FE2B8ED006455B1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138241FE2B8ED006455B1 /* TestViewController.swift */; };
+		7FA138271FE36A84006455B1 /* CustomerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138261FE36A84006455B1 /* CustomerSettingController.swift */; };
+		7FA138291FE36A95006455B1 /* DesignerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138281FE36A95006455B1 /* DesignerSettingController.swift */; };
 		E0440DF82D43F499F003D66B /* Pods_Sedo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD7528F16E09A0E1A7C2C50 /* Pods_Sedo.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		7FA1381E1FE2AE2F006455B1 /* TabBarItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemType.swift; sourceTree = "<group>"; };
 		7FA138201FE2AE3F006455B1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		7FA138241FE2B8ED006455B1 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		7FA138261FE36A84006455B1 /* CustomerSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSettingController.swift; sourceTree = "<group>"; };
+		7FA138281FE36A95006455B1 /* DesignerSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerSettingController.swift; sourceTree = "<group>"; };
 		BF8A0C4547578D0E3655D68D /* Pods-Sedo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sedo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sedo/Pods-Sedo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +102,8 @@
 				7FA1380F1FE26E7E006455B1 /* Tab Bar */,
 				7FA137F81FE22FEE006455B1 /* ViewController.swift */,
 				7FA138241FE2B8ED006455B1 /* TestViewController.swift */,
+				7FA138261FE36A84006455B1 /* CustomerSettingController.swift */,
+				7FA138281FE36A95006455B1 /* DesignerSettingController.swift */,
 				7FA1380B1FE2505B006455B1 /* RequestManager.swift */,
 				7FA137FA1FE22FEE006455B1 /* Main.storyboard */,
 				7FA137FD1FE22FEE006455B1 /* Assets.xcassets */,
@@ -306,12 +312,14 @@
 				7FA138151FE2869E006455B1 /* DesignerTabBarItemType.swift in Sources */,
 				7FA138111FE27179006455B1 /* CustomerTabBarItem.swift in Sources */,
 				7FA138251FE2B8ED006455B1 /* TestViewController.swift in Sources */,
+				7FA138291FE36A95006455B1 /* DesignerSettingController.swift in Sources */,
 				7FA138131FE28554006455B1 /* CustomerTabBarController.swift in Sources */,
 				7FA137F91FE22FEE006455B1 /* ViewController.swift in Sources */,
 				7FA1381F1FE2AE2F006455B1 /* TabBarItemType.swift in Sources */,
 				7FA137F71FE22FEE006455B1 /* AppDelegate.swift in Sources */,
 				7FA138211FE2AE3F006455B1 /* TabBarController.swift in Sources */,
 				7FA138191FE28928006455B1 /* DesignerTabBarController.swift in Sources */,
+				7FA138271FE36A84006455B1 /* CustomerSettingController.swift in Sources */,
 				7FA138171FE28870006455B1 /* DesignerTabBarItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
