@@ -76,7 +76,7 @@ class CustomerTabBarController: UITabBarController {
 //            )
 //
 //            return navigationController
-            let navigationController = UINavigationController(rootViewController: TestRequestController())
+            let navigationController = UINavigationController(rootViewController: CustomerRequestController())
             navigationController.tabBarItem = CustomerTabBarItem(itemType: itemType)
             return navigationController
 
@@ -98,7 +98,7 @@ class CustomerTabBarController: UITabBarController {
             return navigationController
 
         case .profile:
-            
+
 //            let storyboard = UIStoryboard(name: "CartStoryboard", bundle: nil)
 //            let cartTableViewController = storyboard.instantiateViewController(withIdentifier: "CartViewController")
 //

@@ -20,13 +20,14 @@
 		7FA138151FE2869E006455B1 /* DesignerTabBarItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138141FE2869E006455B1 /* DesignerTabBarItemType.swift */; };
 		7FA138171FE28870006455B1 /* DesignerTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138161FE28870006455B1 /* DesignerTabBarItem.swift */; };
 		7FA138191FE28928006455B1 /* DesignerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138181FE28928006455B1 /* DesignerTabBarController.swift */; };
-		7FA1381D1FE2AE1D006455B1 /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1381C1FE2AE1D006455B1 /* TabBarItem.swift */; };
-		7FA1381F1FE2AE2F006455B1 /* TabBarItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA1381E1FE2AE2F006455B1 /* TabBarItemType.swift */; };
-		7FA138211FE2AE3F006455B1 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138201FE2AE3F006455B1 /* TabBarController.swift */; };
 		7FA138251FE2B8ED006455B1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138241FE2B8ED006455B1 /* TestViewController.swift */; };
 		7FA138271FE36A84006455B1 /* CustomerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138261FE36A84006455B1 /* CustomerSettingController.swift */; };
 		7FA138291FE36A95006455B1 /* DesignerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138281FE36A95006455B1 /* DesignerSettingController.swift */; };
-		7FBD0A8E1FE376AB009E7826 /* TestRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBD0A8D1FE376AB009E7826 /* TestRequestController.swift */; };
+		7FBD0A8E1FE376AB009E7826 /* CustomerRequestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBD0A8D1FE376AB009E7826 /* CustomerRequestController.swift */; };
+		7FF9373E1FE3A6C2004D1D4D /* DesignerReplyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF9373D1FE3A6C2004D1D4D /* DesignerReplyController.swift */; };
+		7FF937411FE3BDB6004D1D4D /* DesignerRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF9373F1FE3BDB6004D1D4D /* DesignerRequestCell.swift */; };
+		7FF937421FE3BDB6004D1D4D /* DesignerRequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF937401FE3BDB6004D1D4D /* DesignerRequestCell.xib */; };
+		7FF9374A1FE3BEF8004D1D4D /* UINibExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF937491FE3BEF8004D1D4D /* UINibExtensions.swift */; };
 		E0440DF82D43F499F003D66B /* Pods_Sedo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD7528F16E09A0E1A7C2C50 /* Pods_Sedo.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,13 +49,14 @@
 		7FA138141FE2869E006455B1 /* DesignerTabBarItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerTabBarItemType.swift; sourceTree = "<group>"; };
 		7FA138161FE28870006455B1 /* DesignerTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerTabBarItem.swift; sourceTree = "<group>"; };
 		7FA138181FE28928006455B1 /* DesignerTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerTabBarController.swift; sourceTree = "<group>"; };
-		7FA1381C1FE2AE1D006455B1 /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
-		7FA1381E1FE2AE2F006455B1 /* TabBarItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemType.swift; sourceTree = "<group>"; };
-		7FA138201FE2AE3F006455B1 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		7FA138241FE2B8ED006455B1 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		7FA138261FE36A84006455B1 /* CustomerSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSettingController.swift; sourceTree = "<group>"; };
 		7FA138281FE36A95006455B1 /* DesignerSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerSettingController.swift; sourceTree = "<group>"; };
-		7FBD0A8D1FE376AB009E7826 /* TestRequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestRequestController.swift; path = Sedo/Controller/TestController/TestRequestController.swift; sourceTree = SOURCE_ROOT; };
+		7FBD0A8D1FE376AB009E7826 /* CustomerRequestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomerRequestController.swift; path = Sedo/Controller/TestController/CustomerRequestController.swift; sourceTree = SOURCE_ROOT; };
+		7FF9373D1FE3A6C2004D1D4D /* DesignerReplyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerReplyController.swift; sourceTree = "<group>"; };
+		7FF9373F1FE3BDB6004D1D4D /* DesignerRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerRequestCell.swift; sourceTree = "<group>"; };
+		7FF937401FE3BDB6004D1D4D /* DesignerRequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesignerRequestCell.xib; sourceTree = "<group>"; };
+		7FF937491FE3BEF8004D1D4D /* UINibExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINibExtensions.swift; sourceTree = "<group>"; };
 		BF8A0C4547578D0E3655D68D /* Pods-Sedo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sedo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sedo/Pods-Sedo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,10 +102,11 @@
 		7FA137F51FE22FEE006455B1 /* Sedo */ = {
 			isa = PBXGroup;
 			children = (
-				7FA137F61FE22FEE006455B1 /* AppDelegate.swift */,
+				7FF937481FE3BEC4004D1D4D /* Library */,
+				7FF937471FE3BE6D004D1D4D /* AppDelegate */,
+				7FF937441FE3BDE6004D1D4D /* Manager */,
 				7FA1380F1FE26E7E006455B1 /* Tab Bar */,
 				7FBD0A8B1FE371F4009E7826 /* Controller */,
-				7FA1380B1FE2505B006455B1 /* RequestManager.swift */,
 				7FA137FA1FE22FEE006455B1 /* Main.storyboard */,
 				7FA137FD1FE22FEE006455B1 /* Assets.xcassets */,
 				7FA137FF1FE22FEE006455B1 /* LaunchScreen.storyboard */,
@@ -118,9 +121,6 @@
 			children = (
 				7FA1381B1FE289DA006455B1 /* Designer */,
 				7FA1381A1FE289D0006455B1 /* Customer */,
-				7FA1381C1FE2AE1D006455B1 /* TabBarItem.swift */,
-				7FA1381E1FE2AE2F006455B1 /* TabBarItemType.swift */,
-				7FA138201FE2AE3F006455B1 /* TabBarController.swift */,
 			);
 			path = "Tab Bar";
 			sourceTree = "<group>";
@@ -130,7 +130,6 @@
 			children = (
 				7FA138101FE27179006455B1 /* CustomerTabBarItem.swift */,
 				7FA1380D1FE26E48006455B1 /* CustomerTabBarItemType.swift */,
-				7FA138121FE28554006455B1 /* CustomerTabBarController.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -140,7 +139,6 @@
 			children = (
 				7FA138161FE28870006455B1 /* DesignerTabBarItem.swift */,
 				7FA138141FE2869E006455B1 /* DesignerTabBarItemType.swift */,
-				7FA138181FE28928006455B1 /* DesignerTabBarController.swift */,
 			);
 			path = Designer;
 			sourceTree = "<group>";
@@ -148,6 +146,9 @@
 		7FBD0A8B1FE371F4009E7826 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7FF937461FE3BE21004D1D4D /* Designer */,
+				7FF937451FE3BE1A004D1D4D /* Customer */,
+				7FF937431FE3BDC1004D1D4D /* Cell */,
 				7FBD0A8C1FE37211009E7826 /* TestController */,
 			);
 			path = Controller;
@@ -158,11 +159,61 @@
 			children = (
 				7FA137F81FE22FEE006455B1 /* ViewController.swift */,
 				7FA138241FE2B8ED006455B1 /* TestViewController.swift */,
-				7FBD0A8D1FE376AB009E7826 /* TestRequestController.swift */,
+				7FBD0A8D1FE376AB009E7826 /* CustomerRequestController.swift */,
+				7FF9373D1FE3A6C2004D1D4D /* DesignerReplyController.swift */,
 				7FA138261FE36A84006455B1 /* CustomerSettingController.swift */,
 				7FA138281FE36A95006455B1 /* DesignerSettingController.swift */,
 			);
 			path = TestController;
+			sourceTree = "<group>";
+		};
+		7FF937431FE3BDC1004D1D4D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7FF9373F1FE3BDB6004D1D4D /* DesignerRequestCell.swift */,
+				7FF937401FE3BDB6004D1D4D /* DesignerRequestCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		7FF937441FE3BDE6004D1D4D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7FA1380B1FE2505B006455B1 /* RequestManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		7FF937451FE3BE1A004D1D4D /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				7FA138121FE28554006455B1 /* CustomerTabBarController.swift */,
+			);
+			path = Customer;
+			sourceTree = "<group>";
+		};
+		7FF937461FE3BE21004D1D4D /* Designer */ = {
+			isa = PBXGroup;
+			children = (
+				7FA138181FE28928006455B1 /* DesignerTabBarController.swift */,
+			);
+			path = Designer;
+			sourceTree = "<group>";
+		};
+		7FF937471FE3BE6D004D1D4D /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				7FA137F61FE22FEE006455B1 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		7FF937481FE3BEC4004D1D4D /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				7FF937491FE3BEF8004D1D4D /* UINibExtensions.swift */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 		9EB2CDEAD44A59578BB6FA4F /* Frameworks */ = {
@@ -236,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FF937421FE3BDB6004D1D4D /* DesignerRequestCell.xib in Resources */,
 				7FA138011FE22FEE006455B1 /* LaunchScreen.storyboard in Resources */,
 				7FA1380A1FE24E04006455B1 /* GoogleService-Info.plist in Resources */,
 				7FA137FE1FE22FEE006455B1 /* Assets.xcassets in Resources */,
@@ -325,22 +377,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FF937411FE3BDB6004D1D4D /* DesignerRequestCell.swift in Sources */,
 				7FA1380E1FE26E48006455B1 /* CustomerTabBarItemType.swift in Sources */,
 				7FA1380C1FE2505B006455B1 /* RequestManager.swift in Sources */,
-				7FA1381D1FE2AE1D006455B1 /* TabBarItem.swift in Sources */,
-				7FBD0A8E1FE376AB009E7826 /* TestRequestController.swift in Sources */,
+				7FBD0A8E1FE376AB009E7826 /* CustomerRequestController.swift in Sources */,
 				7FA138151FE2869E006455B1 /* DesignerTabBarItemType.swift in Sources */,
 				7FA138111FE27179006455B1 /* CustomerTabBarItem.swift in Sources */,
 				7FA138251FE2B8ED006455B1 /* TestViewController.swift in Sources */,
+				7FF9374A1FE3BEF8004D1D4D /* UINibExtensions.swift in Sources */,
 				7FA138291FE36A95006455B1 /* DesignerSettingController.swift in Sources */,
 				7FA138131FE28554006455B1 /* CustomerTabBarController.swift in Sources */,
 				7FA137F91FE22FEE006455B1 /* ViewController.swift in Sources */,
-				7FA1381F1FE2AE2F006455B1 /* TabBarItemType.swift in Sources */,
 				7FA137F71FE22FEE006455B1 /* AppDelegate.swift in Sources */,
-				7FA138211FE2AE3F006455B1 /* TabBarController.swift in Sources */,
 				7FA138191FE28928006455B1 /* DesignerTabBarController.swift in Sources */,
 				7FA138271FE36A84006455B1 /* CustomerSettingController.swift in Sources */,
 				7FA138171FE28870006455B1 /* DesignerTabBarItem.swift in Sources */,
+				7FF9373E1FE3A6C2004D1D4D /* DesignerReplyController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

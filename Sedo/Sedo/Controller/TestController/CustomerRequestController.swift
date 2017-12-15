@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TestRequestController: UIViewController, UITextFieldDelegate {
+class CustomerRequestController: UIViewController, UITextFieldDelegate {
 
     let customerTextField: UITextField = {
         let tf = UITextField()
@@ -36,6 +36,8 @@ class TestRequestController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.navigationItem.title = "Try Request"
 
         customerTextField.delegate = self
         serviceTextField.delegate = self

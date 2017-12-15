@@ -34,14 +34,16 @@ class RequestManager {
                 print(error)
             }
             // new request //
-            print(ref.key)
+//            print(ref.key)
 
         }
     }
 
     static func fetchRequest(receipient: Designer) {
-        let ref = Database.database().reference().child("request").child("Andy")
+
+        let ref = Database.database().reference().child("request").child(receipient.name)
         ref.observe(.childAdded, with: { (snapshot) in
+
             guard
                 let dictionary = snapshot.value as? [String: AnyObject],
                 let customer = dictionary["customer"] as? String,
@@ -56,6 +58,7 @@ class RequestManager {
             print("got a new request from \(customer):\nservice:\(service)\ndate:\(date)\ncheck it:\(status)\n")
 
         }, withCancel: nil)
+
     }
 
     static func requestDate() -> String {
