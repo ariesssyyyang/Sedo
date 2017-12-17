@@ -1,5 +1,5 @@
 //
-//  DesignerReplyController.swift
+//  DesignerPendingController.swift
 //  Sedo
 //
 //  Created by Aries Yang on 2017/12/15.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class DesignerReplyController: UITableViewController {
+class DesignerPendingController: UITableViewController {
 /*
     let nameLabel: UILabel = {
         let lb = UILabel()
@@ -60,26 +60,33 @@ class DesignerReplyController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let replyController = ReplyRequestController()
+        replyController.request = self.requests[indexPath.row]
+        self.navigationController?.pushViewController(replyController, animated: true)
+    }
+
     func fetchRequest(receipient: Designer) {
 
-        let ref = Database.database().reference().child("request").child(receipient.name)
+        let ref = Database.database().reference().child("designer-request").child(receipient.name)
         ref.observe(.childAdded, with: { (snapshot) in
-
+            let id = snapshot.key
             guard
                 let dictionary = snapshot.value as? [String: AnyObject],
                 let customer = dictionary["customer"] as? String,
-                let date = dictionary["date"] as? String,
-                let service = dictionary["service"] as? String,
-                let status = dictionary["check"] as? Bool
-                else {
-                    print("fail to transform type to dictionary")
-                    return
+                let service = dictionary["service"] as? String
+//                let date = dictionary["date"] as? String,
+//                let status = dictionary["check"] as? Bool
+            else {
+                print("fail to transform type to dictionary")
+                return
             }
 
-            self.requests.append(Request(service: service))
+            self.requests.append(Request(service: service, id: id))
+
             self.tableView.reloadData()
 
-            print("got a new request from \(customer):\nservice:\(service)\ndate:\(date)\ncheck it:\(status)\n")
+//            print("got a new request from \(customer):\nservice:\(service)\ndate:\(date)\ncheck it:\(status)\n")
 
         }, withCancel: nil)
 

@@ -19,24 +19,49 @@ struct Designer {
 
 struct Request {
     let service: String
+    let id: String
 }
 
 class RequestManager {
 
-    static func sendRequest(send request: Request, from customer: Customer, to designer: Designer) {
+    static func sendRequest(for service: String, from customer: Customer, to designer: Designer) {
         let date = self.requestDate()
-        let ref = Database.database().reference().child("request").child(designer.name)
-        let requestRef = ref.childByAutoId()
-        let value = ["customer": customer.name, "date": date, "service": request.service, "check": false] as [String : Any]
-        requestRef.updateChildValues(value) { (error, ref) in
-            // Todo: error handling
-            if error != nil {
-                print(error)
+        let ref = Database.database().reference().child("request")
+        let childRef = ref.childByAutoId()
+        let value = ["designer": designer.name, "customer": customer.name, "date": date, "service": service, "check": false] as [String : Any]
+        childRef.updateChildValues(value) { (err, ref) in
+            if err != nil {
+                // Todo: error handling
+                return
             }
-            // new request //
-//            print(ref.key)
+
+            let requestId = childRef.key
+            let designerRequestRef = Database.database().reference().child("designer-request").child(designer.name).child(requestId)
+            let customerRequestRef = Database.database().reference().child("customer-request").child(customer.name).child(requestId)
+
+            // optional values //
+            let designerValue = ["customer": customer.name, "service": service, "date": date]
+            let customerValue = ["designer": designer.name, "service": service, "date": date]
+            designerRequestRef.updateChildValues(designerValue)
+            customerRequestRef.updateChildValues(customerValue)
+            // optional values //
 
         }
+        
+        
+
+//        let designerRequestRef = Database.database().reference().child("designer_request").child(designer.name)
+//        let requestRef = designerRequestRef.childByAutoId()
+//        let value = ["customer": customer.name, "date": date, "service": service, "check": false] as [String : Any]
+//        requestRef.updateChildValues(value) { (error, ref) in
+            // Todo: error handling
+//            if error != nil {
+//                print(error)
+//            }
+            // new request //
+//            print(ref.key)
+//
+//        }
     }
 
     static func fetchRequest(receipient: Designer) {

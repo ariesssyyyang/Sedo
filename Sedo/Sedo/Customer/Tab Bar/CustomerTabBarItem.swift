@@ -1,5 +1,5 @@
 //
-//  TabBarItem.swift
+//  CustomerTabBarItem.swift
 //  Sedo
 //
 //  Created by Aries Yang on 2017/12/14.

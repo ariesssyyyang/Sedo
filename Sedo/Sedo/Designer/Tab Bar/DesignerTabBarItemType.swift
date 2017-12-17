@@ -11,17 +11,17 @@
 import UIKit
 
 enum DesignerTabBarItemType {
-    
+
     // MARK: Case
-    
+
     case calendar, portfolio, service, profile
-    
+
 }
 
 // MARK: - Title
 
 extension DesignerTabBarItemType {
-    
+
     var title: String {
 
         switch self {
@@ -84,7 +84,7 @@ extension DesignerTabBarItemType {
         case .portfolio:
 
             return #imageLiteral(resourceName: "selected-works").withRenderingMode(.alwaysTemplate)
-            
+
         case .service:
             return nil
 

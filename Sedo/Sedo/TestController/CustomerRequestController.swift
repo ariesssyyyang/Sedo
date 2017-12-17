@@ -1,5 +1,5 @@
 //
-//  TestRequestController.swift
+//  CustomerRequestController.swift
 //  Sedo
 //
 //  Created by Aries Yang on 2017/12/15.
@@ -74,10 +74,10 @@ class CustomerRequestController: UIViewController, UITextFieldDelegate {
         else { return }
 
         let customer = Customer(name: customerName)
-        let request = Request(service: service)
+
         let designer = Designer(name: "May")
-        RequestManager.sendRequest(send: request, from: customer, to: designer)
-        
+        RequestManager.sendRequest(for: service, from: customer, to: designer)
+
     }
 
     @objc func dismissKeyboard() {
