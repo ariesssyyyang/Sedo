@@ -62,15 +62,20 @@ class ReplyRequestController: UIViewController {
         requestLabel.text = request?.service
     }
 
-    @objc func handleYes() {
+    @objc func handleYes(_ sender: UIButton) {
         guard let request = request else { return }
-        let designerRequestRef = Database.database().reference().child("request").child("May").child(request.id)
-        let designerOrderRef = Database.database().reference().child("designer_order").child("May").childByAutoId()
-        let customerRequestRef = Database.database().reference().child("customer_order")
+        RequestManager.approveRequest(for: request)
+//        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 
-    @objc func handleNo() {
-        
+    @objc func handleNo(_ sender: UIButton) {
+
+        // Todo: Alert Controller
+        guard let request = request else { return }
+        RequestManager.rejectRequest(for: request)
+//        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 
 }

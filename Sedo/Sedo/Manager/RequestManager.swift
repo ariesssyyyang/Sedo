@@ -28,8 +28,10 @@ class RequestManager {
         let date = self.requestDate()
         let ref = Database.database().reference().child("request")
         let childRef = ref.childByAutoId()
-        let value = ["designer": designer.name, "customer": customer.name, "date": date, "service": service, "check": false] as [String : Any]
+        let value = ["designer": designer.name, "customer": customer.name, "date": date, "service": service, "check": false] as [String: Any]
+
         childRef.updateChildValues(value) { (err, ref) in
+
             if err != nil {
                 // Todo: error handling
                 return
@@ -47,8 +49,6 @@ class RequestManager {
             // optional values //
 
         }
-        
-        
 
 //        let designerRequestRef = Database.database().reference().child("designer_request").child(designer.name)
 //        let requestRef = designerRequestRef.childByAutoId()
@@ -64,6 +64,49 @@ class RequestManager {
 //        }
     }
 
+    static func approveRequest(for request: Request) {
+        print("request \(request.service) is going to be approved")
+        let ref = Database.database().reference()
+        let requestRef = ref.child("request")
+        requestRef.observeSingleEvent(of: .value) { (snapshot) in
+
+            guard
+                let dictionary = snapshot.value as? [String: AnyObject],
+                let requestDic = dictionary[request.id] as? [String: AnyObject],
+                let customer = requestDic["customer"] as? String,
+                let designer = requestDic["designer"] as? String
+            else { return }
+            let designerRequestRef = ref.child("designer-request").child(designer)
+            let customerRequestRef = ref.child("customer-request").child(customer)
+            designerRequestRef.child(request.id).removeValue()
+            customerRequestRef.child(request.id).removeValue()
+            requestRef.child(request.id).removeValue()
+        }
+
+        print("request \(request.service) approved successfully")
+    }
+
+    static func rejectRequest(for request: Request) {
+        print("request \(request.service) is going to be deleted")
+        let ref = Database.database().reference()
+        let requestRef = ref.child("request")
+        requestRef.observeSingleEvent(of: .value) { (snapshot) in
+
+            guard
+                let dictionary = snapshot.value as? [String: AnyObject],
+                let requestDic = dictionary[request.id] as? [String: AnyObject],
+                let customer = requestDic["customer"] as? String,
+                let designer = requestDic["designer"] as? String
+                else { return }
+            let designerRequestRef = ref.child("designer-request").child(designer)
+            let customerRequestRef = ref.child("customer-request").child(customer)
+            designerRequestRef.child(request.id).removeValue()
+            customerRequestRef.child(request.id).removeValue()
+            requestRef.child(request.id).removeValue()
+        }
+        print("request \(request.service) deleted successfully")
+    }
+/*
     static func fetchRequest(receipient: Designer) {
 
         let ref = Database.database().reference().child("request").child(receipient.name)
@@ -85,7 +128,7 @@ class RequestManager {
         }, withCancel: nil)
 
     }
-
+*/
     static func requestDate() -> String {
         let date = Date()
         let dateFormatter = DateFormatter()
