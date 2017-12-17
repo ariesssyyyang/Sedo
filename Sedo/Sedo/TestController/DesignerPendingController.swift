@@ -72,28 +72,30 @@ class DesignerPendingController: UITableViewController {
         self.navigationController?.pushViewController(replyController, animated: true)
     }
 
+    // Mark: value
+
     func fetchRequest(receipient: Designer) {
-        requests = []
+
         let ref = Database.database().reference().child("designer-request").child(receipient.name)
-        ref.observe(.childAdded, with: { (snapshot) in
-            let id = snapshot.key
-            guard
-                let dictionary = snapshot.value as? [String: AnyObject],
-                let service = dictionary["service"] as? String
-//                let customer = dictionary["customer"] as? String,
-//                let date = dictionary["date"] as? String,
-//                let status = dictionary["check"] as? Bool
-            else {
-                print("fail to transform type to dictionary")
-                return
+        ref.observe(.value, with: { (snapshot) in
+            self.requests = []
+            for child in snapshot.children {
+                guard let child = child as? DataSnapshot else { return }
+                print(child.key)
+                print(child.value)
+                let id = child.key
+                guard
+                    let dictionary = child.value as? [String: String],
+                    let customer = dictionary["customer"],
+                    let service = dictionary["service"]
+                else {
+                    print("fail to transform type to dictionary")
+                    return
+                }
+
+                self.requests.append(Request(service: service, id: id))
+                self.tableView.reloadData()
             }
-
-            self.requests.append(Request(service: service, id: id))
-
-            self.tableView.reloadData()
-
-//            print("got a new request from \(customer):\nservice:\(service)\ndate:\(date)\ncheck it:\(status)\n")
-
         }, withCancel: nil)
 
     }
