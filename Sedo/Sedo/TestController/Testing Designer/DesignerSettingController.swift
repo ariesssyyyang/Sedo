@@ -18,23 +18,43 @@ class DesignerSettingController: UIViewController {
         return btn
     }()
 
+    let viewOrderButton: UIButton = {
+        let btn = UIButton()
+        btn.backgroundColor = UIColor.brown
+        btn.setTitle("view orders", for: .normal)
+        btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(viewOrders), for: .touchUpInside)
+        return btn
+    }()
+
     @objc func changeMode() {
         let customerController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
+        customerController.selectedIndex = 1
         self.present(customerController, animated: true, completion: nil)
-//        self.navigationController?.pushViewController(customerController, animated: true)
+
+    }
+
+    @objc func viewOrders() {
+        let designerOrderListController = DesignerOrderListController()
+        self.navigationController?.pushViewController(designerOrderListController, animated: true)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = UIColor.lightGray
+
         self.view.addSubview(changeModeButton)
-        
         changeModeButton.heightAnchor.constraint(equalToConstant: 200).isActive = true
         changeModeButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         changeModeButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         changeModeButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        
+
+        self.view.addSubview(viewOrderButton)
+        viewOrderButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        viewOrderButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        viewOrderButton.centerYAnchor.constraint(equalTo: changeModeButton.bottomAnchor, constant: 50).isActive = true
+        viewOrderButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
 
 }
