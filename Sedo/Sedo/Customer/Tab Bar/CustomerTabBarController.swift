@@ -93,7 +93,9 @@ class CustomerTabBarController: UITabBarController {
 //            )
 //
 //            return navigationController
-            let navigationController = UINavigationController(rootViewController: CustomerSettingController())
+//            let storyboard = UIStoryboard(name: "OrderList", bundle: nil)
+//            let customerOrderListController = storyboard.instantiateViewController(withIdentifier: "orderListStoryboardId")
+            let navigationController = UINavigationController(rootViewController: CustomerOrderListController())
             navigationController.tabBarItem = CustomerTabBarItem(itemType: itemType)
             return navigationController
 
@@ -118,4 +120,3 @@ class CustomerTabBarController: UITabBarController {
 
     }
 }
-
