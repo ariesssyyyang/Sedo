@@ -94,8 +94,11 @@ class DesignerPendingController: UITableViewController {
                 }
 
                 self.requests.append(Request(service: service, id: id))
-                self.tableView.reloadData()
+
             }
+
+            self.tableView.reloadData()
+
         }, withCancel: nil)
 
     }

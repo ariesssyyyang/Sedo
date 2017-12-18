@@ -24,11 +24,11 @@ struct Request {
 
 class RequestManager {
 
-    static func sendRequest(for service: String, from customer: Customer, to designer: Designer) {
-        let date = self.requestDate()
+    static func sendRequest(for service: String, from customer: Customer, to designer: Designer, date: String) {
+        let createDate = self.requestDate()
         let ref = Database.database().reference().child("request")
         let childRef = ref.childByAutoId()
-        let value = ["designer": designer.name, "customer": customer.name, "date": date, "service": service, "check": false] as [String: Any]
+        let value = ["designer": designer.name, "customer": customer.name, "createDate": createDate, "date": date, "service": service, "check": false] as [String: Any]
 
         childRef.updateChildValues(value) { (err, ref) in
 
@@ -97,7 +97,7 @@ class RequestManager {
                 let requestDic = dictionary[request.id] as? [String: AnyObject],
                 let customer = requestDic["customer"] as? String,
                 let designer = requestDic["designer"] as? String
-                else { return }
+            else { return }
             let designerRequestRef = ref.child("designer-request").child(designer)
             let customerRequestRef = ref.child("customer-request").child(customer)
             designerRequestRef.child(request.id).removeValue()

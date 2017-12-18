@@ -26,6 +26,14 @@ class CustomerRequestController: UIViewController, UITextFieldDelegate {
         return tf
     }()
 
+    let dateTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "booking date"
+        tf.backgroundColor = UIColor.lightGray
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        return tf
+    }()
+
     let sendRequestButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("send", for: .normal)
@@ -59,6 +67,12 @@ class CustomerRequestController: UIViewController, UITextFieldDelegate {
         serviceTextField.topAnchor.constraint(equalTo: customerTextField.bottomAnchor, constant: 20).isActive = true
         serviceTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
 
+        self.view.addSubview(dateTextField)
+        dateTextField.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 100).isActive = true
+        dateTextField.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -100).isActive = true
+        dateTextField.topAnchor.constraint(equalTo: serviceTextField.bottomAnchor, constant: 20).isActive = true
+        serviceTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+
         self.view.addSubview(sendRequestButton)
         sendRequestButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 100).isActive = true
         sendRequestButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 100).isActive = true
@@ -70,13 +84,14 @@ class CustomerRequestController: UIViewController, UITextFieldDelegate {
     @objc func requestService() {
         guard
             let customerName = customerTextField.text,
-            let service = serviceTextField.text
+            let service = serviceTextField.text,
+            let date = dateTextField.text
         else { return }
 
         let customer = Customer(name: customerName)
 
         let designer = Designer(name: "May")
-        RequestManager.sendRequest(for: service, from: customer, to: designer)
+        RequestManager.sendRequest(for: service, from: customer, to: designer, date: date)
 
     }
 
