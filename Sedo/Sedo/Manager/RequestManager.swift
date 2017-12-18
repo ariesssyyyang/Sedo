@@ -20,6 +20,16 @@ struct Designer {
 struct Request {
     let service: String
     let id: String
+    let customer: Customer
+    let designer: Designer
+    let createdDate: String
+    let date: String
+}
+
+struct Order {
+    let service: String
+    let id: String
+    let date: String
 }
 
 class RequestManager {
@@ -28,9 +38,9 @@ class RequestManager {
         let createDate = self.requestDate()
         let ref = Database.database().reference().child("request")
         let childRef = ref.childByAutoId()
-        let value = ["designer": designer.name, "customer": customer.name, "createDate": createDate, "date": date, "service": service, "check": false] as [String: Any]
+        let value = ["designer": designer.name, "customer": customer.name, "createdDate": createDate, "date": date, "service": service, "check": false] as [String: Any]
 
-        childRef.updateChildValues(value) { (err, ref) in
+        childRef.updateChildValues(value) { (err, _) in
 
             if err != nil {
                 // Todo: error handling
@@ -38,30 +48,49 @@ class RequestManager {
             }
 
             let requestId = childRef.key
-            let designerRequestRef = Database.database().reference().child("designer-request").child(designer.name).child(requestId)
-            let customerRequestRef = Database.database().reference().child("customer-request").child(customer.name).child(requestId)
+            let designerRequestRef = Database.database().reference().child("request-designer").child(designer.name).child(requestId)
+            let customerRequestRef = Database.database().reference().child("request-customer").child(customer.name).child(requestId)
 
             // optional values //
-            let designerValue = ["customer": customer.name, "service": service, "date": date]
-            let customerValue = ["designer": designer.name, "service": service, "date": date]
+            let designerValue = ["customer": customer.name, "service": service, "date": date, "createdDate": createDate]
+            let customerValue = ["designer": designer.name, "service": service, "date": date, "createdDate": createDate]
             designerRequestRef.updateChildValues(designerValue)
             customerRequestRef.updateChildValues(customerValue)
             // optional values //
 
         }
+    }
 
-//        let designerRequestRef = Database.database().reference().child("designer_request").child(designer.name)
-//        let requestRef = designerRequestRef.childByAutoId()
-//        let value = ["customer": customer.name, "date": date, "service": service, "check": false] as [String : Any]
-//        requestRef.updateChildValues(value) { (error, ref) in
-            // Todo: error handling
-//            if error != nil {
-//                print(error)
-//            }
-            // new request //
-//            print(ref.key)
-//
-//        }
+    static func sendOrder(of request: Request) {
+
+        let ref = Database.database().reference().child("order")
+        let childRef = ref.childByAutoId()
+
+        let designer = request.designer.name,
+            customer = request.customer.name,
+            service = request.service,
+            date = request.date
+
+        let value = ["designer": designer, "customer": customer, "service": service, "date": date]
+
+        childRef.updateChildValues(value) { (error, _) in
+            if error != nil {
+                // Todo: error handling
+                return
+            }
+
+            let orderId = childRef.key
+            let designerOrderRef = Database.database().reference().child("order-designer").child(designer).child(orderId)
+            let customerOrderRef = Database.database().reference().child("order-customer").child(customer).child(orderId)
+
+            // optional value //
+            let designerValue = ["customer": customer, "service": service, "date": date]
+            let customerValue = ["designer": designer, "service": service, "date": date]
+            designerOrderRef.updateChildValues(designerValue)
+            customerOrderRef.updateChildValues(customerValue)
+            // optional value //
+
+        }
     }
 
     static func approveRequest(for request: Request) {
@@ -76,8 +105,8 @@ class RequestManager {
                 let customer = requestDic["customer"] as? String,
                 let designer = requestDic["designer"] as? String
             else { return }
-            let designerRequestRef = ref.child("designer-request").child(designer)
-            let customerRequestRef = ref.child("customer-request").child(customer)
+            let designerRequestRef = ref.child("request-designer").child(designer)
+            let customerRequestRef = ref.child("request-customer").child(customer)
             designerRequestRef.child(request.id).removeValue()
             customerRequestRef.child(request.id).removeValue()
             requestRef.child(request.id).removeValue()
@@ -98,8 +127,8 @@ class RequestManager {
                 let customer = requestDic["customer"] as? String,
                 let designer = requestDic["designer"] as? String
             else { return }
-            let designerRequestRef = ref.child("designer-request").child(designer)
-            let customerRequestRef = ref.child("customer-request").child(customer)
+            let designerRequestRef = ref.child("request-designer").child(designer)
+            let customerRequestRef = ref.child("request-customer").child(customer)
             designerRequestRef.child(request.id).removeValue()
             customerRequestRef.child(request.id).removeValue()
             requestRef.child(request.id).removeValue()

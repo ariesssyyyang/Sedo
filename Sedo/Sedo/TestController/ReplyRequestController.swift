@@ -36,7 +36,7 @@ class ReplyRequestController: UIViewController {
     }()
 
     var request: Request?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -65,8 +65,9 @@ class ReplyRequestController: UIViewController {
     @objc func handleYes(_ sender: UIButton) {
         guard let request = request else { return }
         RequestManager.approveRequest(for: request)
-//        self.dismiss(animated: true, completion: nil)
+        RequestManager.sendOrder(of: request)
         self.navigationController?.popViewController(animated: true)
+//        self.dismiss(animated: true, completion: nil)
     }
 
     @objc func handleNo(_ sender: UIButton) {
@@ -74,8 +75,9 @@ class ReplyRequestController: UIViewController {
         // Todo: Alert Controller
         guard let request = request else { return }
         RequestManager.rejectRequest(for: request)
-//        self.dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
+//        self.dismiss(animated: true, completion: nil)
+
     }
 
 }

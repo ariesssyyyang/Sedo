@@ -43,7 +43,7 @@ class DesignerPendingController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        fetchRequest(receipient: Designer(name: "May"))
+        fetchRequest(of: Designer(name: "May"))
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,9 +74,9 @@ class DesignerPendingController: UITableViewController {
 
     // Mark: value
 
-    func fetchRequest(receipient: Designer) {
+    func fetchRequest(of designer: Designer) {
 
-        let ref = Database.database().reference().child("designer-request").child(receipient.name)
+        let ref = Database.database().reference().child("request-designer").child(designer.name)
         ref.observe(.value, with: { (snapshot) in
             self.requests = []
             for child in snapshot.children {
@@ -87,13 +87,15 @@ class DesignerPendingController: UITableViewController {
                 guard
                     let dictionary = child.value as? [String: String],
                     let customer = dictionary["customer"],
-                    let service = dictionary["service"]
+                    let service = dictionary["service"],
+                    let createdDate = dictionary["createdDate"],
+                    let date = dictionary["date"]
                 else {
                     print("fail to transform type to dictionary")
                     return
                 }
 
-                self.requests.append(Request(service: service, id: id))
+                self.requests.append(Request(service: service, id: id, customer: Customer(name: customer), designer: designer, createdDate: createdDate, date: date))
 
             }
 

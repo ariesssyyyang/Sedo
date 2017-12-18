@@ -13,9 +13,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-
-
         // try send request //
 //        let request = Request()
 //        let customer = Customer()
