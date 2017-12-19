@@ -40,6 +40,9 @@
 		7FF9376E1FE7F289004D1D4D /* DesignerOrdersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF9376D1FE7F289004D1D4D /* DesignerOrdersController.swift */; };
 		7FF937711FE7F409004D1D4D /* DesignerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF9376F1FE7F409004D1D4D /* DesignerOrderCell.swift */; };
 		7FF937721FE7F409004D1D4D /* DesignerOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF937701FE7F409004D1D4D /* DesignerOrderCell.xib */; };
+		7FF937741FE8AB49004D1D4D /* CustomerMainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF937731FE8AB49004D1D4D /* CustomerMainPageController.swift */; };
+		7FF937771FE8AB89004D1D4D /* MainPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF937751FE8AB89004D1D4D /* MainPageCell.swift */; };
+		7FF937781FE8AB89004D1D4D /* MainPageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF937761FE8AB89004D1D4D /* MainPageCell.xib */; };
 		E0440DF82D43F499F003D66B /* Pods_Sedo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD7528F16E09A0E1A7C2C50 /* Pods_Sedo.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +84,9 @@
 		7FF9376D1FE7F289004D1D4D /* DesignerOrdersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerOrdersController.swift; sourceTree = "<group>"; };
 		7FF9376F1FE7F409004D1D4D /* DesignerOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerOrderCell.swift; sourceTree = "<group>"; };
 		7FF937701FE7F409004D1D4D /* DesignerOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesignerOrderCell.xib; sourceTree = "<group>"; };
+		7FF937731FE8AB49004D1D4D /* CustomerMainPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerMainPageController.swift; sourceTree = "<group>"; };
+		7FF937751FE8AB89004D1D4D /* MainPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageCell.swift; sourceTree = "<group>"; };
+		7FF937761FE8AB89004D1D4D /* MainPageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainPageCell.xib; sourceTree = "<group>"; };
 		BF8A0C4547578D0E3655D68D /* Pods-Sedo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sedo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sedo/Pods-Sedo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +239,8 @@
 				7FF9375A1FE790DF004D1D4D /* CustomerRequestCell.xib */,
 				7FF9375F1FE79130004D1D4D /* CustomerOrderCell.swift */,
 				7FF937601FE79130004D1D4D /* CustomerOrderCell.xib */,
+				7FF937751FE8AB89004D1D4D /* MainPageCell.swift */,
+				7FF937761FE8AB89004D1D4D /* MainPageCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -252,6 +260,7 @@
 				7FF937551FE777FD004D1D4D /* CustomerOrdersController.swift */,
 				7FF9374D1FE3D0D5004D1D4D /* CustomerRequestController.swift */,
 				7FA138261FE36A84006455B1 /* CustomerSettingController.swift */,
+				7FF937731FE8AB49004D1D4D /* CustomerMainPageController.swift */,
 			);
 			path = "Testing Customer";
 			sourceTree = "<group>";
@@ -340,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FF937421FE3BDB6004D1D4D /* DesignerRequestCell.xib in Resources */,
+				7FF937781FE8AB89004D1D4D /* MainPageCell.xib in Resources */,
 				7FF9375C1FE790DF004D1D4D /* CustomerRequestCell.xib in Resources */,
 				7FA138011FE22FEE006455B1 /* LaunchScreen.storyboard in Resources */,
 				7FF937721FE7F409004D1D4D /* DesignerOrderCell.xib in Resources */,
@@ -442,6 +452,7 @@
 				7FA138251FE2B8ED006455B1 /* TestViewController.swift in Sources */,
 				7FF937561FE777FD004D1D4D /* CustomerOrdersController.swift in Sources */,
 				7FF9374A1FE3BEF8004D1D4D /* UINibExtensions.swift in Sources */,
+				7FF937741FE8AB49004D1D4D /* CustomerMainPageController.swift in Sources */,
 				7FA138291FE36A95006455B1 /* DesignerSettingController.swift in Sources */,
 				7FF937541FE76FBB004D1D4D /* CustomerPendingController.swift in Sources */,
 				7FF937521FE76FA2004D1D4D /* CustomerOrderListController.swift in Sources */,
@@ -458,6 +469,7 @@
 				7FF937501FE3D239004D1D4D /* ReplyRequestController.swift in Sources */,
 				7FF9376E1FE7F289004D1D4D /* DesignerOrdersController.swift in Sources */,
 				7FA138171FE28870006455B1 /* DesignerTabBarItem.swift in Sources */,
+				7FF937771FE8AB89004D1D4D /* MainPageCell.swift in Sources */,
 				7FF9373E1FE3A6C2004D1D4D /* DesignerPendingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

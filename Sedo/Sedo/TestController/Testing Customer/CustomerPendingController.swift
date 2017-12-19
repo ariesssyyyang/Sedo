@@ -32,7 +32,7 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
         tableView.estimatedRowHeight = 60.0
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.backgroundColor = UIColor.orange
-        
+
         // To check //
         tableView.allowsSelection = false
         // To check //

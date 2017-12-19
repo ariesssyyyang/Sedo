@@ -27,6 +27,8 @@ class CustomerSettingController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.title = "Customer"
+
         self.view.backgroundColor = UIColor.lightGray
         self.view.addSubview(changeModeButton)
         

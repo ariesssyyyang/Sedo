@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="KGk-i7-Jjw" customClass="MainPageCell" customModule="Sedo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="193"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="192.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxn-YT-vXo">
+                        <rect key="frame" x="38" y="18" width="244" height="156.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Ee5-rB-qTm">
+                                <rect key="frame" x="5" y="5" width="234" height="97.5"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ttj-PA-7Ff">
+                                <rect key="frame" x="5" y="102.5" width="234" height="49"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UH-7D-RLg">
+                                        <rect key="frame" x="8" y="8" width="176" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="ctu-jA-xHH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqJ-mM-xUh">
+                                        <rect key="frame" x="192" y="8" width="34" height="33"/>
+                                        <color key="tintColor" red="0.97647058819999999" green="0.87450980389999999" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="icon-booking"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1450980392" green="0.36862745099999999" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="pqJ-mM-xUh" secondAttribute="bottom" constant="8" id="6Of-o8-vxB"/>
+                                    <constraint firstItem="pqJ-mM-xUh" firstAttribute="leading" secondItem="7UH-7D-RLg" secondAttribute="trailing" constant="8" id="B2T-ms-sRw"/>
+                                    <constraint firstAttribute="trailing" secondItem="pqJ-mM-xUh" secondAttribute="trailing" constant="8" id="DNj-lr-8zi"/>
+                                    <constraint firstItem="7UH-7D-RLg" firstAttribute="leading" secondItem="ttj-PA-7Ff" secondAttribute="leading" constant="8" id="J2n-yf-loY"/>
+                                    <constraint firstAttribute="trailing" secondItem="7UH-7D-RLg" secondAttribute="trailing" constant="50" id="KRd-Yq-dWy"/>
+                                    <constraint firstItem="7UH-7D-RLg" firstAttribute="top" secondItem="ttj-PA-7Ff" secondAttribute="top" constant="8" id="W2A-nc-GVj"/>
+                                    <constraint firstItem="pqJ-mM-xUh" firstAttribute="top" secondItem="ttj-PA-7Ff" secondAttribute="top" constant="8" id="sSB-ek-wAF"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.84564824563137519" green="0.84117445121002432" blue="0.85804647842639592" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ee5-rB-qTm" firstAttribute="leading" secondItem="bxn-YT-vXo" secondAttribute="leading" constant="5" id="1bw-Di-i2A"/>
+                            <constraint firstItem="ttj-PA-7Ff" firstAttribute="top" secondItem="Ee5-rB-qTm" secondAttribute="bottom" id="6dj-ov-n9K"/>
+                            <constraint firstItem="Ee5-rB-qTm" firstAttribute="height" secondItem="ttj-PA-7Ff" secondAttribute="height" multiplier="2" id="ZHu-mj-Foc"/>
+                            <constraint firstAttribute="bottom" secondItem="ttj-PA-7Ff" secondAttribute="bottom" constant="5" id="dJy-1r-zsb"/>
+                            <constraint firstItem="ttj-PA-7Ff" firstAttribute="leading" secondItem="bxn-YT-vXo" secondAttribute="leading" constant="5" id="lJ0-5o-u3I"/>
+                            <constraint firstAttribute="trailing" secondItem="ttj-PA-7Ff" secondAttribute="trailing" constant="5" id="lo6-nb-BWs"/>
+                            <constraint firstAttribute="trailing" secondItem="Ee5-rB-qTm" secondAttribute="trailing" constant="5" id="oih-eR-u91"/>
+                            <constraint firstItem="Ee5-rB-qTm" firstAttribute="top" secondItem="bxn-YT-vXo" secondAttribute="top" constant="5" id="wvL-zj-O66"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bxn-YT-vXo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="D2N-vf-NYy"/>
+                    <constraint firstItem="bxn-YT-vXo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="K1Z-0O-GZd"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="bxn-YT-vXo" secondAttribute="bottom" constant="10" id="QF2-Dt-a5i"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="bxn-YT-vXo" secondAttribute="trailing" constant="30" id="lus-Bc-SYS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="bookingButton" destination="pqJ-mM-xUh" id="PNG-GC-L7u"/>
+                <outlet property="designerNameLabel" destination="7UH-7D-RLg" id="VpJ-wS-jxK"/>
+            </connections>
+            <point key="canvasLocation" x="22" y="159.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon-booking" width="16" height="16"/>
+        <image name="placeholder" width="16" height="16"/>
+    </resources>
+</document>

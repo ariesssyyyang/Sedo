@@ -49,6 +49,7 @@ class CustomerRequestController: UIViewController, UITextFieldDelegate {
 
         customerTextField.delegate = self
         serviceTextField.delegate = self
+        dateTextField.delegate = self
 
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -71,7 +72,7 @@ class CustomerRequestController: UIViewController, UITextFieldDelegate {
         dateTextField.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 100).isActive = true
         dateTextField.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -100).isActive = true
         dateTextField.topAnchor.constraint(equalTo: serviceTextField.bottomAnchor, constant: 20).isActive = true
-        serviceTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        dateTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
 
         self.view.addSubview(sendRequestButton)
         sendRequestButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 100).isActive = true
@@ -81,17 +82,20 @@ class CustomerRequestController: UIViewController, UITextFieldDelegate {
 
     }
 
+    var designer: Designer?
+
     @objc func requestService() {
         guard
             let customerName = customerTextField.text,
+            let designer = designer,
             let service = serviceTextField.text,
             let date = dateTextField.text
         else { return }
 
         let customer = Customer(name: customerName)
 
-        let designer = Designer(name: "May")
         RequestManager.sendRequest(for: service, from: customer, to: designer, date: date)
+        self.navigationController?.popViewController(animated: true)
 
     }
 

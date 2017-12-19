@@ -42,6 +42,8 @@ class DesignerSettingController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.title = "Designer"
+
         self.view.backgroundColor = UIColor.lightGray
 
         self.view.addSubview(changeModeButton)
