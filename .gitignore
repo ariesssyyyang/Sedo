@@ -9,6 +9,9 @@
 # Icon must end with two \r
 Icon
 
+# Firebase
+Sedo/Sedo/GoogleService-Info.plist
+
 # Thumbnails
 ._*
 
