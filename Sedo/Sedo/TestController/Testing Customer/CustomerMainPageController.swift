@@ -12,10 +12,22 @@ import Firebase
 class CustomerMainPageController: UITableViewController {
 
     let mainCellId = "mainCell"
-    var users: [String] = []
+    var users: [User] = []
+    var me: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // MARK: - Fetch User Infomation
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let ref = Database.database().reference().child("user").child(uid)
+        ref.observe(.value) { (snapshot) in
+            guard
+                let currentUser = snapshot.value as? [String: AnyObject],
+                let name = currentUser["name"] as? String
+            else { return }
+            self.me = User(id: uid, username: name)
+        }
 
         self.navigationItem.title = "Sèdo"
         tableView.register(UINib(nibName: "MainPageCell", bundle: Bundle.main), forCellReuseIdentifier: mainCellId)
@@ -30,18 +42,18 @@ class CustomerMainPageController: UITableViewController {
             for child in snapshot.children {
                 guard
                     let child = child as? DataSnapshot else { return }
-                print(child.key)
-                print(child.value)
+//                print(child.key)
+//                print(child.value)
                 let id = child.key
                 guard
                     let dictionary = child.value as? [String: AnyObject],
-                    let user = dictionary["name"] as? String
+                    let username = dictionary["name"] as? String
                 else {
                     print("fail to transform type to dictionary")
                     return
                 }
 
-                self.users.append(user)
+                self.users.append(User(id: id, username: username))
             }
             self.tableView.reloadData()
         }
@@ -59,7 +71,7 @@ class CustomerMainPageController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: mainCellId, for: indexPath) as? MainPageCell else { return MainPageCell() }
-        cell.designerNameLabel.text = users[indexPath.row]
+        cell.designerNameLabel.text = users[indexPath.row].username
         cell.bookingButton.addTarget(self, action: #selector(handleBooking), for: .touchUpInside)
         return cell
     }
@@ -83,9 +95,16 @@ class CustomerMainPageController: UITableViewController {
             print("fail to find out selected designer to book service")
             return
         }
+
+        guard let me = self.me else {
+            print("fail to fetch current user")
+            return
+        }
+
         let user = users[indexPath.row]
         let requestController = CustomerRequestController()
-        requestController.designer = Designer(name: user)
+        requestController.designer = Designer(name: user.username, id: user.id)
+        requestController.customer = Customer(name: me.username, id: me.id)
         self.navigationController?.pushViewController(requestController, animated: true)
     }
 

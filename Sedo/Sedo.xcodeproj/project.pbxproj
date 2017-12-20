@@ -29,6 +29,9 @@
 		7FA138251FE2B8ED006455B1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138241FE2B8ED006455B1 /* TestViewController.swift */; };
 		7FA138271FE36A84006455B1 /* CustomerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138261FE36A84006455B1 /* CustomerSettingController.swift */; };
 		7FA138291FE36A95006455B1 /* DesignerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138281FE36A95006455B1 /* DesignerSettingController.swift */; };
+		7FCA6E4D1FEA56BD00D5CFB4 /* AppDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E4C1FEA56BD00D5CFB4 /* AppDelegateExtension.swift */; };
+		7FCA6E501FEA57A100D5CFB4 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E4F1FEA57A100D5CFB4 /* UIWindowExtension.swift */; };
+		7FCA6E531FEA59EB00D5CFB4 /* FadeInOutTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E521FEA59EB00D5CFB4 /* FadeInOutTransition.swift */; };
 		7FF9373E1FE3A6C2004D1D4D /* DesignerPendingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF9373D1FE3A6C2004D1D4D /* DesignerPendingController.swift */; };
 		7FF937411FE3BDB6004D1D4D /* DesignerRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF9373F1FE3BDB6004D1D4D /* DesignerRequestCell.swift */; };
 		7FF937421FE3BDB6004D1D4D /* DesignerRequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF937401FE3BDB6004D1D4D /* DesignerRequestCell.xib */; };
@@ -79,6 +82,9 @@
 		7FA138241FE2B8ED006455B1 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		7FA138261FE36A84006455B1 /* CustomerSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSettingController.swift; sourceTree = "<group>"; };
 		7FA138281FE36A95006455B1 /* DesignerSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerSettingController.swift; sourceTree = "<group>"; };
+		7FCA6E4C1FEA56BD00D5CFB4 /* AppDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
+		7FCA6E4F1FEA57A100D5CFB4 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
+		7FCA6E521FEA59EB00D5CFB4 /* FadeInOutTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInOutTransition.swift; sourceTree = "<group>"; };
 		7FF9373D1FE3A6C2004D1D4D /* DesignerPendingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerPendingController.swift; sourceTree = "<group>"; };
 		7FF9373F1FE3BDB6004D1D4D /* DesignerRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerRequestCell.swift; sourceTree = "<group>"; };
 		7FF937401FE3BDB6004D1D4D /* DesignerRequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesignerRequestCell.xib; sourceTree = "<group>"; };
@@ -153,6 +159,8 @@
 		7FA137F51FE22FEE006455B1 /* Sedo */ = {
 			isa = PBXGroup;
 			children = (
+				7FCA6E511FEA59CC00D5CFB4 /* Animation */,
+				7FCA6E4E1FEA578800D5CFB4 /* UIWindow */,
 				7F6DDD231FE90A2D004E7898 /* Login */,
 				7FF937471FE3BE6D004D1D4D /* AppDelegate */,
 				7FF937451FE3BE1A004D1D4D /* Customer */,
@@ -188,6 +196,22 @@
 				7FA138241FE2B8ED006455B1 /* TestViewController.swift */,
 			);
 			path = TestController;
+			sourceTree = "<group>";
+		};
+		7FCA6E4E1FEA578800D5CFB4 /* UIWindow */ = {
+			isa = PBXGroup;
+			children = (
+				7FCA6E4F1FEA57A100D5CFB4 /* UIWindowExtension.swift */,
+			);
+			path = UIWindow;
+			sourceTree = "<group>";
+		};
+		7FCA6E511FEA59CC00D5CFB4 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				7FCA6E521FEA59EB00D5CFB4 /* FadeInOutTransition.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		7FF937431FE3BDC1004D1D4D /* Cell */ = {
@@ -234,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				7FA137F61FE22FEE006455B1 /* AppDelegate.swift */,
+				7FCA6E4C1FEA56BD00D5CFB4 /* AppDelegateExtension.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -466,6 +491,7 @@
 				7FF937411FE3BDB6004D1D4D /* DesignerRequestCell.swift in Sources */,
 				7FA1380E1FE26E48006455B1 /* CustomerTabBarItemType.swift in Sources */,
 				7F6DDD251FE90A4F004E7898 /* UserManager.swift in Sources */,
+				7FCA6E531FEA59EB00D5CFB4 /* FadeInOutTransition.swift in Sources */,
 				7FA1380C1FE2505B006455B1 /* RequestManager.swift in Sources */,
 				7FA138151FE2869E006455B1 /* DesignerTabBarItemType.swift in Sources */,
 				7FA138111FE27179006455B1 /* CustomerTabBarItem.swift in Sources */,
@@ -476,6 +502,7 @@
 				7FA138291FE36A95006455B1 /* DesignerSettingController.swift in Sources */,
 				7FF937541FE76FBB004D1D4D /* CustomerPendingController.swift in Sources */,
 				7F6DDD271FE91646004E7898 /* LoginController.swift in Sources */,
+				7FCA6E501FEA57A100D5CFB4 /* UIWindowExtension.swift in Sources */,
 				7FF937521FE76FA2004D1D4D /* CustomerOrderListController.swift in Sources */,
 				7FF9374E1FE3D0D5004D1D4D /* CustomerRequestController.swift in Sources */,
 				7FF937711FE7F409004D1D4D /* DesignerOrderCell.swift in Sources */,
@@ -494,6 +521,7 @@
 				7F6DDD311FEA049B004E7898 /* RegisterController.swift in Sources */,
 				7FA138171FE28870006455B1 /* DesignerTabBarItem.swift in Sources */,
 				7FF937771FE8AB89004D1D4D /* MainPageCell.swift in Sources */,
+				7FCA6E4D1FEA56BD00D5CFB4 /* AppDelegateExtension.swift in Sources */,
 				7FF9373E1FE3A6C2004D1D4D /* DesignerPendingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

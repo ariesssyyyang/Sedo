@@ -9,6 +9,7 @@
 // MARK: - CustomerTabBarController
 
 import UIKit
+import Firebase
 
 class CustomerTabBarController: UITabBarController {
 

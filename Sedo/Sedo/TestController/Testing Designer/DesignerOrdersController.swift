@@ -58,8 +58,12 @@ class DesignerOrdersController: UITableViewController, IndicatorInfoProvider {
 
     func fetchDesignerOrder() {
 
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("fail to fetch user uid in customer orders page")
+            return
+        }
         // use user id as node key //
-        let ref = Database.database().reference().child("order-designer").child("May")
+        let ref = Database.database().reference().child("order-designer").child(uid)
         ref.observe(.value, with: { (snapshot) in
 
             self.orders = []
@@ -71,13 +75,33 @@ class DesignerOrdersController: UITableViewController, IndicatorInfoProvider {
                 guard
                     let dictionary = child.value as? [String: String],
                     let service = dictionary["service"],
-                    let date = dictionary["date"]
-                    else {
-                        print("fail to transform type to dictionary")
-                        return
+                    let date = dictionary["date"],
+                    let customerId = dictionary["customerId"]
+                else {
+                    print("fail to transform type to dictionary")
+                    return
                 }
 
-                self.orders.append(Order(service: service, id: id, date: date))
+                let userRef = Database.database().reference().child("user")
+                userRef.observe(.value, with: { (userSnapshot) in
+                    guard
+                        let userDict = userSnapshot.value as? [String: AnyObject],
+                        let customerInfo = userDict[customerId] as? [String: AnyObject],
+                        let customerName = customerInfo["name"] as? String,
+                        let designerInfo = userDict[uid] as? [String: AnyObject],
+                        let designerName = designerInfo["name"] as? String
+                    else {
+                        print("fail to get users' info")
+                        return
+                    }
+   
+                    let customer = Customer(name: customerName, id: customerId)
+                    let designer = Designer(name: designerName, id: uid)
+
+                    self.orders.append(Order(service: service, id: id, customer: customer, designer: designer, date: date))
+
+                    self.tableView.reloadData()
+                })
 
             }
 

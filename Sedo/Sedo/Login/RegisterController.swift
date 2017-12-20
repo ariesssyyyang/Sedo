@@ -16,7 +16,7 @@ class RegisterController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     let nameTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "user name"
@@ -24,7 +24,7 @@ class RegisterController: UIViewController {
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
-    
+
     let emailTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "email"
@@ -32,7 +32,7 @@ class RegisterController: UIViewController {
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
-    
+
     let passwordTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "password"
@@ -63,46 +63,55 @@ class RegisterController: UIViewController {
         btn.layer.borderWidth = 1.0
         btn.layer.cornerRadius = 10.0
         btn.layer.masksToBounds = true
-        
+        btn.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
 
     @objc func handleSignUp() {
-        
+        guard
+            let email = emailTextField.text,
+            let password = passwordTextField.text,
+            let username = nameTextField.text
+        else {
+            print("please enter something!")
+            return
+        }
+        UserManager.signUp(withEmail: email, password: password, name: username)
+        self.dismiss(animated: true, completion: nil)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // MARK: - Keyboard Notification
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
-        
+
         view.backgroundColor = UIColor.white
         setupContainerView()
         setupButtons()
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
-    
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
+
     @objc func keyboardWillShow(notification: NSNotification) {
         adjustingHeight(show: true, notification: notification)
     }
-    
+
     @objc func keyboardWillHide(notification: NSNotification) {
         adjustingHeight(show: false, notification: notification)
     }
-    
+
     func adjustingHeight(show: Bool, notification: NSNotification) {
         var userInfo = notification.userInfo!
         guard //let keyboardFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
@@ -129,7 +138,7 @@ class RegisterController: UIViewController {
         registerButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: screenSize.width / 4).isActive = true
         registerButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -(screenSize.width / 4)).isActive = true
         registerButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
+
     }
 
     var containerViewTopAnchor: NSLayoutConstraint?

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
 
@@ -69,7 +70,14 @@ class LoginController: UIViewController {
     }()
 
     @objc func handleSignIn() {
-        
+        guard
+            let email = emailTextField.text,
+            let password = passwordTextField.text
+        else {
+            return
+        }
+
+        UserManager.signIn(withEmail: email, password: password)
     }
 
     @objc func handleRegister() {
@@ -79,6 +87,15 @@ class LoginController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // MARK: - Check Login
+
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            let customerController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
+            if user != nil {
+                AppDelegate.shared.window?.updateRoot(to: customerController, animation: crossDissolve, completion: nil)
+            }
+        }
 
         // MARK: - Keyboard Notification
 

@@ -58,8 +58,12 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
     
     func fetchDesignerPendingOrder() {
         
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("fail to fetch user uid in pending order page!")
+            return
+        }
         // use user id as node key //
-        let ref = Database.database().reference().child("request-designer").child("May")
+        let ref = Database.database().reference().child("request-designer").child(uid)
         ref.observe(.value, with: { (snapshot) in
             
             self.requests = []
@@ -70,16 +74,35 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
                 let id = child.key
                 guard
                     let dictionary = child.value as? [String: String],
-                    let customer = dictionary["customer"],
+                    let customerId = dictionary["customerId"],
                     let service = dictionary["service"],
                     let createdDate = dictionary["createdDate"],
                     let date = dictionary["date"]
-                    else {
-                        print("fail to transform type to dictionary")
-                        return
+                else {
+                    print("fail to transform type to dictionary")
+                    return
                 }
                 
-                self.requests.append(Request(service: service, id: id, customer: Customer(name: customer), designer: Designer(name: "May"), createdDate: createdDate, date: date))
+                let userRef = Database.database().reference().child("user")
+                userRef.observe(.value, with: { (userSnapshot) in
+                    guard
+                        let userDict = userSnapshot.value as? [String: AnyObject],
+                        let customerInfo = userDict[customerId] as? [String: AnyObject],
+                        let customerName = customerInfo["name"] as? String,
+                        let designerInfo = userDict[uid] as? [String: AnyObject],
+                        let designerName = designerInfo["name"] as? String
+                    else {
+                        print("fail to get users' info")
+                        return
+                    }
+
+                    let customer = Customer(name: customerName, id: customerId)
+                    let designer = Designer(name: designerName, id: uid)
+
+                    self.requests.append(Request(service: service, id: id, customer: customer, designer: designer, createdDate: createdDate, date: date))
+
+                    self.tableView.reloadData()
+                })
 
             }
 
@@ -90,7 +113,7 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: requestCellId, for: indexPath) as? DesignerRequestCell else { return DesignerRequestCell() }
-        cell.textLabel?.text = "request " + requests[indexPath.row].service + " by " + requests[indexPath.row].customer.name
+        cell.textLabel?.text = "request: " + requests[indexPath.row].service + " from " + requests[indexPath.row].customer.name
         return cell
     }
 

@@ -31,6 +31,14 @@ class UserManager {
             if let user = user {
                 print("** sing-in uid: \(user.uid) **")
                 print("** Sign in successfully **")
+
+                let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
+
+                AppDelegate.shared.window?.updateRoot(
+                    to: customerTabBarController,
+                    animation: crossDissolve,
+                    completion: nil
+                )
             }
 
         }
@@ -77,6 +85,14 @@ class UserManager {
         do {
 
             try Auth.auth().signOut()
+
+            let loginController = LoginController()
+
+            AppDelegate.shared.window?.updateRoot(
+                to: loginController,
+                animation: crossDissolve,
+                completion: nil
+            )
 
         } catch let signOutError {
 

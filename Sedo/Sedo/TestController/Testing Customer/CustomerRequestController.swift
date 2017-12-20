@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CustomerRequestController: UIViewController, UITextFieldDelegate {
 
@@ -83,16 +84,15 @@ class CustomerRequestController: UIViewController, UITextFieldDelegate {
     }
 
     var designer: Designer?
+    var customer: Customer?
 
     @objc func requestService() {
         guard
-            let customerName = customerTextField.text,
+            let customer = customer,
             let designer = designer,
             let service = serviceTextField.text,
             let date = dateTextField.text
         else { return }
-
-        let customer = Customer(name: customerName)
 
         RequestManager.sendRequest(for: service, from: customer, to: designer, date: date)
         self.navigationController?.popViewController(animated: true)

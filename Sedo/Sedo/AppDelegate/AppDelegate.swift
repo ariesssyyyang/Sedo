@@ -18,11 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
 
-        let customerController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
-
         let window = UIWindow(frame: UIScreen.main.bounds)
-//        window.rootViewController = customerController
-        window.rootViewController = LoginController()
+        let loginController = LoginController()
+        window.rootViewController = loginController
         window.makeKeyAndVisible()
         self.window = window
 
@@ -50,5 +48,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+/*
+    func makeEntryController() -> UIViewController {
 
+        if Auth.auth().currentUser == nil {
+
+            let loginController = LoginController()
+            return loginController
+
+        } else {
+
+            let customerController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
+            return customerController
+
+        }
+
+    }
+*/
 }

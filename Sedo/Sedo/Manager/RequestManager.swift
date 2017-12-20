@@ -11,10 +11,12 @@ import Firebase
 
 struct Customer {
     let name: String
+    let id: String
 }
 
 struct Designer {
     let name: String
+    let id: String
 }
 
 struct Request {
@@ -29,6 +31,8 @@ struct Request {
 struct Order {
     let service: String
     let id: String
+    let customer: Customer
+    let designer: Designer
     let date: String
 }
 
@@ -38,7 +42,13 @@ class RequestManager {
         let createDate = self.requestDate()
         let ref = Database.database().reference().child("request")
         let childRef = ref.childByAutoId()
-        let value = ["designer": designer.name, "customer": customer.name, "createdDate": createDate, "date": date, "service": service, "check": false] as [String: Any]
+        let value = ["designerId": designer.id,
+                     "customerId": customer.id,
+                     "createdDate": createDate,
+                     "date": date,
+                     "service": service,
+                     "check": false
+                    ] as [String: Any]
 
         childRef.updateChildValues(value) { (err, _) in
 
@@ -48,12 +58,22 @@ class RequestManager {
             }
 
             let requestId = childRef.key
-            let designerRequestRef = Database.database().reference().child("request-designer").child(designer.name).child(requestId)
-            let customerRequestRef = Database.database().reference().child("request-customer").child(customer.name).child(requestId)
+            let designerRequestRef = Database.database().reference().child("request-designer").child(designer.id).child(requestId)
+            let customerRequestRef = Database.database().reference().child("request-customer").child(customer.id).child(requestId)
 
             // optional values //
-            let designerValue = ["customer": customer.name, "service": service, "date": date, "createdDate": createDate]
-            let customerValue = ["designer": designer.name, "service": service, "date": date, "createdDate": createDate]
+            let designerValue = [
+                                    "customerId": customer.id,
+                                    "customerName": customer.name,
+                                    "service": service, "date": date,
+                                    "createdDate": createDate
+                                ]
+            let customerValue = [
+                                    "designerId": designer.id,
+                                    "designerName": designer.name,
+                                    "service": service, "date": date,
+                                    "createdDate": createDate
+                                ]
             designerRequestRef.updateChildValues(designerValue)
             customerRequestRef.updateChildValues(customerValue)
             // optional values //
@@ -66,12 +86,17 @@ class RequestManager {
         let ref = Database.database().reference().child("order")
         let childRef = ref.childByAutoId()
 
-        let designer = request.designer.name,
-            customer = request.customer.name,
+        let designer = request.designer,
+            customer = request.customer,
             service = request.service,
             date = request.date
 
-        let value = ["designer": designer, "customer": customer, "service": service, "date": date]
+        let value = [
+                        "designerId": designer.id,
+                        "customerId": customer.id,
+                        "service": service,
+                        "date": date
+                    ]
 
         childRef.updateChildValues(value) { (error, _) in
             if error != nil {
@@ -80,12 +105,22 @@ class RequestManager {
             }
 
             let orderId = childRef.key
-            let designerOrderRef = Database.database().reference().child("order-designer").child(designer).child(orderId)
-            let customerOrderRef = Database.database().reference().child("order-customer").child(customer).child(orderId)
+            let designerOrderRef = Database.database().reference().child("order-designer").child(designer.id).child(orderId)
+            let customerOrderRef = Database.database().reference().child("order-customer").child(customer.id).child(orderId)
 
             // optional value //
-            let designerValue = ["customer": customer, "service": service, "date": date]
-            let customerValue = ["designer": designer, "service": service, "date": date]
+            let designerValue = [
+                                    "customerId": customer.id,
+                                    "customerName": customer.name,
+                                    "service": service,
+                                    "date": date
+                                ]
+            let customerValue = [
+                                    "designerId": designer.id,
+                                    "designerName": designer.name,
+                                    "service": service,
+                                    "date": date
+                                ]
             designerOrderRef.updateChildValues(designerValue)
             customerOrderRef.updateChildValues(customerValue)
             // optional value //
@@ -102,11 +137,14 @@ class RequestManager {
             guard
                 let dictionary = snapshot.value as? [String: AnyObject],
                 let requestDic = dictionary[request.id] as? [String: AnyObject],
-                let customer = requestDic["customer"] as? String,
-                let designer = requestDic["designer"] as? String
-            else { return }
-            let designerRequestRef = ref.child("request-designer").child(designer)
-            let customerRequestRef = ref.child("request-customer").child(customer)
+                let customerId = requestDic["customerId"] as? String,
+                let designerId = requestDic["designerId"] as? String
+            else {
+                print("fail to approve request")
+                return
+            }
+            let designerRequestRef = ref.child("request-designer").child(designerId)
+            let customerRequestRef = ref.child("request-customer").child(customerId)
             designerRequestRef.child(request.id).removeValue()
             customerRequestRef.child(request.id).removeValue()
             requestRef.child(request.id).removeValue()
@@ -124,11 +162,14 @@ class RequestManager {
             guard
                 let dictionary = snapshot.value as? [String: AnyObject],
                 let requestDic = dictionary[request.id] as? [String: AnyObject],
-                let customer = requestDic["customer"] as? String,
-                let designer = requestDic["designer"] as? String
-            else { return }
-            let designerRequestRef = ref.child("request-designer").child(designer)
-            let customerRequestRef = ref.child("request-customer").child(customer)
+                let customerId = requestDic["customerId"] as? String,
+                let designerId = requestDic["designerId"] as? String
+            else {
+                print("fail to reject request")
+                return
+            }
+            let designerRequestRef = ref.child("request-designer").child(designerId)
+            let customerRequestRef = ref.child("request-customer").child(customerId)
             designerRequestRef.child(request.id).removeValue()
             customerRequestRef.child(request.id).removeValue()
             requestRef.child(request.id).removeValue()

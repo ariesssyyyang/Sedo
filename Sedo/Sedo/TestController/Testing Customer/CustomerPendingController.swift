@@ -58,19 +58,22 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
 
     func fetchCustomerPendingOrder() {
 
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("fail to fetch user uid in pending order page!")
+            return
+        }
+        print(uid)
         // use user id as node key //
-        let ref = Database.database().reference().child("request-customer").child("Nick")
+        let ref = Database.database().reference().child("request-customer").child(uid)
         ref.observe(.value, with: { (snapshot) in
 
             self.requests = []
             for child in snapshot.children {
                 guard let child = child as? DataSnapshot else { return }
-                print(child.key)
-                print(child.value)
                 let id = child.key
                 guard
                     let dictionary = child.value as? [String: String],
-                    let designer = dictionary["designer"],
+                    let designerId = dictionary["designerId"],
                     let service = dictionary["service"],
                     let createdDate = dictionary["createdDate"],
                     let date = dictionary["date"]
@@ -79,8 +82,27 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
                     return
                 }
 
-                self.requests.append(Request(service: service, id: id, customer: Customer(name: "Nick"), designer: Designer(name: designer), createdDate: createdDate, date: date))
+                let userRef = Database.database().reference().child("user")
+                userRef.observe(.value, with: { (userSnapshot) in
 
+                    guard
+                        let userDict = userSnapshot.value as? [String: AnyObject],
+                        let customerInfo = userDict[uid] as? [String: String],
+                        let customerName = customerInfo["name"],
+                        let designerInfo = userDict[designerId] as? [String: AnyObject],
+                        let designerName = designerInfo["name"] as? String
+                    else {
+                        print("fail to get users' info")
+                        return
+                    }
+
+                    let customer = Customer(name: customerName, id: uid)
+                    let designer = Designer(name: designerName, id: designerId)
+
+                    self.requests.append(Request(service: service, id: id, customer: customer, designer: designer, createdDate: createdDate, date: date))
+                    self.tableView.reloadData()
+                })
+                
             }
 
             self.tableView.reloadData()
@@ -90,7 +112,7 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: requestCellId, for: indexPath) as? CustomerRequestCell else { return CustomerRequestCell() }
-        cell.textLabel?.text = requests[indexPath.row].service + " by " + requests[indexPath.row].designer.name
+        cell.textLabel?.text = "send request: " + requests[indexPath.row].service + " to " + requests[indexPath.row].designer.name
         return cell
     }
 
