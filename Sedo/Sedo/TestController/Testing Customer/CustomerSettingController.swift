@@ -19,9 +19,10 @@ class CustomerSettingController: UIViewController {
     }()
 
     @objc func changeMode() {
-//        let designerController = DesignerTabBarController(itemTypes: [.calendar, .portfolio, .service, .profile])
+        let designerController = DesignerTabBarController(itemTypes: [.calendar, .portfolio, .service, .profile])
+        self.present(designerController, animated: true, completion: nil)
 //        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
     }
 
     override func viewDidLoad() {

@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
 
         let customerController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
-        let designerController = DesignerTabBarController(itemTypes: [.calendar, .portfolio, .service, .profile])
+
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = designerController
+        window.rootViewController = customerController
         window.makeKeyAndVisible()
         self.window = window
 

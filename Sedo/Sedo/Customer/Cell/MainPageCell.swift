@@ -34,5 +34,5 @@ class MainPageCell: UITableViewCell {
         bookingButton.imageView?.image = #imageLiteral(resourceName: "icon-booking").withRenderingMode(.alwaysTemplate)
         bookingButton.tintColor = UIColor.white
     }
-    
+
 }

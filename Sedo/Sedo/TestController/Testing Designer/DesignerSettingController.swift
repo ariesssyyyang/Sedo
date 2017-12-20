@@ -28,9 +28,9 @@ class DesignerSettingController: UIViewController {
     }()
 
     @objc func changeMode() {
-        let customerController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
-        customerController.selectedIndex = 1
-        self.present(customerController, animated: true, completion: nil)
+//        let customerController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
+        self.dismiss(animated: true, completion: nil)
+//        self.present(customerController, animated: true, completion: nil)
 
     }
 

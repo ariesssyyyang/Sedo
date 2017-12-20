@@ -97,7 +97,6 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let replyController = ReplyRequestController()
         replyController.request = self.requests[indexPath.row]
-//        self.present(replyController, animated: true, completion: nil)
         self.navigationController?.pushViewController(replyController, animated: true)
     }
 
@@ -108,8 +107,6 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
     }
 
 /*
-    // Mark: value
-
     func fetchRequest(of designer: Designer) {
 
         let ref = Database.database().reference().child("request-designer").child(designer.name)

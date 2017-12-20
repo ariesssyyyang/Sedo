@@ -11,7 +11,7 @@
 import UIKit
 
 public extension UINib {
-    
+
     /**
      A convenience method loads a local xib file.
      
@@ -23,13 +23,13 @@ public extension UINib {
      
      - Returns: The loaded instance.
      */
-    
+
     public class func load(nibName name: String, bundle: Bundle? = nil) -> Any? {
-        
+
         return UINib(nibName: name, bundle: bundle)
             .instantiate(withOwner: nil, options: nil)
             .first
-        
+
     }
-    
+
 }
