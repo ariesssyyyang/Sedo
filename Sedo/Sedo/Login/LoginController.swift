@@ -17,15 +17,7 @@ class LoginController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-/*
-    let nameTextField: UITextField = {
-        let tf = UITextField()
-        tf.placeholder = "user name"
-        tf.textAlignment = .center
-        tf.translatesAutoresizingMaskIntoConstraints = false
-        return tf
-    }()
-*/
+
     let emailTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "email"
@@ -51,7 +43,7 @@ class LoginController: UIViewController {
         btn.layer.borderWidth = 1.0
         btn.layer.cornerRadius = 10.0
         btn.layer.masksToBounds = true
-
+        btn.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
         btn.translatesAutoresizingMaskIntoConstraints = false
         return btn
     }()
@@ -74,6 +66,7 @@ class LoginController: UIViewController {
             let email = emailTextField.text,
             let password = passwordTextField.text
         else {
+            print("something wrong when sign in")
             return
         }
 
@@ -87,15 +80,6 @@ class LoginController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // MARK: - Check Login
-
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            let customerController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
-            if user != nil {
-                AppDelegate.shared.window?.updateRoot(to: customerController, animation: crossDissolve, completion: nil)
-            }
-        }
 
         // MARK: - Keyboard Notification
 

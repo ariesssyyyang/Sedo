@@ -33,8 +33,7 @@ class CustomerSettingController: UIViewController {
     }
 
     @objc func handleSignOut() {
-        let loginController = LoginController()
-        AppDelegate.shared.window?.updateRoot(to: loginController, animation: crossDissolve, completion: nil)
+        UserManager.signOut()
     }
 
     override func viewDidLoad() {
