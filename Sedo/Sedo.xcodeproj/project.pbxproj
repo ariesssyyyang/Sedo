@@ -12,6 +12,7 @@
 		7F6DDD2C1FE96DAB004E7898 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD2A1FE96DAB004E7898 /* PortfolioCell.swift */; };
 		7F6DDD2D1FE96DAB004E7898 /* PortfolioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F6DDD2B1FE96DAB004E7898 /* PortfolioCell.xib */; };
 		7F6DDD2F1FE96E2A004E7898 /* PortfolioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD2E1FE96E2A004E7898 /* PortfolioController.swift */; };
+		7F6DDD311FEA049B004E7898 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD301FEA049B004E7898 /* RegisterController.swift */; };
 		7FA137F71FE22FEE006455B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA137F61FE22FEE006455B1 /* AppDelegate.swift */; };
 		7FA137F91FE22FEE006455B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA137F81FE22FEE006455B1 /* ViewController.swift */; };
 		7FA137FC1FE22FEE006455B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA137FA1FE22FEE006455B1 /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		7F6DDD2A1FE96DAB004E7898 /* PortfolioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
 		7F6DDD2B1FE96DAB004E7898 /* PortfolioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortfolioCell.xib; sourceTree = "<group>"; };
 		7F6DDD2E1FE96E2A004E7898 /* PortfolioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioController.swift; sourceTree = "<group>"; };
+		7F6DDD301FEA049B004E7898 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		7FA137F31FE22FEE006455B1 /* Sedo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sedo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA137F61FE22FEE006455B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FA137F81FE22FEE006455B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				7F6DDD261FE91646004E7898 /* LoginController.swift */,
+				7F6DDD301FEA049B004E7898 /* RegisterController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -151,7 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				7F6DDD231FE90A2D004E7898 /* Login */,
-				7FF937631FE7942D004D1D4D /* Provider */,
 				7FF937471FE3BE6D004D1D4D /* AppDelegate */,
 				7FF937451FE3BE1A004D1D4D /* Customer */,
 				7FF937461FE3BE21004D1D4D /* Designer */,
@@ -265,13 +267,6 @@
 				7FF937761FE8AB89004D1D4D /* MainPageCell.xib */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		7FF937631FE7942D004D1D4D /* Provider */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Provider;
 			sourceTree = "<group>";
 		};
 		7FF937691FE7F189004D1D4D /* Testing Customer */ = {
@@ -496,6 +491,7 @@
 				7FF937501FE3D239004D1D4D /* ReplyRequestController.swift in Sources */,
 				7F6DDD2F1FE96E2A004E7898 /* PortfolioController.swift in Sources */,
 				7FF9376E1FE7F289004D1D4D /* DesignerOrdersController.swift in Sources */,
+				7F6DDD311FEA049B004E7898 /* RegisterController.swift in Sources */,
 				7FA138171FE28870006455B1 /* DesignerTabBarItem.swift in Sources */,
 				7FF937771FE8AB89004D1D4D /* MainPageCell.swift in Sources */,
 				7FF9373E1FE3A6C2004D1D4D /* DesignerPendingController.swift in Sources */,

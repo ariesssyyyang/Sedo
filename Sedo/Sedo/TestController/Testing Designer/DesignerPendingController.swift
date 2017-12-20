@@ -24,10 +24,10 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+ 
         tableView.register(UINib(nibName: "DesignerRequestCell", bundle: Bundle.main), forCellReuseIdentifier: requestCellId)
         tableView.estimatedRowHeight = 60.0
         tableView.rowHeight = UITableViewAutomaticDimension

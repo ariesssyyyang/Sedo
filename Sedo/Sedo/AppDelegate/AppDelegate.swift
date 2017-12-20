@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let customerController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
 
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = customerController
+//        window.rootViewController = customerController
+        window.rootViewController = LoginController()
         window.makeKeyAndVisible()
         self.window = window
 

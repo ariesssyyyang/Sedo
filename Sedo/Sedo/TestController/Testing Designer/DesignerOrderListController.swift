@@ -25,7 +25,7 @@ class DesignerOrderListController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarMinimumLineSpacing = 0
         settings.style.buttonBarItemTitleColor = UIColor.yellow
         settings.style.buttonBarItemsShouldFillAvailableWidth = true
-        
+
         settings.style.buttonBarLeftContentInset = 20
         settings.style.buttonBarRightContentInset = 20
 
@@ -34,7 +34,7 @@ class DesignerOrderListController: ButtonBarPagerTabStripViewController {
             oldCell?.label.textColor = .white
             newCell?.label.textColor = .yellow
         }
-        
+
         super.viewDidLoad()
     }
 
