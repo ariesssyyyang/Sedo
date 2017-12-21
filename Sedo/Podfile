@@ -13,4 +13,5 @@ target 'Sedo' do
   pod 'Firebase/Storage'
   pod 'JTAppleCalendar', '~> 7.0'
   pod 'XLPagerTabStrip', '~> 8.0'
+  pod 'ALCameraViewController'
 end

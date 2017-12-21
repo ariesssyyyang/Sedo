@@ -1,4 +1,5 @@
 PODS:
+  - ALCameraViewController (3.0.2)
   - Firebase/Auth (4.4.0):
     - Firebase/Core
     - FirebaseAuth (= 4.3.0)
@@ -54,6 +55,7 @@ PODS:
   - XLPagerTabStrip (8.0.0)
 
 DEPENDENCIES:
+  - ALCameraViewController
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -63,6 +65,7 @@ DEPENDENCIES:
   - XLPagerTabStrip (~> 8.0)
 
 SPEC CHECKSUMS:
+  ALCameraViewController: 1edce3497633f0df138523645ed1228961ee2eab
   Firebase: 3e92884a63e8f76d107c43a67d2ab9071e1eda10
   FirebaseAnalytics: 722b53c7b32bfc7806b06e0093a2f5180d4f2c5a
   FirebaseAuth: e0087d479709b20b9613b804704a928d6eafb052
@@ -78,6 +81,6 @@ SPEC CHECKSUMS:
   SwiftLint: 1b670ce79284c76520f84060e87d645078fd32fa
   XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: a31d156f74a7eab7dffd956c730ca872fac87935
+PODFILE CHECKSUM: f0dd8229a00dcdcf4a991e90cc6fdff354228e09
 
 COCOAPODS: 1.3.1
