@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="KohinoorBangla.ttc">
+            <string>KohinoorBangla-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NewPostView" customModule="Sedo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JHh-ho-Q3z">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="JHh-ho-Q3z" secondAttribute="height" id="a5S-ie-Umv"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yrq-BN-JjT">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="yrq-BN-JjT" secondAttribute="height" multiplier="1:1" id="km0-rq-Asl"/>
+                    </constraints>
+                </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Msb-YA-Ke7">
+                    <rect key="frame" x="0.0" y="375" width="375" height="242"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOV-6i-QDF">
+                    <rect key="frame" x="0.0" y="617" width="187.5" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="M1t-Vv-D4V"/>
+                    </constraints>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" red="0.92941176469999998" green="0.3772194982" blue="0.3180402517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qp-ky-I5i">
+                    <rect key="frame" x="187.5" y="617" width="187.5" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="UP2-oE-XmX"/>
+                    </constraints>
+                    <state key="normal" title="Done"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Msb-YA-Ke7" firstAttribute="top" secondItem="JHh-ho-Q3z" secondAttribute="bottom" id="0Ma-Yc-YnR"/>
+                <constraint firstItem="2Qp-ky-I5i" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="61r-c9-18b"/>
+                <constraint firstItem="2Qp-ky-I5i" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Ay2-pd-Bd2"/>
+                <constraint firstAttribute="centerX" secondItem="cOV-6i-QDF" secondAttribute="trailing" id="EQm-8u-L4P"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yrq-BN-JjT" secondAttribute="trailing" id="Rr0-OK-NWA"/>
+                <constraint firstItem="yrq-BN-JjT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Xha-Wz-wWj"/>
+                <constraint firstItem="cOV-6i-QDF" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="anH-oq-bgP"/>
+                <constraint firstItem="2Qp-ky-I5i" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dua-Ed-mYa"/>
+                <constraint firstItem="cOV-6i-QDF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="fZC-UG-2Bt"/>
+                <constraint firstItem="JHh-ho-Q3z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hX2-bE-gS9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Msb-YA-Ke7" secondAttribute="trailing" id="iRl-lK-JdD"/>
+                <constraint firstItem="Msb-YA-Ke7" firstAttribute="bottom" secondItem="cOV-6i-QDF" secondAttribute="top" id="izm-uj-UMm"/>
+                <constraint firstItem="JHh-ho-Q3z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="m3r-gX-xZZ"/>
+                <constraint firstItem="yrq-BN-JjT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tme-eZ-9qX"/>
+                <constraint firstItem="JHh-ho-Q3z" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="wOE-Zg-yss"/>
+                <constraint firstItem="Msb-YA-Ke7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="xf9-Oo-cPc"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="cancelButton" destination="cOV-6i-QDF" id="Es4-7r-Ja7"/>
+                <outlet property="descriptionTextField" destination="Msb-YA-Ke7" id="8Th-Iy-PN5"/>
+                <outlet property="doneButton" destination="2Qp-ky-I5i" id="yP4-km-PgN"/>
+                <outlet property="selectedButton" destination="yrq-BN-JjT" id="spE-Vp-XZh"/>
+                <outlet property="selectedImage" destination="JHh-ho-Q3z" id="gM9-ye-Q2F"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="-2.5"/>
+        </view>
+    </objects>
+</document>

@@ -32,6 +32,8 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
     @objc func handleNewPost() {
         print("new post")
+        let controller = NewPostController()
+        self.present(controller, animated: true, completion: nil)
     }
 
     // MARK: - UICollectionViewDataSource
