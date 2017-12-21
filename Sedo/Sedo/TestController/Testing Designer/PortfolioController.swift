@@ -15,9 +15,9 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView?.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        collectionView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 8, right: 0)
+        collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor.lightGray
-        
         collectionView?.register(UINib(nibName: "PortfolioCell", bundle: Bundle.main), forCellWithReuseIdentifier: portfolioCellId)
     }
 
@@ -28,7 +28,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 7
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -38,25 +38,36 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         return cell
     }
 
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView?.collectionViewLayout.invalidateLayout()
+    }
+
     // MARK: - UICollectionViewDelegateFlowLayout
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        return CGSize(width: 200.0, height: 200.0)
+        let screenSize = UIScreen.main.bounds.size
+
+        return CGSize(width: (screenSize.width - 4) / 3, height: (screenSize.width - 4) / 3)
 
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5.0
+
+        return 0.0
+
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+
         return 1.0
+
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         // margin between cells
         return UIEdgeInsetsMake(1, 1, 10, 1)
+
     }
 
 }

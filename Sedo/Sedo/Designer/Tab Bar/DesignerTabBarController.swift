@@ -95,8 +95,8 @@ class DesignerTabBarController: UITabBarController {
             //            )
             //
             //            return navigationController
-            
-            let navigationController = UINavigationController(rootViewController: PortfolioController(collectionViewLayout: UICollectionViewLayout()))
+
+            let navigationController = UINavigationController(rootViewController: PortfolioController(collectionViewLayout: UICollectionViewFlowLayout()))
             navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
             return navigationController
 

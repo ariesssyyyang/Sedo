@@ -91,6 +91,23 @@ class LoginController: UIViewController {
         setupButtons()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        // MARK: - Check Login
+
+        if Auth.auth().currentUser != nil {
+
+            let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
+
+            AppDelegate.shared.window?.updateRoot(
+                to: customerTabBarController,
+                animation: crossDissolve,
+                completion: nil
+            )
+        }
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
@@ -111,9 +128,7 @@ class LoginController: UIViewController {
 
     func adjustingHeight(show: Bool, notification: NSNotification) {
         var userInfo = notification.userInfo!
-        guard //let keyboardFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
-        let animationDurarion = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval
-            else { return }
+        guard let animationDurarion = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
         let changeInHeight = (UIScreen.main.bounds.height / 8) * (show ? 1 : -1)
         UIView.animate(withDuration: animationDurarion) {
             self.containerViewTopAnchor?.constant -= changeInHeight
@@ -150,13 +165,7 @@ class LoginController: UIViewController {
         containerViewTopAnchor = containerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: screenSize.height / 4)
         containerViewTopAnchor?.isActive = true
         containerView.heightAnchor.constraint(equalToConstant: screenSize.height / 4).isActive = true
-/*
-        containerView.addSubview(nameTextField)
-        nameTextField.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        nameTextField.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
-        nameTextField.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
-        nameTextField.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 1/3).isActive = true
-*/
+
         containerView.addSubview(emailTextField)
         emailTextField.topAnchor.constraint(equalTo: containerView.topAnchor, constant: screenSize.height / 12).isActive = true
         emailTextField.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
