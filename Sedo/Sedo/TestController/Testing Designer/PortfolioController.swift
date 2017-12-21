@@ -15,10 +15,23 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupNavigationBar()
+
         collectionView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 8, right: 0)
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor.lightGray
         collectionView?.register(UINib(nibName: "PortfolioCell", bundle: Bundle.main), forCellWithReuseIdentifier: portfolioCellId)
+    }
+
+    func setupNavigationBar() {
+
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleNewPost))
+        self.navigationItem.title = "Portfolio"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
+    }
+
+    @objc func handleNewPost() {
+        print("new post")
     }
 
     // MARK: - UICollectionViewDataSource
@@ -48,7 +61,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
         let screenSize = UIScreen.main.bounds.size
 
-        return CGSize(width: (screenSize.width - 4) / 3, height: (screenSize.width - 4) / 3)
+        return CGSize(width: (screenSize.width - 6) / 3, height: (screenSize.width - 6) / 3)
 
     }
 
@@ -60,13 +73,14 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
 
-        return 1.0
+        return 1.5
 
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
         // margin between cells
-        return UIEdgeInsetsMake(1, 1, 10, 1)
+        return UIEdgeInsets(top: 1, left: 1, bottom: 10, right: 1)
 
     }
 

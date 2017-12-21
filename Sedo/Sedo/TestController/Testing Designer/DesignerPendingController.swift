@@ -32,11 +32,11 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
         tableView.estimatedRowHeight = 60.0
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.backgroundColor = UIColor.orange
-        
+
         // To check //
 //        tableView.allowsSelection = false
         // To check //
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,19 +45,19 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
     }
 
     // MARK: - UITableViewDataSource
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return requests.count
     }
-    
+
     // MARK: - Fetch data
-    
+
     func fetchDesignerPendingOrder() {
-        
+
         guard let uid = Auth.auth().currentUser?.uid else {
             print("fail to fetch user uid in pending order page!")
             return
@@ -65,7 +65,7 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
         // use user id as node key //
         let ref = Database.database().reference().child("request-designer").child(uid)
         ref.observe(.value, with: { (snapshot) in
-            
+
             self.requests = []
             for child in snapshot.children {
                 guard let child = child as? DataSnapshot else { return }
@@ -82,7 +82,7 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
                     print("fail to transform type to dictionary")
                     return
                 }
-                
+ 
                 let userRef = Database.database().reference().child("user")
                 userRef.observe(.value, with: { (userSnapshot) in
                     guard

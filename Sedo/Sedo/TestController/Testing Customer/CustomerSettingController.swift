@@ -39,7 +39,7 @@ class CustomerSettingController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "Customer"
+        setupNavigationBar()
 
         self.view.backgroundColor = UIColor.lightGray
         self.view.addSubview(changeModeButton)
@@ -54,6 +54,13 @@ class CustomerSettingController: UIViewController {
         signOutButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         signOutButton.centerYAnchor.constraint(equalTo: changeModeButton.bottomAnchor, constant: 50).isActive = true
         signOutButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+    }
+
+    func setupNavigationBar() {
+
+        self.navigationItem.title = "Customer Mode"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
+
     }
 
 }

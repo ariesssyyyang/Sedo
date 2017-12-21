@@ -46,7 +46,7 @@ class CustomerRequestController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "Try Request"
+        setupNavigationBar()
 
         customerTextField.delegate = self
         serviceTextField.delegate = self
@@ -81,6 +81,13 @@ class CustomerRequestController: UIViewController, UITextFieldDelegate {
         sendRequestButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100).isActive = true
         sendRequestButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
 
+    }
+
+    func setupNavigationBar() {
+        
+        self.navigationItem.title = "Booking Service"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
+        
     }
 
     var designer: Designer?

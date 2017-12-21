@@ -32,7 +32,7 @@ extension DesignerTabBarItemType {
 
         case .profile:
 
-            return NSLocalizedString("Profile", comment: "")
+            return NSLocalizedString("Setting", comment: "")
 
         case .portfolio:
 

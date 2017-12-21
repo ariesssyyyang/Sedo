@@ -40,6 +40,8 @@ class ReplyRequestController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupNavigationBar()
+
         self.view.backgroundColor = UIColor.brown
 
         self.view.addSubview(yesButton)
@@ -62,21 +64,29 @@ class ReplyRequestController: UIViewController {
         requestLabel.text = request?.service
     }
 
+    func setupNavigationBar() {
+        
+        self.navigationItem.title = "Reply"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
+        
+    }
+
     @objc func handleYes(_ sender: UIButton) {
+
         guard let request = request else { return }
         RequestManager.approveRequest(for: request)
         RequestManager.sendOrder(of: request)
         self.navigationController?.popViewController(animated: true)
-//        self.dismiss(animated: true, completion: nil)
     }
 
     @objc func handleNo(_ sender: UIButton) {
 
         // Todo: Alert Controller
+
         guard let request = request else { return }
         RequestManager.rejectRequest(for: request)
         self.navigationController?.popViewController(animated: true)
-//        self.dismiss(animated: true, completion: nil)
+
 
     }
 

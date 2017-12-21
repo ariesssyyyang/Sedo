@@ -18,6 +18,8 @@ class CustomerMainPageController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupNavigationBar()
+
         // MARK: - Fetch User Infomation
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let ref = Database.database().reference().child("user").child(uid)
@@ -29,10 +31,16 @@ class CustomerMainPageController: UITableViewController {
             self.me = User(id: uid, username: name)
         }
 
-        self.navigationItem.title = "Sèdo"
         tableView.register(UINib(nibName: "MainPageCell", bundle: Bundle.main), forCellReuseIdentifier: mainCellId)
 
         fetchUsers()
+    }
+
+    func setupNavigationBar() {
+
+        self.navigationItem.title = "Main Page"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
+
     }
 
     func fetchUsers() {
@@ -42,8 +50,6 @@ class CustomerMainPageController: UITableViewController {
             for child in snapshot.children {
                 guard
                     let child = child as? DataSnapshot else { return }
-//                print(child.key)
-//                print(child.value)
                 let id = child.key
                 guard
                     let dictionary = child.value as? [String: AnyObject],

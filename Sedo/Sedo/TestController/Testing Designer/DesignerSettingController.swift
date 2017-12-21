@@ -43,7 +43,7 @@ class DesignerSettingController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "Designer"
+        setupNavigationBar()
 
         self.view.backgroundColor = UIColor.lightGray
 
@@ -58,6 +58,13 @@ class DesignerSettingController: UIViewController {
         viewOrderButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         viewOrderButton.centerYAnchor.constraint(equalTo: changeModeButton.bottomAnchor, constant: 50).isActive = true
         viewOrderButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+    }
+
+    func setupNavigationBar() {
+        
+        self.navigationItem.title = "Designer Mode"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
+        
     }
 
 }
