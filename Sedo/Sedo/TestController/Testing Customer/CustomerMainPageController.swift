@@ -13,7 +13,8 @@ class CustomerMainPageController: UITableViewController {
 
     let mainCellId = "mainCell"
     var users: [User] = []
-    var me: User?
+    var portfolio: Portfolio?
+    var currentMe: User?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class CustomerMainPageController: UITableViewController {
                 let currentUser = snapshot.value as? [String: AnyObject],
                 let name = currentUser["name"] as? String
             else { return }
-            self.me = User(id: uid, username: name)
+            self.currentMe = User(id: uid, username: name)
         }
 
         tableView.register(UINib(nibName: "MainPageCell", bundle: Bundle.main), forCellReuseIdentifier: mainCellId)
@@ -93,6 +94,25 @@ class CustomerMainPageController: UITableViewController {
         self.navigationController?.pushViewController(requestController, animated: true)
     }
 */
+
+    func fetchImagePost(uid: String) {
+        let portfolioRef = Database.database().reference().child("portfolio").child(uid)
+        portfolioRef.observe(.value) { (snapshot) in
+            for child in snapshot.children {
+                guard let child = child as? DataSnapshot else { return }
+                let postId = child.key
+                guard
+                    let postDict = child.value as? [String: String],
+                    let imageUrl = postDict["imageUrl"],
+                    let content = postDict["description"]
+                else {
+                    print("fail to fetch portfolio info in customer main page!")
+                    return
+                }
+            }
+        }
+    }
+
     @objc func handleBooking(_ sender: UIButton) {
         guard
             let cell = sender.superview?.superview?.superview?.superview as? MainPageCell,
@@ -102,7 +122,7 @@ class CustomerMainPageController: UITableViewController {
             return
         }
 
-        guard let me = self.me else {
+        guard let me = self.currentMe else {
             print("fail to fetch current user")
             return
         }

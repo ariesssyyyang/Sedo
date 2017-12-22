@@ -20,7 +20,17 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHQ-TR-SMt">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                        <color key="backgroundColor" red="0.1450980392" green="0.36862745099999999" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mim-9t-sQD">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="mim-9t-sQD" secondAttribute="bottom" id="Qoz-2Z-hGS"/>
+                            <constraint firstAttribute="trailing" secondItem="mim-9t-sQD" secondAttribute="trailing" id="XX0-X4-PdY"/>
+                            <constraint firstItem="mim-9t-sQD" firstAttribute="top" secondItem="aHQ-TR-SMt" secondAttribute="top" id="aAC-cu-nko"/>
+                            <constraint firstItem="mim-9t-sQD" firstAttribute="leading" secondItem="aHQ-TR-SMt" secondAttribute="leading" id="zNr-4P-h1Y"/>
+                        </constraints>
                     </view>
                 </subviews>
             </view>
@@ -31,6 +41,9 @@
                 <constraint firstItem="aHQ-TR-SMt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gMb-Xt-n53"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="portfolioImageView" destination="mim-9t-sQD" id="D6K-Xk-s7E"/>
+            </connections>
         </collectionViewCell>
     </objects>
 </document>

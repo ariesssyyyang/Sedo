@@ -12,7 +12,13 @@ class CustomerSettingController: UIViewController {
 
     let changeModeButton: UIButton = {
         let btn = UIButton()
-        btn.backgroundColor = UIColor.darkGray
+        btn.setTitle("go designer mode", for: .normal)
+        btn.setTitleColor(UIColor.lightGray, for: .normal)
+        btn.layer.borderColor = UIColor.lightGray.cgColor
+        btn.layer.borderWidth = 1.0
+        btn.layer.cornerRadius = 10.0
+        btn.layer.masksToBounds = true
+
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(changeMode), for: .touchUpInside)
         return btn
@@ -20,8 +26,13 @@ class CustomerSettingController: UIViewController {
 
     let signOutButton: UIButton = {
         let btn = UIButton()
-        btn.backgroundColor = UIColor.brown
-        btn.setTitle("Sign out", for: .normal)
+        btn.setTitle("sign out", for: .normal)
+        btn.setTitleColor(UIColor.lightGray, for: .normal)
+        btn.layer.borderColor = UIColor.lightGray.cgColor
+        btn.layer.borderWidth = 1.0
+        btn.layer.cornerRadius = 10.0
+        btn.layer.masksToBounds = true
+
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(handleSignOut), for: .touchUpInside)
         return btn
@@ -41,7 +52,7 @@ class CustomerSettingController: UIViewController {
 
         setupNavigationBar()
 
-        self.view.backgroundColor = UIColor.lightGray
+        self.view.backgroundColor = UIColor.white
         self.view.addSubview(changeModeButton)
 
         changeModeButton.heightAnchor.constraint(equalToConstant: 200).isActive = true

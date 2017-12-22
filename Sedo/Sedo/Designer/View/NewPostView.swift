@@ -20,6 +20,7 @@ class NewPostView: UIView {
 
     @IBOutlet weak var doneButton: UIButton!
     
+    @IBOutlet weak var textFieldBottomConstraint: NSLayoutConstraint!
     
     /*
     // Only override draw() if you perform custom drawing.

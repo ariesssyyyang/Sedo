@@ -13,7 +13,13 @@ class DesignerSettingController: UIViewController {
 
     let changeModeButton: UIButton = {
         let btn = UIButton()
-        btn.backgroundColor = UIColor.darkGray
+        btn.setTitle("go customer mode", for: .normal)
+        btn.setTitleColor(UIColor.lightGray, for: .normal)
+        btn.layer.borderColor = UIColor.lightGray.cgColor
+        btn.layer.borderWidth = 1.0
+        btn.layer.cornerRadius = 10.0
+        btn.layer.masksToBounds = true
+        
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(changeMode), for: .touchUpInside)
         return btn
@@ -21,17 +27,22 @@ class DesignerSettingController: UIViewController {
 
     let viewOrderButton: UIButton = {
         let btn = UIButton()
-        btn.backgroundColor = UIColor.brown
-        btn.setTitle("view orders", for: .normal)
+        btn.setTitle("view order", for: .normal)
+        btn.setTitleColor(UIColor.lightGray, for: .normal)
+        btn.layer.borderColor = UIColor.lightGray.cgColor
+        btn.layer.borderWidth = 1.0
+        btn.layer.cornerRadius = 10.0
+        btn.layer.masksToBounds = true
+        
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(viewOrders), for: .touchUpInside)
         return btn
     }()
 
     @objc func changeMode() {
-//        let customerController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
+
         self.dismiss(animated: true, completion: nil)
-//        self.present(customerController, animated: true, completion: nil)
+
 
     }
 
@@ -45,7 +56,7 @@ class DesignerSettingController: UIViewController {
 
         setupNavigationBar()
 
-        self.view.backgroundColor = UIColor.lightGray
+        self.view.backgroundColor = UIColor.white
 
         self.view.addSubview(changeModeButton)
         changeModeButton.heightAnchor.constraint(equalToConstant: 200).isActive = true

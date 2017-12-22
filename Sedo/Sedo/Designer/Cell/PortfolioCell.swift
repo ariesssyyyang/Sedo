@@ -10,6 +10,7 @@ import UIKit
 
 class PortfolioCell: UICollectionViewCell {
 
+    @IBOutlet weak var portfolioImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

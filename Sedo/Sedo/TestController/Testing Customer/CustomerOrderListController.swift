@@ -17,8 +17,8 @@ class CustomerOrderListController: ButtonBarPagerTabStripViewController {
 
         self.navigationController?.navigationBar.isTranslucent = false
         // change selected bar color
-        settings.style.buttonBarBackgroundColor = UIColor.black
-        settings.style.buttonBarItemBackgroundColor = UIColor.black
+        settings.style.buttonBarBackgroundColor = UIColor.brown
+        settings.style.buttonBarItemBackgroundColor = UIColor.brown
 
         settings.style.selectedBarBackgroundColor = .yellow
         settings.style.buttonBarItemFont = UIFont(name: "Menlo-Regular", size: 16) ?? UIFont.systemFont(ofSize: 16)

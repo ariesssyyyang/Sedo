@@ -87,6 +87,7 @@ class LoginController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
 
         view.backgroundColor = UIColor.white
+
         setupContainerView()
         setupButtons()
     }

@@ -7,20 +7,61 @@
 //
 
 import UIKit
+import Firebase
 
 class PortfolioController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     let portfolioCellId = "portfolioCell"
+    var currentMe: User?
+    var images: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupNavigationBar()
 
+        fetchPortfolio()
+
         collectionView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 8, right: 0)
         collectionView?.alwaysBounceVertical = true
-        collectionView?.backgroundColor = UIColor.lightGray
+        collectionView?.backgroundColor = UIColor.white
         collectionView?.register(UINib(nibName: "PortfolioCell", bundle: Bundle.main), forCellWithReuseIdentifier: portfolioCellId)
+    }
+
+    func fetchPortfolio() {
+        let ref = Database.database().reference()
+        let userRef = ref.child("user")
+
+        userRef.observe(.value) { (userSnapshot) in
+            guard
+                let userDict = userSnapshot.value as? [String: AnyObject],
+                let uid = Auth.auth().currentUser?.uid,
+                let user = userDict[uid] as? [String: String],
+                let name = user["name"]
+            else {
+                print("fail get user dict in portfolio page!")
+                return
+            }
+            print(name)
+            let portfolioRef = ref.child("portfolio").child(uid)
+            portfolioRef.observe(.value, with: { (portfolioSnapshot) in
+                self.images = []
+                for child in portfolioSnapshot.children {
+                    guard let child = child as? DataSnapshot else { return }
+                    let postKey = child.key
+                    guard
+                        let postDict = child.value as? [String: String],
+                        let description = postDict["description"],
+                        let imageUrl = postDict["imageUrl"]
+                    else {
+                        print("fail to get post info in fetchPortfolio function!")
+                        return
+                    }
+                    self.images.insert(imageUrl, at: 0)
+                }
+                self.collectionView?.reloadData()
+            })
+        }
     }
 
     func setupNavigationBar() {
@@ -31,9 +72,11 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     @objc func handleNewPost() {
+
         print("new post")
         let controller = NewPostController()
         self.present(controller, animated: true, completion: nil)
+
     }
 
     // MARK: - UICollectionViewDataSource
@@ -43,13 +86,28 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return images.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: portfolioCellId, for: indexPath) as? PortfolioCell else { return PortfolioCell() }
-        cell.backgroundColor = UIColor.black
-
+        cell.portfolioImageView.image = #imageLiteral(resourceName: "placeholder").withRenderingMode(.alwaysTemplate)
+        cell.portfolioImageView.tintColor = UIColor.lightGray
+        cell.portfolioImageView.contentMode = .center
+        let url = images[indexPath.row]
+        if let imageURL = URL(string: url) {
+            DispatchQueue.global().async {
+                do {
+                    let downloadImage = UIImage(data: try Data(contentsOf: imageURL))
+                    DispatchQueue.main.async {
+                        cell.portfolioImageView.image = downloadImage
+                        cell.portfolioImageView.contentMode = .scaleToFill
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
         return cell
     }
 
