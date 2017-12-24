@@ -132,7 +132,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let screenSize = UIScreen.main.bounds.size
-        return CGSize(width: screenSize.width, height: 150)
+        return CGSize(width: screenSize.width, height: 200)
     }
 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

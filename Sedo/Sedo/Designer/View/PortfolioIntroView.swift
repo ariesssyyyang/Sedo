@@ -10,9 +10,51 @@ import UIKit
 
 class PortfolioIntroView: UICollectionReusableView {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet weak var profileImageView: UIImageView!
     
+    @IBOutlet weak var editButton: UIButton!
+
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var lineIdLabel: UILabel!
+    
+    @IBOutlet weak var introTextView: UITextView!
+    
+    override func awakeFromNib() {
+
+        super.awakeFromNib()
+
+        setupImageView()
+
+        setupButton()
+
+        setupLabel()
+
+        setupTextView()
+
+    }
+
+    func setupImageView() {
+        profileImageView.image = #imageLiteral(resourceName: "placeholder").withRenderingMode(.alwaysTemplate)
+        profileImageView.tintColor = UIColor.lightGray
+        profileImageView.layer.borderWidth = 1
+        profileImageView.layer.borderColor = UIColor.lightGray.cgColor
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView.clipsToBounds = true
+    }
+
+    func setupButton() {
+        editButton.layer.borderWidth = 1.0
+        editButton.layer.borderColor = UIColor(red: 147.0/255, green: 174.0/255, blue: 191.0/255, alpha: 1.0).cgColor
+        editButton.layer.cornerRadius = 8.0
+        editButton.layer.masksToBounds = true
+    }
+
+    func setupLabel() {
+        
+    }
+
+    func setupTextView() {
+        
+    }
 }
