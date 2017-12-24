@@ -20,7 +20,6 @@
 		7F6DDD2F1FE96E2A004E7898 /* PortfolioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD2E1FE96E2A004E7898 /* PortfolioController.swift */; };
 		7F6DDD311FEA049B004E7898 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD301FEA049B004E7898 /* RegisterController.swift */; };
 		7FA137F71FE22FEE006455B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA137F61FE22FEE006455B1 /* AppDelegate.swift */; };
-		7FA137F91FE22FEE006455B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA137F81FE22FEE006455B1 /* ViewController.swift */; };
 		7FA137FC1FE22FEE006455B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA137FA1FE22FEE006455B1 /* Main.storyboard */; };
 		7FA137FE1FE22FEE006455B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA137FD1FE22FEE006455B1 /* Assets.xcassets */; };
 		7FA138011FE22FEE006455B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA137FF1FE22FEE006455B1 /* LaunchScreen.storyboard */; };
@@ -32,7 +31,6 @@
 		7FA138151FE2869E006455B1 /* DesignerTabBarItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138141FE2869E006455B1 /* DesignerTabBarItemType.swift */; };
 		7FA138171FE28870006455B1 /* DesignerTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138161FE28870006455B1 /* DesignerTabBarItem.swift */; };
 		7FA138191FE28928006455B1 /* DesignerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138181FE28928006455B1 /* DesignerTabBarController.swift */; };
-		7FA138251FE2B8ED006455B1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138241FE2B8ED006455B1 /* TestViewController.swift */; };
 		7FA138271FE36A84006455B1 /* CustomerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138261FE36A84006455B1 /* CustomerSettingController.swift */; };
 		7FA138291FE36A95006455B1 /* DesignerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138281FE36A95006455B1 /* DesignerSettingController.swift */; };
 		7FCA6E4D1FEA56BD00D5CFB4 /* AppDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E4C1FEA56BD00D5CFB4 /* AppDelegateExtension.swift */; };
@@ -78,7 +76,6 @@
 		7F6DDD301FEA049B004E7898 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		7FA137F31FE22FEE006455B1 /* Sedo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sedo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA137F61FE22FEE006455B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7FA137F81FE22FEE006455B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7FA137FB1FE22FEE006455B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7FA137FD1FE22FEE006455B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FA138001FE22FEE006455B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,7 +88,6 @@
 		7FA138141FE2869E006455B1 /* DesignerTabBarItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerTabBarItemType.swift; sourceTree = "<group>"; };
 		7FA138161FE28870006455B1 /* DesignerTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerTabBarItem.swift; sourceTree = "<group>"; };
 		7FA138181FE28928006455B1 /* DesignerTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerTabBarController.swift; sourceTree = "<group>"; };
-		7FA138241FE2B8ED006455B1 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		7FA138261FE36A84006455B1 /* CustomerSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSettingController.swift; sourceTree = "<group>"; };
 		7FA138281FE36A95006455B1 /* DesignerSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerSettingController.swift; sourceTree = "<group>"; };
 		7FCA6E4C1FEA56BD00D5CFB4 /* AppDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
@@ -188,7 +184,7 @@
 				7FF937471FE3BE6D004D1D4D /* AppDelegate */,
 				7FF937451FE3BE1A004D1D4D /* Customer */,
 				7FF937461FE3BE21004D1D4D /* Designer */,
-				7FBD0A8C1FE37211009E7826 /* TestController */,
+				7FBD0A8C1FE37211009E7826 /* Controller */,
 				7FF937481FE3BEC4004D1D4D /* Library */,
 				7FF937441FE3BDE6004D1D4D /* Manager */,
 				7FA137FA1FE22FEE006455B1 /* Main.storyboard */,
@@ -210,15 +206,13 @@
 			path = "Tab Bar";
 			sourceTree = "<group>";
 		};
-		7FBD0A8C1FE37211009E7826 /* TestController */ = {
+		7FBD0A8C1FE37211009E7826 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7FF9376A1FE7F1A7004D1D4D /* Testing Designer */,
-				7FF937691FE7F189004D1D4D /* Testing Customer */,
-				7FA137F81FE22FEE006455B1 /* ViewController.swift */,
-				7FA138241FE2B8ED006455B1 /* TestViewController.swift */,
+				7FF9376A1FE7F1A7004D1D4D /* Designer */,
+				7FF937691FE7F189004D1D4D /* Customer */,
 			);
-			path = TestController;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		7FCA6E4E1FEA578800D5CFB4 /* UIWindow */ = {
@@ -319,7 +313,7 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		7FF937691FE7F189004D1D4D /* Testing Customer */ = {
+		7FF937691FE7F189004D1D4D /* Customer */ = {
 			isa = PBXGroup;
 			children = (
 				7FF937511FE76FA2004D1D4D /* CustomerOrderListController.swift */,
@@ -329,10 +323,10 @@
 				7FA138261FE36A84006455B1 /* CustomerSettingController.swift */,
 				7FF937731FE8AB49004D1D4D /* CustomerMainPageController.swift */,
 			);
-			path = "Testing Customer";
+			path = Customer;
 			sourceTree = "<group>";
 		};
-		7FF9376A1FE7F1A7004D1D4D /* Testing Designer */ = {
+		7FF9376A1FE7F1A7004D1D4D /* Designer */ = {
 			isa = PBXGroup;
 			children = (
 				7FF9376B1FE7F25B004D1D4D /* DesignerOrderListController.swift */,
@@ -343,7 +337,7 @@
 				7F363F491FEBEC99008CE4E2 /* NewPostController.swift */,
 				7FA138281FE36A95006455B1 /* DesignerSettingController.swift */,
 			);
-			path = "Testing Designer";
+			path = Designer;
 			sourceTree = "<group>";
 		};
 		9EB2CDEAD44A59578BB6FA4F /* Frameworks */ = {
@@ -526,7 +520,6 @@
 				7FA1380C1FE2505B006455B1 /* RequestManager.swift in Sources */,
 				7FA138151FE2869E006455B1 /* DesignerTabBarItemType.swift in Sources */,
 				7FA138111FE27179006455B1 /* CustomerTabBarItem.swift in Sources */,
-				7FA138251FE2B8ED006455B1 /* TestViewController.swift in Sources */,
 				7FF937561FE777FD004D1D4D /* CustomerOrdersController.swift in Sources */,
 				7FF9374A1FE3BEF8004D1D4D /* UINibExtensions.swift in Sources */,
 				7FF937741FE8AB49004D1D4D /* CustomerMainPageController.swift in Sources */,
@@ -540,7 +533,6 @@
 				7FF937711FE7F409004D1D4D /* DesignerOrderCell.swift in Sources */,
 				7FA138131FE28554006455B1 /* CustomerTabBarController.swift in Sources */,
 				7F6DDD2C1FE96DAB004E7898 /* PortfolioCell.swift in Sources */,
-				7FA137F91FE22FEE006455B1 /* ViewController.swift in Sources */,
 				7FF9375B1FE790DF004D1D4D /* CustomerRequestCell.swift in Sources */,
 				7FA137F71FE22FEE006455B1 /* AppDelegate.swift in Sources */,
 				7FA138191FE28928006455B1 /* DesignerTabBarController.swift in Sources */,

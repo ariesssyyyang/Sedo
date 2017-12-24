@@ -98,6 +98,10 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
     }
 
+    @objc func handleEdit(_ sender: UIButton) {
+        
+    }
+
     // MARK: - UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
