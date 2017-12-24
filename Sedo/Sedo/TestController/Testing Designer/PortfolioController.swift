@@ -14,18 +14,29 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     let portfolioCellId = "portfolioCell"
     var currentMe: User?
     var images: [String] = []
-
+/*
+    let introView: DesignerIntroView = {
+        guard let view = UINib.load(nibName: "DesignerIntroView", bundle: nil) as? DesignerIntroView else {
+            return DesignerIntroView()
+        }
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+*/
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupNavigationBar()
 
+//        setupIntoView()
+
         fetchPortfolio()
 
-        collectionView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 8, right: 0)
+        collectionView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0)
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(UINib(nibName: "PortfolioCell", bundle: Bundle.main), forCellWithReuseIdentifier: portfolioCellId)
+        collectionView?.register(UINib(nibName: "PortfolioIntroView", bundle: Bundle.main), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerViewId")
     }
 
     func fetchPortfolio() {
@@ -64,12 +75,20 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         }
     }
 
+    // MARK: - Set up
+
     func setupNavigationBar() {
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleNewPost))
         self.navigationItem.title = "Portfolio"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
     }
+
+    func setupIntoView() {
+        
+    }
+
+    // MARK: - Actions
 
     @objc func handleNewPost() {
 
@@ -109,6 +128,26 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
             }
         }
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let screenSize = UIScreen.main.bounds.size
+        return CGSize(width: screenSize.width, height: 150)
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerViewId", for: indexPath) as? PortfolioIntroView else {
+            print("fail to get the right intro view")
+            return PortfolioIntroView()
+        }
+
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            return header
+        default:
+            assert(false, "Unexpected element kind")
+        }
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

@@ -11,6 +11,10 @@
 		7F363F4A1FEBEC99008CE4E2 /* NewPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F363F491FEBEC99008CE4E2 /* NewPostController.swift */; };
 		7F363F4D1FEBF287008CE4E2 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F363F4C1FEBF287008CE4E2 /* NewPostView.swift */; };
 		7F363F4F1FEBF29B008CE4E2 /* NewPostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F363F4E1FEBF29B008CE4E2 /* NewPostView.xib */; };
+		7F52AFEC1FEF8D15008C59BA /* DesignerIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52AFEB1FEF8D15008C59BA /* DesignerIntroView.swift */; };
+		7F52AFEE1FEF8D4D008C59BA /* DesignerIntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F52AFED1FEF8D4D008C59BA /* DesignerIntroView.xib */; };
+		7F52AFF11FEFB10E008C59BA /* PortfolioIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52AFEF1FEFB10E008C59BA /* PortfolioIntroView.swift */; };
+		7F52AFF21FEFB10E008C59BA /* PortfolioIntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F52AFF01FEFB10E008C59BA /* PortfolioIntroView.xib */; };
 		7F6DDD251FE90A4F004E7898 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD241FE90A4F004E7898 /* UserManager.swift */; };
 		7F6DDD271FE91646004E7898 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD261FE91646004E7898 /* LoginController.swift */; };
 		7F6DDD2C1FE96DAB004E7898 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD2A1FE96DAB004E7898 /* PortfolioCell.swift */; };
@@ -66,6 +70,10 @@
 		7F363F491FEBEC99008CE4E2 /* NewPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostController.swift; sourceTree = "<group>"; };
 		7F363F4C1FEBF287008CE4E2 /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		7F363F4E1FEBF29B008CE4E2 /* NewPostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPostView.xib; sourceTree = "<group>"; };
+		7F52AFEB1FEF8D15008C59BA /* DesignerIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerIntroView.swift; sourceTree = "<group>"; };
+		7F52AFED1FEF8D4D008C59BA /* DesignerIntroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesignerIntroView.xib; sourceTree = "<group>"; };
+		7F52AFEF1FEFB10E008C59BA /* PortfolioIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioIntroView.swift; sourceTree = "<group>"; };
+		7F52AFF01FEFB10E008C59BA /* PortfolioIntroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortfolioIntroView.xib; sourceTree = "<group>"; };
 		7F6DDD241FE90A4F004E7898 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		7F6DDD261FE91646004E7898 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		7F6DDD2A1FE96DAB004E7898 /* PortfolioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
@@ -142,6 +150,10 @@
 			children = (
 				7F363F4C1FEBF287008CE4E2 /* NewPostView.swift */,
 				7F363F4E1FEBF29B008CE4E2 /* NewPostView.xib */,
+				7F52AFEB1FEF8D15008C59BA /* DesignerIntroView.swift */,
+				7F52AFED1FEF8D4D008C59BA /* DesignerIntroView.xib */,
+				7F52AFEF1FEFB10E008C59BA /* PortfolioIntroView.swift */,
+				7F52AFF01FEFB10E008C59BA /* PortfolioIntroView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -329,13 +341,13 @@
 		7FF9376A1FE7F1A7004D1D4D /* Testing Designer */ = {
 			isa = PBXGroup;
 			children = (
-				7FA138281FE36A95006455B1 /* DesignerSettingController.swift */,
-				7FF9374F1FE3D239004D1D4D /* ReplyRequestController.swift */,
 				7FF9376B1FE7F25B004D1D4D /* DesignerOrderListController.swift */,
 				7FF9373D1FE3A6C2004D1D4D /* DesignerPendingController.swift */,
 				7FF9376D1FE7F289004D1D4D /* DesignerOrdersController.swift */,
+				7FF9374F1FE3D239004D1D4D /* ReplyRequestController.swift */,
 				7F6DDD2E1FE96E2A004E7898 /* PortfolioController.swift */,
 				7F363F491FEBEC99008CE4E2 /* NewPostController.swift */,
+				7FA138281FE36A95006455B1 /* DesignerSettingController.swift */,
 			);
 			path = "Testing Designer";
 			sourceTree = "<group>";
@@ -421,6 +433,8 @@
 				7FF937621FE79130004D1D4D /* CustomerOrderCell.xib in Resources */,
 				7FA1380A1FE24E04006455B1 /* GoogleService-Info.plist in Resources */,
 				7FA137FE1FE22FEE006455B1 /* Assets.xcassets in Resources */,
+				7F52AFF21FEFB10E008C59BA /* PortfolioIntroView.xib in Resources */,
+				7F52AFEE1FEF8D4D008C59BA /* DesignerIntroView.xib in Resources */,
 				7FA137FC1FE22FEE006455B1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,6 +532,7 @@
 				7FCA6E531FEA59EB00D5CFB4 /* FadeInOutTransition.swift in Sources */,
 				7FA1380C1FE2505B006455B1 /* RequestManager.swift in Sources */,
 				7FA138151FE2869E006455B1 /* DesignerTabBarItemType.swift in Sources */,
+				7F52AFEC1FEF8D15008C59BA /* DesignerIntroView.swift in Sources */,
 				7FA138111FE27179006455B1 /* CustomerTabBarItem.swift in Sources */,
 				7FA138251FE2B8ED006455B1 /* TestViewController.swift in Sources */,
 				7FF937561FE777FD004D1D4D /* CustomerOrdersController.swift in Sources */,
@@ -542,6 +557,7 @@
 				7FF9376C1FE7F25B004D1D4D /* DesignerOrderListController.swift in Sources */,
 				7FF937501FE3D239004D1D4D /* ReplyRequestController.swift in Sources */,
 				7F6DDD2F1FE96E2A004E7898 /* PortfolioController.swift in Sources */,
+				7F52AFF11FEFB10E008C59BA /* PortfolioIntroView.swift in Sources */,
 				7FF9376E1FE7F289004D1D4D /* DesignerOrdersController.swift in Sources */,
 				7F6DDD311FEA049B004E7898 /* RegisterController.swift in Sources */,
 				7FA138171FE28870006455B1 /* DesignerTabBarItem.swift in Sources */,
