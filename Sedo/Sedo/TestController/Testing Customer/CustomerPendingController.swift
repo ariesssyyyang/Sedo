@@ -28,20 +28,14 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.fetchCustomerPendingOrder()
+
         tableView.register(UINib(nibName: "CustomerRequestCell", bundle: Bundle.main), forCellReuseIdentifier: requestCellId)
         tableView.estimatedRowHeight = 60.0
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.backgroundColor = UIColor.orange
-
-        // To check //
         tableView.allowsSelection = false
-        // To check //
 
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.fetchCustomerPendingOrder()
     }
 
     // MARK: - UITableViewDataSource
@@ -68,6 +62,7 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
         ref.observe(.value, with: { (snapshot) in
 
             self.requests = []
+
             for child in snapshot.children {
                 guard let child = child as? DataSnapshot else { return }
                 let id = child.key
@@ -102,7 +97,7 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
                     self.requests.append(Request(service: service, id: id, customer: customer, designer: designer, createdDate: createdDate, date: date))
                     self.tableView.reloadData()
                 })
-                
+
             }
 
             self.tableView.reloadData()

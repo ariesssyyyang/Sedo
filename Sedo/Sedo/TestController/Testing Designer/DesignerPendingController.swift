@@ -33,15 +33,8 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.backgroundColor = UIColor.orange
 
-        // To check //
-//        tableView.allowsSelection = false
-        // To check //
-
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         self.fetchDesignerPendingOrder()
+
     }
 
     // MARK: - UITableViewDataSource
