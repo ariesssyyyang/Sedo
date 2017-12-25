@@ -114,7 +114,7 @@ class DesignerTabBarController: UITabBarController {
             //            )
             //
             //            return navigationController
-            let navigationController = UINavigationController(rootViewController: DesignerSettingController())
+            let navigationController = UINavigationController(rootViewController: ServiceController())
             navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
             return navigationController
 

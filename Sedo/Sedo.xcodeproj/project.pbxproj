@@ -33,6 +33,8 @@
 		7FA138191FE28928006455B1 /* DesignerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138181FE28928006455B1 /* DesignerTabBarController.swift */; };
 		7FA138271FE36A84006455B1 /* CustomerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138261FE36A84006455B1 /* CustomerSettingController.swift */; };
 		7FA138291FE36A95006455B1 /* DesignerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138281FE36A95006455B1 /* DesignerSettingController.swift */; };
+		7FA8177C1FEFED08001A987A /* EditDesignerProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8177B1FEFED08001A987A /* EditDesignerProfileController.swift */; };
+		7FA8177E1FF09E2D001A987A /* ServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8177D1FF09E2C001A987A /* ServiceController.swift */; };
 		7FCA6E4D1FEA56BD00D5CFB4 /* AppDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E4C1FEA56BD00D5CFB4 /* AppDelegateExtension.swift */; };
 		7FCA6E501FEA57A100D5CFB4 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E4F1FEA57A100D5CFB4 /* UIWindowExtension.swift */; };
 		7FCA6E531FEA59EB00D5CFB4 /* FadeInOutTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E521FEA59EB00D5CFB4 /* FadeInOutTransition.swift */; };
@@ -90,6 +92,8 @@
 		7FA138181FE28928006455B1 /* DesignerTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerTabBarController.swift; sourceTree = "<group>"; };
 		7FA138261FE36A84006455B1 /* CustomerSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSettingController.swift; sourceTree = "<group>"; };
 		7FA138281FE36A95006455B1 /* DesignerSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerSettingController.swift; sourceTree = "<group>"; };
+		7FA8177B1FEFED08001A987A /* EditDesignerProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDesignerProfileController.swift; sourceTree = "<group>"; };
+		7FA8177D1FF09E2C001A987A /* ServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceController.swift; sourceTree = "<group>"; };
 		7FCA6E4C1FEA56BD00D5CFB4 /* AppDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
 		7FCA6E4F1FEA57A100D5CFB4 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		7FCA6E521FEA59EB00D5CFB4 /* FadeInOutTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInOutTransition.swift; sourceTree = "<group>"; };
@@ -336,6 +340,8 @@
 				7F6DDD2E1FE96E2A004E7898 /* PortfolioController.swift */,
 				7F363F491FEBEC99008CE4E2 /* NewPostController.swift */,
 				7FA138281FE36A95006455B1 /* DesignerSettingController.swift */,
+				7FA8177B1FEFED08001A987A /* EditDesignerProfileController.swift */,
+				7FA8177D1FF09E2C001A987A /* ServiceController.swift */,
 			);
 			path = Designer;
 			sourceTree = "<group>";
@@ -515,6 +521,7 @@
 				7FF937411FE3BDB6004D1D4D /* DesignerRequestCell.swift in Sources */,
 				7FA1380E1FE26E48006455B1 /* CustomerTabBarItemType.swift in Sources */,
 				7F363F4A1FEBEC99008CE4E2 /* NewPostController.swift in Sources */,
+				7FA8177E1FF09E2D001A987A /* ServiceController.swift in Sources */,
 				7F6DDD251FE90A4F004E7898 /* UserManager.swift in Sources */,
 				7FCA6E531FEA59EB00D5CFB4 /* FadeInOutTransition.swift in Sources */,
 				7FA1380C1FE2505B006455B1 /* RequestManager.swift in Sources */,
@@ -536,6 +543,7 @@
 				7FF9375B1FE790DF004D1D4D /* CustomerRequestCell.swift in Sources */,
 				7FA137F71FE22FEE006455B1 /* AppDelegate.swift in Sources */,
 				7FA138191FE28928006455B1 /* DesignerTabBarController.swift in Sources */,
+				7FA8177C1FEFED08001A987A /* EditDesignerProfileController.swift in Sources */,
 				7FA138271FE36A84006455B1 /* CustomerSettingController.swift in Sources */,
 				7FF937611FE79130004D1D4D /* CustomerOrderCell.swift in Sources */,
 				7FF9376C1FE7F25B004D1D4D /* DesignerOrderListController.swift in Sources */,

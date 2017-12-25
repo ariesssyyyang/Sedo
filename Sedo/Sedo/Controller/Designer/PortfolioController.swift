@@ -84,10 +84,6 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
     }
 
-    func setupIntoView() {
-        
-    }
-
     // MARK: - Actions
 
     @objc func handleNewPost() {
@@ -99,7 +95,8 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     @objc func handleEdit(_ sender: UIButton) {
-        
+        let editController = EditDesignerProfileController()
+        self.present(editController, animated: true, completion: nil)
     }
 
     // MARK: - UICollectionViewDataSource
@@ -145,6 +142,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
             print("fail to get the right intro view")
             return PortfolioIntroView()
         }
+        header.editButton.addTarget(self, action: #selector(handleEdit(_:)), for: .touchUpInside)
 
         switch kind {
         case UICollectionElementKindSectionHeader:
