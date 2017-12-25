@@ -39,6 +39,8 @@
 		7FA817851FF0ADC6001A987A /* ServiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA817831FF0ADC6001A987A /* ServiceCell.swift */; };
 		7FA817861FF0ADC6001A987A /* ServiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA817841FF0ADC6001A987A /* ServiceCell.xib */; };
 		7FA817881FF0B2EE001A987A /* BookingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA817871FF0B2EE001A987A /* BookingController.swift */; };
+		7FA8178B1FF0B3B5001A987A /* BookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8178A1FF0B3B5001A987A /* BookingView.swift */; };
+		7FA8178D1FF0B3C6001A987A /* BookingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8178C1FF0B3C6001A987A /* BookingView.xib */; };
 		7FCA6E4D1FEA56BD00D5CFB4 /* AppDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E4C1FEA56BD00D5CFB4 /* AppDelegateExtension.swift */; };
 		7FCA6E501FEA57A100D5CFB4 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E4F1FEA57A100D5CFB4 /* UIWindowExtension.swift */; };
 		7FCA6E531FEA59EB00D5CFB4 /* FadeInOutTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E521FEA59EB00D5CFB4 /* FadeInOutTransition.swift */; };
@@ -102,6 +104,8 @@
 		7FA817831FF0ADC6001A987A /* ServiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCell.swift; sourceTree = "<group>"; };
 		7FA817841FF0ADC6001A987A /* ServiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceCell.xib; sourceTree = "<group>"; };
 		7FA817871FF0B2EE001A987A /* BookingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingController.swift; sourceTree = "<group>"; };
+		7FA8178A1FF0B3B5001A987A /* BookingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingView.swift; sourceTree = "<group>"; };
+		7FA8178C1FF0B3C6001A987A /* BookingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingView.xib; sourceTree = "<group>"; };
 		7FCA6E4C1FEA56BD00D5CFB4 /* AppDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
 		7FCA6E4F1FEA57A100D5CFB4 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		7FCA6E521FEA59EB00D5CFB4 /* FadeInOutTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInOutTransition.swift; sourceTree = "<group>"; };
@@ -218,6 +222,15 @@
 			path = "Tab Bar";
 			sourceTree = "<group>";
 		};
+		7FA817891FF0B390001A987A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7FA8178A1FF0B3B5001A987A /* BookingView.swift */,
+				7FA8178C1FF0B3C6001A987A /* BookingView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		7FBD0A8C1FE37211009E7826 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +285,7 @@
 		7FF937451FE3BE1A004D1D4D /* Customer */ = {
 			isa = PBXGroup;
 			children = (
+				7FA817891FF0B390001A987A /* View */,
 				7FF937581FE7909A004D1D4D /* Cell */,
 				7FA1380F1FE26E7E006455B1 /* Tab Bar */,
 			);
@@ -441,6 +455,7 @@
 				7FA137FE1FE22FEE006455B1 /* Assets.xcassets in Resources */,
 				7F52AFF21FEFB10E008C59BA /* PortfolioIntroView.xib in Resources */,
 				7FA137FC1FE22FEE006455B1 /* Main.storyboard in Resources */,
+				7FA8178D1FF0B3C6001A987A /* BookingView.xib in Resources */,
 				7FA817861FF0ADC6001A987A /* ServiceCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,6 +564,7 @@
 				7F363F4D1FEBF287008CE4E2 /* NewPostView.swift in Sources */,
 				7F6DDD271FE91646004E7898 /* LoginController.swift in Sources */,
 				7FCA6E501FEA57A100D5CFB4 /* UIWindowExtension.swift in Sources */,
+				7FA8178B1FF0B3B5001A987A /* BookingView.swift in Sources */,
 				7FF937521FE76FA2004D1D4D /* CustomerOrderListController.swift in Sources */,
 				7FF9374E1FE3D0D5004D1D4D /* CustomerRequestController.swift in Sources */,
 				7FA817821FF0A5B7001A987A /* ServiceManager.swift in Sources */,

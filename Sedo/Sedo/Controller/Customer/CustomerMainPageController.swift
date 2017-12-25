@@ -22,6 +22,7 @@ class CustomerMainPageController: UITableViewController {
         setupNavigationBar()
 
         // MARK: - Fetch User Infomation
+
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let ref = Database.database().reference().child("user").child(uid)
         ref.observe(.value) { (snapshot) in
@@ -128,7 +129,7 @@ class CustomerMainPageController: UITableViewController {
         }
 
         let user = users[indexPath.row]
-        let requestController = CustomerRequestController()
+        let requestController = BookingController()
         requestController.designer = Designer(name: user.username, id: user.id)
         requestController.customer = Customer(name: me.username, id: me.id)
         self.navigationController?.pushViewController(requestController, animated: true)
