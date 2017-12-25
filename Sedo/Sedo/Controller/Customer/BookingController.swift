@@ -30,6 +30,7 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
 
         fetchDesignerServices()
 
+        setupNavigationBar()
         setupDatePicker()
         setupServicePicker()
 
@@ -37,6 +38,15 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
         bookingView.dateTextField.inputView = datePicker
         bookingView.serviceTextField.inputView = servicePicker
         bookingView.doneButton.addTarget(self, action: #selector(requestService), for: .touchUpInside)
+    }
+
+    // MARK: - Set Up
+
+    func setupNavigationBar() {
+
+        self.navigationItem.title = "Booking"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
+
     }
 
     // MARK: - Fetch Services

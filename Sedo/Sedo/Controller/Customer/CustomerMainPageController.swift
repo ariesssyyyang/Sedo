@@ -38,12 +38,16 @@ class CustomerMainPageController: UITableViewController {
         fetchUsers()
     }
 
+    // MARK: - Set Up
+
     func setupNavigationBar() {
 
         self.navigationItem.title = "Main Page"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
 
     }
+
+    // MARK: - Fetch Data
 
     func fetchUsers() {
         let ref = Database.database().reference().child("user")

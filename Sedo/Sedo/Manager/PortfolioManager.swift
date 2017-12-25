@@ -18,7 +18,9 @@ class PortfolioManager {
 
     static func uploadImage(selectedImage image: UIImage, description text: String, uid: String) {
 
-        let storageRef = Storage.storage().reference().child("portfolio").child(text)
+        let randomString = UUID().uuidString
+
+        let storageRef = Storage.storage().reference().child("portfolio").child(randomString)
 
         guard let uploadData = UIImagePNGRepresentation(image) else {
             print("fail to get data of image!")
@@ -42,7 +44,7 @@ class PortfolioManager {
             writePost(post: post, author: uid)
 
         }
-        
+
     }
 
     static func writePost(post: [String: String], author: String) {
