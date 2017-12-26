@@ -80,6 +80,8 @@ class UserManager {
         }
     }
 
+    
+
     static func signOut() {
 
         do {

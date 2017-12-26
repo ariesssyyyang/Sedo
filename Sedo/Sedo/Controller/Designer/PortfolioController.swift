@@ -112,7 +112,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     @objc func handleEdit(_ sender: UIButton) {
-        let editController = EditDesignerProfileController()
+        let editController = UINavigationController(rootViewController: EditDesignerProfileController())
         self.present(editController, animated: true, completion: nil)
     }
 
@@ -129,7 +129,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         self.navigationController?.pushViewController(bookingController, animated: true)
     }
 
-    // MARK: - UICollectionViewDataSource
+    // MARK: - UICollectionView DataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

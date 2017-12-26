@@ -35,7 +35,7 @@ class PortfolioIntroView: UICollectionReusableView {
     }
 
     func setupImageView() {
-        profileImageView.image = #imageLiteral(resourceName: "placeholder").withRenderingMode(.alwaysTemplate)
+        profileImageView.image = #imageLiteral(resourceName: "icon-alien").withRenderingMode(.alwaysTemplate)
         profileImageView.tintColor = UIColor.lightGray
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.borderColor = UIColor.lightGray.cgColor
