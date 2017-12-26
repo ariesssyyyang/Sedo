@@ -9,14 +9,22 @@
 import UIKit
 import Firebase
 
+struct PortfolioHeader {
+    let name: String
+    let lineId: String
+    let imageUrl: String
+}
+
 class PortfolioController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     let portfolioCellId = "portfolioCell"
     var author: Designer?
     var currentMe: Customer?
     var images: [String] = []
+    var headerInfo: PortfolioHeader?
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
 
         setupNavigationBar()
@@ -24,7 +32,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         if author == nil {
             fetchMe()
         }
-        
+
         fetchPortfolio()
 
         collectionView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0)
@@ -65,12 +73,16 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
                 let userDict = userSnapshot.value as? [String: AnyObject],
                 let uid = self.author?.id,
                 let user = userDict[uid] as? [String: String],
-                let name = user["name"]
+                let name = user["name"],
+                let lineId = user["lineId"],
+                let profileImageUrl = user["profileImageUrl"]
             else {
                 print("fail get user dict in portfolio page!")
                 return
             }
-            print(name)
+
+            self.headerInfo = PortfolioHeader(name: name, lineId: lineId, imageUrl: profileImageUrl)
+            
             let portfolioRef = ref.child("portfolio").child(uid)
             portfolioRef.observe(.value, with: { (portfolioSnapshot) in
                 self.images = []
@@ -178,6 +190,20 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
                 return PortfolioIntroView()
         }
         header.nameLabel.text = author?.name
+        header.lineIdLabel.text = headerInfo?.lineId
+        if let imageString = headerInfo?.imageUrl, let imageURL = URL(string: imageString) {
+            DispatchQueue.global().async {
+                do {
+                    let profileImage = UIImage(data: try Data(contentsOf: imageURL))
+                    DispatchQueue.main.async {
+                        header.profileImageView.image = profileImage
+                        header.profileImageView.contentMode = .scaleAspectFill
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
 
         switch kind {
 
