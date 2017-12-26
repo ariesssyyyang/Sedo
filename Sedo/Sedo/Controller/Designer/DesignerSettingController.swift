@@ -43,7 +43,6 @@ class DesignerSettingController: UIViewController {
 
         self.dismiss(animated: true, completion: nil)
 
-
     }
 
     @objc func viewOrders() {
@@ -72,7 +71,7 @@ class DesignerSettingController: UIViewController {
     }
 
     func setupNavigationBar() {
-        
+
         self.navigationItem.title = "Designer Mode"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
         

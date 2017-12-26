@@ -13,15 +13,15 @@ class CustomerMainPageController: UITableViewController {
 
     let mainCellId = "mainCell"
     var users: [User] = []
-    var portfolio: Portfolio?
-    var currentMe: User?
+    var currentMe: Customer?
+    var portfolios: [String: [String]] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupNavigationBar()
 
-        // MARK: - Fetch User Infomation
+        // MARK: - Fetch Current User Infomation
 
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let ref = Database.database().reference().child("user").child(uid)
@@ -30,7 +30,7 @@ class CustomerMainPageController: UITableViewController {
                 let currentUser = snapshot.value as? [String: AnyObject],
                 let name = currentUser["name"] as? String
             else { return }
-            self.currentMe = User(id: uid, username: name)
+            self.currentMe = Customer(name: name, id: uid)
         }
 
         tableView.register(UINib(nibName: "MainPageCell", bundle: Bundle.main), forCellReuseIdentifier: mainCellId)
@@ -50,13 +50,22 @@ class CustomerMainPageController: UITableViewController {
     // MARK: - Fetch Data
 
     func fetchUsers() {
-        let ref = Database.database().reference().child("user")
-        ref.observe(.value) { (snapshot) in
+
+        let ref = Database.database().reference()
+
+        let userRef = ref.child("user")
+
+        userRef.observe(.value) { (snapshot) in
+
             self.users = []
+
             for child in snapshot.children {
+
                 guard
                     let child = child as? DataSnapshot else { return }
+
                 let id = child.key
+
                 guard
                     let dictionary = child.value as? [String: AnyObject],
                     let username = dictionary["name"] as? String
@@ -65,8 +74,36 @@ class CustomerMainPageController: UITableViewController {
                     return
                 }
 
+                let portfolioRef = ref.child("portfolio").child(id)
+
+                portfolioRef.observe(.value, with: { (portfolioShot) in
+                    var imageUrls: [String] = []
+                    for child in portfolioShot.children {
+                        guard let child = child as? DataSnapshot else { return }
+
+                        let portfolioId = child.key
+
+                        guard
+                            let portfolioDict = child.value as? [String: String],
+                            let imageUrl = portfolioDict["imageUrl"]
+                        else {
+                            print("fail to get portfolio detail in main page!")
+                            return
+                        }
+
+                        imageUrls.append(imageUrl)
+
+                    }
+
+                    self.portfolios.updateValue(imageUrls, forKey: id)
+
+                    self.tableView.reloadData()
+
+                })
+
                 self.users.append(User(id: id, username: username))
             }
+
             self.tableView.reloadData()
         }
     }
@@ -82,40 +119,50 @@ class CustomerMainPageController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         guard let cell = tableView.dequeueReusableCell(withIdentifier: mainCellId, for: indexPath) as? MainPageCell else { return MainPageCell() }
-        cell.designerNameLabel.text = users[indexPath.row].username
+
+        let user = users[indexPath.row]
+
+        if let imageUrls = portfolios[user.id], let url = imageUrls.last {
+                
+                if let imageURL = URL(string: url) {
+                    DispatchQueue.global().async {
+                        do {
+                            let downloadImage = UIImage(data: try Data(contentsOf: imageURL))
+                            DispatchQueue.main.async {
+                                cell.mainPageImageView.image = downloadImage
+                                cell.mainPageImageView.contentMode = .scaleToFill
+                            }
+                        } catch {
+                            print(error.localizedDescription)
+                        }
+                    }
+                }
+
+        } else {
+            print("\(user.username) has no portfolio!")
+        }
+
+        cell.designerNameLabel.text = user.username
+
         cell.bookingButton.addTarget(self, action: #selector(handleBooking), for: .touchUpInside)
+
         return cell
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 300
     }
-/*
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = users[indexPath.row]
-        let requestController = CustomerRequestController()
-        requestController.designer = Designer(name: user)
-        self.navigationController?.pushViewController(requestController, animated: true)
-    }
-*/
-
-    func fetchImagePost(uid: String) {
-        let portfolioRef = Database.database().reference().child("portfolio").child(uid)
-        portfolioRef.observe(.value) { (snapshot) in
-            for child in snapshot.children {
-                guard let child = child as? DataSnapshot else { return }
-                let postId = child.key
-                guard
-                    let postDict = child.value as? [String: String],
-                    let imageUrl = postDict["imageUrl"],
-                    let content = postDict["description"]
-                else {
-                    print("fail to fetch portfolio info in customer main page!")
-                    return
-                }
-            }
-        }
+        let portfolioController = PortfolioController(collectionViewLayout: UICollectionViewFlowLayout())
+        let designer = Designer(name: user.username, id: user.id)
+        portfolioController.mainPageViewController = self
+        portfolioController.author = designer
+        portfolioController.currentMe = self.currentMe
+        self.navigationController?.pushViewController(portfolioController, animated: true)
     }
 
     @objc func handleBooking(_ sender: UIButton) {
@@ -135,7 +182,7 @@ class CustomerMainPageController: UITableViewController {
         let user = users[indexPath.row]
         let requestController = BookingController()
         requestController.designer = Designer(name: user.username, id: user.id)
-        requestController.customer = Customer(name: me.username, id: me.id)
+        requestController.customer = me
         self.navigationController?.pushViewController(requestController, animated: true)
     }
 

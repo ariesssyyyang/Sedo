@@ -10,13 +10,20 @@ import UIKit
 
 class MainPageCell: UITableViewCell {
 
+    @IBOutlet weak var mainPageImageView: UIImageView!
+    
     @IBOutlet weak var bookingButton: UIButton!
 
     @IBOutlet weak var designerNameLabel: UILabel!
+
     override func awakeFromNib() {
+
         super.awakeFromNib()
-        // Initialization code
+
+        setupImageView()
+
         setupNameLabel()
+
         setupBookingButton()
     }
 
@@ -26,13 +33,27 @@ class MainPageCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func setupImageView() {
+
+        mainPageImageView.layer.shadowColor = UIColor.black.cgColor
+        mainPageImageView.layer.shadowRadius = 10
+        mainPageImageView.layer.shadowOpacity = 0.5
+        mainPageImageView.layer.shadowOffset = CGSize(width: 0, height: 0)
+
+    }
+
     func setupNameLabel() {
-        designerNameLabel.textColor = UIColor.white
+
+        designerNameLabel.textColor = UIColor.black
+
     }
 
     func setupBookingButton() {
+
         bookingButton.imageView?.image = #imageLiteral(resourceName: "icon-booking").withRenderingMode(.alwaysTemplate)
+
         bookingButton.tintColor = UIColor.white
+
     }
 
 }

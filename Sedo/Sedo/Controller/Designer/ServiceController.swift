@@ -13,6 +13,7 @@ class ServiceController: UITableViewController {
 
     var services: [Service] = []
     let serviceCellId = "serviceCell"
+    var designer: Designer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +25,20 @@ class ServiceController: UITableViewController {
         tableView.register(UINib(nibName: "ServiceCell", bundle: Bundle.main), forCellReuseIdentifier: serviceCellId)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        guard let currentUserId = Auth.auth().currentUser?.uid, let designerId = designer?.id else { return }
+
+        if currentUserId != designerId {
+            self.navigationItem.rightBarButtonItem = nil
+        }
+    }
+
     // MARK: - Set Up
-    
+
     func setupNavigationBar() {
-        
+
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleNewService))
         self.navigationItem.title = "Service"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
@@ -72,7 +83,7 @@ class ServiceController: UITableViewController {
 
     func fetchService() {
 
-        guard let uid = Auth.auth().currentUser?.uid else {
+        guard let uid = designer?.id else {
             print("fail to get user id before fetching service!")
             return
         }

@@ -12,24 +12,19 @@ import Firebase
 class PortfolioController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     let portfolioCellId = "portfolioCell"
-    var currentMe: User?
+    var author: Designer?
+    var currentMe: Customer?
     var images: [String] = []
-/*
-    let introView: DesignerIntroView = {
-        guard let view = UINib.load(nibName: "DesignerIntroView", bundle: nil) as? DesignerIntroView else {
-            return DesignerIntroView()
-        }
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-*/
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupNavigationBar()
 
-//        setupIntoView()
-
+        if author == nil {
+            fetchMe()
+        }
+        
         fetchPortfolio()
 
         collectionView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0)
@@ -39,6 +34,28 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         collectionView?.register(UINib(nibName: "PortfolioIntroView", bundle: Bundle.main), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerViewId")
     }
 
+    // MARK: - Fetch Data
+
+    func fetchMe() {
+
+        guard let myUid = Auth.auth().currentUser?.uid else { return }
+
+        let ref = Database.database().reference().child("user").child(myUid)
+        ref.observe(.value) { (mySnapshot) in
+            guard
+                let nameDict = mySnapshot.value as? [String: String],
+                let myName = nameDict["name"]
+            else {
+                print("fail to get customer name in portfolio page!")
+                return
+            }
+
+            self.author = Designer(name: myName, id: myUid)
+            self.currentMe = Customer(name: myName, id: myUid)
+            
+        }
+    }
+
     func fetchPortfolio() {
         let ref = Database.database().reference()
         let userRef = ref.child("user")
@@ -46,7 +63,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         userRef.observe(.value) { (userSnapshot) in
             guard
                 let userDict = userSnapshot.value as? [String: AnyObject],
-                let uid = Auth.auth().currentUser?.uid,
+                let uid = self.author?.id,
                 let user = userDict[uid] as? [String: String],
                 let name = user["name"]
             else {
@@ -99,6 +116,19 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         self.present(editController, animated: true, completion: nil)
     }
 
+    @objc func handleServiceButton(_ sender: UIButton) {
+        let serviceController = ServiceController()
+        serviceController.designer = author
+        self.navigationController?.pushViewController(serviceController, animated: true)
+    }
+
+    @objc func newBooking() {
+        let bookingController = BookingController()
+        bookingController.customer = currentMe
+        bookingController.designer = author
+        self.navigationController?.pushViewController(bookingController, animated: true)
+    }
+
     // MARK: - UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -136,19 +166,39 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         return CGSize(width: screenSize.width, height: 200)
     }
 
+    // MARK: - Set up Header
+
+    var mainPageViewController: CustomerMainPageController?
+
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
-        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerViewId", for: indexPath) as? PortfolioIntroView else {
-            print("fail to get the right intro view")
-            return PortfolioIntroView()
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerViewId", for: indexPath) as? PortfolioIntroView
+            else {
+                print("fail to get the right intro view")
+                return PortfolioIntroView()
         }
-        header.editButton.addTarget(self, action: #selector(handleEdit(_:)), for: .touchUpInside)
 
         switch kind {
+
         case UICollectionElementKindSectionHeader:
-            return header
+
+            if currentMe?.id != author?.id {
+                print("me", currentMe?.id)
+                print("designer", author?.id)
+                self.navigationItem.rightBarButtonItem?.action = #selector(newBooking)
+                header.editButton.setTitle("Service", for: .normal)
+                header.editButton.addTarget(self, action: #selector(handleServiceButton(_:)), for: .touchUpInside)
+                return header
+
+            } else {
+
+                header.editButton.addTarget(self, action: #selector(handleEdit(_:)), for: .touchUpInside)
+                return header
+            }
+
         default:
             assert(false, "Unexpected element kind")
+
         }
     }
 
