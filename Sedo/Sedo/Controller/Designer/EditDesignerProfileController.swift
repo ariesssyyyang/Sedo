@@ -8,6 +8,7 @@
 
 import UIKit
 import ALCameraViewController
+import Firebase
 
 class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
 
@@ -83,6 +84,16 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
     // MARK: - Actions
 
     @objc func handleDone() {
+        guard
+            let designerId = Auth.auth().currentUser?.uid,
+            let updatedName = editView.nameTextField.text,
+            let updatedLineId = editView.lineIdTextField.text,
+            let updatedImage = editView.designerImageView.image
+        else {
+            print("fail to get updated designer info!")
+            return
+        }
+        UserManager.uploadImage(selectedImage: updatedImage, name: updatedName, uid: designerId, lineId: updatedLineId)
         self.dismiss(animated: true, completion: nil)
     }
 
