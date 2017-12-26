@@ -20,7 +20,7 @@ class PortfolioManager {
 
         let randomString = UUID().uuidString
 
-        let storageRef = Storage.storage().reference().child("portfolio").child(randomString)
+        let storageRef = Storage.storage().reference().child("portfolio").child(uid).child(randomString)
 
         guard let uploadData = UIImagePNGRepresentation(image) else {
             print("fail to get data of image!")

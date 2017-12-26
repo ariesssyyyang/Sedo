@@ -80,45 +80,48 @@ class UserManager {
         }
     }
 
-    static func uploadImage(selectedImage image: UIImage, name: String, uid: String, lineId: String) {
-        
+    static func uploadImage(selectedImage image: UIImage?, name: String, uid: String, lineId: String, introduction: String) {
+
         let storageRef = Storage.storage().reference().child("designer").child(uid)
-        
-        guard let uploadData = UIImagePNGRepresentation(image) else {
-            print("fail to get data of image!")
-            return
-        }
-        
-        storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
-            
-            if error != nil {
-                print(error)
-                return
+
+        if let image = image, let uploadData = UIImagePNGRepresentation(image)  {
+
+            storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
+                
+                if error != nil {
+                    print(error)
+                    return
+                }
+                
+                guard let imageUrl = metaData?.downloadURL()?.absoluteString else {
+                    print("fail to get imageUrl")
+                    return
+                }
+ 
+                let designerInfo = ["profileImageUrl": imageUrl, "name": name, "lineId": lineId, "introduction": introduction]
+
+                updateDesignerInfo(info: designerInfo, designerId: uid)
+
             }
-            
-            guard let imageUrl = metaData?.downloadURL()?.absoluteString else {
-                print("fail to get imageUrl")
-                return
-            }
-            
-            let designerInfo = ["profileImageUrl": imageUrl, "name": name, "lineId": lineId]
-            
+
+        } else {
+
+            let designerInfo = ["name": name, "lineId": lineId, "introduction": introduction]
+
             updateDesignerInfo(info: designerInfo, designerId: uid)
-            
         }
-        
-    }
-    
-    static func updateDesignerInfo(info: [String: String], designerId: String) {
-        
-        let ref = Database.database().reference()
-        
-        let userRef = ref.child("user").child(designerId)
-        
-        userRef.updateChildValues(info)
-        
+
     }
 
+    static func updateDesignerInfo(info: [String: String], designerId: String) {
+
+        let ref = Database.database().reference()
+
+        let userRef = ref.child("user").child(designerId)
+
+        userRef.updateChildValues(info)
+
+    }
 
     static func signOut() {
 

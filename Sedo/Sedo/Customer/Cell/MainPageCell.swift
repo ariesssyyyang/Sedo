@@ -34,7 +34,7 @@ class MainPageCell: UITableViewCell {
     }
 
     func setupImageView() {
-
+        mainPageImageView.clipsToBounds = true
         mainPageImageView.layer.shadowColor = UIColor.black.cgColor
         mainPageImageView.layer.shadowRadius = 10
         mainPageImageView.layer.shadowOpacity = 0.5

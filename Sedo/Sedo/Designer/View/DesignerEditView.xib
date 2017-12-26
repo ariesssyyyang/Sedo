@@ -22,7 +22,13 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1TA-6j-uti">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TV9-RJ-GBw">
+                    <rect key="frame" x="127" y="50" width="120" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="TV9-RJ-GBw" secondAttribute="height" multiplier="1:1" id="w7s-UL-HoA"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1TA-6j-uti">
                     <rect key="frame" x="127" y="50" width="120" height="120"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="1TA-6j-uti" secondAttribute="height" multiplier="1:1" id="pfn-1w-3ha"/>
@@ -63,8 +69,10 @@
             <constraints>
                 <constraint firstItem="xeM-Me-mpx" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="3rS-vL-fVV"/>
                 <constraint firstItem="QOJ-O7-98v" firstAttribute="width" secondItem="1TA-6j-uti" secondAttribute="width" id="5Ee-hJ-G6e"/>
+                <constraint firstItem="TV9-RJ-GBw" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="7Yw-kh-mrT"/>
                 <constraint firstItem="1TA-6j-uti" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9mZ-MP-rW2"/>
                 <constraint firstItem="QOJ-O7-98v" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="CM2-f8-lvQ"/>
+                <constraint firstItem="TV9-RJ-GBw" firstAttribute="height" secondItem="1TA-6j-uti" secondAttribute="height" id="FCt-f2-97j"/>
                 <constraint firstItem="1TA-6j-uti" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="30" id="Ha2-mR-jUD"/>
                 <constraint firstItem="QOJ-O7-98v" firstAttribute="top" secondItem="1TA-6j-uti" secondAttribute="bottom" constant="10" id="Ifg-p0-Ex2"/>
                 <constraint firstItem="nns-VX-8Oc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="LtF-Rm-wfX"/>
@@ -77,6 +85,7 @@
                 <constraint firstItem="nns-VX-8Oc" firstAttribute="top" secondItem="QOJ-O7-98v" secondAttribute="bottom" constant="50" id="qcg-oX-DpL"/>
                 <constraint firstItem="xeM-Me-mpx" firstAttribute="height" secondItem="nns-VX-8Oc" secondAttribute="height" id="u87-mn-HR9"/>
                 <constraint firstItem="nns-VX-8Oc" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="1/2" id="uCW-5e-Yz4"/>
+                <constraint firstItem="TV9-RJ-GBw" firstAttribute="top" secondItem="1TA-6j-uti" secondAttribute="top" id="yI4-tj-J4E"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
@@ -85,6 +94,7 @@
                 <outlet property="introductionTextField" destination="xeM-Me-mpx" id="4Vt-JZ-Oyd"/>
                 <outlet property="lineIdTextField" destination="Ppa-0i-ORP" id="zjn-kW-SxC"/>
                 <outlet property="nameTextField" destination="nns-VX-8Oc" id="AKo-Tv-Gyb"/>
+                <outlet property="placeholderImageView" destination="TV9-RJ-GBw" id="QQp-99-0mJ"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="99.5"/>
         </view>

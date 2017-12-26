@@ -20,6 +20,8 @@ class DesignerEditView: UIView {
     
     @IBOutlet weak var introductionTextField: UITextField!
 
+    @IBOutlet weak var placeholderImageView: UIImageView!
+    
     override func awakeFromNib() {
 
         super.awakeFromNib()
@@ -32,8 +34,13 @@ class DesignerEditView: UIView {
 
     func setupImageView() {
 
-        designerImageView.image = #imageLiteral(resourceName: "icon-alien").withRenderingMode(.alwaysTemplate)
-        designerImageView.tintColor = UIColor.lightGray
+        placeholderImageView.image = #imageLiteral(resourceName: "icon-alien").withRenderingMode(.alwaysTemplate)
+        placeholderImageView.tintColor = UIColor.lightGray
+        placeholderImageView.layer.borderWidth = 1
+        placeholderImageView.layer.borderColor = UIColor.lightGray.cgColor
+        placeholderImageView.layer.cornerRadius = placeholderImageView.frame.size.width / 2
+        placeholderImageView.clipsToBounds = true
+        
         designerImageView.layer.borderWidth = 1
         designerImageView.layer.borderColor = UIColor.lightGray.cgColor
         designerImageView.layer.cornerRadius = designerImageView.frame.size.width / 2

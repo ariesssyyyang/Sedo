@@ -10,6 +10,9 @@ import UIKit
 
 class PortfolioIntroView: UICollectionReusableView {
 
+    
+    @IBOutlet weak var placeholderImageView: UIImageView!
+    
     @IBOutlet weak var profileImageView: UIImageView!
     
     @IBOutlet weak var editButton: UIButton!
@@ -35,8 +38,13 @@ class PortfolioIntroView: UICollectionReusableView {
     }
 
     func setupImageView() {
-        profileImageView.image = #imageLiteral(resourceName: "icon-alien").withRenderingMode(.alwaysTemplate)
-        profileImageView.tintColor = UIColor.lightGray
+        placeholderImageView.image = #imageLiteral(resourceName: "icon-alien").withRenderingMode(.alwaysTemplate)
+        placeholderImageView.tintColor = UIColor.lightGray
+        placeholderImageView.layer.borderWidth = 1
+        placeholderImageView.layer.borderColor = UIColor.lightGray.cgColor
+        placeholderImageView.layer.cornerRadius = placeholderImageView.frame.size.width / 2
+        placeholderImageView.clipsToBounds = true
+
         profileImageView.layer.borderWidth = 1
         profileImageView.layer.borderColor = UIColor.lightGray.cgColor
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width / 2

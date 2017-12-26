@@ -122,6 +122,10 @@ class CustomerMainPageController: UITableViewController {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: mainCellId, for: indexPath) as? MainPageCell else { return MainPageCell() }
 
+        cell.mainPageImageView.image = #imageLiteral(resourceName: "placeholder").withRenderingMode(.alwaysTemplate)
+        cell.mainPageImageView.tintColor = UIColor.lightGray
+        cell.mainPageImageView.contentMode = .center
+
         let user = users[indexPath.row]
 
         if let imageUrls = portfolios[user.id], let url = imageUrls.last {
@@ -132,7 +136,7 @@ class CustomerMainPageController: UITableViewController {
                             let downloadImage = UIImage(data: try Data(contentsOf: imageURL))
                             DispatchQueue.main.async {
                                 cell.mainPageImageView.image = downloadImage
-                                cell.mainPageImageView.contentMode = .scaleToFill
+                                cell.mainPageImageView.contentMode = .scaleAspectFill
                             }
                         } catch {
                             print(error.localizedDescription)
@@ -159,7 +163,6 @@ class CustomerMainPageController: UITableViewController {
         let user = users[indexPath.row]
         let portfolioController = PortfolioController(collectionViewLayout: UICollectionViewFlowLayout())
         let designer = Designer(name: user.username, id: user.id)
-        portfolioController.mainPageViewController = self
         portfolioController.author = designer
         portfolioController.currentMe = self.currentMe
         self.navigationController?.pushViewController(portfolioController, animated: true)

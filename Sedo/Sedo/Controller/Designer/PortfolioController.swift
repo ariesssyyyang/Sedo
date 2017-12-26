@@ -9,19 +9,13 @@
 import UIKit
 import Firebase
 
-struct PortfolioHeader {
-    let name: String
-    let lineId: String
-    let imageUrl: String
-}
-
 class PortfolioController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     let portfolioCellId = "portfolioCell"
     var author: Designer?
     var currentMe: Customer?
     var images: [String] = []
-    var headerInfo: PortfolioHeader?
+    var headerInfo: [String: String] = [:]
 
     override func viewDidLoad() {
 
@@ -34,6 +28,8 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         }
 
         fetchPortfolio()
+
+        fetchHeaderInfo()
 
         collectionView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0)
         collectionView?.alwaysBounceVertical = true
@@ -64,25 +60,62 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         }
     }
 
+    func fetchHeaderInfo() {
+        let ref = Database.database().reference()
+        let userRef = ref.child("user")
+
+        userRef.observe(.value) { (userSnapshot) in
+
+            guard
+                let userDict = userSnapshot.value as? [String: AnyObject],
+                let uid = self.author?.id,
+                let user = userDict[uid] as? [String: String]
+            else {
+                print("fail to get basic user info!")
+                return
+            }
+
+            if let name = user["name"] {
+                self.headerInfo.updateValue(name, forKey: "name")
+            } else {
+                print("fail to get designer name")
+            }
+
+            if let lineId = user["lineId"] {
+                self.headerInfo.updateValue(lineId, forKey: "lineId")
+            } else {
+                print("fail to get designer lineId")
+            }
+
+            if let profileImageUrl = user["profileImageUrl"] {
+                self.headerInfo.updateValue(profileImageUrl, forKey: "imageUrl")
+            } else {
+                print("fail to get designer profile image!")
+            }
+
+            if let introduction = user["introduction"] {
+                self.headerInfo.updateValue(introduction, forKey: "introduction")
+            }
+            else {
+                print("fail to get designer introduction!")
+            }
+
+        }
+
+    }
+
     func fetchPortfolio() {
         let ref = Database.database().reference()
         let userRef = ref.child("user")
 
         userRef.observe(.value) { (userSnapshot) in
             guard
-                let userDict = userSnapshot.value as? [String: AnyObject],
-                let uid = self.author?.id,
-                let user = userDict[uid] as? [String: String],
-                let name = user["name"],
-                let lineId = user["lineId"],
-                let profileImageUrl = user["profileImageUrl"]
+                let uid = self.author?.id
             else {
-                print("fail get user dict in portfolio page!")
+                print("fail get user id in portfolio page!")
                 return
             }
-
-            self.headerInfo = PortfolioHeader(name: name, lineId: lineId, imageUrl: profileImageUrl)
-            
+ 
             let portfolioRef = ref.child("portfolio").child(uid)
             portfolioRef.observe(.value, with: { (portfolioSnapshot) in
                 self.images = []
@@ -124,8 +157,27 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     @objc func handleEdit(_ sender: UIButton) {
-        let editController = UINavigationController(rootViewController: EditDesignerProfileController())
-        self.present(editController, animated: true, completion: nil)
+        let editController = EditDesignerProfileController()
+        editController.editView.nameTextField.text = headerInfo["name"]
+        if let lineId = headerInfo["lineId"] {
+            editController.editView.lineIdTextField.text = lineId
+        }
+        editController.editView.introductionTextField.text = headerInfo["introduction"]
+        if let imageString = headerInfo["imageUrl"], let imageURL = URL(string: imageString) {
+            DispatchQueue.global().async {
+                do {
+                    let profileImage = UIImage(data: try Data(contentsOf: imageURL))
+                    DispatchQueue.main.async {
+                        editController.editView.designerImageView.image = profileImage
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+
+        let navigationController = UINavigationController(rootViewController: editController)
+        self.present(navigationController, animated: true, completion: nil)
     }
 
     @objc func handleServiceButton(_ sender: UIButton) {
@@ -180,8 +232,6 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
     // MARK: - Set up Header
 
-    var mainPageViewController: CustomerMainPageController?
-
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerViewId", for: indexPath) as? PortfolioIntroView
@@ -189,9 +239,25 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
                 print("fail to get the right intro view")
                 return PortfolioIntroView()
         }
-        header.nameLabel.text = author?.name
-        header.lineIdLabel.text = headerInfo?.lineId
-        if let imageString = headerInfo?.imageUrl, let imageURL = URL(string: imageString) {
+
+        if author?.name != "" {
+            header.nameLabel.text = author?.name
+        }
+
+        if let lineId = headerInfo["lineId"] {
+
+            if lineId != "" {
+                header.lineIdLabel.text = lineId
+            }
+
+            header.lineIdLabel.text = "N/A"
+        }
+
+        if let introduction = headerInfo["introduction"] {
+            header.introTextView.text = introduction
+        }
+
+        if let imageString = headerInfo["imageUrl"], let imageURL = URL(string: imageString) {
             DispatchQueue.global().async {
                 do {
                     let profileImage = UIImage(data: try Data(contentsOf: imageURL))

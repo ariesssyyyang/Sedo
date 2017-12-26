@@ -25,7 +25,7 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
     var allowResizing: Bool = true
     var allowMoving: Bool = true
     var minimumSize: CGSize = CGSize(width: 90, height: 90)
-    
+
     var croppingParameters: CroppingParameters {
         return CroppingParameters(isEnabled: croppingEnabled, allowResizing: allowResizing, allowMoving: allowMoving, minimumSize: minimumSize)
     }
@@ -88,12 +88,21 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
             let designerId = Auth.auth().currentUser?.uid,
             let updatedName = editView.nameTextField.text,
             let updatedLineId = editView.lineIdTextField.text,
-            let updatedImage = editView.designerImageView.image
+            let introduction = editView.introductionTextField.text
         else {
             print("fail to get updated designer info!")
             return
         }
-        UserManager.uploadImage(selectedImage: updatedImage, name: updatedName, uid: designerId, lineId: updatedLineId)
+        print(designerId)
+        print(updatedName)
+        print(updatedLineId)
+
+        if let updatedImage = editView.designerImageView.image {
+            UserManager.uploadImage(selectedImage: updatedImage, name: updatedName, uid: designerId, lineId: updatedLineId, introduction: introduction)
+        } else {
+            UserManager.uploadImage(selectedImage: nil, name: updatedName, uid: designerId, lineId: updatedLineId, introduction: introduction)
+        }
+
         self.dismiss(animated: true, completion: nil)
     }
 
