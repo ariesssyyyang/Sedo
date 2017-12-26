@@ -18,7 +18,16 @@ class ServiceController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fetchService()
+        if designer == nil {
+            guard let myUid = Auth.auth().currentUser?.uid else { return }
+            fetchService(uid: myUid)
+        } else {
+            guard let uid = designer?.id else {
+                print("fail to get user id before fetching service!")
+                return
+            }
+            fetchService(uid: uid)
+        }
 
         setupNavigationBar()
 
@@ -81,12 +90,7 @@ class ServiceController: UITableViewController {
 
     // MARK: - Fetch Data
 
-    func fetchService() {
-
-        guard let uid = designer?.id else {
-            print("fail to get user id before fetching service!")
-            return
-        }
+    func fetchService(uid: String) {
 
         let ref = Database.database().reference().child("service").child(uid)
         ref.observe(.value) { (snapshot) in

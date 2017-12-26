@@ -177,15 +177,16 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
                 print("fail to get the right intro view")
                 return PortfolioIntroView()
         }
+        header.nameLabel.text = author?.name
 
         switch kind {
 
         case UICollectionElementKindSectionHeader:
 
             if currentMe?.id != author?.id {
-                print("me", currentMe?.id)
-                print("designer", author?.id)
+
                 self.navigationItem.rightBarButtonItem?.action = #selector(newBooking)
+
                 header.editButton.setTitle("Service", for: .normal)
                 header.editButton.addTarget(self, action: #selector(handleServiceButton(_:)), for: .touchUpInside)
                 return header

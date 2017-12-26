@@ -67,34 +67,11 @@ class DesignerTabBarController: UITabBarController {
 
         case .calendar:
 
-            //            let navigationController = GradientNavigationController(
-            //                rootViewController: productGridViewController
-            //            )
-            //
-            //            navigationController.tabBarItem = TabBarItem(
-            //                itemType: itemType
-            //            )
-            //
-            //            return navigationController
-//            let navigationController = UINavigationController(rootViewController: DesignerPendingController())
-//            navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
             let navigationController = UINavigationController(rootViewController: DesignerSettingController())
             navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
             return navigationController
 
         case .portfolio:
-
-            //            let profileTableViewController = ProfileTableViewController(style: .plain)
-            //
-            //            let navigationController = GradientNavigationController(
-            //                rootViewController: profileTableViewController
-            //            )
-            //
-            //            navigationController.tabBarItem = TabBarItem(
-            //                itemType: itemType
-            //            )
-            //
-            //            return navigationController
 
             let navigationController = UINavigationController(rootViewController: PortfolioController(collectionViewLayout: UICollectionViewFlowLayout()))
             navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
@@ -102,18 +79,6 @@ class DesignerTabBarController: UITabBarController {
 
         case .service:
 
-            //            let storyboard = UIStoryboard(name: "CartStoryboard", bundle: nil)
-            //            let cartTableViewController = storyboard.instantiateViewController(withIdentifier: "CartViewController")
-            //
-            //            let navigationController = GradientNavigationController(
-            //                rootViewController: cartTableViewController
-            //            )
-            //
-            //            navigationController.tabBarItem = TabBarItem(
-            //                itemType: itemType
-            //            )
-            //
-            //            return navigationController
             let navigationController = UINavigationController(rootViewController: ServiceController())
             navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
             return navigationController

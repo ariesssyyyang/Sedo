@@ -68,52 +68,18 @@ class CustomerTabBarController: UITabBarController {
 
         case .main:
 
-//            let navigationController = GradientNavigationController(
-//                rootViewController: productGridViewController
-//            )
-//
-//            navigationController.tabBarItem = TabBarItem(
-//                itemType: itemType
-//            )
-//
-//            return navigationController
             let navigationController = UINavigationController(rootViewController: CustomerMainPageController())
             navigationController.tabBarItem = CustomerTabBarItem(itemType: itemType)
             return navigationController
 
         case .order:
 
-//            let profileTableViewController = ProfileTableViewController(style: .plain)
-//
-//            let navigationController = GradientNavigationController(
-//                rootViewController: profileTableViewController
-//            )
-//
-//            navigationController.tabBarItem = TabBarItem(
-//                itemType: itemType
-//            )
-//
-//            return navigationController
-//            let storyboard = UIStoryboard(name: "OrderList", bundle: nil)
-//            let customerOrderListController = storyboard.instantiateViewController(withIdentifier: "orderListStoryboardId")
             let navigationController = UINavigationController(rootViewController: CustomerOrderListController())
             navigationController.tabBarItem = CustomerTabBarItem(itemType: itemType)
             return navigationController
 
         case .profile:
 
-//            let storyboard = UIStoryboard(name: "CartStoryboard", bundle: nil)
-//            let cartTableViewController = storyboard.instantiateViewController(withIdentifier: "CartViewController")
-//
-//            let navigationController = GradientNavigationController(
-//                rootViewController: cartTableViewController
-//            )
-//
-//            navigationController.tabBarItem = TabBarItem(
-//                itemType: itemType
-//            )
-//
-//            return navigationController
             let navigationController = UINavigationController(rootViewController: CustomerSettingController())
             navigationController.tabBarItem = CustomerTabBarItem(itemType: itemType)
             return navigationController
