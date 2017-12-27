@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Nuke
 
 class PortfolioController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
@@ -56,7 +57,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
             self.author = Designer(name: myName, id: myUid)
             self.currentMe = Customer(name: myName, id: myUid)
-            
+
         }
     }
 
@@ -157,26 +158,24 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     @objc func handleEdit(_ sender: UIButton) {
+
         let editController = EditDesignerProfileController()
+
         editController.editView.nameTextField.text = headerInfo["name"]
+
         if let lineId = headerInfo["lineId"] {
             editController.editView.lineIdTextField.text = lineId
         }
+
         editController.editView.introductionTextField.text = headerInfo["introduction"]
+
         if let imageString = headerInfo["imageUrl"], let imageURL = URL(string: imageString) {
-            DispatchQueue.global().async {
-                do {
-                    let profileImage = UIImage(data: try Data(contentsOf: imageURL))
-                    DispatchQueue.main.async {
-                        editController.editView.designerImageView.image = profileImage
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
+            editController.editView.designerImageView.image = nil
+            Nuke.loadImage(with: imageURL, into: editController.editView.designerImageView)
         }
 
         let navigationController = UINavigationController(rootViewController: editController)
+
         self.present(navigationController, animated: true, completion: nil)
     }
 
@@ -205,23 +204,17 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: portfolioCellId, for: indexPath) as? PortfolioCell else { return PortfolioCell() }
-        cell.portfolioImageView.image = #imageLiteral(resourceName: "placeholder").withRenderingMode(.alwaysTemplate)
-        cell.portfolioImageView.tintColor = UIColor.lightGray
-        cell.portfolioImageView.contentMode = .center
+
         let url = images[indexPath.row]
+
         if let imageURL = URL(string: url) {
-            DispatchQueue.global().async {
-                do {
-                    let downloadImage = UIImage(data: try Data(contentsOf: imageURL))
-                    DispatchQueue.main.async {
-                        cell.portfolioImageView.image = downloadImage
-                        cell.portfolioImageView.contentMode = .scaleToFill
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
+
+            cell.portfolioImageView.image = nil
+
+            Nuke.loadImage(with: imageURL, into: cell.portfolioImageView)
+
         }
+
         return cell
     }
 
@@ -258,17 +251,8 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         }
 
         if let imageString = headerInfo["imageUrl"], let imageURL = URL(string: imageString) {
-            DispatchQueue.global().async {
-                do {
-                    let profileImage = UIImage(data: try Data(contentsOf: imageURL))
-                    DispatchQueue.main.async {
-                        header.profileImageView.image = profileImage
-                        header.profileImageView.contentMode = .scaleAspectFill
-                    }
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
+            header.profileImageView.image = nil
+            Nuke.loadImage(with: imageURL, into: header.profileImageView)
         }
 
         switch kind {

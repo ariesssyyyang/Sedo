@@ -21,14 +21,21 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHQ-TR-SMt">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="myN-UO-DcS">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mim-9t-sQD">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                             </imageView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="myN-UO-DcS" firstAttribute="leading" secondItem="mim-9t-sQD" secondAttribute="leading" id="56e-Mj-RtP"/>
+                            <constraint firstItem="myN-UO-DcS" firstAttribute="top" secondItem="mim-9t-sQD" secondAttribute="top" id="CIz-FR-uaf"/>
+                            <constraint firstItem="myN-UO-DcS" firstAttribute="bottom" secondItem="mim-9t-sQD" secondAttribute="bottom" id="Ipl-IL-7Jv"/>
                             <constraint firstAttribute="bottom" secondItem="mim-9t-sQD" secondAttribute="bottom" id="Qoz-2Z-hGS"/>
                             <constraint firstAttribute="trailing" secondItem="mim-9t-sQD" secondAttribute="trailing" id="XX0-X4-PdY"/>
                             <constraint firstItem="mim-9t-sQD" firstAttribute="top" secondItem="aHQ-TR-SMt" secondAttribute="top" id="aAC-cu-nko"/>
+                            <constraint firstItem="myN-UO-DcS" firstAttribute="trailing" secondItem="mim-9t-sQD" secondAttribute="trailing" id="pIj-6y-end"/>
                             <constraint firstItem="mim-9t-sQD" firstAttribute="leading" secondItem="aHQ-TR-SMt" secondAttribute="leading" id="zNr-4P-h1Y"/>
                         </constraints>
                     </view>
@@ -42,6 +49,7 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="placeholderImageView" destination="myN-UO-DcS" id="7ZS-Bw-f1T"/>
                 <outlet property="portfolioImageView" destination="mim-9t-sQD" id="D6K-Xk-s7E"/>
             </connections>
         </collectionViewCell>

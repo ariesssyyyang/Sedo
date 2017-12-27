@@ -11,9 +11,23 @@ import UIKit
 class PortfolioCell: UICollectionViewCell {
 
     @IBOutlet weak var portfolioImageView: UIImageView!
+
+    @IBOutlet weak var placeholderImageView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        setupImageView()
+    }
+
+    func setupImageView() {
+        placeholderImageView.image = #imageLiteral(resourceName: "placeholder").withRenderingMode(.alwaysTemplate)
+
+        placeholderImageView.tintColor = UIColor.lightGray
+
+        placeholderImageView.contentMode = .center
+
+        portfolioImageView.contentMode = .scaleAspectFill
     }
 
 }

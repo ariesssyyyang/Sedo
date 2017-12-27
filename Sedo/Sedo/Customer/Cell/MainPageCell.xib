@@ -29,7 +29,10 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bxn-YT-vXo">
                         <rect key="frame" x="28" y="18" width="264" height="156.5"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Ee5-rB-qTm">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="o73-PB-9S6">
+                                <rect key="frame" x="5" y="5" width="254" height="117.5"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ee5-rB-qTm">
                                 <rect key="frame" x="5" y="5" width="254" height="117.5"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -65,9 +68,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ee5-rB-qTm" firstAttribute="leading" secondItem="bxn-YT-vXo" secondAttribute="leading" constant="5" id="1bw-Di-i2A"/>
+                            <constraint firstItem="o73-PB-9S6" firstAttribute="height" secondItem="Ee5-rB-qTm" secondAttribute="height" id="1m6-nE-uzC"/>
+                            <constraint firstItem="o73-PB-9S6" firstAttribute="leading" secondItem="Ee5-rB-qTm" secondAttribute="leading" id="5cC-Jg-UWF"/>
                             <constraint firstItem="ttj-PA-7Ff" firstAttribute="top" secondItem="Ee5-rB-qTm" secondAttribute="bottom" id="6dj-ov-n9K"/>
+                            <constraint firstItem="o73-PB-9S6" firstAttribute="trailing" secondItem="Ee5-rB-qTm" secondAttribute="trailing" id="96S-T9-XGm"/>
                             <constraint firstItem="Ee5-rB-qTm" firstAttribute="height" secondItem="bxn-YT-vXo" secondAttribute="height" multiplier="3/4" id="akg-DE-ylA"/>
                             <constraint firstAttribute="bottom" secondItem="ttj-PA-7Ff" secondAttribute="bottom" constant="5" id="dJy-1r-zsb"/>
+                            <constraint firstItem="o73-PB-9S6" firstAttribute="top" secondItem="Ee5-rB-qTm" secondAttribute="top" id="dd9-1O-RSE"/>
                             <constraint firstItem="ttj-PA-7Ff" firstAttribute="leading" secondItem="bxn-YT-vXo" secondAttribute="leading" constant="5" id="lJ0-5o-u3I"/>
                             <constraint firstAttribute="trailing" secondItem="ttj-PA-7Ff" secondAttribute="trailing" constant="5" id="lo6-nb-BWs"/>
                             <constraint firstAttribute="trailing" secondItem="Ee5-rB-qTm" secondAttribute="trailing" constant="5" id="oih-eR-u91"/>
@@ -87,6 +94,7 @@
                 <outlet property="bookingButton" destination="pqJ-mM-xUh" id="PNG-GC-L7u"/>
                 <outlet property="designerNameLabel" destination="7UH-7D-RLg" id="VpJ-wS-jxK"/>
                 <outlet property="mainPageImageView" destination="Ee5-rB-qTm" id="VDa-Qc-9wZ"/>
+                <outlet property="placeholderImageView" destination="o73-PB-9S6" id="1EE-X5-oLY"/>
             </connections>
             <point key="canvasLocation" x="22" y="159.5"/>
         </tableViewCell>

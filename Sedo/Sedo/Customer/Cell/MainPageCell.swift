@@ -12,6 +12,8 @@ class MainPageCell: UITableViewCell {
 
     @IBOutlet weak var mainPageImageView: UIImageView!
 
+    @IBOutlet weak var placeholderImageView: UIImageView!
+
     @IBOutlet weak var bookingButton: UIButton!
 
     @IBOutlet weak var designerNameLabel: UILabel!
@@ -37,6 +39,15 @@ class MainPageCell: UITableViewCell {
     }
 
     func setupImageView() {
+
+        placeholderImageView.image = #imageLiteral(resourceName: "placeholder").withRenderingMode(.alwaysTemplate)
+        
+        placeholderImageView.tintColor = UIColor(
+            red: 165.0 / 255.0,
+            green: 170.0 / 255.0,
+            blue: 178.0 / 255.0,
+            alpha: 1.0
+        )
 
         mainPageImageView.clipsToBounds = true
 

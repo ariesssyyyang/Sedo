@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Nuke
 
 class CustomerMainPageController: UITableViewController {
 
@@ -137,30 +138,22 @@ class CustomerMainPageController: UITableViewController {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: mainCellId, for: indexPath) as? MainPageCell else { return MainPageCell() }
 
-        cell.mainPageImageView.image = #imageLiteral(resourceName: "placeholder").withRenderingMode(.alwaysTemplate)
-        cell.mainPageImageView.tintColor = UIColor.lightGray
-        cell.mainPageImageView.contentMode = .center
-
         let user = users[indexPath.row]
 
         if let imageUrls = portfolios[user.id], let url = imageUrls.last {
                 
                 if let imageURL = URL(string: url) {
-                    DispatchQueue.global().async {
-                        do {
-                            let downloadImage = UIImage(data: try Data(contentsOf: imageURL))
-                            DispatchQueue.main.async {
-                                cell.mainPageImageView.image = downloadImage
-                                cell.mainPageImageView.contentMode = .scaleAspectFill
-                            }
-                        } catch {
-                            print(error.localizedDescription)
-                        }
-                    }
+
+                    cell.mainPageImageView.image = nil
+
+                    Nuke.loadImage(with: imageURL, into: cell.mainPageImageView)
+
                 }
 
         } else {
+
             print("\(user.username) has no portfolio!")
+
         }
 
         cell.designerNameLabel.text = user.username

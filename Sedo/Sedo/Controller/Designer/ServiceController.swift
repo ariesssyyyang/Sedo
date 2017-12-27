@@ -60,7 +60,7 @@ class ServiceController: UITableViewController {
         let alertController = UIAlertController(title: "New Service", message: "Please enter detail you gonna provide", preferredStyle: .alert)
 
         alertController.addTextField { (textfield) in
-            textfield.placeholder = "new service"
+            textfield.placeholder = "item"
         }
 
         alertController.addTextField { (textfield) in
