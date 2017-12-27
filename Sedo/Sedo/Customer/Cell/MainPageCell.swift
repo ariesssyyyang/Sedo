@@ -11,7 +11,7 @@ import UIKit
 class MainPageCell: UITableViewCell {
 
     @IBOutlet weak var mainPageImageView: UIImageView!
-    
+
     @IBOutlet weak var bookingButton: UIButton!
 
     @IBOutlet weak var designerNameLabel: UILabel!
@@ -19,6 +19,8 @@ class MainPageCell: UITableViewCell {
     override func awakeFromNib() {
 
         super.awakeFromNib()
+
+        self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
 
         setupImageView()
 
@@ -28,16 +30,22 @@ class MainPageCell: UITableViewCell {
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 
     func setupImageView() {
+
         mainPageImageView.clipsToBounds = true
+
         mainPageImageView.layer.shadowColor = UIColor.black.cgColor
+
         mainPageImageView.layer.shadowRadius = 10
+
         mainPageImageView.layer.shadowOpacity = 0.5
+
         mainPageImageView.layer.shadowOffset = CGSize(width: 0, height: 0)
 
     }

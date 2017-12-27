@@ -34,16 +34,16 @@
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ttj-PA-7Ff">
-                                <rect key="frame" x="3" y="122.5" width="258" height="31"/>
+                                <rect key="frame" x="5" y="122.5" width="254" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UH-7D-RLg">
-                                        <rect key="frame" x="8" y="8" width="200" height="15.5"/>
+                                        <rect key="frame" x="8" y="8" width="196" height="14.5"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqJ-mM-xUh">
-                                        <rect key="frame" x="216" y="3.5" width="24" height="24"/>
+                                        <rect key="frame" x="212" y="2.5" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="pqJ-mM-xUh" secondAttribute="height" multiplier="1:1" id="GwI-bV-LNi"/>
                                         </constraints>
@@ -67,9 +67,9 @@
                             <constraint firstItem="Ee5-rB-qTm" firstAttribute="leading" secondItem="bxn-YT-vXo" secondAttribute="leading" constant="5" id="1bw-Di-i2A"/>
                             <constraint firstItem="ttj-PA-7Ff" firstAttribute="top" secondItem="Ee5-rB-qTm" secondAttribute="bottom" id="6dj-ov-n9K"/>
                             <constraint firstItem="Ee5-rB-qTm" firstAttribute="height" secondItem="bxn-YT-vXo" secondAttribute="height" multiplier="3/4" id="akg-DE-ylA"/>
-                            <constraint firstAttribute="bottom" secondItem="ttj-PA-7Ff" secondAttribute="bottom" constant="3" id="dJy-1r-zsb"/>
-                            <constraint firstItem="ttj-PA-7Ff" firstAttribute="leading" secondItem="bxn-YT-vXo" secondAttribute="leading" constant="3" id="lJ0-5o-u3I"/>
-                            <constraint firstAttribute="trailing" secondItem="ttj-PA-7Ff" secondAttribute="trailing" constant="3" id="lo6-nb-BWs"/>
+                            <constraint firstAttribute="bottom" secondItem="ttj-PA-7Ff" secondAttribute="bottom" constant="5" id="dJy-1r-zsb"/>
+                            <constraint firstItem="ttj-PA-7Ff" firstAttribute="leading" secondItem="bxn-YT-vXo" secondAttribute="leading" constant="5" id="lJ0-5o-u3I"/>
+                            <constraint firstAttribute="trailing" secondItem="ttj-PA-7Ff" secondAttribute="trailing" constant="5" id="lo6-nb-BWs"/>
                             <constraint firstAttribute="trailing" secondItem="Ee5-rB-qTm" secondAttribute="trailing" constant="5" id="oih-eR-u91"/>
                             <constraint firstItem="Ee5-rB-qTm" firstAttribute="top" secondItem="bxn-YT-vXo" secondAttribute="top" constant="5" id="wvL-zj-O66"/>
                         </constraints>
@@ -93,6 +93,6 @@
     </objects>
     <resources>
         <image name="icon-booking" width="24" height="24"/>
-        <image name="placeholder" width="24" height="24"/>
+        <image name="placeholder" width="104" height="104"/>
     </resources>
 </document>

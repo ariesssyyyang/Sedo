@@ -19,6 +19,8 @@ class CustomerMainPageController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupTableViewBackground()
+
         setupNavigationBar()
 
         // MARK: - Fetch Current User Infomation
@@ -33,12 +35,23 @@ class CustomerMainPageController: UITableViewController {
             self.currentMe = Customer(name: name, id: uid)
         }
 
-        tableView.register(UINib(nibName: "MainPageCell", bundle: Bundle.main), forCellReuseIdentifier: mainCellId)
-
         fetchUsers()
+
     }
 
     // MARK: - Set Up
+
+    func setupTableViewBackground() {
+
+        tableView.register(UINib(nibName: "MainPageCell", bundle: Bundle.main), forCellReuseIdentifier: mainCellId)
+
+        tableView.separatorStyle = .none
+
+        let backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "back-woman"))
+        backgroundImageView.contentMode = .scaleAspectFill
+        tableView.backgroundView = backgroundImageView
+
+    }
 
     func setupNavigationBar() {
 //        self.navigationController?.navigationBar.backgroundColor = .black
