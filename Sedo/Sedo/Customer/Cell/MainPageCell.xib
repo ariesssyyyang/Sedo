@@ -40,7 +40,7 @@
                                 <rect key="frame" x="5" y="122.5" width="254" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UH-7D-RLg">
-                                        <rect key="frame" x="8" y="8" width="196" height="14.5"/>
+                                        <rect key="frame" x="15" y="8" width="189" height="14.5"/>
                                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                                 <constraints>
                                     <constraint firstItem="pqJ-mM-xUh" firstAttribute="leading" secondItem="7UH-7D-RLg" secondAttribute="trailing" constant="8" id="B2T-ms-sRw"/>
                                     <constraint firstItem="pqJ-mM-xUh" firstAttribute="centerY" secondItem="ttj-PA-7Ff" secondAttribute="centerY" id="Izr-Df-5mY"/>
-                                    <constraint firstItem="7UH-7D-RLg" firstAttribute="leading" secondItem="ttj-PA-7Ff" secondAttribute="leading" constant="8" id="J2n-yf-loY"/>
+                                    <constraint firstItem="7UH-7D-RLg" firstAttribute="leading" secondItem="ttj-PA-7Ff" secondAttribute="leading" constant="15" id="J2n-yf-loY"/>
                                     <constraint firstAttribute="trailing" secondItem="7UH-7D-RLg" secondAttribute="trailing" constant="50" id="KRd-Yq-dWy"/>
                                     <constraint firstItem="7UH-7D-RLg" firstAttribute="top" secondItem="ttj-PA-7Ff" secondAttribute="top" constant="8" id="W2A-nc-GVj"/>
                                     <constraint firstItem="7UH-7D-RLg" firstAttribute="height" secondItem="ttj-PA-7Ff" secondAttribute="height" multiplier="1/2" id="sgU-BW-vvO"/>

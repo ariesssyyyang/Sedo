@@ -17,10 +17,15 @@ class DesignerOrderListController: ButtonBarPagerTabStripViewController {
 
         self.navigationController?.navigationBar.isTranslucent = false
         // change selected bar color
-        settings.style.buttonBarBackgroundColor = UIColor.brown
-        settings.style.buttonBarItemBackgroundColor = UIColor.brown
+        settings.style.buttonBarBackgroundColor = UIColor.black
+        settings.style.buttonBarItemBackgroundColor = UIColor.black
 
-        settings.style.selectedBarBackgroundColor = .yellow
+        settings.style.selectedBarBackgroundColor = UIColor(
+            red: 53.0 / 255.0,
+            green: 184.0 / 255.0,
+            blue: 208 / 255.0,
+            alpha: 1.0
+        )
         settings.style.buttonBarItemFont = UIFont(name: "Menlo-Regular", size: 16) ?? UIFont.systemFont(ofSize: 16)
         settings.style.selectedBarHeight = 3.0
 
@@ -34,7 +39,12 @@ class DesignerOrderListController: ButtonBarPagerTabStripViewController {
         changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
             oldCell?.label.textColor = .white
-            newCell?.label.textColor = .yellow
+            newCell?.label.textColor = UIColor(
+                red: 53.0 / 255.0,
+                green: 184.0 / 255.0,
+                blue: 208 / 255.0,
+                alpha: 1.0
+            )
         }
 
         super.viewDidLoad()

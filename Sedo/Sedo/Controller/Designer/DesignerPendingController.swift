@@ -27,14 +27,23 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupTableView()
  
-        tableView.register(UINib(nibName: "DesignerRequestCell", bundle: Bundle.main), forCellReuseIdentifier: requestCellId)
-        tableView.estimatedRowHeight = 60.0
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.backgroundColor = UIColor.orange
+        
 
         self.fetchDesignerPendingOrder()
 
+    }
+
+    // MARK: - Set Up
+
+    func setupTableView() {
+        tableView.register(UINib(nibName: "DesignerRequestCell", bundle: Bundle.main), forCellReuseIdentifier: requestCellId)
+
+        tableView.backgroundColor = UIColor.white
+
+        tableView.separatorStyle = .none
     }
 
     // MARK: - UITableViewDataSource
@@ -106,8 +115,16 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: requestCellId, for: indexPath) as? DesignerRequestCell else { return DesignerRequestCell() }
-        cell.textLabel?.text = "request: " + requests[indexPath.row].service + " from " + requests[indexPath.row].customer.name
+
+        let request = requests[indexPath.row]
+
+        cell.serviceLabel.text = request.service
+
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

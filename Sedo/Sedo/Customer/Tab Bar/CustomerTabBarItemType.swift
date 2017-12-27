@@ -32,7 +32,7 @@ extension CustomerTabBarItemType {
 
         case .profile:
 
-            return NSLocalizedString("Me", comment: "")
+            return NSLocalizedString("Customer", comment: "")
 
         case .order:
 

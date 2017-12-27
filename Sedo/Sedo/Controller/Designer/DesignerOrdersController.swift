@@ -31,7 +31,8 @@ class DesignerOrdersController: UITableViewController, IndicatorInfoProvider {
         tableView.register(UINib(nibName: "DesignerOrderCell", bundle: Bundle.main), forCellReuseIdentifier: orderCellId)
         tableView.estimatedRowHeight = 60.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.backgroundColor = UIColor.red
+        tableView.backgroundColor = UIColor.white
+        tableView.separatorStyle = .none
 
         // To check //
         tableView.allowsSelection = false
