@@ -48,15 +48,24 @@ class CustomerTabBarController: UITabBarController {
 
         tabBar.barStyle = .default
 
+        tabBar.barTintColor = UIColor(
+            red: 202.0/255,
+            green: 94.0/255,
+            blue: 57.0/255,
+            alpha: 1.0
+        )
+
         tabBar.isTranslucent = false
 
         // Todo: palette
         tabBar.tintColor = UIColor(
-            red: 53.0 / 255.0,
-            green: 184.0 / 255.0,
-            blue: 208 / 255.0,
+            red: 24.0 / 255.0,
+            green: 79.0 / 255.0,
+            blue: 135 / 255.0,
             alpha: 1.0
         )
+
+        tabBar.unselectedItemTintColor = UIColor(red: 133.0/255, green: 53.0/255, blue: 11.0/255, alpha: 1.0)
 
     }
 

@@ -45,7 +45,7 @@ class DesignerTabBarController: UITabBarController {
 
     private func setUpTabBar() {
 
-        tabBar.barStyle = .default
+        tabBar.barStyle = .black
 
         tabBar.isTranslucent = false
 

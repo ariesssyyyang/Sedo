@@ -50,9 +50,11 @@ class MainPageCell: UITableViewCell {
 
     func setupBookingButton() {
 
-        bookingButton.imageView?.image = #imageLiteral(resourceName: "icon-booking").withRenderingMode(.alwaysTemplate)
+        let image = #imageLiteral(resourceName: "icon-booking").withRenderingMode(.alwaysTemplate)
 
-        bookingButton.tintColor = UIColor.white
+        bookingButton.setImage(image, for: .normal)
+
+        bookingButton.tintColor = UIColor(red: 139.0/255, green: 0, blue: 0, alpha: 1.0)
 
     }
 

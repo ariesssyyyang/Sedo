@@ -84,7 +84,7 @@ class UserManager {
 
         let storageRef = Storage.storage().reference().child("designer").child(uid)
 
-        if let image = image, let uploadData = UIImagePNGRepresentation(image)  {
+        if let image = image, let uploadData = UIImagePNGRepresentation(image) {
 
             storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
                 

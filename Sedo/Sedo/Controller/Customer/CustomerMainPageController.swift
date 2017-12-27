@@ -41,8 +41,10 @@ class CustomerMainPageController: UITableViewController {
     // MARK: - Set Up
 
     func setupNavigationBar() {
-
+//        self.navigationController?.navigationBar.backgroundColor = .black
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationItem.title = "Main Page"
+
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
 
     }
