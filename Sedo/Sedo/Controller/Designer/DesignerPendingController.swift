@@ -29,19 +29,21 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
         super.viewDidLoad()
 
         setupTableView()
- 
-        
 
-        self.fetchDesignerPendingOrder()
+        fetchDesignerPendingOrder()
 
     }
 
     // MARK: - Set Up
 
     func setupTableView() {
-        tableView.register(UINib(nibName: "DesignerRequestCell", bundle: Bundle.main), forCellReuseIdentifier: requestCellId)
 
-        tableView.backgroundColor = UIColor.white
+        tableView.register(
+            UINib(nibName: "DesignerRequestCell", bundle: Bundle.main),
+            forCellReuseIdentifier: requestCellId
+        )
+
+        tableView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
 
         tableView.separatorStyle = .none
     }
@@ -56,6 +58,19 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
         return requests.count
     }
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: requestCellId, for: indexPath) as? DesignerRequestCell else { return DesignerRequestCell() }
+
+        let request = requests[indexPath.row]
+        let time = createdTime(request.createdDate)
+
+        cell.serviceLabel.text = request.service
+        cell.dateLabel.text = request.date
+        cell.timeLabel.text = time
+
+        return cell
+    }
+
     // MARK: - Fetch data
 
     func fetchDesignerPendingOrder() {
@@ -64,7 +79,7 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
             print("fail to fetch user uid in pending order page!")
             return
         }
-        // use user id as node key //
+
         let ref = Database.database().reference().child("request-designer").child(uid)
         ref.observe(.value, with: { (snapshot) in
 
@@ -113,18 +128,27 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
         }, withCancel: nil)
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: requestCellId, for: indexPath) as? DesignerRequestCell else { return DesignerRequestCell() }
+    func createdTime(_ dateString: String) -> String {
 
-        let request = requests[indexPath.row]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
 
-        cell.serviceLabel.text = request.service
+        guard let createdDate = dateFormatter.date(from: dateString)
+        else {
+            print("fail to transform createdDate: String -> Date")
+            return "N/A"
+        }
 
-        return cell
+        let StringFormatter = DateFormatter()
+        StringFormatter.dateFormat = "h:mm a"
+
+        let timeString = StringFormatter.string(from: createdDate)
+        return timeString
+
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 100
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

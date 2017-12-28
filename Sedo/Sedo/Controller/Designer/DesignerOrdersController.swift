@@ -28,22 +28,28 @@ class DesignerOrdersController: UITableViewController, IndicatorInfoProvider {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UINib(nibName: "DesignerOrderCell", bundle: Bundle.main), forCellReuseIdentifier: orderCellId)
-        tableView.estimatedRowHeight = 60.0
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.backgroundColor = UIColor.white
-        tableView.separatorStyle = .none
+        setupTableView()
 
-        // To check //
+        fetchDesignerOrder()
+
+    }
+
+    // MARK: - Set Up
+
+    func setupTableView() {
+
+        tableView.register(
+            UINib(nibName: "DesignerRequestCell", bundle: Bundle.main),
+            forCellReuseIdentifier: orderCellId
+        )
+
         tableView.allowsSelection = false
-        // To check //
+        
+        tableView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
 
+        tableView.separatorStyle = .none
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.fetchDesignerOrder()
-    }
 
     // MARK: - UITableViewDataSource
 
@@ -53,6 +59,18 @@ class DesignerOrdersController: UITableViewController, IndicatorInfoProvider {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orders.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: orderCellId, for: indexPath) as? DesignerRequestCell else { return DesignerRequestCell() }
+        let order = orders[indexPath.row]
+        cell.serviceLabel.text = order.service
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 
     // MARK: - Fetch data
@@ -78,9 +96,9 @@ class DesignerOrdersController: UITableViewController, IndicatorInfoProvider {
                     let service = dictionary["service"],
                     let date = dictionary["date"],
                     let customerId = dictionary["customerId"]
-                else {
-                    print("fail to transform type to dictionary")
-                    return
+                    else {
+                        print("fail to transform type to dictionary")
+                        return
                 }
 
                 let userRef = Database.database().reference().child("user")
@@ -91,11 +109,11 @@ class DesignerOrdersController: UITableViewController, IndicatorInfoProvider {
                         let customerName = customerInfo["name"] as? String,
                         let designerInfo = userDict[uid] as? [String: AnyObject],
                         let designerName = designerInfo["name"] as? String
-                    else {
-                        print("fail to get users' info")
-                        return
+                        else {
+                            print("fail to get users' info")
+                            return
                     }
-   
+
                     let customer = Customer(name: customerName, id: customerId)
                     let designer = Designer(name: designerName, id: uid)
 
@@ -109,12 +127,6 @@ class DesignerOrdersController: UITableViewController, IndicatorInfoProvider {
             self.tableView.reloadData()
 
         }, withCancel: nil)
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: orderCellId, for: indexPath) as? DesignerOrderCell else { return DesignerOrderCell() }
-        cell.textLabel?.text = orders[indexPath.row].service
-        return cell
     }
 
     // MARK: - IndicatorInfoProvider

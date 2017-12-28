@@ -19,7 +19,7 @@ class DesignerSettingController: UIViewController {
         btn.layer.borderWidth = 1.0
         btn.layer.cornerRadius = 10.0
         btn.layer.masksToBounds = true
-        
+
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(changeMode), for: .touchUpInside)
         return btn
@@ -33,7 +33,7 @@ class DesignerSettingController: UIViewController {
         btn.layer.borderWidth = 1.0
         btn.layer.cornerRadius = 10.0
         btn.layer.masksToBounds = true
-        
+
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.addTarget(self, action: #selector(viewOrders), for: .touchUpInside)
         return btn
@@ -71,10 +71,16 @@ class DesignerSettingController: UIViewController {
     }
 
     func setupNavigationBar() {
-
+//        self.navigationController?.navigationBar.barTintColor = UIColor.black
+//        self.navigationController?.navigationBar.tintColor = UIColor(
+//            red: 53.0 / 255.0,
+//            green: 184.0 / 255.0,
+//            blue: 208 / 255.0,
+//            alpha: 1.0
+//        )
         self.navigationItem.title = "Designer Mode"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
-        
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20), NSAttributedStringKey.foregroundColor: UIColor.white]
+
     }
 
 }

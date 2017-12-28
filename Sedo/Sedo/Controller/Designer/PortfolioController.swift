@@ -144,7 +144,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleNewPost))
         self.navigationItem.title = "Portfolio"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
+
     }
 
     // MARK: - Actions

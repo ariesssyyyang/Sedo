@@ -17,15 +17,25 @@ class CustomerOrderListController: ButtonBarPagerTabStripViewController {
 
         self.navigationController?.navigationBar.isTranslucent = false
         // change selected bar color
-        settings.style.buttonBarBackgroundColor = UIColor.brown
-        settings.style.buttonBarItemBackgroundColor = UIColor.brown
+        settings.style.buttonBarBackgroundColor = UIColor.white
+        settings.style.buttonBarItemBackgroundColor = UIColor.white
 
-        settings.style.selectedBarBackgroundColor = .yellow
+        settings.style.selectedBarBackgroundColor = UIColor(
+            red: 24.0 / 255.0,
+            green: 79.0 / 255.0,
+            blue: 135 / 255.0,
+            alpha: 1.0
+        )
         settings.style.buttonBarItemFont = UIFont(name: "Menlo-Regular", size: 16) ?? UIFont.systemFont(ofSize: 16)
         settings.style.selectedBarHeight = 3.0
 
         settings.style.buttonBarMinimumLineSpacing = 0
-        settings.style.buttonBarItemTitleColor = UIColor.yellow
+        settings.style.buttonBarItemTitleColor = UIColor(
+            red: 24.0 / 255.0,
+            green: 79.0 / 255.0,
+            blue: 135 / 255.0,
+            alpha: 1.0
+        )
         settings.style.buttonBarItemsShouldFillAvailableWidth = true
 
         settings.style.buttonBarLeftContentInset = 20
@@ -33,8 +43,18 @@ class CustomerOrderListController: ButtonBarPagerTabStripViewController {
 
         changeCurrentIndexProgressive = { (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
-            oldCell?.label.textColor = .white
-            newCell?.label.textColor = .yellow
+            oldCell?.label.textColor = UIColor(
+                red: 133.0/255,
+                green: 53.0/255,
+                blue: 11.0/255,
+                alpha: 1.0
+            )
+            newCell?.label.textColor = UIColor(
+                red: 24.0 / 255.0,
+                green: 79.0 / 255.0,
+                blue: 135 / 255.0,
+                alpha: 1.0
+            )
         }
 
         super.viewDidLoad()

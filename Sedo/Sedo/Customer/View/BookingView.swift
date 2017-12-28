@@ -16,6 +16,12 @@ class BookingView: UIView {
     
     @IBOutlet weak var doneButton: UIButton!
     
+    override func awakeFromNib() {
+
+        super.awakeFromNib()
+
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

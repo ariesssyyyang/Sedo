@@ -39,7 +39,8 @@ class CustomerSettingController: UIViewController {
     }()
 
     @objc func changeMode() {
-        let designerController = DesignerTabBarController(itemTypes: [.calendar, .portfolio, .service, .profile])
+        let designerController = DesignerTabBarController(itemTypes: [.portfolio, .service, .profile])
+        designerController.selectedIndex = 2
         self.present(designerController, animated: true, completion: nil)
     }
 

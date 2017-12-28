@@ -26,8 +26,9 @@ class DesignerEditView: UIView {
 
         super.awakeFromNib()
 
+        self.translatesAutoresizingMaskIntoConstraints = false
+
         setupImageView()
-        
     }
 
     // MARK: - Set up

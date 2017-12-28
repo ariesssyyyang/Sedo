@@ -34,8 +34,6 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
 
         super.viewDidLoad()
 
-        view.addSubview(editView)
-
         setupEditView()
 
         confirmDelegate()
@@ -78,6 +76,12 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
     }
 
     func setupEditView() {
+        view.addSubview(editView)
+        editView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        editView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        editView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        editView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
         editView.imageSelectedButton.addTarget(self, action: #selector(selectImage), for: .touchUpInside)
     }
 

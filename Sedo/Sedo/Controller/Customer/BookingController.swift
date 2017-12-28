@@ -31,16 +31,27 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
         fetchDesignerServices()
 
         setupNavigationBar()
+
         setupDatePicker()
+
         setupServicePicker()
 
+        setupBookingView()
+    }
+
+    // MARK: - Set Up
+
+    func setupBookingView() {
         view.addSubview(bookingView)
+        bookingView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        bookingView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        bookingView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        bookingView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
         bookingView.dateTextField.inputView = datePicker
         bookingView.serviceTextField.inputView = servicePicker
         bookingView.doneButton.addTarget(self, action: #selector(requestService), for: .touchUpInside)
     }
-
-    // MARK: - Set Up
 
     func setupNavigationBar() {
 

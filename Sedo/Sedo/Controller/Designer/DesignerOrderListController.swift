@@ -53,7 +53,8 @@ class DesignerOrderListController: ButtonBarPagerTabStripViewController {
     func setupNavigationBar() {
 
         self.navigationItem.title = "Order List"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
+
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20), NSAttributedStringKey.foregroundColor: UIColor.white]
 
     }
 

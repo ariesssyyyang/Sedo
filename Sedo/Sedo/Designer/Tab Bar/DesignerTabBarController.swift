@@ -67,25 +67,25 @@ class DesignerTabBarController: UITabBarController {
 
         case .calendar:
 
-            let navigationController = UINavigationController(rootViewController: DesignerSettingController())
+            let navigationController = DesignerNavigationController(rootViewController: DesignerSettingController())
             navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
             return navigationController
 
         case .portfolio:
 
-            let navigationController = UINavigationController(rootViewController: PortfolioController(collectionViewLayout: UICollectionViewFlowLayout()))
+            let navigationController = DesignerNavigationController(rootViewController: PortfolioController(collectionViewLayout: UICollectionViewFlowLayout()))
             navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
             return navigationController
 
         case .service:
 
-            let navigationController = UINavigationController(rootViewController: ServiceController())
+            let navigationController = DesignerNavigationController(rootViewController: ServiceController())
             navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
             return navigationController
 
         case .profile:
 
-            let navigationController = UINavigationController(rootViewController: DesignerSettingController())
+            let navigationController = DesignerNavigationController(rootViewController: DesignerSettingController())
             navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
             return navigationController
         }
