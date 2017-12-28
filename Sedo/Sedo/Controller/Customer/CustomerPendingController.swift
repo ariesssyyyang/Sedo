@@ -66,7 +66,10 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: requestCellId, for: indexPath) as? CustomerRequestCell else { return CustomerRequestCell() }
-        cell.textLabel?.text = "send request: " + requests[indexPath.row].service + " to " + requests[indexPath.row].designer.name
+        let request = requests[indexPath.row]
+        cell.serviceLabel.text = request.service
+        cell.dateLabel.text = request.date
+//        cell.textLabel?.text = "send request: " + requests[indexPath.row].service + " to " + requests[indexPath.row].designer.name
         return cell
     }
 

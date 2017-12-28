@@ -52,7 +52,7 @@ class CustomerOrdersController: UITableViewController, IndicatorInfoProvider {
         blackView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         blackView.frame = backgroundImageView.frame
         backgroundImageView.addSubview(blackView)
- 
+
     }
 
     // MARK: - UITableViewDataSource
@@ -67,9 +67,13 @@ class CustomerOrdersController: UITableViewController, IndicatorInfoProvider {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: orderCellId, for: indexPath) as? CustomerRequestCell else { return CustomerRequestCell() }
+
         let order = orders[indexPath.row]
- 
-        cell.textLabel?.text = order.service
+        cell.serviceLabel.text = order.service
+        cell.dateLabel.text = order.date
+        cell.checkImageView.image = #imageLiteral(resourceName: "icon-checking")
+        cell.backView.backgroundColor = UIColor(red: 72.0/255, green: 107.0/255, blue: 16.0/255, alpha: 0.7)
+
         return cell
     }
 
