@@ -75,19 +75,19 @@ class CustomerTabBarController: UITabBarController {
 
         case .main:
 
-            let navigationController = UINavigationController(rootViewController: CustomerMainPageController())
+            let navigationController = CustomerNavigationController(rootViewController: CustomerMainPageController())
             navigationController.tabBarItem = CustomerTabBarItem(itemType: itemType)
             return navigationController
 
         case .order:
 
-            let navigationController = UINavigationController(rootViewController: CustomerOrderListController())
+            let navigationController = CustomerNavigationController(rootViewController: CustomerOrderListController())
             navigationController.tabBarItem = CustomerTabBarItem(itemType: itemType)
             return navigationController
 
         case .profile:
 
-            let navigationController = UINavigationController(rootViewController: CustomerSettingController())
+            let navigationController = CustomerNavigationController(rootViewController: CustomerSettingController())
             navigationController.tabBarItem = CustomerTabBarItem(itemType: itemType)
             return navigationController
         }

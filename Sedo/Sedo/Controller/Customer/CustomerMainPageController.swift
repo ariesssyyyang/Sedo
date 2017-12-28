@@ -52,13 +52,16 @@ class CustomerMainPageController: UITableViewController {
         backgroundImageView.contentMode = .scaleAspectFill
         tableView.backgroundView = backgroundImageView
 
+        let blackView = UIView()
+        blackView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        blackView.frame = backgroundImageView.frame
+        backgroundImageView.addSubview(blackView)
+
     }
 
     func setupNavigationBar() {
 
         self.navigationItem.title = "Main Page"
-
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
 
     }
 

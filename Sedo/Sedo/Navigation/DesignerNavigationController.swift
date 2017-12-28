@@ -34,7 +34,6 @@ class DesignerNavigationController: UINavigationController {
         )
 
         navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20), NSAttributedStringKey.foregroundColor: UIColor.white]
-        
     }
 
 }

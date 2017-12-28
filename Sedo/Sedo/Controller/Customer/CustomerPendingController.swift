@@ -20,7 +20,7 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
         self.itemInfo = itemInfo
         super.init(style: style)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -28,13 +28,29 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.fetchCustomerPendingOrder()
+        fetchCustomerPendingOrder()
+
+        setupTableViewBackground()
+    }
+
+    // MARK: - Set Up
+
+    func setupTableViewBackground() {
 
         tableView.register(UINib(nibName: "CustomerRequestCell", bundle: Bundle.main), forCellReuseIdentifier: requestCellId)
-        tableView.estimatedRowHeight = 60.0
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.backgroundColor = UIColor.orange
+
+        tableView.separatorStyle = .none
+
         tableView.allowsSelection = false
+
+        let backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "back-woman"))
+        backgroundImageView.contentMode = .scaleAspectFill
+        tableView.backgroundView = backgroundImageView
+
+        let blackView = UIView()
+        blackView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        blackView.frame = backgroundImageView.frame
+        backgroundImageView.addSubview(blackView)
 
     }
 
@@ -48,6 +64,16 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
         return requests.count
     }
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: requestCellId, for: indexPath) as? CustomerRequestCell else { return CustomerRequestCell() }
+        cell.textLabel?.text = "send request: " + requests[indexPath.row].service + " to " + requests[indexPath.row].designer.name
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+
     // MARK: - Fetch data
 
     func fetchCustomerPendingOrder() {
@@ -56,8 +82,7 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
             print("fail to fetch user uid in pending order page!")
             return
         }
-        print(uid)
-        // use user id as node key //
+
         let ref = Database.database().reference().child("request-customer").child(uid)
         ref.observe(.value, with: { (snapshot) in
 
@@ -103,12 +128,6 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
             self.tableView.reloadData()
 
         }, withCancel: nil)
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: requestCellId, for: indexPath) as? CustomerRequestCell else { return CustomerRequestCell() }
-        cell.textLabel?.text = "send request: " + requests[indexPath.row].service + " to " + requests[indexPath.row].designer.name
-        return cell
     }
 
     // MARK: - IndicatorInfoProvider

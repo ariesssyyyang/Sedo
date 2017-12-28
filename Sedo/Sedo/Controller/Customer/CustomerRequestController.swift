@@ -86,8 +86,7 @@ class CustomerRequestController: UIViewController, UITextFieldDelegate {
     func setupNavigationBar() {
         
         self.navigationItem.title = "Booking Service"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
-        
+
     }
 
     var designer: Designer?

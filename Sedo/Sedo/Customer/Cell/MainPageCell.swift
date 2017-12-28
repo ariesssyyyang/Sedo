@@ -22,7 +22,7 @@ class MainPageCell: UITableViewCell {
 
         super.awakeFromNib()
 
-        self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        self.backgroundColor = UIColor.clear
 
         setupImageView()
 

@@ -56,7 +56,6 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
     func setupNavigationBar() {
 
         self.navigationItem.title = "Booking"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
 
     }
 

@@ -26,22 +26,33 @@ class CustomerOrdersController: UITableViewController, IndicatorInfoProvider {
     }
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
 
-        tableView.register(UINib(nibName: "CustomerOrderCell", bundle: Bundle.main), forCellReuseIdentifier: orderCellId)
-        tableView.estimatedRowHeight = 60.0
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.backgroundColor = UIColor.red
+        fetchCustomerOrder()
 
-        // To check //
-        tableView.allowsSelection = false
-        // To check //
-
+        setupTableViewBackground()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.fetchCustomerOrder()
+    // MARK: - Set Up
+
+    func setupTableViewBackground() {
+
+        tableView.register(UINib(nibName: "CustomerRequestCell", bundle: Bundle.main), forCellReuseIdentifier: orderCellId)
+
+        tableView.separatorStyle = .none
+
+        tableView.allowsSelection = false
+
+        let backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "back-woman"))
+        backgroundImageView.contentMode = .scaleAspectFill
+        tableView.backgroundView = backgroundImageView
+
+        let blackView = UIView()
+        blackView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        blackView.frame = backgroundImageView.frame
+        backgroundImageView.addSubview(blackView)
+ 
     }
 
     // MARK: - UITableViewDataSource
@@ -52,6 +63,18 @@ class CustomerOrdersController: UITableViewController, IndicatorInfoProvider {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orders.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: orderCellId, for: indexPath) as? CustomerRequestCell else { return CustomerRequestCell() }
+        let order = orders[indexPath.row]
+ 
+        cell.textLabel?.text = order.service
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 
     // MARK: - Fetch data
@@ -108,12 +131,6 @@ class CustomerOrdersController: UITableViewController, IndicatorInfoProvider {
             self.tableView.reloadData()
 
         }, withCancel: nil)
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: orderCellId, for: indexPath) as? CustomerOrderCell else { return CustomerOrderCell() }
-        cell.textLabel?.text = orders[indexPath.row].service
-        return cell
     }
 
     // MARK: - IndicatorInfoProvider
