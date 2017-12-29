@@ -44,7 +44,10 @@ class CustomerMainPageController: UITableViewController {
 
     func setupTableViewBackground() {
 
-        tableView.register(UINib(nibName: "MainPageCell", bundle: Bundle.main), forCellReuseIdentifier: mainCellId)
+        tableView.register(
+            UINib(nibName: "MainPageCell", bundle: Bundle.main),
+            forCellReuseIdentifier: mainCellId
+        )
 
         tableView.separatorStyle = .none
 
@@ -53,8 +56,15 @@ class CustomerMainPageController: UITableViewController {
         tableView.backgroundView = backgroundImageView
 
         let blackView = UIView()
-        blackView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        blackView.backgroundColor = UIColor(
+            red: 0,
+            green: 0,
+            blue: 0,
+            alpha: 0.5
+        )
+
         blackView.frame = backgroundImageView.frame
+
         backgroundImageView.addSubview(blackView)
 
     }

@@ -13,9 +13,9 @@ class CustomerRequestCell: UITableViewCell {
     @IBOutlet weak var backView: UIView!
 
     @IBOutlet weak var checkImageView: UIImageView!
-    
+
     @IBOutlet weak var serviceLabel: UILabel!
-    
+
     @IBOutlet weak var dateLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

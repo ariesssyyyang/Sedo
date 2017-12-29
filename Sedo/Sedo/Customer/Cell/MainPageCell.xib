@@ -54,7 +54,7 @@
                                         <state key="normal" image="icon-booking"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.93905315695680336" green="0.93105294365442604" blue="0.88574131701475756" alpha="0.5978167808219178" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.93905315695680336" green="0.93105294365442604" blue="0.88574131701475756" alpha="0.70052975171232879" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="pqJ-mM-xUh" firstAttribute="leading" secondItem="7UH-7D-RLg" secondAttribute="trailing" constant="8" id="B2T-ms-sRw"/>
                                     <constraint firstItem="pqJ-mM-xUh" firstAttribute="centerY" secondItem="ttj-PA-7Ff" secondAttribute="centerY" id="Izr-Df-5mY"/>
@@ -65,7 +65,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="0.80409888698630139" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ee5-rB-qTm" firstAttribute="leading" secondItem="bxn-YT-vXo" secondAttribute="leading" constant="5" id="1bw-Di-i2A"/>
                             <constraint firstItem="o73-PB-9S6" firstAttribute="height" secondItem="Ee5-rB-qTm" secondAttribute="height" id="1m6-nE-uzC"/>
@@ -101,6 +101,6 @@
     </objects>
     <resources>
         <image name="icon-booking" width="24" height="24"/>
-        <image name="placeholder" width="104" height="104"/>
+        <image name="placeholder" width="24" height="24"/>
     </resources>
 </document>

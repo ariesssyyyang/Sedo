@@ -43,9 +43,16 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
             forCellReuseIdentifier: requestCellId
         )
 
-        tableView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
-
         tableView.separatorStyle = .none
+
+        let backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "back-walkman"))
+        backgroundImageView.contentMode = .scaleAspectFill
+        tableView.backgroundView = backgroundImageView
+
+        let blackView = UIView()
+        blackView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        blackView.frame = backgroundImageView.frame
+        backgroundImageView.addSubview(blackView)
     }
 
     // MARK: - UITableViewDataSource

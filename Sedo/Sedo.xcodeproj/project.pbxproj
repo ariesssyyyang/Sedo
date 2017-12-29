@@ -15,6 +15,8 @@
 		7F363F4F1FEBF29B008CE4E2 /* NewPostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F363F4E1FEBF29B008CE4E2 /* NewPostView.xib */; };
 		7F52AFF11FEFB10E008C59BA /* PortfolioIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52AFEF1FEFB10E008C59BA /* PortfolioIntroView.swift */; };
 		7F52AFF21FEFB10E008C59BA /* PortfolioIntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F52AFF01FEFB10E008C59BA /* PortfolioIntroView.xib */; };
+		7F5D6E381FF5E6330008DA2C /* ReplyRequestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5D6E371FF5E6330008DA2C /* ReplyRequestView.xib */; };
+		7F5D6E3A1FF5E6560008DA2C /* ReplyRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D6E391FF5E6560008DA2C /* ReplyRequestView.swift */; };
 		7F6DDD251FE90A4F004E7898 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD241FE90A4F004E7898 /* UserManager.swift */; };
 		7F6DDD271FE91646004E7898 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD261FE91646004E7898 /* LoginController.swift */; };
 		7F6DDD2C1FE96DAB004E7898 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD2A1FE96DAB004E7898 /* PortfolioCell.swift */; };
@@ -82,6 +84,8 @@
 		7F363F4E1FEBF29B008CE4E2 /* NewPostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPostView.xib; sourceTree = "<group>"; };
 		7F52AFEF1FEFB10E008C59BA /* PortfolioIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioIntroView.swift; sourceTree = "<group>"; };
 		7F52AFF01FEFB10E008C59BA /* PortfolioIntroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortfolioIntroView.xib; sourceTree = "<group>"; };
+		7F5D6E371FF5E6330008DA2C /* ReplyRequestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyRequestView.xib; sourceTree = "<group>"; };
+		7F5D6E391FF5E6560008DA2C /* ReplyRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyRequestView.swift; sourceTree = "<group>"; };
 		7F6DDD241FE90A4F004E7898 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		7F6DDD261FE91646004E7898 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		7F6DDD2A1FE96DAB004E7898 /* PortfolioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				7F52AFF01FEFB10E008C59BA /* PortfolioIntroView.xib */,
 				7F006FE51FF231AE00EE35E9 /* DesignerEditView.swift */,
 				7F006FE71FF231C300EE35E9 /* DesignerEditView.xib */,
+				7F5D6E391FF5E6560008DA2C /* ReplyRequestView.swift */,
+				7F5D6E371FF5E6330008DA2C /* ReplyRequestView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -468,6 +474,7 @@
 				7F363F4F1FEBF29B008CE4E2 /* NewPostView.xib in Resources */,
 				7FF937781FE8AB89004D1D4D /* MainPageCell.xib in Resources */,
 				7FF9375C1FE790DF004D1D4D /* CustomerRequestCell.xib in Resources */,
+				7F5D6E381FF5E6330008DA2C /* ReplyRequestView.xib in Resources */,
 				7FA138011FE22FEE006455B1 /* LaunchScreen.storyboard in Resources */,
 				7FF937721FE7F409004D1D4D /* DesignerOrderCell.xib in Resources */,
 				7FF937621FE79130004D1D4D /* CustomerOrderCell.xib in Resources */,
@@ -575,6 +582,7 @@
 				7F363F4A1FEBEC99008CE4E2 /* NewPostController.swift in Sources */,
 				7FA8177E1FF09E2D001A987A /* ServiceController.swift in Sources */,
 				7F6DDD251FE90A4F004E7898 /* UserManager.swift in Sources */,
+				7F5D6E3A1FF5E6560008DA2C /* ReplyRequestView.swift in Sources */,
 				7FCA6E531FEA59EB00D5CFB4 /* FadeInOutTransition.swift in Sources */,
 				7FA1380C1FE2505B006455B1 /* RequestManager.swift in Sources */,
 				7FA138151FE2869E006455B1 /* DesignerTabBarItemType.swift in Sources */,

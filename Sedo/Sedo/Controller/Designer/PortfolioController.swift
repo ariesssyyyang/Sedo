@@ -144,7 +144,6 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleNewPost))
         self.navigationItem.title = "Portfolio"
-
     }
 
     // MARK: - Actions

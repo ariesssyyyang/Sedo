@@ -21,7 +21,7 @@ class DesignerEditView: UIView {
     @IBOutlet weak var introductionTextField: UITextField!
 
     @IBOutlet weak var placeholderImageView: UIImageView!
-    
+
     override func awakeFromNib() {
 
         super.awakeFromNib()

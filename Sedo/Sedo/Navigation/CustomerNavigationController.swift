@@ -21,6 +21,9 @@ class CustomerNavigationController: UINavigationController {
 
         navigationBar.barTintColor = .white
 
+        navigationBar.backIndicatorImage = #imageLiteral(resourceName: "icon-back")
+        navigationBar.backIndicatorTransitionMaskImage = #imageLiteral(resourceName: "icon-back")
+
         navigationBar.tintColor = UIColor(
             red: 24.0 / 255.0,
             green: 79.0 / 255.0,
@@ -31,4 +34,5 @@ class CustomerNavigationController: UINavigationController {
         navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
 
     }
+
 }

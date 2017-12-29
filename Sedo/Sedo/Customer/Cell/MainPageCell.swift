@@ -41,7 +41,7 @@ class MainPageCell: UITableViewCell {
     func setupImageView() {
 
         placeholderImageView.image = #imageLiteral(resourceName: "placeholder").withRenderingMode(.alwaysTemplate)
-        
+
         placeholderImageView.tintColor = UIColor(
             red: 165.0 / 255.0,
             green: 170.0 / 255.0,

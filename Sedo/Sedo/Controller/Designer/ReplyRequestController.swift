@@ -11,6 +11,13 @@ import Firebase
 
 class ReplyRequestController: UIViewController {
 
+    let replyView: ReplyRequestView = {
+        guard let view = UINib.load(nibName: "ReplyRequestView", bundle: Bundle.main) as? ReplyRequestView else {
+            return ReplyRequestView()
+        }
+        return view
+    }()
+/*
     let yesButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("yes", for: .normal)
@@ -34,16 +41,21 @@ class ReplyRequestController: UIViewController {
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
-
+*/
     var request: Request?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupReplyView()
+
+        setupLabels()
+
         setupNavigationBar()
 
-        self.view.backgroundColor = UIColor.brown
+        self.view.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "back-walkman"))
 
+/*
         self.view.addSubview(yesButton)
         yesButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 30).isActive = true
         yesButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -30).isActive = true
@@ -62,17 +74,37 @@ class ReplyRequestController: UIViewController {
         requestLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 80).isActive = true
         requestLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         requestLabel.text = request?.service
+*/
+    }
+
+    // MARK: - Set Up
+
+    func setupReplyView() {
+
+        view.addSubview(replyView)
+        replyView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        replyView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        replyView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        replyView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
+        replyView.leftButton.addTarget(self, action: #selector(handleYes(_:)), for: .touchUpInside)
+        replyView.rightButton.addTarget(self, action: #selector(handleNo(_:)), for: .touchUpInside)
+    }
+
+    func setupLabels() {
+        replyView.serviceLabel.text = request?.service
+        replyView.dateLabel.text = request?.date
+        replyView.nameLabel.text = request?.customer.name
+        replyView.timeLabel.text = request?.createdDate
     }
 
     func setupNavigationBar() {
-        
+
         self.navigationItem.title = "Reply"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
-        
+
     }
 
     @objc func handleYes(_ sender: UIButton) {
-
         guard let request = request else { return }
         RequestManager.approveRequest(for: request)
         RequestManager.sendOrder(of: request)
@@ -86,8 +118,6 @@ class ReplyRequestController: UIViewController {
         guard let request = request else { return }
         RequestManager.rejectRequest(for: request)
         self.navigationController?.popViewController(animated: true)
-
-
     }
 
 }

@@ -45,9 +45,16 @@ class DesignerOrdersController: UITableViewController, IndicatorInfoProvider {
 
         tableView.allowsSelection = false
 
-        tableView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0)
-
         tableView.separatorStyle = .none
+
+        let backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "back-walkman"))
+        backgroundImageView.contentMode = .scaleAspectFill
+        tableView.backgroundView = backgroundImageView
+
+        let blackView = UIView()
+        blackView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        blackView.frame = backgroundImageView.frame
+        backgroundImageView.addSubview(blackView)
     }
 
     // MARK: - UITableViewDataSource
@@ -65,6 +72,8 @@ class DesignerOrdersController: UITableViewController, IndicatorInfoProvider {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: orderCellId, for: indexPath) as? DesignerRequestCell else { return DesignerRequestCell() }
         let order = orders[indexPath.row]
         cell.serviceLabel.text = order.service
+        cell.dateLabel.text = order.date
+        cell.timeLabel.text = order.customer.name
         return cell
     }
 

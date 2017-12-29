@@ -87,12 +87,12 @@ class UserManager {
         if let image = image, let uploadData = UIImagePNGRepresentation(image) {
 
             storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
-                
+
                 if error != nil {
                     print(error)
                     return
                 }
-                
+
                 guard let imageUrl = metaData?.downloadURL()?.absoluteString else {
                     print("fail to get imageUrl")
                     return
