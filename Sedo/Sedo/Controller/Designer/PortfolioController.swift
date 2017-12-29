@@ -37,6 +37,15 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(UINib(nibName: "PortfolioCell", bundle: Bundle.main), forCellWithReuseIdentifier: portfolioCellId)
         collectionView?.register(UINib(nibName: "PortfolioIntroView", bundle: Bundle.main), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerViewId")
+
+        let backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "back-walkman"))
+        backgroundImageView.contentMode = .scaleAspectFill
+        collectionView?.backgroundView = backgroundImageView
+
+        let blackView = UIView()
+        blackView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        blackView.frame = backgroundImageView.frame
+        backgroundImageView.addSubview(blackView)
     }
 
     // MARK: - Fetch Data
@@ -259,6 +268,8 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         case UICollectionElementKindSectionHeader:
 
             if currentMe?.id != author?.id {
+
+                self.collectionView?.backgroundView = nil
 
                 self.navigationItem.rightBarButtonItem?.action = #selector(newBooking)
 
