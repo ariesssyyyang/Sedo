@@ -29,7 +29,7 @@ class RegisterView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         
         self.backgroundColor = UIColor.clear
-        
+
         setupButtons()
 
         setupContainerView()
@@ -40,10 +40,12 @@ class RegisterView: UIView {
     func setupButtons() {
         signUpButton.layer.cornerRadius = signUpButton.frame.size.height / 2
         signUpButton.layer.masksToBounds = true
+        cancelButton.imageView?.image = #imageLiteral(resourceName: "icon-close").withRenderingMode(.alwaysTemplate)
+        cancelButton.tintColor = .white
     }
-    
+
     func setupContainerView() {
-        
+
         containerView.layer.cornerRadius = 20
         containerView.layer.shadowColor = UIColor.black.cgColor
         containerView.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -54,7 +56,7 @@ class RegisterView: UIView {
         usernameTextField.backgroundColor = UIColor.clear
 
         emailTextField.backgroundColor = UIColor.clear
-        
+
         passwordTextField.backgroundColor = UIColor.clear
         passwordTextField.isSecureTextEntry = true
     }
