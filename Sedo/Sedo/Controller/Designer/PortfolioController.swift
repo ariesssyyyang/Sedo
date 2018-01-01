@@ -182,7 +182,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
             Nuke.loadImage(with: imageURL, into: editController.editView.designerImageView)
         }
 
-        let navigationController = UINavigationController(rootViewController: editController)
+        let navigationController = DesignerNavigationController(rootViewController: editController)
 
         self.present(navigationController, animated: true, completion: nil)
     }

@@ -71,7 +71,6 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
         self.navigationItem.title = "Setting"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDone))
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleCancel))
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "Palatino-Bold", size: 20) ?? UIFont.systemFont(ofSize: 20)]
 
     }
 
@@ -149,7 +148,7 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
 
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancel)
-        
+
         self.present(alert, animated: true, completion: nil)
     }
 

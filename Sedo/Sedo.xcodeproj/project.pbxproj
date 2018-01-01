@@ -47,6 +47,9 @@
 		7FA8178D1FF0B3C6001A987A /* BookingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA8178C1FF0B3C6001A987A /* BookingView.xib */; };
 		7FADBF361FF5112D002A5330 /* DesignerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FADBF351FF5112D002A5330 /* DesignerNavigationController.swift */; };
 		7FADBF381FF51615002A5330 /* CustomerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FADBF371FF51615002A5330 /* CustomerNavigationController.swift */; };
+		7FB335C91FFA3E43007F1118 /* SigninController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB335C81FFA3E43007F1118 /* SigninController.swift */; };
+		7FB335CB1FFA44F9007F1118 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB335CA1FFA44F9007F1118 /* LoginView.xib */; };
+		7FB335CD1FFA45FB007F1118 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB335CC1FFA45FB007F1118 /* LoginView.swift */; };
 		7FCA6E4D1FEA56BD00D5CFB4 /* AppDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E4C1FEA56BD00D5CFB4 /* AppDelegateExtension.swift */; };
 		7FCA6E501FEA57A100D5CFB4 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E4F1FEA57A100D5CFB4 /* UIWindowExtension.swift */; };
 		7FCA6E531FEA59EB00D5CFB4 /* FadeInOutTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E521FEA59EB00D5CFB4 /* FadeInOutTransition.swift */; };
@@ -118,6 +121,9 @@
 		7FA8178C1FF0B3C6001A987A /* BookingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingView.xib; sourceTree = "<group>"; };
 		7FADBF351FF5112D002A5330 /* DesignerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerNavigationController.swift; sourceTree = "<group>"; };
 		7FADBF371FF51615002A5330 /* CustomerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerNavigationController.swift; sourceTree = "<group>"; };
+		7FB335C81FFA3E43007F1118 /* SigninController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninController.swift; sourceTree = "<group>"; };
+		7FB335CA1FFA44F9007F1118 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		7FB335CC1FFA45FB007F1118 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7FCA6E4C1FEA56BD00D5CFB4 /* AppDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
 		7FCA6E4F1FEA57A100D5CFB4 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		7FCA6E521FEA59EB00D5CFB4 /* FadeInOutTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInOutTransition.swift; sourceTree = "<group>"; };
@@ -183,8 +189,11 @@
 		7F6DDD231FE90A2D004E7898 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				7FB335C81FFA3E43007F1118 /* SigninController.swift */,
 				7F6DDD261FE91646004E7898 /* LoginController.swift */,
 				7F6DDD301FEA049B004E7898 /* RegisterController.swift */,
+				7FB335CA1FFA44F9007F1118 /* LoginView.xib */,
+				7FB335CC1FFA45FB007F1118 /* LoginView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -483,6 +492,7 @@
 				7F52AFF21FEFB10E008C59BA /* PortfolioIntroView.xib in Resources */,
 				7FA137FC1FE22FEE006455B1 /* Main.storyboard in Resources */,
 				7FA8178D1FF0B3C6001A987A /* BookingView.xib in Resources */,
+				7FB335CB1FFA44F9007F1118 /* LoginView.xib in Resources */,
 				7F006FE81FF231C300EE35E9 /* DesignerEditView.xib in Resources */,
 				7FA817861FF0ADC6001A987A /* ServiceCell.xib in Resources */,
 			);
@@ -591,7 +601,9 @@
 				7FA138111FE27179006455B1 /* CustomerTabBarItem.swift in Sources */,
 				7FF937561FE777FD004D1D4D /* CustomerOrdersController.swift in Sources */,
 				7FF9374A1FE3BEF8004D1D4D /* UINibExtensions.swift in Sources */,
+				7FB335C91FFA3E43007F1118 /* SigninController.swift in Sources */,
 				7FF937741FE8AB49004D1D4D /* CustomerMainPageController.swift in Sources */,
+				7FB335CD1FFA45FB007F1118 /* LoginView.swift in Sources */,
 				7FA138291FE36A95006455B1 /* DesignerSettingController.swift in Sources */,
 				7FF937541FE76FBB004D1D4D /* CustomerPendingController.swift in Sources */,
 				7F363F4D1FEBF287008CE4E2 /* NewPostView.swift in Sources */,

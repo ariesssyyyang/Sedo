@@ -33,42 +33,12 @@ class NewPostController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // MARK: - Keyboard Notification
-/*
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
-*/
-
         setupContainerView()
 
         setupButtons()
 
     }
-/*
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
-    }
 
-    @objc func keyboardWillShow(notification: NSNotification) {
-        adjustingHeight(show: true, notification: notification)
-    }
-
-    @objc func keyboardWillHide(notification: NSNotification) {
-        adjustingHeight(show: false, notification: notification)
-    }
-
-    func adjustingHeight(show: Bool, notification: NSNotification) {
-        var userInfo = notification.userInfo!
-        guard let keyboardFrame: CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
-            let animationDurarion = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
-        let changeInHeight = (keyboardFrame.height + 40) * (show ? 1 : -1)
-        UIView.animate(withDuration: animationDurarion) {
-            self.inputContainerView.textFieldBottomConstraint.constant -= changeInHeight
-        }
-    }
-*/
     // MARK: - TextFieldDelegate
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

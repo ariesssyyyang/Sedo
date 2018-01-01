@@ -11,85 +11,23 @@ import Firebase
 
 class LoginController: UIViewController {
 
-    let containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.clear
-        view.translatesAutoresizingMaskIntoConstraints = false
+    let loginView: LoginView = {
+        guard let view = UINib.load(nibName: "LoginView", bundle: Bundle.main) as? LoginView else { return LoginView() }
         return view
     }()
-
-    let emailTextField: UITextField = {
-        let tf = UITextField()
-        tf.placeholder = "email"
-        tf.textAlignment = .center
-        tf.translatesAutoresizingMaskIntoConstraints = false
-        return tf
-    }()
-
-    let passwordTextField: UITextField = {
-        let tf = UITextField()
-        tf.placeholder = "password"
-        tf.textAlignment = .center
-        tf.isSecureTextEntry = true
-        tf.translatesAutoresizingMaskIntoConstraints = false
-        return tf
-    }()
-
-    let signInButton: UIButton = {
-        let btn = UIButton()
-        btn.setTitle("Sign in", for: .normal)
-        btn.setTitleColor(UIColor.lightGray, for: .normal)
-        btn.layer.borderColor = UIColor.lightGray.cgColor
-        btn.layer.borderWidth = 1.0
-        btn.layer.cornerRadius = 10.0
-        btn.layer.masksToBounds = true
-        btn.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
-    }()
-
-    let registerButton: UIButton = {
-        let btn = UIButton()
-        btn.setTitle("Create New", for: .normal)
-        btn.setTitleColor(UIColor.lightGray, for: .normal)
-        btn.layer.borderColor = UIColor.lightGray.cgColor
-        btn.layer.borderWidth = 1.0
-        btn.layer.cornerRadius = 10.0
-        btn.layer.masksToBounds = true
-        btn.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        return btn
-    }()
-
-    @objc func handleSignIn() {
-        guard
-            let email = emailTextField.text,
-            let password = passwordTextField.text
-        else {
-            print("something wrong when sign in")
-            return
-        }
-
-        UserManager.signIn(withEmail: email, password: password)
-    }
-
-    @objc func handleRegister() {
-        let registerController = RegisterController()
-        self.present(registerController, animated: true, completion: nil)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // MARK: - Keyboard Notification
+        setupBackground()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
+        setupLoginView()
 
-        view.backgroundColor = UIColor.white
-
-        setupContainerView()
         setupButtons()
+    }
+
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -109,75 +47,53 @@ class LoginController: UIViewController {
         }
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
-    }
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
 
-    @objc func keyboardWillShow(notification: NSNotification) {
-        adjustingHeight(show: true, notification: notification)
+    // MARK: - Set Up
+
+    func setupBackground() {
+        let backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImageView.image = #imageLiteral(resourceName: "back-blurcity")
+        backgroundImageView.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImageView)
+
+        let backView = UIView(frame: backgroundImageView.bounds)
+        backView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+        backgroundImageView.addSubview(backView)
     }
 
-    @objc func keyboardWillHide(notification: NSNotification) {
-        adjustingHeight(show: false, notification: notification)
-    }
-
-    func adjustingHeight(show: Bool, notification: NSNotification) {
-        var userInfo = notification.userInfo!
-        guard let animationDurarion = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval else { return }
-        let changeInHeight = (UIScreen.main.bounds.height / 8) * (show ? 1 : -1)
-        UIView.animate(withDuration: animationDurarion) {
-            self.containerViewTopAnchor?.constant -= changeInHeight
-        }
+    func setupLoginView() {
+        view.addSubview(loginView)
+        loginView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        loginView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        loginView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        loginView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 
     func setupButtons() {
-
-        let screenSize = UIScreen.main.bounds
-
-        view.addSubview(signInButton)
-        signInButton.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 50).isActive = true
-        signInButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: screenSize.width / 4).isActive = true
-        signInButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -(screenSize.width / 4)).isActive = true
-        signInButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-
-        view.addSubview(registerButton)
-        registerButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 10).isActive = true
-        registerButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: screenSize.width / 4).isActive = true
-        registerButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -(screenSize.width / 4)).isActive = true
-        registerButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-
+        loginView.signinButton.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
+        loginView.newAccountButton.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
     }
 
-    var containerViewTopAnchor: NSLayoutConstraint?
+    // MARK: - Actions
 
-    func setupContainerView() {
+    @objc func handleSignIn() {
+        guard
+            let email = loginView.emailTextField.text,
+            let password = loginView.passwordTextField.text
+            else {
+                print("something wrong when sign in")
+                return
+        }
 
-        let screenSize = UIScreen.main.bounds
+        UserManager.signIn(withEmail: email, password: password)
+    }
 
-        view.addSubview(containerView)
-        containerView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: screenSize.height / 12).isActive = true
-        containerView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -(screenSize.height / 12)).isActive = true
-        containerViewTopAnchor = containerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: screenSize.height / 4)
-        containerViewTopAnchor?.isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: screenSize.height / 4).isActive = true
-
-        containerView.addSubview(emailTextField)
-        emailTextField.topAnchor.constraint(equalTo: containerView.topAnchor, constant: screenSize.height / 12).isActive = true
-        emailTextField.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
-        emailTextField.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
-        emailTextField.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 1/3).isActive = true
-
-        containerView.addSubview(passwordTextField)
-        passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor).isActive = true
-        passwordTextField.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
-        passwordTextField.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
-        passwordTextField.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 1/3).isActive = true
+    @objc func handleRegister() {
+        let registerController = RegisterController()
+        self.present(registerController, animated: true, completion: nil)
     }
 
 }
