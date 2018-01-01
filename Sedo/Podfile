@@ -15,4 +15,5 @@ target 'Sedo' do
   pod 'XLPagerTabStrip', '~> 8.0'
   pod 'ALCameraViewController'
   pod 'Nuke', '~> 5.2'
+  pod 'IQKeyboardManagerSwift'
 end
