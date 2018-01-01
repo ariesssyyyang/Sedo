@@ -10,6 +10,11 @@ import UIKit
 
 class RegisterController: UIViewController {
 
+    let registerView: RegisterView = {
+        guard let view = UINib.load(nibName: "RegisterView", bundle: Bundle.main) as? RegisterView else { return RegisterView() }
+        return view
+    }()
+
     let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.clear
@@ -84,55 +89,25 @@ class RegisterController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // MARK: - Keyboard Notification
+        setupBackground()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
+        setupRegisterView()
 
-        view.backgroundColor = UIColor.white
-        setupContainerView()
-        setupButtons()
+//        setupContainerView()
+//        setupButtons()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
 
-    @objc func keyboardWillShow(notification: NSNotification) {
-        adjustingHeight(show: true, notification: notification)
-    }
-
-    @objc func keyboardWillHide(notification: NSNotification) {
-        adjustingHeight(show: false, notification: notification)
-    }
-
-    func adjustingHeight(show: Bool, notification: NSNotification) {
-        var userInfo = notification.userInfo!
-        guard //let keyboardFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue,
-            let animationDurarion = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval
-            else { return }
-        let changeInHeight = (UIScreen.main.bounds.height / 8) * (show ? 1 : -1)
-        UIView.animate(withDuration: animationDurarion) {
-            self.containerViewTopAnchor?.constant -= changeInHeight
-        }
-    }
-
     func setupButtons() {
 
         let screenSize = UIScreen.main.bounds
-/*
-        view.addSubview(signInButton)
-        signInButton.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 50).isActive = true
-        signInButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: screenSize.width / 4).isActive = true
-        signInButton.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -(screenSize.width / 4)).isActive = true
-        signInButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-*/
         view.addSubview(registerButton)
         registerButton.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 50).isActive = true
         registerButton.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: screenSize.width / 4).isActive = true
@@ -171,6 +146,27 @@ class RegisterController: UIViewController {
         passwordTextField.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
         passwordTextField.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
         passwordTextField.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 1/3).isActive = true
+    }
+
+    // MARK: - Set Up
+    
+    func setupBackground() {
+        let backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImageView.image = #imageLiteral(resourceName: "back-blurcity")
+        backgroundImageView.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImageView)
+        
+        let backView = UIView(frame: backgroundImageView.bounds)
+        backView.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+        backgroundImageView.addSubview(backView)
+    }
+    
+    func setupRegisterView() {
+        view.addSubview(registerView)
+        registerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        registerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        registerView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        registerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 
 }

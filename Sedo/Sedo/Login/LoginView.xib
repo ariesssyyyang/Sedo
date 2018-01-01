@@ -53,7 +53,7 @@
                             <rect key="frame" x="75" y="175" width="150" height="37"/>
                             <color key="backgroundColor" red="0.04703401608800574" green="0.1542267545577988" blue="0.21658867385786806" alpha="0.49513056506849318" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
-                            <state key="normal" title="Sign In">
+                            <state key="normal" title="Login">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
@@ -97,7 +97,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gC-C4-KeI">
                     <rect key="frame" x="37.5" y="464.5" width="140.5" height="18.5"/>
                     <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="15"/>
-                    <state key="normal" title="Forget Password">
+                    <state key="normal" title="Forgot Password">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>

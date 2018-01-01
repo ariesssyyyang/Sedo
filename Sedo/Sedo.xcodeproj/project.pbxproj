@@ -17,6 +17,8 @@
 		7F52AFF21FEFB10E008C59BA /* PortfolioIntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F52AFF01FEFB10E008C59BA /* PortfolioIntroView.xib */; };
 		7F5D6E381FF5E6330008DA2C /* ReplyRequestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5D6E371FF5E6330008DA2C /* ReplyRequestView.xib */; };
 		7F5D6E3A1FF5E6560008DA2C /* ReplyRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D6E391FF5E6560008DA2C /* ReplyRequestView.swift */; };
+		7F697A761FFA76E30036A07E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F697A751FFA76E30036A07E /* RegisterView.swift */; };
+		7F697A781FFA770C0036A07E /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F697A771FFA770C0036A07E /* RegisterView.xib */; };
 		7F6DDD251FE90A4F004E7898 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD241FE90A4F004E7898 /* UserManager.swift */; };
 		7F6DDD271FE91646004E7898 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD261FE91646004E7898 /* LoginController.swift */; };
 		7F6DDD2C1FE96DAB004E7898 /* PortfolioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD2A1FE96DAB004E7898 /* PortfolioCell.swift */; };
@@ -89,6 +91,8 @@
 		7F52AFF01FEFB10E008C59BA /* PortfolioIntroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortfolioIntroView.xib; sourceTree = "<group>"; };
 		7F5D6E371FF5E6330008DA2C /* ReplyRequestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyRequestView.xib; sourceTree = "<group>"; };
 		7F5D6E391FF5E6560008DA2C /* ReplyRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyRequestView.swift; sourceTree = "<group>"; };
+		7F697A751FFA76E30036A07E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		7F697A771FFA770C0036A07E /* RegisterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
 		7F6DDD241FE90A4F004E7898 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		7F6DDD261FE91646004E7898 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		7F6DDD2A1FE96DAB004E7898 /* PortfolioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioCell.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				7F6DDD301FEA049B004E7898 /* RegisterController.swift */,
 				7FB335CA1FFA44F9007F1118 /* LoginView.xib */,
 				7FB335CC1FFA45FB007F1118 /* LoginView.swift */,
+				7F697A771FFA770C0036A07E /* RegisterView.xib */,
+				7F697A751FFA76E30036A07E /* RegisterView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -491,6 +497,7 @@
 				7FA137FE1FE22FEE006455B1 /* Assets.xcassets in Resources */,
 				7F52AFF21FEFB10E008C59BA /* PortfolioIntroView.xib in Resources */,
 				7FA137FC1FE22FEE006455B1 /* Main.storyboard in Resources */,
+				7F697A781FFA770C0036A07E /* RegisterView.xib in Resources */,
 				7FA8178D1FF0B3C6001A987A /* BookingView.xib in Resources */,
 				7FB335CB1FFA44F9007F1118 /* LoginView.xib in Resources */,
 				7F006FE81FF231C300EE35E9 /* DesignerEditView.xib in Resources */,
@@ -599,6 +606,7 @@
 				7FA1380C1FE2505B006455B1 /* RequestManager.swift in Sources */,
 				7FA138151FE2869E006455B1 /* DesignerTabBarItemType.swift in Sources */,
 				7FA138111FE27179006455B1 /* CustomerTabBarItem.swift in Sources */,
+				7F697A761FFA76E30036A07E /* RegisterView.swift in Sources */,
 				7FF937561FE777FD004D1D4D /* CustomerOrdersController.swift in Sources */,
 				7FF9374A1FE3BEF8004D1D4D /* UINibExtensions.swift in Sources */,
 				7FB335C91FFA3E43007F1118 /* SigninController.swift in Sources */,
