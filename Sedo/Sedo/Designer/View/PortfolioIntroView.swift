@@ -59,10 +59,10 @@ class PortfolioIntroView: UICollectionReusableView {
     }
 
     func setupLabel() {
-        
+
     }
 
     func setupTextView() {
-        
+
     }
 }
