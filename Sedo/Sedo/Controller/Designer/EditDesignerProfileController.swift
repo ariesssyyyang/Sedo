@@ -34,6 +34,8 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
 
         super.viewDidLoad()
 
+        view.backgroundColor = UIColor.white
+
         setupEditView()
 
         confirmDelegate()
@@ -51,8 +53,8 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        textField.resignFirstResponder()
+//        self.view.endEditing(true)
+//        textField.resignFirstResponder()
         return true
 
     }
@@ -69,12 +71,24 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
     func setupNavigationBar() {
 
         self.navigationItem.title = "Setting"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(handleDone))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleCancel))
+
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: #imageLiteral(resourceName: "icon-check"),
+            style: .plain,
+            target: self,
+            action: #selector(handleDone)
+        )
+
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .cancel,
+            target: self,
+            action: #selector(handleCancel)
+        )
 
     }
 
     func setupEditView() {
+
         view.addSubview(editView)
         editView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         editView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true

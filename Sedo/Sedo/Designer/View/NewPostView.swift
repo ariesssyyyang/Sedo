@@ -9,6 +9,7 @@
 import UIKit
 
 class NewPostView: UIView {
+    @IBOutlet weak var placeholderImageView: UIImageView!
 
     @IBOutlet weak var selectedImage: UIImageView!
 
@@ -23,9 +24,14 @@ class NewPostView: UIView {
     @IBOutlet weak var textFieldBottomConstraint: NSLayoutConstraint!
 
     override func awakeFromNib() {
+
         super.awakeFromNib()
 
         self.translatesAutoresizingMaskIntoConstraints = false
+
+        placeholderImageView.image = #imageLiteral(resourceName: "placeholder").withRenderingMode(.alwaysTemplate)
+
+        placeholderImageView.tintColor = UIColor.lightGray
     }
 
 }

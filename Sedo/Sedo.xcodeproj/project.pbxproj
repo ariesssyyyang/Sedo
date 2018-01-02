@@ -66,12 +66,8 @@
 		7FF937561FE777FD004D1D4D /* CustomerOrdersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF937551FE777FD004D1D4D /* CustomerOrdersController.swift */; };
 		7FF9375B1FE790DF004D1D4D /* CustomerRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF937591FE790DF004D1D4D /* CustomerRequestCell.swift */; };
 		7FF9375C1FE790DF004D1D4D /* CustomerRequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF9375A1FE790DF004D1D4D /* CustomerRequestCell.xib */; };
-		7FF937611FE79130004D1D4D /* CustomerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF9375F1FE79130004D1D4D /* CustomerOrderCell.swift */; };
-		7FF937621FE79130004D1D4D /* CustomerOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF937601FE79130004D1D4D /* CustomerOrderCell.xib */; };
 		7FF9376C1FE7F25B004D1D4D /* DesignerOrderListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF9376B1FE7F25B004D1D4D /* DesignerOrderListController.swift */; };
 		7FF9376E1FE7F289004D1D4D /* DesignerOrdersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF9376D1FE7F289004D1D4D /* DesignerOrdersController.swift */; };
-		7FF937711FE7F409004D1D4D /* DesignerOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF9376F1FE7F409004D1D4D /* DesignerOrderCell.swift */; };
-		7FF937721FE7F409004D1D4D /* DesignerOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF937701FE7F409004D1D4D /* DesignerOrderCell.xib */; };
 		7FF937741FE8AB49004D1D4D /* CustomerMainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF937731FE8AB49004D1D4D /* CustomerMainPageController.swift */; };
 		7FF937771FE8AB89004D1D4D /* MainPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF937751FE8AB89004D1D4D /* MainPageCell.swift */; };
 		7FF937781FE8AB89004D1D4D /* MainPageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FF937761FE8AB89004D1D4D /* MainPageCell.xib */; };
@@ -142,12 +138,8 @@
 		7FF937551FE777FD004D1D4D /* CustomerOrdersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrdersController.swift; sourceTree = "<group>"; };
 		7FF937591FE790DF004D1D4D /* CustomerRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRequestCell.swift; sourceTree = "<group>"; };
 		7FF9375A1FE790DF004D1D4D /* CustomerRequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerRequestCell.xib; sourceTree = "<group>"; };
-		7FF9375F1FE79130004D1D4D /* CustomerOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerOrderCell.swift; sourceTree = "<group>"; };
-		7FF937601FE79130004D1D4D /* CustomerOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerOrderCell.xib; sourceTree = "<group>"; };
 		7FF9376B1FE7F25B004D1D4D /* DesignerOrderListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerOrderListController.swift; sourceTree = "<group>"; };
 		7FF9376D1FE7F289004D1D4D /* DesignerOrdersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerOrdersController.swift; sourceTree = "<group>"; };
-		7FF9376F1FE7F409004D1D4D /* DesignerOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerOrderCell.swift; sourceTree = "<group>"; };
-		7FF937701FE7F409004D1D4D /* DesignerOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DesignerOrderCell.xib; sourceTree = "<group>"; };
 		7FF937731FE8AB49004D1D4D /* CustomerMainPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerMainPageController.swift; sourceTree = "<group>"; };
 		7FF937751FE8AB89004D1D4D /* MainPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageCell.swift; sourceTree = "<group>"; };
 		7FF937761FE8AB89004D1D4D /* MainPageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainPageCell.xib; sourceTree = "<group>"; };
@@ -302,8 +294,6 @@
 			children = (
 				7FF9373F1FE3BDB6004D1D4D /* DesignerRequestCell.swift */,
 				7FF937401FE3BDB6004D1D4D /* DesignerRequestCell.xib */,
-				7FF9376F1FE7F409004D1D4D /* DesignerOrderCell.swift */,
-				7FF937701FE7F409004D1D4D /* DesignerOrderCell.xib */,
 				7F6DDD2A1FE96DAB004E7898 /* PortfolioCell.swift */,
 				7F6DDD2B1FE96DAB004E7898 /* PortfolioCell.xib */,
 				7FA817831FF0ADC6001A987A /* ServiceCell.swift */,
@@ -375,8 +365,6 @@
 			children = (
 				7FF937591FE790DF004D1D4D /* CustomerRequestCell.swift */,
 				7FF9375A1FE790DF004D1D4D /* CustomerRequestCell.xib */,
-				7FF9375F1FE79130004D1D4D /* CustomerOrderCell.swift */,
-				7FF937601FE79130004D1D4D /* CustomerOrderCell.xib */,
 				7FF937751FE8AB89004D1D4D /* MainPageCell.swift */,
 				7FF937761FE8AB89004D1D4D /* MainPageCell.xib */,
 			);
@@ -491,8 +479,6 @@
 				7FF9375C1FE790DF004D1D4D /* CustomerRequestCell.xib in Resources */,
 				7F5D6E381FF5E6330008DA2C /* ReplyRequestView.xib in Resources */,
 				7FA138011FE22FEE006455B1 /* LaunchScreen.storyboard in Resources */,
-				7FF937721FE7F409004D1D4D /* DesignerOrderCell.xib in Resources */,
-				7FF937621FE79130004D1D4D /* CustomerOrderCell.xib in Resources */,
 				7FA1380A1FE24E04006455B1 /* GoogleService-Info.plist in Resources */,
 				7FA137FE1FE22FEE006455B1 /* Assets.xcassets in Resources */,
 				7F52AFF21FEFB10E008C59BA /* PortfolioIntroView.xib in Resources */,
@@ -622,7 +608,6 @@
 				7FF937521FE76FA2004D1D4D /* CustomerOrderListController.swift in Sources */,
 				7FF9374E1FE3D0D5004D1D4D /* CustomerRequestController.swift in Sources */,
 				7FA817821FF0A5B7001A987A /* ServiceManager.swift in Sources */,
-				7FF937711FE7F409004D1D4D /* DesignerOrderCell.swift in Sources */,
 				7FA138131FE28554006455B1 /* CustomerTabBarController.swift in Sources */,
 				7F6DDD2C1FE96DAB004E7898 /* PortfolioCell.swift in Sources */,
 				7FA817851FF0ADC6001A987A /* ServiceCell.swift in Sources */,
@@ -631,7 +616,6 @@
 				7FA138191FE28928006455B1 /* DesignerTabBarController.swift in Sources */,
 				7FA8177C1FEFED08001A987A /* EditDesignerProfileController.swift in Sources */,
 				7FA138271FE36A84006455B1 /* CustomerSettingController.swift in Sources */,
-				7FF937611FE79130004D1D4D /* CustomerOrderCell.swift in Sources */,
 				7FADBF381FF51615002A5330 /* CustomerNavigationController.swift in Sources */,
 				7FF9376C1FE7F25B004D1D4D /* DesignerOrderListController.swift in Sources */,
 				7FADBF361FF5112D002A5330 /* DesignerNavigationController.swift in Sources */,

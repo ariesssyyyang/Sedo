@@ -120,7 +120,7 @@ class NewPostController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func handleDone() {
-        // Todo: Send Image Data
+        // Todo: Send Error handling
         guard
             let image = inputContainerView.selectedImage.image,
             let text = inputContainerView.descriptionTextField.text

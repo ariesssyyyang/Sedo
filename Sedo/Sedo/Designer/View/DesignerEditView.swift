@@ -17,7 +17,7 @@ class DesignerEditView: UIView {
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var lineIdTextField: UITextField!
-    
+
     @IBOutlet weak var introductionTextField: UITextField!
 
     @IBOutlet weak var placeholderImageView: UIImageView!
@@ -28,7 +28,11 @@ class DesignerEditView: UIView {
 
         self.translatesAutoresizingMaskIntoConstraints = false
 
+        setupBackground()
+
         setupImageView()
+
+        setupTextFields()
     }
 
     // MARK: - Set up
@@ -41,7 +45,7 @@ class DesignerEditView: UIView {
         placeholderImageView.layer.borderColor = UIColor.lightGray.cgColor
         placeholderImageView.layer.cornerRadius = placeholderImageView.frame.size.width / 2
         placeholderImageView.clipsToBounds = true
-        
+
         designerImageView.layer.borderWidth = 1
         designerImageView.layer.borderColor = UIColor.lightGray.cgColor
         designerImageView.layer.cornerRadius = designerImageView.frame.size.width / 2
@@ -49,12 +53,22 @@ class DesignerEditView: UIView {
 
     }
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    func setupBackground() {
+        self.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
     }
-    */
+
+    func setupTextFields() {
+        nameTextField.layer.borderWidth = 1.0
+        nameTextField.layer.borderColor = UIColor.lightGray.cgColor
+        nameTextField.layer.cornerRadius = 10
+
+        lineIdTextField.layer.borderWidth = 1.0
+        lineIdTextField.layer.borderColor = UIColor.lightGray.cgColor
+        lineIdTextField.layer.cornerRadius = 10
+
+        introductionTextField.layer.borderWidth = 1.0
+        introductionTextField.layer.borderColor = UIColor.lightGray.cgColor
+        introductionTextField.layer.cornerRadius = 10
+    }
 
 }

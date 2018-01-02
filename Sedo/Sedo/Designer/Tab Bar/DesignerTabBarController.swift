@@ -85,7 +85,8 @@ class DesignerTabBarController: UITabBarController {
 
         case .profile:
 
-            let navigationController = DesignerNavigationController(rootViewController: DesignerSettingController())
+//            let navigationController = DesignerNavigationController(rootViewController: DesignerSettingController())
+            let navigationController = DesignerNavigationController(rootViewController: DesignerOrderListController())
             navigationController.tabBarItem = DesignerTabBarItem(itemType: itemType)
             return navigationController
         }
