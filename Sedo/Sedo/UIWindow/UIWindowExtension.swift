@@ -16,11 +16,12 @@ extension UIWindow {
     
     typealias UpdateRootCompletion = (Bool) -> Void
 
-    typealias UpdateRootAnimation = (_ from: UIViewController?, _ to: UIViewController, _ completion: UpdateRootCompletion?) -> Void
+    typealias UpdateRootAnimation = (_ from: UIViewController?, _ to: UIViewController, _ for: Double, _ completion: UpdateRootCompletion?) -> Void
     
     func updateRoot(
         to newViewController: UIViewController,
         animation: UpdateRootAnimation,
+        duration: Double,
         completion: UpdateRootCompletion?
         ) {
         
@@ -29,13 +30,14 @@ extension UIWindow {
         let toViewController = newViewController
         
         rootViewController = toViewController
-        
+
         animation(
             fromViewController,
             toViewController,
+            duration,
             completion
         )
-        
+
     }
 
 }

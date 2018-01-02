@@ -153,7 +153,7 @@ class CustomerMainPageController: UITableViewController {
         let user = users[indexPath.row]
 
         if let imageUrls = portfolios[user.id], let url = imageUrls.last {
-                
+
                 if let imageURL = URL(string: url) {
 
                     cell.mainPageImageView.image = nil

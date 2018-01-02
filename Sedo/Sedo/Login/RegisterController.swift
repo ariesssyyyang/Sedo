@@ -74,7 +74,6 @@ class RegisterController: UIViewController {
                 return
         }
         UserManager.signUp(withEmail: email, password: password, name: username)
-        self.dismiss(animated: true, completion: nil)
     }
 
     @objc func handleCancel() {

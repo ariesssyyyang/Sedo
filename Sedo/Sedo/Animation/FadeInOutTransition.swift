@@ -11,16 +11,15 @@ import UIKit
 typealias CrossDissolveCompletion = (Bool) -> Void
 
 // swiftlint:disable variable_name
-func crossDissolve(from: UIViewController?, to: UIViewController, completion: CrossDissolveCompletion?) {
+func crossDissolve(from: UIViewController?, to: UIViewController, duration: Double, completion: CrossDissolveCompletion?) {
     // swiftlint:enable variable_name
 
     guard
         let from = from
-        else {
-            
-            completion?(true)
-   
-            return
+    else {
+
+        completion?(true)
+        return
 
     }
 
@@ -31,19 +30,19 @@ func crossDissolve(from: UIViewController?, to: UIViewController, completion: Cr
     toView.addSubview(fromView)
 
     UIView.animate(
-        withDuration: 1.0,
+        withDuration: duration,
         animations: {
 
             fromView.layer.opacity = 0.0
 
-    },
+        },
         completion: { isComplete in
-    
+
             fromView.removeFromSuperview()
 
             completion?(isComplete)
 
-    }
+        }
     )
 
 }

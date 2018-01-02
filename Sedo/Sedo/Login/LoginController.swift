@@ -30,23 +30,6 @@ class LoginController: UIViewController {
         return true
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        // MARK: - Check Login
-
-        if Auth.auth().currentUser != nil {
-
-            let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
-
-            AppDelegate.shared.window?.updateRoot(
-                to: customerTabBarController,
-                animation: crossDissolve,
-                completion: nil
-            )
-        }
-    }
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

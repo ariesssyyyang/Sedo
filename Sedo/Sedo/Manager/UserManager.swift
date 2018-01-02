@@ -37,8 +37,10 @@ class UserManager {
                 AppDelegate.shared.window?.updateRoot(
                     to: customerTabBarController,
                     animation: crossDissolve,
+                    duration: 1.0,
                     completion: nil
                 )
+
             }
 
         }
@@ -68,6 +70,15 @@ class UserManager {
                             print("** fail to update user info to database **")
                             print(err)
                         }
+
+                        let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
+
+                        AppDelegate.shared.window?.updateRoot(
+                            to: customerTabBarController,
+                            animation: crossDissolve,
+                            duration: 1.0,
+                            completion: nil
+                        )
 
                     })
 
@@ -134,6 +145,7 @@ class UserManager {
             AppDelegate.shared.window?.updateRoot(
                 to: loginController,
                 animation: crossDissolve,
+                duration: 0.8,
                 completion: nil
             )
 

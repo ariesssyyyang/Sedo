@@ -37,7 +37,7 @@ class CustomerSettingController: UIViewController {
         designerController.selectedIndex = 2
         self.present(designerController, animated: true, completion: nil)
     }
-    
+
     @objc func handleSignOut() {
         UserManager.signOut()
     }
