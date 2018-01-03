@@ -15,12 +15,12 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
     var author: Designer?
     var currentMe: Customer?
     var imageUrlString: String?
-    var imageDescription: String?
+    var post: [String: String] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 8, right: 0)
+        collectionView?.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor.white
         collectionView?.register(UINib(nibName: "ViewPictureCell", bundle: Bundle.main), forCellWithReuseIdentifier: "picCell")
@@ -54,13 +54,13 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
         if currentMe?.id == author?.id {
             let blurEffect = UIBlurEffect(style: .dark)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
-            blurEffectView.frame = backImageView.frame
+            blurEffectView.frame = backImageView.bounds
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             backImageView.addSubview(blurEffectView)
         } else {
             let blurEffect = UIBlurEffect(style: .light)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
-            blurEffectView.frame = backImageView.frame
+            blurEffectView.frame = backImageView.bounds
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             backImageView.addSubview(blurEffectView)
         }
@@ -71,33 +71,76 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
 
     @objc func handleMore() {
 
-        let alert = UIAlertController(title: "Action", message: "Choose an action", preferredStyle: .actionSheet)
-        let edit = UIAlertAction(title: "Edit", style: .default) { (_) in
-            print("Edit the image description")
+        if currentMe?.id == author?.id {
+            let alert = UIAlertController(title: "Action", message: "Choose an action", preferredStyle: .actionSheet)
+            let edit = UIAlertAction(title: "Edit", style: .default) { (_) in
+                print("Edit the image description")
+            }
+            alert.addAction(edit)
+
+            let delete = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+                let deleteAlert = UIAlertController(title: "Delete", message: "Are you sure to delete this post", preferredStyle: .alert)
+
+                let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
+                    guard let authorId = self.author?.id else {
+                        print("no author id in delete alert action!")
+                        return
+                    }
+                    guard let postId = self.post["postId"] else {
+                        print("get no post id to delete!")
+                        return
+                    }
+
+                    PortfolioManager.deletePost(author: authorId, post: postId)
+                    self.navigationController?.popViewController(animated: true)
+
+                    print("delete the post")
+                })
+
+                let cancelDelete = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+                deleteAlert.addAction(deleteAction)
+                deleteAlert.addAction(cancelDelete)
+
+                self.present(deleteAlert, animated: true, completion: nil)
+
+            }
+            alert.addAction(delete)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+                print("cancel")
+            }
+            alert.addAction(cancel)
+
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Action", message: "Choose an action", preferredStyle: .actionSheet)
+
+            let report = UIAlertAction(title: "Report this post", style: .destructive) { (_) in
+                let deleteAlert = UIAlertController(title: "Report", message: "Please enter the reason to report this post.", preferredStyle: .alert)
+                deleteAlert.addTextField(configurationHandler: { (textfield) in
+                    textfield.placeholder = "enter the reason ..."
+                })
+
+                let reportAction = UIAlertAction(title: "Done", style: .destructive, handler: { (_) in
+                    print("report the post")
+                })
+
+                let cancelReport = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+                deleteAlert.addAction(reportAction)
+                deleteAlert.addAction(cancelReport)
+
+                self.present(deleteAlert, animated: true, completion: nil)
+
+            }
+            alert.addAction(report)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+                print("cancel")
+            }
+            alert.addAction(cancel)
+
+            self.present(alert, animated: true, completion: nil)
         }
-        alert.addAction(edit)
-        let delete = UIAlertAction(title: "Delete", style: .destructive) { (_) in
-            let deleteAlert = UIAlertController(title: "Delete", message: "Are you sure to delete this post", preferredStyle: .alert)
-
-            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
-                print("delete the post")
-            })
-
-            let cancelDelete = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
-            deleteAlert.addAction(deleteAction)
-            deleteAlert.addAction(cancelDelete)
-
-            self.present(deleteAlert, animated: true, completion: nil)
-
-        }
-        alert.addAction(delete)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
-            print("cancel")
-        }
-        alert.addAction(cancel)
-
-        self.present(alert, animated: true, completion: nil)
 
     }
 
@@ -129,7 +172,14 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
         default:
             guard let contentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "contentCell", for: indexPath) as? PortfolioContentCell
             else { return PortfolioContentCell() }
-            contentCell.contentTextView.text = imageDescription
+
+            guard let content = post["content"] else {
+                print("descrioption not found!")
+                return contentCell
+            }
+
+            contentCell.contentTextView.text = content
+
             return contentCell
         }
 

@@ -39,7 +39,9 @@ class PortfolioManager {
                 return
             }
 
-            let post = ["imageUrl": imageUrl, "description": text]
+            let createdDate = RequestManager.requestDate()
+
+            let post = ["imageUrl": imageUrl, "description": text, "createdDate": createdDate]
 
             writePost(post: post, author: uid)
 
@@ -54,6 +56,15 @@ class PortfolioManager {
         let postRef = ref.child("portfolio").child(author).childByAutoId()
 
         postRef.updateChildValues(post)
+
+    }
+
+    static func deletePost(author: String, post: String) {
+
+        let portfolioRef = Database.database().reference().child("portfolio")
+        let postRef = portfolioRef.child(author).child(post)
+
+        postRef.removeValue()
 
     }
 }

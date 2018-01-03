@@ -16,7 +16,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     var author: Designer?
     var currentMe: Customer?
     var images: [String] = []
-    var imageDescription: [String: String] = [:]
+    var postInfo: [String: [String: String]] = [:]
     var headerInfo: [String: String] = [:]
 
     override func viewDidLoad() {
@@ -131,8 +131,11 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
             portfolioRef.observe(.value, with: { (portfolioSnapshot) in
                 self.images = []
                 for child in portfolioSnapshot.children {
+
                     guard let child = child as? DataSnapshot else { return }
+
                     let postKey = child.key
+
                     guard
                         let postDict = child.value as? [String: String]
                         else {
@@ -152,8 +155,9 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
                             return
                     }
 
-                    self.imageDescription.updateValue(imageDescription, forKey: imageUrl)
+                    let post = ["postId": postKey, "content": imageDescription]
 
+                    self.postInfo.updateValue(post, forKey: imageUrl)
                     self.images.insert(imageUrl, at: 0)
                 }
                 self.collectionView?.reloadData()
@@ -241,13 +245,16 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
         let viewController = ViewPicController(collectionViewLayout: UICollectionViewFlowLayout())
 
         let url = images[indexPath.row]
-        let content = imageDescription[url]
+
+        if let post = postInfo[url] {
+            viewController.post = post
+        }
 
         viewController.imageUrlString = url
-        viewController.imageDescription = content
         viewController.author = self.author
         viewController.currentMe = self.currentMe
 
