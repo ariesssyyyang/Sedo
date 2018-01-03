@@ -170,7 +170,10 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     func setupNavigationBar() {
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleNewPost))
+
         self.navigationItem.title = "Portfolio"
+
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
     // MARK: - Actions

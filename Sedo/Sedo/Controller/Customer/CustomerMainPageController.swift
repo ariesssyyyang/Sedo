@@ -73,6 +73,8 @@ class CustomerMainPageController: UITableViewController {
 
         self.navigationItem.title = "Main Page"
 
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
     }
 
     // MARK: - Fetch Data
