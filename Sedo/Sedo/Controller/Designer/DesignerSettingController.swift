@@ -46,9 +46,9 @@ class DesignerSettingController: UIViewController {
     @objc func changeMode() {
         
         self.dismiss(animated: true, completion: nil)
-        
+
     }
-    
+
     @objc func viewOrders() {
         let designerOrderListController = DesignerOrderListController()
         self.navigationController?.pushViewController(designerOrderListController, animated: true)

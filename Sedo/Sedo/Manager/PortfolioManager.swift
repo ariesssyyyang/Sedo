@@ -27,7 +27,7 @@ class PortfolioManager {
 //            return
 //        }
 
-        guard let uploadData = UIImageJPEGRepresentation(image, 0.4) else {
+        guard let uploadData = UIImageJPEGRepresentation(image, 0.5) else {
             print("fail to get data of image!")
             return
         }

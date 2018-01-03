@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Nuke
 import XLPagerTabStrip
 
 class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
@@ -20,7 +21,7 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
         self.itemInfo = itemInfo
         super.init(style: style)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -70,6 +71,18 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
 
         let request = requests[indexPath.row]
         let time = createdTime(request.createdDate)
+
+        let ref = Storage.storage().reference().child("designer").child(request.customer.id)
+        ref.downloadURL { (url, err) in
+            if let error = err {
+                print(error)
+                return
+            }
+            if let url = url {
+                cell.customerImageView.image = nil
+                Nuke.loadImage(with: url, into: cell.customerImageView)
+            }
+        }
 
         cell.serviceLabel.text = request.service
         cell.dateLabel.text = request.date

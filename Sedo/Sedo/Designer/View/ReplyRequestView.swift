@@ -47,6 +47,8 @@ class ReplyRequestView: UIView {
         setupBubbleView()
 
         setupButtons()
+
+        setupImageView()
     }
 
     func setupBubbleView() {
@@ -81,5 +83,25 @@ class ReplyRequestView: UIView {
             blue: 8 / 255.0,
             alpha: 1.0
             ).cgColor
+    }
+
+    func setupImageView() {
+        customerImageView.contentMode = .scaleAspectFill
+
+        customerImageView.layer.cornerRadius = customerImageView.frame.height / 2
+
+        customerImageView.layer.borderWidth = 2
+
+        customerImageView.layer.borderColor = UIColor.lightGray.cgColor
+
+//        customerImageView.layer.shadowColor = UIColor.red.cgColor
+//
+//        customerImageView.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+//
+//        customerImageView.layer.shadowRadius = 10
+//
+//        customerImageView.layer.shadowOpacity = 0.8
+
+        customerImageView.clipsToBounds = true
     }
 }

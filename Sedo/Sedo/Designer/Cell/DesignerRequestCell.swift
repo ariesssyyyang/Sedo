@@ -49,6 +49,10 @@ class DesignerRequestCell: UITableViewCell {
 
         customerImageView.contentMode = .scaleAspectFill
 
+        customerImageView.layer.cornerRadius = customerImageView.frame.height / 2
+
+        customerImageView.clipsToBounds = true
+
     }
 
     func setupLabel() {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 import Firebase
 
 class ReplyRequestController: UIViewController {
@@ -26,6 +27,8 @@ class ReplyRequestController: UIViewController {
         setupReplyView()
 
         setupLabels()
+
+        setupImageView()
 
         setupNavigationBar()
 
@@ -51,6 +54,25 @@ class ReplyRequestController: UIViewController {
         replyView.dateLabel.text = request?.date
         replyView.nameLabel.text = request?.customer.name
         replyView.timeLabel.text = request?.createdDate
+    }
+
+    func setupImageView() {
+
+        guard let request = request else {
+            print("fail to get request!")
+            return
+        }
+        let ref = Storage.storage().reference().child("designer").child(request.customer.id)
+        ref.downloadURL { (url, err) in
+            if let error = err {
+                print(error)
+                return
+            }
+            if let url = url {
+                self.replyView.customerImageView.image = nil
+                Nuke.loadImage(with: url, into: self.replyView.customerImageView)
+            }
+        }
     }
 
     func setupNavigationBar() {

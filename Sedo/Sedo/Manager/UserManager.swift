@@ -32,7 +32,7 @@ class UserManager {
                 print("** sing-in uid: \(user.uid) **")
                 print("** Sign in successfully **")
 
-                let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
+                let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order])
 
                 AppDelegate.shared.window?.updateRoot(
                     to: customerTabBarController,
@@ -71,7 +71,7 @@ class UserManager {
                             print(err)
                         }
 
-                        let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
+                        let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order])
 
                         AppDelegate.shared.window?.updateRoot(
                             to: customerTabBarController,
@@ -95,7 +95,7 @@ class UserManager {
 
         let storageRef = Storage.storage().reference().child("designer").child(uid)
 
-        if let image = image, let uploadData = UIImagePNGRepresentation(image) {
+        if let image = image, let uploadData = UIImageJPEGRepresentation(image, 0.5) {
 
             storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
 
