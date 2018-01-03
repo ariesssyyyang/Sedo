@@ -16,6 +16,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     var author: Designer?
     var currentMe: Customer?
     var images: [String] = []
+    var imageDescription: [String: String] = [:]
     var headerInfo: [String: String] = [:]
 
     override func viewDidLoad() {
@@ -133,13 +134,26 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
                     guard let child = child as? DataSnapshot else { return }
                     let postKey = child.key
                     guard
-                        let postDict = child.value as? [String: String],
-                        let description = postDict["description"],
-                        let imageUrl = postDict["imageUrl"]
-                    else {
-                        print("fail to get post info in fetchPortfolio function!")
-                        return
+                        let postDict = child.value as? [String: String]
+                        else {
+                            print("fail to get postDict in fetchPortfolio function!")
+                            return
                     }
+
+                    guard let imageUrl = postDict["imageUrl"]
+                        else {
+                            print("fail to get imageUrl String in fetchPortfolio function!")
+                            return
+                    }
+
+                    guard let imageDescription = postDict["description"]
+                        else {
+                            print("fail to get description in fetchPortfolio function!")
+                            return
+                    }
+
+                    self.imageDescription.updateValue(imageDescription, forKey: imageUrl)
+
                     self.images.insert(imageUrl, at: 0)
                 }
                 self.collectionView?.reloadData()
@@ -224,6 +238,18 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         }
 
         return cell
+    }
+
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let viewController = ViewPicController(collectionViewLayout: UICollectionViewFlowLayout())
+
+        let url = images[indexPath.row]
+        let content = imageDescription[url]
+
+        viewController.imageUrlString = url
+        viewController.imageDescription = content
+
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

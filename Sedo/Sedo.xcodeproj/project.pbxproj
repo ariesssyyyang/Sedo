@@ -15,6 +15,13 @@
 		7F363F4F1FEBF29B008CE4E2 /* NewPostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F363F4E1FEBF29B008CE4E2 /* NewPostView.xib */; };
 		7F52AFF11FEFB10E008C59BA /* PortfolioIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F52AFEF1FEFB10E008C59BA /* PortfolioIntroView.swift */; };
 		7F52AFF21FEFB10E008C59BA /* PortfolioIntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F52AFF01FEFB10E008C59BA /* PortfolioIntroView.xib */; };
+		7F579AFA1FFBF118004F919E /* ViewPicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F579AF91FFBF118004F919E /* ViewPicController.swift */; };
+		7F579AFD1FFBF268004F919E /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F579AFB1FFBF268004F919E /* FooterView.swift */; };
+		7F579AFE1FFBF268004F919E /* FooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F579AFC1FFBF268004F919E /* FooterView.xib */; };
+		7F579B011FFBF41E004F919E /* ViewPictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F579AFF1FFBF41E004F919E /* ViewPictureCell.swift */; };
+		7F579B021FFBF41E004F919E /* ViewPictureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F579B001FFBF41E004F919E /* ViewPictureCell.xib */; };
+		7F579B051FFC7217004F919E /* PortfolioContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F579B031FFC7217004F919E /* PortfolioContentCell.swift */; };
+		7F579B061FFC7217004F919E /* PortfolioContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F579B041FFC7217004F919E /* PortfolioContentCell.xib */; };
 		7F5D6E381FF5E6330008DA2C /* ReplyRequestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F5D6E371FF5E6330008DA2C /* ReplyRequestView.xib */; };
 		7F5D6E3A1FF5E6560008DA2C /* ReplyRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5D6E391FF5E6560008DA2C /* ReplyRequestView.swift */; };
 		7F697A761FFA76E30036A07E /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F697A751FFA76E30036A07E /* RegisterView.swift */; };
@@ -85,6 +92,13 @@
 		7F363F4E1FEBF29B008CE4E2 /* NewPostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPostView.xib; sourceTree = "<group>"; };
 		7F52AFEF1FEFB10E008C59BA /* PortfolioIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioIntroView.swift; sourceTree = "<group>"; };
 		7F52AFF01FEFB10E008C59BA /* PortfolioIntroView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortfolioIntroView.xib; sourceTree = "<group>"; };
+		7F579AF91FFBF118004F919E /* ViewPicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPicController.swift; sourceTree = "<group>"; };
+		7F579AFB1FFBF268004F919E /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		7F579AFC1FFBF268004F919E /* FooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterView.xib; sourceTree = "<group>"; };
+		7F579AFF1FFBF41E004F919E /* ViewPictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPictureCell.swift; sourceTree = "<group>"; };
+		7F579B001FFBF41E004F919E /* ViewPictureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewPictureCell.xib; sourceTree = "<group>"; };
+		7F579B031FFC7217004F919E /* PortfolioContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioContentCell.swift; sourceTree = "<group>"; };
+		7F579B041FFC7217004F919E /* PortfolioContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortfolioContentCell.xib; sourceTree = "<group>"; };
 		7F5D6E371FF5E6330008DA2C /* ReplyRequestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyRequestView.xib; sourceTree = "<group>"; };
 		7F5D6E391FF5E6560008DA2C /* ReplyRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyRequestView.swift; sourceTree = "<group>"; };
 		7F697A751FFA76E30036A07E /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
@@ -178,6 +192,8 @@
 				7F006FE71FF231C300EE35E9 /* DesignerEditView.xib */,
 				7F5D6E391FF5E6560008DA2C /* ReplyRequestView.swift */,
 				7F5D6E371FF5E6330008DA2C /* ReplyRequestView.xib */,
+				7F579AFB1FFBF268004F919E /* FooterView.swift */,
+				7F579AFC1FFBF268004F919E /* FooterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -298,6 +314,10 @@
 				7F6DDD2B1FE96DAB004E7898 /* PortfolioCell.xib */,
 				7FA817831FF0ADC6001A987A /* ServiceCell.swift */,
 				7FA817841FF0ADC6001A987A /* ServiceCell.xib */,
+				7F579AFF1FFBF41E004F919E /* ViewPictureCell.swift */,
+				7F579B001FFBF41E004F919E /* ViewPictureCell.xib */,
+				7F579B031FFC7217004F919E /* PortfolioContentCell.swift */,
+				7F579B041FFC7217004F919E /* PortfolioContentCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -397,6 +417,7 @@
 				7FA138281FE36A95006455B1 /* DesignerSettingController.swift */,
 				7FA8177B1FEFED08001A987A /* EditDesignerProfileController.swift */,
 				7FA8177D1FF09E2C001A987A /* ServiceController.swift */,
+				7F579AF91FFBF118004F919E /* ViewPicController.swift */,
 			);
 			path = Designer;
 			sourceTree = "<group>";
@@ -477,6 +498,7 @@
 				7F363F4F1FEBF29B008CE4E2 /* NewPostView.xib in Resources */,
 				7FF937781FE8AB89004D1D4D /* MainPageCell.xib in Resources */,
 				7FF9375C1FE790DF004D1D4D /* CustomerRequestCell.xib in Resources */,
+				7F579B061FFC7217004F919E /* PortfolioContentCell.xib in Resources */,
 				7F5D6E381FF5E6330008DA2C /* ReplyRequestView.xib in Resources */,
 				7FA138011FE22FEE006455B1 /* LaunchScreen.storyboard in Resources */,
 				7FA1380A1FE24E04006455B1 /* GoogleService-Info.plist in Resources */,
@@ -487,7 +509,9 @@
 				7FA8178D1FF0B3C6001A987A /* BookingView.xib in Resources */,
 				7FB335CB1FFA44F9007F1118 /* LoginView.xib in Resources */,
 				7F006FE81FF231C300EE35E9 /* DesignerEditView.xib in Resources */,
+				7F579AFE1FFBF268004F919E /* FooterView.xib in Resources */,
 				7FA817861FF0ADC6001A987A /* ServiceCell.xib in Resources */,
+				7F579B021FFBF41E004F919E /* ViewPictureCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +608,7 @@
 				7FF937411FE3BDB6004D1D4D /* DesignerRequestCell.swift in Sources */,
 				7FA817881FF0B2EE001A987A /* BookingController.swift in Sources */,
 				7FA1380E1FE26E48006455B1 /* CustomerTabBarItemType.swift in Sources */,
+				7F579AFD1FFBF268004F919E /* FooterView.swift in Sources */,
 				7F363F4A1FEBEC99008CE4E2 /* NewPostController.swift in Sources */,
 				7FA8177E1FF09E2D001A987A /* ServiceController.swift in Sources */,
 				7F6DDD251FE90A4F004E7898 /* UserManager.swift in Sources */,
@@ -591,6 +616,7 @@
 				7FCA6E531FEA59EB00D5CFB4 /* FadeInOutTransition.swift in Sources */,
 				7FA1380C1FE2505B006455B1 /* RequestManager.swift in Sources */,
 				7FA138151FE2869E006455B1 /* DesignerTabBarItemType.swift in Sources */,
+				7F579AFA1FFBF118004F919E /* ViewPicController.swift in Sources */,
 				7FA138111FE27179006455B1 /* CustomerTabBarItem.swift in Sources */,
 				7F697A761FFA76E30036A07E /* RegisterView.swift in Sources */,
 				7FF937561FE777FD004D1D4D /* CustomerOrdersController.swift in Sources */,
@@ -599,6 +625,7 @@
 				7FF937741FE8AB49004D1D4D /* CustomerMainPageController.swift in Sources */,
 				7FB335CD1FFA45FB007F1118 /* LoginView.swift in Sources */,
 				7FA138291FE36A95006455B1 /* DesignerSettingController.swift in Sources */,
+				7F579B011FFBF41E004F919E /* ViewPictureCell.swift in Sources */,
 				7FF937541FE76FBB004D1D4D /* CustomerPendingController.swift in Sources */,
 				7F363F4D1FEBF287008CE4E2 /* NewPostView.swift in Sources */,
 				7F6DDD271FE91646004E7898 /* LoginController.swift in Sources */,
@@ -628,6 +655,7 @@
 				7FF937771FE8AB89004D1D4D /* MainPageCell.swift in Sources */,
 				7FCA6E4D1FEA56BD00D5CFB4 /* AppDelegateExtension.swift in Sources */,
 				7F2B43F21FECE10E0019C7FD /* PortfolioManager.swift in Sources */,
+				7F579B051FFC7217004F919E /* PortfolioContentCell.swift in Sources */,
 				7FF9373E1FE3A6C2004D1D4D /* DesignerPendingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

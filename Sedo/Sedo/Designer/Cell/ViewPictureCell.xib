@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ViewPictureCell" customModule="Sedo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gZp-cI-Gzh">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="COg-Fv-jbc">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="COg-Fv-jbc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="687-ml-LWQ"/>
+                <constraint firstItem="gZp-cI-Gzh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BNy-ls-5E7"/>
+                <constraint firstItem="gZp-cI-Gzh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Pz7-Gc-ORb"/>
+                <constraint firstAttribute="bottom" secondItem="gZp-cI-Gzh" secondAttribute="bottom" id="Qpo-EP-0SI"/>
+                <constraint firstItem="COg-Fv-jbc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="SFw-Ij-tCe"/>
+                <constraint firstAttribute="trailing" secondItem="gZp-cI-Gzh" secondAttribute="trailing" id="VGs-M9-70J"/>
+                <constraint firstAttribute="trailing" secondItem="COg-Fv-jbc" secondAttribute="trailing" id="XmS-MW-aAs"/>
+                <constraint firstAttribute="bottom" secondItem="COg-Fv-jbc" secondAttribute="bottom" id="geU-L0-Tx1"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="placeholderImageView" destination="gZp-cI-Gzh" id="ltg-7B-6fG"/>
+                <outlet property="selectedImageView" destination="COg-Fv-jbc" id="eCe-Lk-uvc"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>
