@@ -22,7 +22,12 @@ class PortfolioManager {
 
         let storageRef = Storage.storage().reference().child("portfolio").child(uid).child(randomString)
 
-        guard let uploadData = UIImagePNGRepresentation(image) else {
+//        guard let uploadData = UIImagePNGRepresentation(image) else {
+//            print("fail to get data of image!")
+//            return
+//        }
+
+        guard let uploadData = UIImageJPEGRepresentation(image, 0.4) else {
             print("fail to get data of image!")
             return
         }

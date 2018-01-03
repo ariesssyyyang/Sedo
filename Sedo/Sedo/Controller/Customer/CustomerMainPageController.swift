@@ -17,7 +17,6 @@ class CustomerMainPageController: UITableViewController {
     var currentMe: Customer?
     var portfolios: [String: [String]] = [:]
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -149,7 +148,7 @@ class CustomerMainPageController: UITableViewController {
                 }
 
                 self.portfolios.updateValue(imageUrls, forKey: userId)
-                
+
             }
         }
     }
