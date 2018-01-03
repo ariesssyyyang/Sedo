@@ -248,6 +248,8 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
         viewController.imageUrlString = url
         viewController.imageDescription = content
+        viewController.author = self.author
+        viewController.currentMe = self.currentMe
 
         self.navigationController?.pushViewController(viewController, animated: true)
     }

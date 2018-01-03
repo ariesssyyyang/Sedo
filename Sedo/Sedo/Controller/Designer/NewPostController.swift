@@ -108,7 +108,7 @@ class NewPostController: UIViewController, UITextFieldDelegate {
         }
         alert.addAction(library)
 
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         alert.addAction(cancel)
 
         self.present(alert, animated: true, completion: nil)

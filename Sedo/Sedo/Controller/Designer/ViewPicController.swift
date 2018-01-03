@@ -29,23 +29,75 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
 
         setupNavigationBar()
 
+        setupBackground()
+
     }
 
     // MARK: - Set up
 
     func setupNavigationBar() {
 
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleNewPost))
-        self.navigationItem.title = "Portfolio"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-more"), style: .plain, target: self, action: #selector(handleMore))
+
+        self.navigationItem.title = "Picture"
+    }
+
+    func setupBackground() {
+        let backImageView = UIImageView()
+        backImageView.contentMode = .scaleAspectFill
+        if let urlString = imageUrlString, let url = URL(string: urlString) {
+            backImageView.image = nil
+            Nuke.loadImage(with: url, into: backImageView)
+        }
+        self.collectionView?.backgroundView = backImageView
+
+        if currentMe?.id == author?.id {
+            let blurEffect = UIBlurEffect(style: .dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = backImageView.frame
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            backImageView.addSubview(blurEffectView)
+        } else {
+            let blurEffect = UIBlurEffect(style: .light)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = backImageView.frame
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            backImageView.addSubview(blurEffectView)
+        }
+
     }
 
     // MARK: - Actions
 
-    @objc func handleNewPost() {
+    @objc func handleMore() {
 
-        print("new post")
-        let controller = NewPostController()
-        self.present(controller, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Action", message: "Choose an action", preferredStyle: .actionSheet)
+        let edit = UIAlertAction(title: "Edit", style: .default) { (_) in
+            print("Edit the image description")
+        }
+        alert.addAction(edit)
+        let delete = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+            let deleteAlert = UIAlertController(title: "Delete", message: "Are you sure to delete this post", preferredStyle: .alert)
+
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
+                print("delete the post")
+            })
+
+            let cancelDelete = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+            deleteAlert.addAction(deleteAction)
+            deleteAlert.addAction(cancelDelete)
+
+            self.present(deleteAlert, animated: true, completion: nil)
+
+        }
+        alert.addAction(delete)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+            print("cancel")
+        }
+        alert.addAction(cancel)
+
+        self.present(alert, animated: true, completion: nil)
 
     }
 
@@ -77,19 +129,9 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
         default:
             guard let contentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "contentCell", for: indexPath) as? PortfolioContentCell
             else { return PortfolioContentCell() }
-            contentCell.contentLabel.text = imageDescription
+            contentCell.contentTextView.text = imageDescription
             return contentCell
         }
-
-//        let url = images[indexPath.row]
-//
-//        if let imageURL = URL(string: url) {
-//
-//            cell.portfolioImageView.image = nil
-//
-//            Nuke.loadImage(with: imageURL, into: cell.portfolioImageView)
-//
-//        }
 
     }
 
@@ -147,8 +189,13 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let screenSize = UIScreen.main.bounds.size
-        return CGSize(width: screenSize.width * 5 / 6 , height: screenSize.width * 5 / 6)
 
+        switch indexPath.section {
+        case 0:
+            return CGSize(width: screenSize.width - 20, height: screenSize.width - 20)
+        default:
+            return CGSize(width: screenSize.width, height: screenSize.height / 5)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -166,7 +213,7 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 
         // margin between cells
-        return UIEdgeInsets(top: 1, left: 1, bottom: 10, right: 1)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 
     }
 

@@ -9,11 +9,12 @@
 import UIKit
 
 class PortfolioContentCell: UICollectionViewCell {
-    @IBOutlet weak var contentLabel: UILabel!
-    
+
+    @IBOutlet weak var contentTextView: UITextView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
 
 }
