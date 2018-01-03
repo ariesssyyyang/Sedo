@@ -17,6 +17,7 @@ class CustomerMainPageController: UITableViewController {
     var currentMe: Customer?
     var portfolios: [String: [String]] = [:]
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +37,7 @@ class CustomerMainPageController: UITableViewController {
             self.currentMe = Customer(name: name, id: uid)
         }
 
-        fetchUsers()
+        fetchPosts()
 
     }
 
@@ -77,6 +78,82 @@ class CustomerMainPageController: UITableViewController {
 
     // MARK: - Fetch Data
 
+    func fetchUsers(uid: String) {
+
+        let userRef = Database.database().reference().child("user").child(uid)
+        userRef.observeSingleEvent(of: .value) { (userSnapshot) in
+            guard
+                let userDict = userSnapshot.value as? [String: String],
+                let username = userDict["name"]
+            else {
+                print("fail to fetch users dictionary")
+                return
+            }
+
+            self.users.append(User(id: uid, username: username))
+            self.tableView.reloadData()
+        }
+    }
+
+    func fetchPosts() {
+        let ref = Database.database().reference()
+
+        let portfolioRef = ref.child("portfolio")
+
+        portfolioRef.observe(.value) { (portfolioSnapshot) in
+            self.users = []
+
+            for child in portfolioSnapshot.children {
+
+                guard let child = child as? DataSnapshot else {
+                    print("can't get portfolio children!")
+                    return
+                }
+
+                let userId = child.key
+                self.fetchUsers(uid: userId)
+
+                var imageUrls: [String] = []
+
+                for post in child.children {
+                    guard let post = post as? DataSnapshot else {
+                        print("can't get each designer's children")
+                        return
+                    }
+
+                    let postId = post.key
+
+                    guard
+                        let postDict = post.value as? [String: String]
+                    else {
+                        print("can't get post dictionary")
+                        return
+                    }
+
+                    guard
+                        let description = postDict["description"]
+                    else {
+                        print("can't get description when fetching portfolio")
+                        return
+                    }
+
+                    guard
+                        let imageUrlString = postDict["imageUrl"]
+                    else {
+                        print("can't get imageUrl string when fetching portfolio")
+                        return
+                    }
+
+                    imageUrls.append(imageUrlString)
+
+                }
+
+                self.portfolios.updateValue(imageUrls, forKey: userId)
+                
+            }
+        }
+    }
+/*
     func fetchUsers() {
 
         let ref = Database.database().reference()
@@ -107,6 +184,7 @@ class CustomerMainPageController: UITableViewController {
                 portfolioRef.observe(.value, with: { (portfolioShot) in
                     var imageUrls: [String] = []
                     for child in portfolioShot.children {
+
                         guard let child = child as? DataSnapshot else { return }
 
                         let portfolioId = child.key
@@ -135,7 +213,7 @@ class CustomerMainPageController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-
+*/
     // MARK: - UITableViewDataSource
 
     override func numberOfSections(in tableView: UITableView) -> Int {
