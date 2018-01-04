@@ -20,6 +20,8 @@ class NewPostController: UIViewController, UITextFieldDelegate {
 
     }()
 
+    var editButtonIsHidden: Bool = true
+
     var libraryEnabled: Bool = true
     var croppingEnabled: Bool = true
     var allowResizing: Bool = true
@@ -72,6 +74,7 @@ class NewPostController: UIViewController, UITextFieldDelegate {
         inputContainerView.selectedButton.addTarget(self, action: #selector(showImagePicker), for: .touchUpInside)
         inputContainerView.cancelButton.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
         inputContainerView.doneButton.addTarget(self, action: #selector(handleDone), for: .touchUpInside)
+        inputContainerView.editButton.isHidden = editButtonIsHidden
     }
 
     @objc func showImagePicker() {

@@ -8,6 +8,7 @@
 
 import UIKit
 import Nuke
+import Firebase
 
 class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
@@ -16,6 +17,12 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
     var currentMe: Customer?
     var imageUrlString: String?
     var post: [String: String] = [:]
+    var editImage: UIImage?
+    var content: String? {
+        didSet {
+            self.collectionView?.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +37,8 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
         setupNavigationBar()
 
         setupBackground()
+
+        fetchPostDescription()
 
     }
 
@@ -67,6 +76,36 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
 
     }
 
+    // MARK: - Fetch Data
+
+    func fetchPostDescription() {
+
+        guard let uid = Auth.auth().currentUser?.uid else {
+            print("fail to get user id in viewPicController!")
+            return
+        }
+
+        guard let postId = post["postId"] else {
+            print("fail to get post id in viewPicController!")
+            return
+        }
+
+        let portfolioRef = Database.database().reference().child("portfolio").child(uid).child(postId)
+        portfolioRef.observe(.value) { (postSnapshot) in
+            guard let postDict = postSnapshot.value as? [String: String] else {
+                print("fail to get post dictionary in viewPicController!")
+                return
+            }
+
+            guard let description = postDict["description"] else {
+                print("fail to get post content from postDict!")
+                return
+            }
+
+            self.content = description
+        }
+    }
+
     // MARK: - Actions
 
     @objc func handleMore() {
@@ -75,6 +114,26 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
             let alert = UIAlertController(title: "Action", message: "Choose an action", preferredStyle: .actionSheet)
             let edit = UIAlertAction(title: "Edit", style: .default) { (_) in
                 print("Edit the image description")
+
+                let editController = NewPostController()
+                let editView = editController.inputContainerView
+
+                editController.editButtonIsHidden = false
+                editView.selectedButton.isHidden = true
+                editView.doneButton.isHidden = true
+
+                if let urlString = self.imageUrlString, let url = URL(string: urlString) {
+                    editView.selectedImage.image = nil
+                    Nuke.loadImage(with: url, into: editView.selectedImage)
+                }
+
+                if let content = self.post["content"] {
+                    editView.descriptionTextField.text = content
+                }
+
+                editView.editButton.addTarget(self, action: #selector(self.handleEdit(_:)), for: .touchUpInside)
+
+                self.present(editController, animated: true, completion: nil)
             }
             alert.addAction(edit)
 
@@ -91,7 +150,7 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
                         return
                     }
 
-                    PortfolioManager.deletePost(author: authorId, post: postId)
+                    PortfolioManager.deletePost(authorId: authorId, postId: postId)
                     self.navigationController?.popViewController(animated: true)
 
                     print("delete the post")
@@ -118,6 +177,9 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
             let report = UIAlertAction(title: "Report this post", style: .destructive) { (_) in
                 let deleteAlert = UIAlertController(title: "Report", message: "Please enter the reason to report this post.", preferredStyle: .alert)
                 deleteAlert.addTextField(configurationHandler: { (textfield) in
+                    //
+                    textfield.heightAnchor.constraint(equalToConstant: 200).isActive = true
+                    //
                     textfield.placeholder = "enter the reason ..."
                 })
 
@@ -142,6 +204,31 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
             self.present(alert, animated: true, completion: nil)
         }
 
+    }
+
+    @objc func handleEdit(_ sender: UIButton) {
+
+        guard let editView = sender.superview as? NewPostView else {
+            print("fail to get Done Button superview!")
+            return
+        }
+        guard let revisedContent = editView.descriptionTextField.text else {
+            print("fail to get revised content!")
+            return
+        }
+
+        guard let authorId = self.author?.id else {
+            print("fail to get author id when sending edit request!")
+            return
+        }
+        guard let postId = self.post["postId"] else {
+            print("fail to get post id when sending edit request!")
+            return
+        }
+
+        PortfolioManager.editPost(authorId: authorId, postId: postId, edit: revisedContent)
+
+        self.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - UICollectionView DataSource
@@ -173,8 +260,8 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
             guard let contentCell = collectionView.dequeueReusableCell(withReuseIdentifier: "contentCell", for: indexPath) as? PortfolioContentCell
             else { return PortfolioContentCell() }
 
-            guard let content = post["content"] else {
-                print("descrioption not found!")
+            guard let content = self.content else {
+                print("descrioption not found when complementing datasource!")
                 return contentCell
             }
 

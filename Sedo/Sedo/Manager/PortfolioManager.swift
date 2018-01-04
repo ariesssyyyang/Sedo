@@ -64,10 +64,19 @@ class PortfolioManager {
 
     }
 
-    static func deletePost(author: String, post: String) {
+    static func editPost(authorId: String, postId: String, edit: String) {
+
+        let ref = Database.database().reference()
+        let postRef = ref.child("portfolio").child(authorId).child(postId)
+        let value = ["description": edit]
+
+        postRef.updateChildValues(value)
+    }
+
+    static func deletePost(authorId: String, postId: String) {
 
         let portfolioRef = Database.database().reference().child("portfolio")
-        let postRef = portfolioRef.child(author).child(post)
+        let postRef = portfolioRef.child(authorId).child(postId)
 
         postRef.removeValue()
 

@@ -59,6 +59,16 @@
                         <color key="titleColor" red="0.92941176469999998" green="0.3772194982" blue="0.3180402517" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EI-Nm-Z7i">
+                    <rect key="frame" x="187.5" y="617" width="187.5" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="XcV-yK-GF5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="17"/>
+                    <state key="normal" title="Edit">
+                        <color key="titleColor" red="0.28355055909999999" green="0.57413391179999995" blue="0.83010786800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qp-ky-I5i">
                     <rect key="frame" x="187.5" y="617" width="187.5" height="50"/>
                     <constraints>
@@ -73,11 +83,15 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Msb-YA-Ke7" firstAttribute="top" secondItem="JHh-ho-Q3z" secondAttribute="bottom" id="0Ma-Yc-YnR"/>
+                <constraint firstItem="1EI-Nm-Z7i" firstAttribute="bottom" secondItem="2Qp-ky-I5i" secondAttribute="bottom" id="0oU-u1-TU4"/>
+                <constraint firstItem="1EI-Nm-Z7i" firstAttribute="height" secondItem="2Qp-ky-I5i" secondAttribute="height" id="1GZ-UC-bwv"/>
                 <constraint firstItem="kcr-Cg-K48" firstAttribute="trailing" secondItem="JHh-ho-Q3z" secondAttribute="trailing" id="4sU-Dr-Uy3"/>
                 <constraint firstItem="2Qp-ky-I5i" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="61r-c9-18b"/>
                 <constraint firstItem="2Qp-ky-I5i" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="Ay2-pd-Bd2"/>
+                <constraint firstItem="1EI-Nm-Z7i" firstAttribute="leading" secondItem="2Qp-ky-I5i" secondAttribute="leading" id="CJ4-nC-QUg"/>
                 <constraint firstAttribute="centerX" secondItem="cOV-6i-QDF" secondAttribute="trailing" id="EQm-8u-L4P"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yrq-BN-JjT" secondAttribute="trailing" id="Rr0-OK-NWA"/>
+                <constraint firstItem="1EI-Nm-Z7i" firstAttribute="trailing" secondItem="2Qp-ky-I5i" secondAttribute="trailing" id="UGi-Kr-xtu"/>
                 <constraint firstItem="2Qp-ky-I5i" firstAttribute="top" secondItem="Msb-YA-Ke7" secondAttribute="bottom" id="Ua3-XP-XwX"/>
                 <constraint firstItem="yrq-BN-JjT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Xha-Wz-wWj"/>
                 <constraint firstItem="cOV-6i-QDF" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="anH-oq-bgP"/>
@@ -97,6 +111,7 @@
                 <outlet property="cancelButton" destination="cOV-6i-QDF" id="Es4-7r-Ja7"/>
                 <outlet property="descriptionTextField" destination="Msb-YA-Ke7" id="8Th-Iy-PN5"/>
                 <outlet property="doneButton" destination="2Qp-ky-I5i" id="yP4-km-PgN"/>
+                <outlet property="editButton" destination="1EI-Nm-Z7i" id="6uV-Hi-4ej"/>
                 <outlet property="placeholderImageView" destination="kcr-Cg-K48" id="9u3-iC-SSV"/>
                 <outlet property="selectedButton" destination="yrq-BN-JjT" id="spE-Vp-XZh"/>
                 <outlet property="selectedImage" destination="JHh-ho-Q3z" id="gM9-ye-Q2F"/>

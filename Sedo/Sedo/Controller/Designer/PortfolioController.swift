@@ -36,7 +36,9 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         collectionView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 8, right: 0)
         collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor.white
+
         collectionView?.register(UINib(nibName: "PortfolioCell", bundle: Bundle.main), forCellWithReuseIdentifier: portfolioCellId)
+
         collectionView?.register(UINib(nibName: "PortfolioIntroView", bundle: Bundle.main), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "headerViewId")
 
         let backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "back-walkman"))

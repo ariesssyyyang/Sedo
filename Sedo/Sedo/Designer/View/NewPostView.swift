@@ -20,7 +20,9 @@ class NewPostView: UIView {
     @IBOutlet weak var cancelButton: UIButton!
 
     @IBOutlet weak var doneButton: UIButton!
-    
+
+    @IBOutlet weak var editButton: UIButton!
+
     @IBOutlet weak var textFieldBottomConstraint: NSLayoutConstraint!
 
     override func awakeFromNib() {
