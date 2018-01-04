@@ -32,21 +32,33 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4g-75-EOC">
-                        <rect key="frame" x="240" y="24" width="70" height="22"/>
+                        <rect key="frame" x="220" y="14" width="80" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="Jve-Sq-eKQ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b1P-bv-L1R">
+                        <rect key="frame" x="15" y="48.5" width="285" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.70181399828767121" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="wZa-7L-YAY"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="h4g-75-EOC" secondAttribute="trailing" constant="10" id="D8f-4Q-V60"/>
-                    <constraint firstItem="h4g-75-EOC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="80" id="WHk-f0-kqI"/>
+                    <constraint firstAttribute="bottom" secondItem="b1P-bv-L1R" secondAttribute="bottom" id="CkZ-27-Ee2"/>
+                    <constraint firstItem="b1P-bv-L1R" firstAttribute="trailing" secondItem="h4g-75-EOC" secondAttribute="trailing" id="Dp1-3c-Y9O"/>
+                    <constraint firstItem="b1P-bv-L1R" firstAttribute="leading" secondItem="Hl4-AY-5Xo" secondAttribute="leading" constant="-5" id="TcE-Z5-VNk"/>
+                    <constraint firstItem="h4g-75-EOC" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-20" id="WHk-f0-kqI"/>
                     <constraint firstItem="h4g-75-EOC" firstAttribute="height" secondItem="Hl4-AY-5Xo" secondAttribute="height" multiplier="2/3" id="k9e-LL-pO5"/>
                     <constraint firstItem="Hl4-AY-5Xo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nOD-ao-CPa"/>
                     <constraint firstAttribute="centerX" secondItem="Hl4-AY-5Xo" secondAttribute="trailing" id="qOK-CX-3mc"/>
                     <constraint firstItem="Hl4-AY-5Xo" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="2/3" id="thr-On-Xwf"/>
                     <constraint firstItem="Hl4-AY-5Xo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="vkf-uZ-c4w"/>
-                    <constraint firstItem="h4g-75-EOC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="10" id="xJn-ja-wvq"/>
+                    <constraint firstItem="h4g-75-EOC" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xJn-ja-wvq"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

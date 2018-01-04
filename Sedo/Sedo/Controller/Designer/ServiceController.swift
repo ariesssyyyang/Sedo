@@ -31,16 +31,7 @@ class ServiceController: UITableViewController {
 
         setupNavigationBar()
 
-        tableView.register(UINib(nibName: "ServiceCell", bundle: Bundle.main), forCellReuseIdentifier: serviceCellId)
-
-        let backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "back-walkman"))
-        backgroundImageView.contentMode = .scaleAspectFill
-        tableView.backgroundView = backgroundImageView
-
-        let blackView = UIView()
-        blackView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
-        blackView.frame = backgroundImageView.frame
-        backgroundImageView.addSubview(blackView)
+        setupTableView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +51,23 @@ class ServiceController: UITableViewController {
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleNewService))
         self.navigationItem.title = "Service"
+
+    }
+
+    func setupTableView() {
+
+        tableView.register(UINib(nibName: "ServiceCell", bundle: Bundle.main), forCellReuseIdentifier: serviceCellId)
+
+        tableView.separatorStyle = .none
+
+        let backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "back-walkman"))
+        backgroundImageView.contentMode = .scaleAspectFill
+        tableView.backgroundView = backgroundImageView
+
+        let blackView = UIView()
+        blackView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
+        blackView.frame = backgroundImageView.frame
+        backgroundImageView.addSubview(blackView)
 
     }
 
