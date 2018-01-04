@@ -18,6 +18,10 @@ class MainPageCell: UITableViewCell {
 
     @IBOutlet weak var designerNameLabel: UILabel!
 
+    @IBOutlet weak var mainScrollView: UIScrollView!
+
+    @IBOutlet weak var mainPageControl: UIPageControl!
+    
     override func awakeFromNib() {
 
         super.awakeFromNib()

@@ -336,7 +336,8 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
                 self.collectionView?.backgroundView = nil
 
-                self.navigationItem.rightBarButtonItem?.action = #selector(newBooking)
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-booking"), style: .plain, target: self, action: #selector(newBooking))
+
 
                 header.editButton.setTitle("Service", for: .normal)
                 header.editButton.addTarget(self, action: #selector(handleServiceButton(_:)), for: .touchUpInside)

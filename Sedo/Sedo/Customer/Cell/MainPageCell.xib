@@ -68,20 +68,37 @@
                                     <constraint firstItem="7UH-7D-RLg" firstAttribute="centerY" secondItem="ttj-PA-7Ff" secondAttribute="centerY" id="wHB-ys-KxO"/>
                                 </constraints>
                             </view>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Rzp-jQ-232">
+                                <rect key="frame" x="113" y="122.5" width="39" height="10"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="MXR-hS-do2"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" red="0.1450980392" green="0.36862745099999999" blue="0.5450980392" alpha="0.41630993150684931" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.1450980392" green="0.36862745099999999" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MtU-gX-Kt9">
+                                <rect key="frame" x="5" y="5" width="254" height="117.5"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.80409888698630139" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ee5-rB-qTm" firstAttribute="leading" secondItem="bxn-YT-vXo" secondAttribute="leading" constant="5" id="1bw-Di-i2A"/>
                             <constraint firstItem="o73-PB-9S6" firstAttribute="height" secondItem="Ee5-rB-qTm" secondAttribute="height" id="1m6-nE-uzC"/>
+                            <constraint firstItem="Rzp-jQ-232" firstAttribute="top" secondItem="ttj-PA-7Ff" secondAttribute="top" id="545-tZ-COF"/>
                             <constraint firstItem="o73-PB-9S6" firstAttribute="leading" secondItem="Ee5-rB-qTm" secondAttribute="leading" id="5cC-Jg-UWF"/>
                             <constraint firstItem="ttj-PA-7Ff" firstAttribute="top" secondItem="Ee5-rB-qTm" secondAttribute="bottom" id="6dj-ov-n9K"/>
                             <constraint firstItem="o73-PB-9S6" firstAttribute="trailing" secondItem="Ee5-rB-qTm" secondAttribute="trailing" id="96S-T9-XGm"/>
+                            <constraint firstItem="MtU-gX-Kt9" firstAttribute="bottom" secondItem="o73-PB-9S6" secondAttribute="bottom" id="LU7-Nq-OaJ"/>
+                            <constraint firstItem="MtU-gX-Kt9" firstAttribute="trailing" secondItem="o73-PB-9S6" secondAttribute="trailing" id="Tfc-am-cHt"/>
                             <constraint firstItem="Ee5-rB-qTm" firstAttribute="height" secondItem="bxn-YT-vXo" secondAttribute="height" multiplier="3/4" id="akg-DE-ylA"/>
                             <constraint firstAttribute="bottom" secondItem="ttj-PA-7Ff" secondAttribute="bottom" constant="5" id="dJy-1r-zsb"/>
                             <constraint firstItem="o73-PB-9S6" firstAttribute="top" secondItem="Ee5-rB-qTm" secondAttribute="top" id="dd9-1O-RSE"/>
+                            <constraint firstItem="MtU-gX-Kt9" firstAttribute="top" secondItem="o73-PB-9S6" secondAttribute="top" id="lCC-Z6-UIU"/>
                             <constraint firstItem="ttj-PA-7Ff" firstAttribute="leading" secondItem="bxn-YT-vXo" secondAttribute="leading" constant="5" id="lJ0-5o-u3I"/>
                             <constraint firstAttribute="trailing" secondItem="ttj-PA-7Ff" secondAttribute="trailing" constant="5" id="lo6-nb-BWs"/>
                             <constraint firstAttribute="trailing" secondItem="Ee5-rB-qTm" secondAttribute="trailing" constant="5" id="oih-eR-u91"/>
+                            <constraint firstItem="Rzp-jQ-232" firstAttribute="centerX" secondItem="o73-PB-9S6" secondAttribute="centerX" id="pd9-zX-tgX"/>
+                            <constraint firstItem="MtU-gX-Kt9" firstAttribute="leading" secondItem="o73-PB-9S6" secondAttribute="leading" id="qW0-Ws-xYw"/>
                             <constraint firstItem="Ee5-rB-qTm" firstAttribute="top" secondItem="bxn-YT-vXo" secondAttribute="top" constant="5" id="wvL-zj-O66"/>
                         </constraints>
                     </view>
@@ -97,13 +114,15 @@
             <connections>
                 <outlet property="bookingButton" destination="pqJ-mM-xUh" id="PNG-GC-L7u"/>
                 <outlet property="designerNameLabel" destination="7UH-7D-RLg" id="VpJ-wS-jxK"/>
+                <outlet property="mainPageControl" destination="Rzp-jQ-232" id="7rI-hl-8XU"/>
                 <outlet property="mainPageImageView" destination="Ee5-rB-qTm" id="VDa-Qc-9wZ"/>
+                <outlet property="mainScrollView" destination="MtU-gX-Kt9" id="LhG-Lb-iDf"/>
                 <outlet property="placeholderImageView" destination="o73-PB-9S6" id="1EE-X5-oLY"/>
             </connections>
             <point key="canvasLocation" x="22" y="159.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="placeholder" width="24" height="24"/>
+        <image name="placeholder" width="104" height="104"/>
     </resources>
 </document>

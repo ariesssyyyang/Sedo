@@ -149,7 +149,7 @@ class CustomerMainPageController: UITableViewController {
                         return
                     }
 
-                    imageUrls.append(imageUrlString)
+                    imageUrls.insert(imageUrlString, at: 0)
 
                 }
 
@@ -233,9 +233,53 @@ class CustomerMainPageController: UITableViewController {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: mainCellId, for: indexPath) as? MainPageCell else { return MainPageCell() }
 
+        cell.mainScrollView.delegate = self
+
+        var contentWidth: CGFloat = 0.0
+
+        let superImageViewFrame = cell.mainPageImageView.frame
+
         let user = users[indexPath.row]
 
-        if let imageUrls = portfolios[user.id], let url = imageUrls.last {
+        if let imageUrls = portfolios[user.id] {
+
+            if imageUrls.count >= 5 {
+
+                cell.mainPageControl.numberOfPages = 5
+
+                for i in 0...4 {
+
+                    let xCoordinate = superImageViewFrame.width * CGFloat(i)
+
+                    contentWidth += superImageViewFrame.width
+
+                    let scrollImageView = UIImageView()
+
+                    scrollImageView.contentMode = .scaleAspectFill
+
+                    cell.mainScrollView.addSubview(scrollImageView)
+
+                    scrollImageView.frame = CGRect(x:xCoordinate, y: 0, width: superImageViewFrame.width, height: superImageViewFrame.height)
+
+                    let urlString = imageUrls[i]
+
+                    if let imageURL = URL(string: urlString) {
+
+                        cell.mainPageImageView.image = nil
+
+                        Nuke.loadImage(with: imageURL, into: scrollImageView)
+
+                    }
+
+                }
+
+                cell.mainScrollView.contentSize = CGSize(width: contentWidth, height: superImageViewFrame.height)
+
+            } else if imageUrls.count == 1 {
+
+                cell.mainPageControl.isHidden = true
+
+                let url = imageUrls[0]
 
                 if let imageURL = URL(string: url) {
 
@@ -244,6 +288,41 @@ class CustomerMainPageController: UITableViewController {
                     Nuke.loadImage(with: imageURL, into: cell.mainPageImageView)
 
                 }
+
+
+            } else {
+
+                cell.mainPageControl.numberOfPages = imageUrls.count
+
+                for i in 0...(imageUrls.count - 1) {
+
+                    let xCoordinate = superImageViewFrame.width * CGFloat(i)
+
+                    contentWidth += superImageViewFrame.width
+
+                    let scrollImageView = UIImageView()
+
+                    scrollImageView.contentMode = .scaleAspectFill
+
+                    cell.mainScrollView.addSubview(scrollImageView)
+
+                    scrollImageView.frame = CGRect(x:xCoordinate, y: 0, width: superImageViewFrame.width, height: superImageViewFrame.height)
+
+                    let urlString = imageUrls[i]
+
+                    if let imageURL = URL(string: urlString) {
+
+                        cell.mainPageImageView.image = nil
+
+                        Nuke.loadImage(with: imageURL, into: scrollImageView)
+
+                    }
+
+                }
+
+                cell.mainScrollView.contentSize = CGSize(width: contentWidth, height: superImageViewFrame.height)
+
+            }
 
         } else {
 
@@ -270,6 +349,15 @@ class CustomerMainPageController: UITableViewController {
         portfolioController.currentMe = self.currentMe
         portfolioController.mainPageController = self
         self.navigationController?.pushViewController(portfolioController, animated: true)
+    }
+
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let cell = scrollView.superview?.superview?.superview as? MainPageCell else {
+            print("fail to get scrollView in cell!")
+            return
+        }
+        
+
     }
 
     // MARK: - Actions
