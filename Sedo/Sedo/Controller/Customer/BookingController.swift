@@ -144,6 +144,10 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
         return true
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
     // MARK: - UIPickerView DataSource
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -154,28 +158,37 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
         if services.count == 0 {
             return 1
         } else {
-            return services.count
+            return services.count + 1
         }
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 
         if services.count == 0 {
-            return "No infomation"
+            return "- No service -"
         } else {
-            let service = services[row]
-            return service.service + "  ($ \(service.price))"
+            if row == 0 {
+                return "select a service"
+            } else {
+                let service = services[row - 1]
+                return service.service + "  ($ \(service.price))"
+            }
         }
 
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 
-        if services.count == 0 {
-            bookingView.serviceTextField.text = nil
+        if row != 0 {
+            bookingView.serviceTextField.text = services[row - 1].service
         } else {
-            bookingView.serviceTextField.text = services[row].service
+            bookingView.serviceTextField.text = nil
         }
+//        if services.count == 0 {
+//            bookingView.serviceTextField.text = nil
+//        } else {
+//            bookingView.serviceTextField.text = services[row].service
+//        }
 
     }
 
