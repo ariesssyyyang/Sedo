@@ -69,11 +69,28 @@ class MainPageCell: UITableViewCell {
 
     func setupBookingButton() {
 
-        let image = #imageLiteral(resourceName: "icon-booking").withRenderingMode(.alwaysTemplate)
+        bookingButton.layer.borderWidth = 1.0
 
-        bookingButton.setImage(image, for: .normal)
+        bookingButton.layer.cornerRadius = bookingButton.frame.size.height / 2
 
-        bookingButton.tintColor = UIColor(red: 139.0/255, green: 0, blue: 0, alpha: 1.0)
+        bookingButton.layer.masksToBounds = true
+
+        bookingButton.layer.borderColor = UIColor(
+            red: 214.0/255,
+            green: 126.0/255,
+            blue: 37.0/255,
+            alpha: 1.0
+        ).cgColor
+
+        bookingButton.setTitleColor(
+            UIColor(
+                red: 214.0/255,
+                green: 126.0/255,
+                blue: 37.0/255,
+                alpha: 1.0
+            ),
+            for: .normal
+        )
 
     }
 

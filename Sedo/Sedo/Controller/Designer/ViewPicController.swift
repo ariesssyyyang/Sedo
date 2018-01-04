@@ -111,99 +111,118 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
     @objc func handleMore() {
 
         if currentMe?.id == author?.id {
-            let alert = UIAlertController(title: "Action", message: "Choose an action", preferredStyle: .actionSheet)
-            let edit = UIAlertAction(title: "Edit", style: .default) { (_) in
-                print("Edit the image description")
 
-                let editController = NewPostController()
-                let editView = editController.inputContainerView
+            editOrDelete()
 
-                editController.editButtonIsHidden = false
-                editView.selectedButton.isHidden = true
-                editView.doneButton.isHidden = true
-
-                if let urlString = self.imageUrlString, let url = URL(string: urlString) {
-                    editView.selectedImage.image = nil
-                    Nuke.loadImage(with: url, into: editView.selectedImage)
-                }
-
-                if let content = self.post["content"] {
-                    editView.descriptionTextField.text = content
-                }
-
-                editView.editButton.addTarget(self, action: #selector(self.handleEdit(_:)), for: .touchUpInside)
-
-                self.present(editController, animated: true, completion: nil)
-            }
-            alert.addAction(edit)
-
-            let delete = UIAlertAction(title: "Delete", style: .destructive) { (_) in
-                let deleteAlert = UIAlertController(title: "Delete", message: "Are you sure to delete this post", preferredStyle: .alert)
-
-                let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
-                    guard let authorId = self.author?.id else {
-                        print("no author id in delete alert action!")
-                        return
-                    }
-                    guard let postId = self.post["postId"] else {
-                        print("get no post id to delete!")
-                        return
-                    }
-
-                    PortfolioManager.deletePost(authorId: authorId, postId: postId)
-                    self.navigationController?.popViewController(animated: true)
-
-                    print("delete the post")
-                })
-
-                let cancelDelete = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
-                deleteAlert.addAction(deleteAction)
-                deleteAlert.addAction(cancelDelete)
-
-                self.present(deleteAlert, animated: true, completion: nil)
-
-            }
-            alert.addAction(delete)
-            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
-                print("cancel")
-            }
-            alert.addAction(cancel)
-
-            self.present(alert, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "Action", message: "Choose an action", preferredStyle: .actionSheet)
 
-            let report = UIAlertAction(title: "Report this post", style: .destructive) { (_) in
-                let deleteAlert = UIAlertController(title: "Report", message: "Please enter the reason to report this post.", preferredStyle: .alert)
-                deleteAlert.addTextField(configurationHandler: { (textfield) in
-                    //
-                    textfield.heightAnchor.constraint(equalToConstant: 200).isActive = true
-                    //
-                    textfield.placeholder = "enter the reason ..."
-                })
+            handleReport()
 
-                let reportAction = UIAlertAction(title: "Done", style: .destructive, handler: { (_) in
-                    print("report the post")
-                })
-
-                let cancelReport = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
-                deleteAlert.addAction(reportAction)
-                deleteAlert.addAction(cancelReport)
-
-                self.present(deleteAlert, animated: true, completion: nil)
-
-            }
-            alert.addAction(report)
-            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
-                print("cancel")
-            }
-            alert.addAction(cancel)
-
-            self.present(alert, animated: true, completion: nil)
         }
 
+    }
+
+    func editOrDelete() {
+        let alert = UIAlertController(title: "Action", message: "Choose an action", preferredStyle: .actionSheet)
+        let edit = UIAlertAction(title: "Edit", style: .default) { (_) in
+            print("Edit the image description")
+            
+            let editController = NewPostController()
+            let editView = editController.inputContainerView
+            
+            editController.editButtonIsHidden = false
+            editView.selectedButton.isHidden = true
+            editView.doneButton.isHidden = true
+            
+            if let urlString = self.imageUrlString, let url = URL(string: urlString) {
+                editView.selectedImage.image = nil
+                Nuke.loadImage(with: url, into: editView.selectedImage)
+            }
+            
+            if let content = self.post["content"] {
+                editView.descriptionTextField.text = content
+            }
+            
+            editView.editButton.addTarget(self, action: #selector(self.handleEdit(_:)), for: .touchUpInside)
+            
+            self.present(editController, animated: true, completion: nil)
+        }
+        alert.addAction(edit)
+        
+        let delete = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+            
+            self.showDeleteAlert()
+            
+        }
+        alert.addAction(delete)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+            print("cancel")
+        }
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func showDeleteAlert() {
+
+        let deleteAlert = UIAlertController(title: "Delete", message: "Are you sure to delete this post", preferredStyle: .alert)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
+            guard let authorId = self.author?.id else {
+                print("no author id in delete alert action!")
+                return
+            }
+            guard let postId = self.post["postId"] else {
+                print("get no post id to delete!")
+                return
+            }
+            
+            PortfolioManager.deletePost(authorId: authorId, postId: postId)
+            self.navigationController?.popViewController(animated: true)
+            
+            print("delete the post")
+        })
+        
+        let cancelDelete = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        deleteAlert.addAction(deleteAction)
+        deleteAlert.addAction(cancelDelete)
+        
+        self.present(deleteAlert, animated: true, completion: nil)
+    }
+
+    func handleReport() {
+        let alert = UIAlertController(title: "Action", message: "Choose an action", preferredStyle: .actionSheet)
+        
+        let report = UIAlertAction(title: "Report this post", style: .destructive) { (_) in
+            let deleteAlert = UIAlertController(title: "Report", message: "Please enter the reason to report this post.", preferredStyle: .alert)
+            deleteAlert.addTextField(configurationHandler: { (textfield) in
+                //
+                textfield.heightAnchor.constraint(equalToConstant: 100).isActive = true
+                //
+                textfield.placeholder = "enter the reason ..."
+            })
+            
+            let reportAction = UIAlertAction(title: "Done", style: .destructive, handler: { (_) in
+                print("report the post")
+            })
+            
+            let cancelReport = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            deleteAlert.addAction(reportAction)
+            deleteAlert.addAction(cancelReport)
+            
+            self.present(deleteAlert, animated: true, completion: nil)
+            
+        }
+        alert.addAction(report)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
+            print("cancel")
+        }
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
     }
 
     @objc func handleEdit(_ sender: UIButton) {

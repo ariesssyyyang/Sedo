@@ -18,10 +18,13 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     var images: [String] = []
     var postInfo: [String: [String: String]] = [:]
     var headerInfo: [String: String] = [:]
+    var mainPageController: CustomerMainPageController?
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
+
+        checkRootVC()
 
         setupNavigationBar()
 
@@ -49,6 +52,22 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         blackView.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.5)
         blackView.frame = backgroundImageView.frame
         backgroundImageView.addSubview(blackView)
+    }
+
+    // MARK: - Check
+
+    func checkRootVC() {
+        if mainPageController == nil {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(
+                image: #imageLiteral(resourceName: "icon-mode"),
+                style: .plain,
+                target: self,
+                action: #selector(changeMode)
+            )
+        } else {
+            return
+        }
+
     }
 
     // MARK: - Fetch Data
@@ -179,6 +198,12 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     }
 
     // MARK: - Actions
+
+    @objc func changeMode() {
+
+        self.dismiss(animated: true, completion: nil)
+
+    }
 
     @objc func handleNewPost() {
 

@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,7 +12,10 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="KohinoorBangla.ttc">
-            <string>KohinoorBangla-Regular</string>
+            <string>KohinoorBangla-Semibold</string>
+        </array>
+        <array key="Menlo.ttc">
+            <string>Menlo-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -40,28 +42,30 @@
                                 <rect key="frame" x="5" y="122.5" width="254" height="29"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7UH-7D-RLg">
-                                        <rect key="frame" x="15" y="8" width="189" height="14.5"/>
-                                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="18"/>
+                                        <rect key="frame" x="15" y="8" width="127" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqJ-mM-xUh">
-                                        <rect key="frame" x="212" y="2.5" width="24" height="24"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="pqJ-mM-xUh" secondAttribute="height" multiplier="1:1" id="GwI-bV-LNi"/>
-                                        </constraints>
+                                        <rect key="frame" x="168" y="7.5" width="76" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
                                         <color key="tintColor" red="0.97647058819999999" green="0.87450980389999999" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="icon-booking"/>
+                                        <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                        <state key="normal" title="Booking">
+                                            <color key="titleColor" red="0.83921568627450982" green="0.49411764705882355" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93905315695680336" green="0.93105294365442604" blue="0.88574131701475756" alpha="0.70052975171232879" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="pqJ-mM-xUh" firstAttribute="leading" secondItem="7UH-7D-RLg" secondAttribute="trailing" constant="8" id="B2T-ms-sRw"/>
+                                    <constraint firstItem="pqJ-mM-xUh" firstAttribute="trailing" secondItem="ttj-PA-7Ff" secondAttribute="trailing" constant="-10" id="B2T-ms-sRw"/>
                                     <constraint firstItem="pqJ-mM-xUh" firstAttribute="centerY" secondItem="ttj-PA-7Ff" secondAttribute="centerY" id="Izr-Df-5mY"/>
                                     <constraint firstItem="7UH-7D-RLg" firstAttribute="leading" secondItem="ttj-PA-7Ff" secondAttribute="leading" constant="15" id="J2n-yf-loY"/>
-                                    <constraint firstAttribute="trailing" secondItem="7UH-7D-RLg" secondAttribute="trailing" constant="50" id="KRd-Yq-dWy"/>
-                                    <constraint firstItem="7UH-7D-RLg" firstAttribute="top" secondItem="ttj-PA-7Ff" secondAttribute="top" constant="8" id="W2A-nc-GVj"/>
+                                    <constraint firstItem="7UH-7D-RLg" firstAttribute="width" secondItem="ttj-PA-7Ff" secondAttribute="width" multiplier="1/2" id="j5y-Rh-5LV"/>
+                                    <constraint firstItem="pqJ-mM-xUh" firstAttribute="height" secondItem="ttj-PA-7Ff" secondAttribute="height" multiplier="1/2" id="pzb-1j-Ojc"/>
                                     <constraint firstItem="7UH-7D-RLg" firstAttribute="height" secondItem="ttj-PA-7Ff" secondAttribute="height" multiplier="1/2" id="sgU-BW-vvO"/>
+                                    <constraint firstItem="7UH-7D-RLg" firstAttribute="centerY" secondItem="ttj-PA-7Ff" secondAttribute="centerY" id="wHB-ys-KxO"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -100,7 +104,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon-booking" width="24" height="24"/>
         <image name="placeholder" width="24" height="24"/>
     </resources>
 </document>

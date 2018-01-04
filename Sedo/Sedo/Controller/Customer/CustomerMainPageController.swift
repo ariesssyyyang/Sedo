@@ -75,9 +75,9 @@ class CustomerMainPageController: UITableViewController {
 
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-mode2"), style: .plain, target: self, action: #selector(changeMode))
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-exit"), style: .plain, target: self, action: #selector(handleSignOut))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-mode2"), style: .plain, target: self, action: #selector(changeMode))
+
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-exit"), style: .plain, target: self, action: #selector(handleSignOut))
 
     }
 
@@ -268,6 +268,7 @@ class CustomerMainPageController: UITableViewController {
         let designer = Designer(name: user.username, id: user.id)
         portfolioController.author = designer
         portfolioController.currentMe = self.currentMe
+        portfolioController.mainPageController = self
         self.navigationController?.pushViewController(portfolioController, animated: true)
     }
 
