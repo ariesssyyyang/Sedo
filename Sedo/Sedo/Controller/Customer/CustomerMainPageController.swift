@@ -241,6 +241,10 @@ class CustomerMainPageController: UITableViewController {
 
         let user = users[indexPath.row]
 
+        if user.id == Auth.auth().currentUser?.uid {
+            cell.bookingButton.isHidden = true
+        }
+
         if let imageUrls = portfolios[user.id] {
 
             if imageUrls.count >= 5 {
@@ -288,7 +292,6 @@ class CustomerMainPageController: UITableViewController {
                     Nuke.loadImage(with: imageURL, into: cell.mainPageImageView)
 
                 }
-
 
             } else {
 
