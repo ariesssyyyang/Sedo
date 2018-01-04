@@ -352,11 +352,15 @@ class CustomerMainPageController: UITableViewController {
     }
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard let cell = scrollView.superview?.superview?.superview as? MainPageCell else {
-            print("fail to get scrollView in cell!")
+
+        guard
+            let cell = scrollView.superview?.superview?.superview as? MainPageCell
+        else {
+            print("fail to get scrollView of scrollViewDidScroll!")
             return
         }
-        
+
+        cell.mainPageControl.currentPage = Int(cell.mainScrollView.contentOffset.x / CGFloat(cell.mainPageImageView.frame.width))
 
     }
 

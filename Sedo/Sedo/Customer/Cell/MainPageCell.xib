@@ -69,9 +69,9 @@
                                 </constraints>
                             </view>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Rzp-jQ-232">
-                                <rect key="frame" x="113" y="122.5" width="39" height="10"/>
+                                <rect key="frame" x="113" y="122.5" width="39" height="15"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="10" id="MXR-hS-do2"/>
+                                    <constraint firstAttribute="height" constant="15" id="MXR-hS-do2"/>
                                 </constraints>
                                 <color key="pageIndicatorTintColor" red="0.1450980392" green="0.36862745099999999" blue="0.5450980392" alpha="0.41630993150684931" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.1450980392" green="0.36862745099999999" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
