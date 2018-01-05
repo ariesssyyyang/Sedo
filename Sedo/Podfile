@@ -16,4 +16,6 @@ target 'Sedo' do
   pod 'ALCameraViewController'
   pod 'Nuke', '~> 5.2'
   pod 'IQKeyboardManagerSwift'
+  pod 'Fabric'
+  pod 'Crashlytics'
 end

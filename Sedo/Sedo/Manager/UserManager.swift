@@ -108,7 +108,7 @@ class UserManager {
                     print("fail to get imageUrl")
                     return
                 }
- 
+
                 let designerInfo = ["profileImageUrl": imageUrl, "name": name, "lineId": lineId, "introduction": introduction]
 
                 updateDesignerInfo(info: designerInfo, designerId: uid)

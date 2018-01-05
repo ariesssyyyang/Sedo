@@ -166,8 +166,16 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
 
     func showDeleteAlert() {
 
-        let deleteAlert = UIAlertController(title: "Delete", message: "Are you sure to delete this post", preferredStyle: .alert)
-        
+        let deleteAlert = UIAlertController(title: "Delete", message: "Are you sure to delete this post?", preferredStyle: .alert)
+
+        let titleString = NSMutableAttributedString(string: "Delete" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20)])
+
+        deleteAlert.setValue(titleString, forKey: "attributedTitle")
+
+        let messageString = NSMutableAttributedString(string: "Are you sure to delete this post?" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+
+        deleteAlert.setValue(messageString, forKey: "attributedMessage")
+
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { (_) in
             guard let authorId = self.author?.id else {
                 print("no author id in delete alert action!")
@@ -177,18 +185,18 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
                 print("get no post id to delete!")
                 return
             }
-            
+
             PortfolioManager.deletePost(authorId: authorId, postId: postId)
             self.navigationController?.popViewController(animated: true)
-            
+
             print("delete the post")
         })
-        
+
         let cancelDelete = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
+
         deleteAlert.addAction(deleteAction)
         deleteAlert.addAction(cancelDelete)
-        
+
         self.present(deleteAlert, animated: true, completion: nil)
     }
 
