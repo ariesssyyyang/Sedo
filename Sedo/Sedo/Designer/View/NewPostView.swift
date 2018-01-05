@@ -34,6 +34,11 @@ class NewPostView: UIView {
         placeholderImageView.image = #imageLiteral(resourceName: "placeholder").withRenderingMode(.alwaysTemplate)
 
         placeholderImageView.tintColor = UIColor.lightGray
+
+        let screenSize = UIScreen.main.bounds.size
+        let textfieldHeight = screenSize.height - doneButton.frame.height - selectedImage.frame.height
+
+        descriptionTextField.heightAnchor.constraint(equalToConstant: textfieldHeight).isActive = true
     }
 
 }
