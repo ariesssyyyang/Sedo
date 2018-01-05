@@ -42,7 +42,7 @@ class CoverController: UIViewController {
 
         if Auth.auth().currentUser != nil {
 
-            let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order])
+            let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
 
             AppDelegate.shared.window?.updateRoot(
                 to: customerTabBarController,

@@ -202,34 +202,33 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
 
     func handleReport() {
         let alert = UIAlertController(title: "Action", message: "Choose an action", preferredStyle: .actionSheet)
-        
+
         let report = UIAlertAction(title: "Report this post", style: .destructive) { (_) in
             let deleteAlert = UIAlertController(title: "Report", message: "Please enter the reason to report this post.", preferredStyle: .alert)
             deleteAlert.addTextField(configurationHandler: { (textfield) in
-                //
+
                 textfield.heightAnchor.constraint(equalToConstant: 100).isActive = true
-                //
-                textfield.placeholder = "enter the reason ..."
+                textfield.placeholder = "enter some reason ..."
             })
-            
+
             let reportAction = UIAlertAction(title: "Done", style: .destructive, handler: { (_) in
                 print("report the post")
             })
-            
+
             let cancelReport = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            
+
             deleteAlert.addAction(reportAction)
             deleteAlert.addAction(cancelReport)
-            
+
             self.present(deleteAlert, animated: true, completion: nil)
-            
+
         }
         alert.addAction(report)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             print("cancel")
         }
         alert.addAction(cancel)
-        
+
         self.present(alert, animated: true, completion: nil)
     }
 

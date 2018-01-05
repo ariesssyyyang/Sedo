@@ -32,7 +32,7 @@ class UserManager {
                 print("** sing-in uid: \(user.uid) **")
                 print("** Sign in successfully **")
 
-                let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order])
+                let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
 
                 AppDelegate.shared.window?.updateRoot(
                     to: customerTabBarController,
@@ -71,7 +71,7 @@ class UserManager {
                             print(err)
                         }
 
-                        let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order])
+                        let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
 
                         AppDelegate.shared.window?.updateRoot(
                             to: customerTabBarController,

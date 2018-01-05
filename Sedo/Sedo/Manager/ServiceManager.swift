@@ -35,4 +35,12 @@ class ServiceManager {
         serviceRef.updateChildValues(value)
 
     }
+
+    static func getCurrency(priceString: String) {
+
+        let formatter = NumberFormatter()
+
+        formatter.numberStyle = .currency
+    }
+
 }

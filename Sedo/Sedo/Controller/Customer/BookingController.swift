@@ -42,6 +42,7 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
     // MARK: - Set Up
 
     func setupBookingView() {
+
         view.addSubview(bookingView)
         bookingView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         bookingView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
@@ -59,13 +60,86 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
 
     }
 
+    func setupDatePicker() {
+
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.minuteInterval = 15
+        datePicker.date = Date()
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let endDateTime = formatter.date(from: "2019-12-31")
+        datePicker.minimumDate = Date()
+        datePicker.maximumDate = endDateTime
+        datePicker.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
+    }
+
+    func setupServicePicker() {
+        servicePicker.delegate = self
+        servicePicker.dataSource = self
+    }
+
+    // MARK: - Actions
+
+    func showTextfieldAlert() {
+
+        let textfieldAlert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+
+        let titleString = NSMutableAttributedString(string: "Error" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20), NSAttributedStringKey.foregroundColor: UIColor.red])
+
+        textfieldAlert.setValue(titleString, forKey: "attributedTitle")
+
+        let messageString = NSMutableAttributedString(string: "Please enter all infomations needed." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+
+        textfieldAlert.setValue(messageString, forKey: "attributedMessage")
+
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        textfieldAlert.addAction(ok)
+
+        self.present(textfieldAlert, animated: true, completion: nil)
+    }
+
+    @objc func datePickerChanged(picker: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        bookingView.dateTextField.text = formatter.string(from: picker.date)
+    }
+
+    @objc func requestService() {
+
+        if bookingView.serviceTextField.text == "" || bookingView.dateTextField.text == "" {
+
+            showTextfieldAlert()
+
+        } else {
+
+            guard
+                let customer = customer,
+                let designer = designer,
+                let service = bookingView.serviceTextField.text,
+                let date = bookingView.dateTextField.text
+                else { return }
+
+            RequestManager.sendRequest(for: service, from: customer, to: designer, date: date)
+            self.navigationController?.popViewController(animated: true)
+
+        }
+
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
     // MARK: - Fetch Services
 
     func fetchDesignerServices() {
+
         guard let designerId = designer?.id else {
             print("fail to get designer id when fetch service info!")
             return
         }
+
         let ref = Database.database().reference().child("service").child(designerId)
         ref.observe(.value) { (snapshot) in
             self.services = []
@@ -89,53 +163,6 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
             }
 
         }
-    }
-
-    // MARK: - Set Up
-
-    func setupDatePicker() {
-
-        datePicker.datePickerMode = .dateAndTime
-        datePicker.minuteInterval = 15
-        datePicker.date = Date()
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        let endDateTime = formatter.date(from: "2019-12-31")
-        datePicker.minimumDate = Date()
-        datePicker.maximumDate = endDateTime
-        datePicker.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
-    }
-
-    func setupServicePicker() {
-        servicePicker.delegate = self
-        servicePicker.dataSource = self
-    }
-
-    // MARK: - Actions
-
-    @objc func datePickerChanged(picker: UIDatePicker) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        bookingView.dateTextField.text = formatter.string(from: picker.date)
-    }
-
-    @objc func requestService() {
-
-        guard
-            let customer = customer,
-            let designer = designer,
-            let service = bookingView.serviceTextField.text,
-            let date = bookingView.dateTextField.text
-            else { return }
-
-        RequestManager.sendRequest(for: service, from: customer, to: designer, date: date)
-        self.navigationController?.popViewController(animated: true)
-
-    }
-
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
 
     // MARK: - UITextField Delegate

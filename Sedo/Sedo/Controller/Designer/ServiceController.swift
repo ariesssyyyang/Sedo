@@ -75,35 +75,66 @@ class ServiceController: UITableViewController {
 
     @objc func handleNewService() {
 
-        let alertController = UIAlertController(title: "New Service", message: "Please enter detail you gonna provide", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
+
+        let titleString = NSMutableAttributedString(string: "New Service" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20)])
+
+        alertController.setValue(titleString, forKey: "attributedTitle")
+
+        let messageString = NSMutableAttributedString(string: "Please enter service detail you gonna provide." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+
+        alertController.setValue(messageString, forKey: "attributedMessage")
 
         alertController.addTextField { (textfield) in
             textfield.placeholder = "item"
+            textfield.heightAnchor.constraint(equalToConstant: 20).isActive = true
         }
 
         alertController.addTextField { (textfield) in
             textfield.placeholder = "price"
+            textfield.heightAnchor.constraint(equalToConstant: 20).isActive = true
+            textfield.keyboardType = .numberPad
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
 
         let addNewAction = UIAlertAction(title: "Add", style: .default) { (_) in
-            guard
-                let service = alertController.textFields?.first?.text,
-                let priceString = alertController.textFields?.last?.text,
-                let price = Int(priceString)
-            else {
-                print("fail to add new service!")
-                return
+            if alertController.textFields?.first?.text == "" || alertController.textFields?.last?.text == "" {
+                self.showTextfieldAlert()
+            } else {
+                guard
+                    let service = alertController.textFields?.first?.text,
+                    let priceString = alertController.textFields?.last?.text,
+                    let price = Int(priceString)
+                else {
+                    print("fail to add new service!")
+                    return
+                }
+
+                ServiceManager.addNew(service: service, price: price)
             }
-
-            ServiceManager.addNew(service: service, price: price)
-
         }
         alertController.addAction(addNewAction)
 
         self.present(alertController, animated: true, completion: nil)
+    }
+
+    func showTextfieldAlert() {
+        let textfieldAlert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+
+        let titleString = NSMutableAttributedString(string: "Error" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20), NSAttributedStringKey.foregroundColor: UIColor.red])
+
+        textfieldAlert.setValue(titleString, forKey: "attributedTitle")
+
+        let messageString = NSMutableAttributedString(string: "Please enter all infomations needed." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+
+        textfieldAlert.setValue(messageString, forKey: "attributedMessage")
+
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        textfieldAlert.addAction(ok)
+
+        self.present(textfieldAlert, animated: true, completion: nil)
     }
 
     // MARK: - Fetch Data
