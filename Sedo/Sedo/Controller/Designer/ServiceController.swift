@@ -14,6 +14,7 @@ class ServiceController: UITableViewController {
     var services: [Service] = []
     let serviceCellId = "serviceCell"
     var designer: Designer?
+    var customer: Customer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,8 @@ class ServiceController: UITableViewController {
         guard let currentUserId = Auth.auth().currentUser?.uid, let designerId = designer?.id else { return }
 
         if currentUserId != designerId {
-            self.navigationItem.rightBarButtonItem = nil
+//            self.navigationItem.rightBarButtonItem = nil
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-booking"), style: .plain, target: self, action: #selector(newBooking))
             tableView.backgroundView = nil
         }
     }
@@ -72,6 +74,16 @@ class ServiceController: UITableViewController {
     }
 
     // MARK: - Actions
+
+    @objc func newBooking() {
+
+        let bookingController = BookingController()
+
+        bookingController.customer = customer
+        bookingController.designer = designer
+
+        self.navigationController?.pushViewController(bookingController, animated: true)
+    }
 
     @objc func handleNewService() {
 
@@ -184,10 +196,44 @@ class ServiceController: UITableViewController {
 
         let service = services[indexPath.row]
 
+        cell.selectionStyle = .none
         cell.serviceItemLabel.text = service.service
         cell.priceLabel.text = "NT$ \(service.price)"
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+
+        let service = services[indexPath.row]
+
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+
+        switch editingStyle {
+        case .delete:
+            let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+
+            let titleString = NSMutableAttributedString(string: "Notice" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20), NSAttributedStringKey.foregroundColor: UIColor.red])
+
+            alert.setValue(titleString, forKey: "attributedTitle")
+
+            let messageString = NSMutableAttributedString(string: "Press sure to delete the service." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+
+            alert.setValue(messageString, forKey: "attributedMessage")
+
+            let sureAction = UIAlertAction(title: "Sure", style: .default, handler: { (_) in
+                let serviceRef = Database.database().reference().child("service").child(uid).child(service.service)
+                serviceRef.removeValue()
+            })
+            alert.addAction(sureAction)
+
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancelAction)
+
+            self.present(alert, animated: true, completion: nil)
+        default:
+            return
+        }
     }
 
 }

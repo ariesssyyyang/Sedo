@@ -238,14 +238,8 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     @objc func handleServiceButton(_ sender: UIButton) {
         let serviceController = ServiceController()
         serviceController.designer = author
+        serviceController.customer = currentMe
         self.navigationController?.pushViewController(serviceController, animated: true)
-    }
-
-    @objc func newBooking() {
-        let bookingController = BookingController()
-        bookingController.customer = currentMe
-        bookingController.designer = author
-        self.navigationController?.pushViewController(bookingController, animated: true)
     }
 
     // MARK: - UICollectionView DataSource
@@ -335,9 +329,6 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
             if currentMe?.id != author?.id {
 
                 self.collectionView?.backgroundView = nil
-
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-booking"), style: .plain, target: self, action: #selector(newBooking))
-
 
                 header.editButton.setTitle("Service", for: .normal)
                 header.editButton.addTarget(self, action: #selector(handleServiceButton(_:)), for: .touchUpInside)

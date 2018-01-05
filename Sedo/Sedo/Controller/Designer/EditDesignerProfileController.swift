@@ -53,17 +53,16 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        self.view.endEditing(true)
-//        textField.resignFirstResponder()
+        self.view.endEditing(true)
+        textField.resignFirstResponder()
         return true
 
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
         self.view.endEditing(true)
-        editView.nameTextField.resignFirstResponder()
-        editView.lineIdTextField.resignFirstResponder()
-        editView.introductionTextField.resignFirstResponder()
+
     }
 
     // MARK: - Set Up
