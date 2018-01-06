@@ -129,22 +129,36 @@ class ServiceController: UITableViewController {
         }
         alertController.addAction(addNewAction)
 
+        alertController.view.tintColor = UIColor(
+            red: 24.0 / 255.0,
+            green: 79.0 / 255.0,
+            blue: 135 / 255.0,
+            alpha: 1.0
+        )
+
         self.present(alertController, animated: true, completion: nil)
     }
 
     func showTextfieldAlert() {
         let textfieldAlert = UIAlertController(title: "", message: "", preferredStyle: .alert)
 
-        let titleString = NSMutableAttributedString(string: "Error" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20), NSAttributedStringKey.foregroundColor: UIColor.red])
+        let titleString = NSMutableAttributedString(string: "Error" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.red])
 
         textfieldAlert.setValue(titleString, forKey: "attributedTitle")
 
-        let messageString = NSMutableAttributedString(string: "Please enter all infomations needed." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+        let messageString = NSMutableAttributedString(string: "Please enter all infomations needed." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
 
         textfieldAlert.setValue(messageString, forKey: "attributedMessage")
 
         let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
         textfieldAlert.addAction(ok)
+
+        textfieldAlert.view.tintColor = UIColor(
+            red: 24.0 / 255.0,
+            green: 79.0 / 255.0,
+            blue: 135 / 255.0,
+            alpha: 1.0
+        )
 
         self.present(textfieldAlert, animated: true, completion: nil)
     }
@@ -213,11 +227,11 @@ class ServiceController: UITableViewController {
         case .delete:
             let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
 
-            let titleString = NSMutableAttributedString(string: "Notice" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20), NSAttributedStringKey.foregroundColor: UIColor.red])
+            let titleString = NSMutableAttributedString(string: "Notice" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.red])
 
             alert.setValue(titleString, forKey: "attributedTitle")
 
-            let messageString = NSMutableAttributedString(string: "Press sure to delete the service." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+            let messageString = NSMutableAttributedString(string: "Press sure to delete the service." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
 
             alert.setValue(messageString, forKey: "attributedMessage")
 
@@ -229,6 +243,13 @@ class ServiceController: UITableViewController {
 
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             alert.addAction(cancelAction)
+
+            alert.view.tintColor = UIColor(
+                red: 24.0 / 255.0,
+                green: 79.0 / 255.0,
+                blue: 135 / 255.0,
+                alpha: 1.0
+            )
 
             self.present(alert, animated: true, completion: nil)
         default:

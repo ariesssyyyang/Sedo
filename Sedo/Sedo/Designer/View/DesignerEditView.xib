@@ -42,7 +42,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="16"/>
                     <state key="normal" title="Select Image">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleColor" red="0.50983760069999995" green="0.78136740039999997" blue="0.99998199939999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jLa-dR-V9o">
@@ -85,9 +85,16 @@
                         <constraint firstItem="nns-VX-8Oc" firstAttribute="width" secondItem="jLa-dR-V9o" secondAttribute="width" id="yJb-nR-zhC"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gi-dK-Puh">
+                    <rect key="frame" x="127" y="52" width="120" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="0gi-dK-Puh" secondAttribute="height" multiplier="1:1" id="SfK-5a-vQh"/>
+                    </constraints>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="0gi-dK-Puh" firstAttribute="height" secondItem="1TA-6j-uti" secondAttribute="height" id="4TJ-jA-Den"/>
                 <constraint firstItem="QOJ-O7-98v" firstAttribute="width" secondItem="1TA-6j-uti" secondAttribute="width" id="5Ee-hJ-G6e"/>
                 <constraint firstItem="TV9-RJ-GBw" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="7Yw-kh-mrT"/>
                 <constraint firstItem="1TA-6j-uti" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9mZ-MP-rW2"/>
@@ -98,12 +105,15 @@
                 <constraint firstItem="jLa-dR-V9o" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="OSK-AJ-Hnv"/>
                 <constraint firstItem="jLa-dR-V9o" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="4/5" id="Shx-v8-ZFd"/>
                 <constraint firstItem="QOJ-O7-98v" firstAttribute="bottom" secondItem="jLa-dR-V9o" secondAttribute="top" constant="-15" id="T79-18-OLW"/>
+                <constraint firstItem="0gi-dK-Puh" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="lkT-1d-PGv"/>
                 <constraint firstItem="jLa-dR-V9o" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="1/2" id="xG1-3s-Iz0"/>
                 <constraint firstItem="TV9-RJ-GBw" firstAttribute="top" secondItem="1TA-6j-uti" secondAttribute="top" id="yI4-tj-J4E"/>
+                <constraint firstItem="0gi-dK-Puh" firstAttribute="bottom" secondItem="1TA-6j-uti" secondAttribute="bottom" id="yV9-sN-1b6"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="designerImageView" destination="1TA-6j-uti" id="bhf-eK-jZC"/>
+                <outlet property="imageButton" destination="0gi-dK-Puh" id="fvf-Gw-jNk"/>
                 <outlet property="imageSelectedButton" destination="QOJ-O7-98v" id="Exd-0A-m6S"/>
                 <outlet property="introductionTextField" destination="xeM-Me-mpx" id="4Vt-JZ-Oyd"/>
                 <outlet property="lineIdTextField" destination="Ppa-0i-ORP" id="zjn-kW-SxC"/>

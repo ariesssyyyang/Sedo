@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Nuke
 import XLPagerTabStrip
 
 class DesignerOrdersController: UITableViewController, IndicatorInfoProvider {
@@ -71,6 +72,19 @@ class DesignerOrdersController: UITableViewController, IndicatorInfoProvider {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: orderCellId, for: indexPath) as? DesignerRequestCell else { return DesignerRequestCell() }
         let order = orders[indexPath.row]
+
+        let ref = Storage.storage().reference().child("designer").child(order.customer.id)
+        ref.downloadURL { (url, err) in
+            if let error = err {
+                print(error)
+                return
+            }
+            if let url = url {
+                cell.customerImageView.image = nil
+                Nuke.loadImage(with: url, into: cell.customerImageView)
+            }
+        }
+
         cell.serviceLabel.text = order.service
         cell.dateLabel.text = order.date
         cell.timeLabel.text = order.customer.name
@@ -89,7 +103,7 @@ class DesignerOrdersController: UITableViewController, IndicatorInfoProvider {
             print("fail to fetch user uid in customer orders page")
             return
         }
-        // use user id as node key //
+
         let ref = Database.database().reference().child("order-designer").child(uid)
         ref.observe(.value, with: { (snapshot) in
 

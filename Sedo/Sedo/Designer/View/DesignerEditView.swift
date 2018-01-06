@@ -13,7 +13,9 @@ class DesignerEditView: UIView {
     @IBOutlet weak var designerImageView: UIImageView!
 
     @IBOutlet weak var imageSelectedButton: UIButton!
-    
+
+    @IBOutlet weak var imageButton: UIButton!
+
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var lineIdTextField: UITextField!
@@ -69,6 +71,11 @@ class DesignerEditView: UIView {
         introductionTextField.layer.borderWidth = 1.0
         introductionTextField.layer.borderColor = UIColor.lightGray.cgColor
         introductionTextField.layer.cornerRadius = 10
+    }
+
+    func setupButton() {
+        imageButton.layer.cornerRadius = imageButton.frame.height / 2
+        imageButton.layer.masksToBounds = true
     }
 
 }

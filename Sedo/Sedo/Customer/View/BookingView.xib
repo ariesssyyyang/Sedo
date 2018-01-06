@@ -44,7 +44,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="18"/>
                     <state key="normal" title="Done">
-                        <color key="titleColor" red="0.1450980392" green="0.36862745099999999" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.14509803921568626" green="0.36862745098039218" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
             </subviews>

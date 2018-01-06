@@ -330,6 +330,8 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
                 self.collectionView?.backgroundView = nil
 
+                self.navigationItem.rightBarButtonItem = nil
+
                 header.editButton.setTitle("Service", for: .normal)
                 header.editButton.addTarget(self, action: #selector(handleServiceButton(_:)), for: .touchUpInside)
                 return header

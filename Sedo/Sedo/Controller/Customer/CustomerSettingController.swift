@@ -11,27 +11,48 @@ import Crashlytics
 
 class CustomerSettingController: UIViewController {
 
+    let logoutButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor(
+            red: 133.0/255,
+            green: 53.0/255,
+            blue: 11.0/255,
+            alpha: 1.0
+        )
+        button.setTitle("Log Out", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Kohinoor Bangla", size: 20)
+        return button
+    }()
+
     override func viewDidLoad() {
 
         super.viewDidLoad()
 
         setupNavigationBar()
 
-        self.view.backgroundColor = UIColor.white
+        setupBackground()
 
-        // crashlytics testing //
-        let button = UIButton(type: .roundedRect)
-        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
-        button.setTitle("Crash", for: [])
-        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
-        view.addSubview(button)
-    }
-    
-    @IBAction func crashButtonTapped(_ sender: AnyObject) {
-        Crashlytics.sharedInstance().crash()
+        setupButton()
+
     }
 
-    // crashlytics testing //
+    // MARK: - Set Up
+
+    func setupButton() {
+
+        view.addSubview(logoutButton)
+
+        logoutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        logoutButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3).isActive = true
+        logoutButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+
+        logoutButton.layer.cornerRadius = 20
+        logoutButton.layer.masksToBounds = true
+
+        logoutButton.addTarget(self, action: #selector(handleSignOut), for: .touchUpInside)
+    }
 
     func setupNavigationBar() {
 
@@ -41,6 +62,20 @@ class CustomerSettingController: UIViewController {
 
 //        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-exit"), style: .plain, target: self, action: #selector(handleSignOut))
 
+    }
+
+    func setupBackground() {
+
+        let backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImageView.image = #imageLiteral(resourceName: "back-woman")
+        backgroundImageView.contentMode = .scaleAspectFill
+        view.addSubview(backgroundImageView)
+
+        let blurEffect = UIBlurEffect(style: .dark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = backgroundImageView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        backgroundImageView.addSubview(blurEffectView)
     }
 
     // MARK: - Actions

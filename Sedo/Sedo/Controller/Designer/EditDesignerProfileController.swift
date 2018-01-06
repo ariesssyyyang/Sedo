@@ -47,12 +47,15 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
     // MARK: - TextFieldDelegate
 
     func confirmDelegate() {
+
         editView.nameTextField.delegate = self
         editView.lineIdTextField.delegate = self
         editView.introductionTextField.delegate = self
+
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+
         self.view.endEditing(true)
         textField.resignFirstResponder()
         return true
@@ -94,6 +97,7 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
         editView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         editView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
+        editView.imageButton.addTarget(self, action: #selector(selectImage), for: .touchUpInside)
         editView.imageSelectedButton.addTarget(self, action: #selector(selectImage), for: .touchUpInside)
     }
 

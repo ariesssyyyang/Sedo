@@ -126,41 +126,41 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
         let alert = UIAlertController(title: "Action", message: "Choose an action", preferredStyle: .actionSheet)
         let edit = UIAlertAction(title: "Edit", style: .default) { (_) in
             print("Edit the image description")
-            
+
             let editController = NewPostController()
             let editView = editController.inputContainerView
-            
+
             editController.editButtonIsHidden = false
             editView.selectedButton.isHidden = true
             editView.doneButton.isHidden = true
-            
+
             if let urlString = self.imageUrlString, let url = URL(string: urlString) {
                 editView.selectedImage.image = nil
                 Nuke.loadImage(with: url, into: editView.selectedImage)
             }
-            
-            if let content = self.post["content"] {
+
+            if let content = self.content {
                 editView.descriptionTextField.text = content
             }
-            
+
             editView.editButton.addTarget(self, action: #selector(self.handleEdit(_:)), for: .touchUpInside)
-            
+
             self.present(editController, animated: true, completion: nil)
         }
         alert.addAction(edit)
-        
+
         let delete = UIAlertAction(title: "Delete", style: .destructive) { (_) in
-            
+
             self.showDeleteAlert()
-            
+
         }
         alert.addAction(delete)
-        
+
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             print("cancel")
         }
         alert.addAction(cancel)
-        
+
         self.present(alert, animated: true, completion: nil)
     }
 
@@ -168,11 +168,11 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
 
         let deleteAlert = UIAlertController(title: "Delete", message: "Are you sure to delete this post?", preferredStyle: .alert)
 
-        let titleString = NSMutableAttributedString(string: "Delete" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20)])
+        let titleString = NSMutableAttributedString(string: "Delete" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
 
         deleteAlert.setValue(titleString, forKey: "attributedTitle")
 
-        let messageString = NSMutableAttributedString(string: "Are you sure to delete this post?" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+        let messageString = NSMutableAttributedString(string: "Are you sure to delete this post?" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
 
         deleteAlert.setValue(messageString, forKey: "attributedMessage")
 

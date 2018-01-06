@@ -44,7 +44,7 @@ class DesignerSettingController: UIViewController {
     // MARK: - Actions
 
     @objc func changeMode() {
-        
+
         self.dismiss(animated: true, completion: nil)
 
     }

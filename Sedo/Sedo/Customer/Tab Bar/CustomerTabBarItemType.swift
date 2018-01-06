@@ -62,7 +62,7 @@ extension CustomerTabBarItemType {
 
         case .profile:
 
-            return #imageLiteral(resourceName: "icon-user").withRenderingMode(.alwaysTemplate)
+            return #imageLiteral(resourceName: "icon-setting").withRenderingMode(.alwaysTemplate)
         }
     }
 
@@ -80,7 +80,7 @@ extension CustomerTabBarItemType {
 
         case .profile:
 
-            return #imageLiteral(resourceName: "selected-user").withRenderingMode(.alwaysTemplate)
+            return #imageLiteral(resourceName: "selected-setting").withRenderingMode(.alwaysTemplate)
         }
 
     }
