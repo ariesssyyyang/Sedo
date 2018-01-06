@@ -72,7 +72,7 @@ class LoginController: UIViewController {
                 return
         }
 
-        UserManager.signIn(withEmail: email, password: password)
+        UserManager.signIn(withEmail: email, password: password, in: self)
     }
 
     @objc func handleRegister() {

@@ -19,13 +19,14 @@ struct User {
 
 class UserManager {
 
-    static func signIn(withEmail email: String, password: String) {
+    static func signIn(withEmail email: String, password: String, in viewController: UIViewController) {
 
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
 
             if let error = error {
                 print("** fail to Sign in **")
-                print(error)
+                print(error.localizedDescription)
+                showAlert(in: viewController, description: error.localizedDescription)
             }
 
             if let user = user {
@@ -164,5 +165,21 @@ class UserManager {
 
         }
 
+    }
+
+    static func showAlert(in vc: UIViewController, description: String) {
+
+        let loginAlert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+
+        let titleString = NSMutableAttributedString(string: "Error" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+        loginAlert.setValue(titleString, forKey: "attributedTitle")
+
+        let messageString = NSMutableAttributedString(string: description as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
+        loginAlert.setValue(messageString, forKey: "attributedMessage")
+
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        loginAlert.addAction(ok)
+
+        vc.present(loginAlert, animated: true, completion: nil)
     }
 }
