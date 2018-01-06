@@ -100,7 +100,7 @@ class CustomerSettingController: UIViewController {
 
         let okAction = UIAlertAction(title: "Yes", style: .default) { (_) in
 
-            UserManager.signOut()
+            UserManager.signOut(viewController: self)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)

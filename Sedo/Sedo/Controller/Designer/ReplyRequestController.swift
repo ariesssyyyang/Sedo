@@ -82,19 +82,74 @@ class ReplyRequestController: UIViewController {
     }
 
     @objc func handleYes(_ sender: UIButton) {
-        guard let request = request else { return }
-        RequestManager.approveRequest(for: request)
-        RequestManager.sendOrder(of: request)
-        self.navigationController?.popViewController(animated: true)
+
+        doubleCheckAlert(isAccepted: true)
+
     }
 
     @objc func handleNo(_ sender: UIButton) {
 
-        // Todo: Alert Controller
+        doubleCheckAlert(isAccepted: false)
 
-        guard let request = request else { return }
-        RequestManager.rejectRequest(for: request)
-        self.navigationController?.popViewController(animated: true)
+    }
+
+    func doubleCheckAlert(isAccepted: Bool) {
+
+        if isAccepted {
+
+            guard let request = request else { return }
+            RequestManager.approveRequest(for: request)
+            RequestManager.sendOrder(of: request)
+
+            bookingSuccessAlert()
+
+        } else {
+
+            deleteRequestAlert()
+
+        }
+    }
+
+    func bookingSuccessAlert() {
+
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+
+        let title = AlertManager.successTitle(title: "Success!")
+        alert.setValue(title, forKey: "attributedTitle")
+
+        let message = AlertManager.customizedMessage(message: "Request become an order. Check it out!")
+        alert.setValue(message, forKey: "attributedMessage")
+
+        let ok = UIAlertAction(title: "OK", style: .default) { (_) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(ok)
+
+        present(alert, animated: true, completion: nil)
+
+    }
+
+    func deleteRequestAlert() {
+
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+
+        let title = AlertManager.customizedTitle(title: "Notice!")
+        alert.setValue(title, forKey: "attributedTitle")
+
+        let message = AlertManager.customizedMessage(message: "Request is gonna deleted, do you want to continue?")
+        alert.setValue(message, forKey: "attributedMessage")
+
+        let yes = UIAlertAction(title: "Yes", style: .default) { (_) in
+            guard let request = self.request else { return }
+            RequestManager.rejectRequest(for: request)
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(yes)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alert.addAction(cancel)
+
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

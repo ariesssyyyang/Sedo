@@ -1,0 +1,36 @@
+//
+//  AlertManager.swift
+//  Sedo
+//
+//  Created by Aries Yang on 2018/1/7.
+//  Copyright © 2018年 Aries Yang. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class AlertManager {
+
+    static func customizedTitle(title: String) -> NSMutableAttributedString {
+
+        let titleString = NSMutableAttributedString(string: title as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+        return titleString
+
+    }
+
+    static func successTitle(title: String) -> NSMutableAttributedString {
+
+        let sendGreen = UIColor(red: 42.0/255, green: 120.0/255, blue: 27.0/255, alpha: 1.0)
+        let titleString = NSMutableAttributedString(string: title as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: sendGreen])
+        return titleString
+
+    }
+
+    static func customizedMessage(message: String) -> NSMutableAttributedString {
+
+        let messageString = NSMutableAttributedString(string: message as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
+        return messageString
+
+    }
+
+}

@@ -73,7 +73,7 @@ class RegisterController: UIViewController {
                 print("please enter something!")
                 return
         }
-        UserManager.signUp(withEmail: email, password: password, name: username)
+        UserManager.signUp(withEmail: email, password: password, name: username, vc: self)
     }
 
     @objc func handleCancel() {

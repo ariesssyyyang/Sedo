@@ -86,7 +86,7 @@ class LoginController: UIViewController {
         let titleString = NSMutableAttributedString(string: "Password Reset" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
 
         alert.setValue(titleString, forKey: "attributedTitle")
-        
+
         let messageString = NSMutableAttributedString(string: "Enter a correct registered email address and you will receive an email to reset password." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
 
         alert.setValue(messageString, forKey: "attributedMessage")
@@ -106,7 +106,7 @@ class LoginController: UIViewController {
 
                 guard let email = alert.textFields?.first?.text else { return }
 
-                UserManager.resetPassword(email: email)
+                UserManager.resetPassword(email: email, vc: self)
 
                 let sendAlert = UIAlertController(title: "", message: "", preferredStyle: .alert)
                 let sendGreen = UIColor(red: 42.0/255, green: 120.0/255, blue: 27.0/255, alpha: 1.0)

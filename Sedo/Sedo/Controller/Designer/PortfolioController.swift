@@ -295,9 +295,9 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
         guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerViewId", for: indexPath) as? PortfolioIntroView
-            else {
-                print("fail to get the right intro view")
-                return PortfolioIntroView()
+        else {
+            print("fail to get the right intro view")
+            return PortfolioIntroView()
         }
 
         if author?.name != "" {
@@ -308,9 +308,10 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
             if lineId != "" {
                 header.lineIdLabel.text = lineId
+            } else {
+                header.lineIdLabel.text = "N/A"
             }
 
-            header.lineIdLabel.text = "N/A"
         }
 
         if let introduction = headerInfo["introduction"] {

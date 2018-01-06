@@ -26,7 +26,7 @@ class UserManager {
             if let error = error {
                 print("** fail to Sign in **")
                 print(error.localizedDescription)
-                showAlert(in: viewController, description: error.localizedDescription)
+                showAlert(inVC: viewController, description: error.localizedDescription)
             }
 
             if let user = user {
@@ -48,9 +48,13 @@ class UserManager {
 
     }
 
-    static func signUp(withEmail email: String, password: String, name: String) {
+    static func signUp(withEmail email: String, password: String, name: String, vc: UIViewController) {
 
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+
+            if let error = error {
+                showAlert(inVC: vc, description: error.localizedDescription)
+            }
 
             guard let user = user else {
                 print("** fail to sign up **")
@@ -59,7 +63,12 @@ class UserManager {
 
             user.sendEmailVerification(completion: { (error) in
 
-                if error == nil {
+                if let err = error {
+                    
+                    print("** something went wrong to verify email **")
+                    showAlert(inVC: vc, description: err.localizedDescription)
+                    
+                } else {
 
                     let id = user.uid
                     let ref = Database.database().reference().child("user").child(id)
@@ -83,8 +92,6 @@ class UserManager {
 
                     })
 
-                } else {
-                    print("** something went wrong to verify email **")
                 }
 
             })
@@ -135,16 +142,17 @@ class UserManager {
 
     }
 
-    static func resetPassword(email: String) {
+    static func resetPassword(email: String, vc: UIViewController) {
 
         Auth.auth().sendPasswordReset(withEmail: email) { (error) in
             if let error = error {
                 print(error)
+                showAlert(inVC: vc, description: error.localizedDescription)
             }
         }
     }
 
-    static func signOut() {
+    static func signOut(viewController: UIViewController) {
 
         do {
 
@@ -162,12 +170,13 @@ class UserManager {
         } catch let signOutError {
 
             print(signOutError)
+            showAlert(inVC: viewController, description: signOutError.localizedDescription)
 
         }
 
     }
 
-    static func showAlert(in vc: UIViewController, description: String) {
+    static func showAlert(inVC vc: UIViewController, description: String) {
 
         let loginAlert = UIAlertController(title: "", message: "", preferredStyle: .alert)
 

@@ -30,6 +30,7 @@
 		7F6DDD2D1FE96DAB004E7898 /* PortfolioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F6DDD2B1FE96DAB004E7898 /* PortfolioCell.xib */; };
 		7F6DDD2F1FE96E2A004E7898 /* PortfolioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD2E1FE96E2A004E7898 /* PortfolioController.swift */; };
 		7F6DDD311FEA049B004E7898 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD301FEA049B004E7898 /* RegisterController.swift */; };
+		7F9A22DE2001478100AC0C28 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A22DD2001478100AC0C28 /* AlertManager.swift */; };
 		7FA137F71FE22FEE006455B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA137F61FE22FEE006455B1 /* AppDelegate.swift */; };
 		7FA137FC1FE22FEE006455B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA137FA1FE22FEE006455B1 /* Main.storyboard */; };
 		7FA137FE1FE22FEE006455B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA137FD1FE22FEE006455B1 /* Assets.xcassets */; };
@@ -104,6 +105,7 @@
 		7F6DDD2B1FE96DAB004E7898 /* PortfolioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortfolioCell.xib; sourceTree = "<group>"; };
 		7F6DDD2E1FE96E2A004E7898 /* PortfolioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioController.swift; sourceTree = "<group>"; };
 		7F6DDD301FEA049B004E7898 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		7F9A22DD2001478100AC0C28 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		7FA137F31FE22FEE006455B1 /* Sedo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sedo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA137F61FE22FEE006455B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FA137FB1FE22FEE006455B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				7FA1380B1FE2505B006455B1 /* RequestManager.swift */,
 				7F2B43F11FECE10E0019C7FD /* PortfolioManager.swift */,
 				7FA817811FF0A5B6001A987A /* ServiceManager.swift */,
+				7F9A22DD2001478100AC0C28 /* AlertManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				7FA137F71FE22FEE006455B1 /* AppDelegate.swift in Sources */,
 				7FA138191FE28928006455B1 /* DesignerTabBarController.swift in Sources */,
 				7FA8177C1FEFED08001A987A /* EditDesignerProfileController.swift in Sources */,
+				7F9A22DE2001478100AC0C28 /* AlertManager.swift in Sources */,
 				7FA138271FE36A84006455B1 /* CustomerSettingController.swift in Sources */,
 				7FADBF381FF51615002A5330 /* CustomerNavigationController.swift in Sources */,
 				7FF9376C1FE7F25B004D1D4D /* DesignerOrderListController.swift in Sources */,

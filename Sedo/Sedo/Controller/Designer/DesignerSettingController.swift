@@ -55,7 +55,7 @@ class DesignerSettingController: UIViewController {
     }
 
     @objc func handleSignOut() {
-        UserManager.signOut()
+        UserManager.signOut(viewController: self)
     }
 
 }
