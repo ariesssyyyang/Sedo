@@ -50,11 +50,11 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
         bookingView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
         bookingView.dateTextField.inputView = datePicker
-        let datePlaceholder = NSLocalizedString("choose a service", comment: "booking page textfield")
+        let datePlaceholder = NSLocalizedString("select a date", comment: "booking page textfield")
         bookingView.dateTextField.placeholder = datePlaceholder
 
         bookingView.serviceTextField.inputView = servicePicker
-        let servicePlaceholder = NSLocalizedString("select a date", comment: "booking page textfield")
+        let servicePlaceholder = NSLocalizedString("choose a service", comment: "booking page textfield")
         bookingView.serviceTextField.placeholder = servicePlaceholder
 
         let buttonString = NSLocalizedString("Done", comment: "done button in booking page")
