@@ -192,7 +192,8 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleNewPost))
 
-        self.navigationItem.title = "Portfolio"
+        let titleString = NSLocalizedString("Portfolio", comment: "desinger portfolio page")
+        self.navigationItem.title = titleString
 
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
@@ -333,12 +334,15 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
                 self.navigationItem.rightBarButtonItem = nil
 
-                header.editButton.setTitle("Service", for: .normal)
+                let titleString = NSLocalizedString("Service", comment: "portfolio service button")
+                header.editButton.setTitle(titleString, for: .normal)
                 header.editButton.addTarget(self, action: #selector(handleServiceButton(_:)), for: .touchUpInside)
                 return header
 
             } else {
 
+                let titleString = NSLocalizedString("Edit", comment: "portfolio edit button")
+                header.editButton.setTitle(titleString, for: .normal)
                 header.editButton.addTarget(self, action: #selector(handleEdit(_:)), for: .touchUpInside)
                 return header
             }

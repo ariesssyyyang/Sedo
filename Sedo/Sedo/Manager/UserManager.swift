@@ -64,10 +64,10 @@ class UserManager {
             user.sendEmailVerification(completion: { (error) in
 
                 if let err = error {
-                    
+
                     print("** something went wrong to verify email **")
                     showAlert(inVC: vc, description: err.localizedDescription)
-                    
+
                 } else {
 
                     let id = user.uid
@@ -176,19 +176,22 @@ class UserManager {
 
     }
 
-    static func showAlert(inVC vc: UIViewController, description: String) {
+    static func showAlert(inVC viewController: UIViewController, description: String) {
 
         let loginAlert = UIAlertController(title: "", message: "", preferredStyle: .alert)
 
-        let titleString = NSMutableAttributedString(string: "Error" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+        let localTitle = NSLocalizedString("Error", comment: "alert")
+        let titleString = NSMutableAttributedString(string: localTitle as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.red])
         loginAlert.setValue(titleString, forKey: "attributedTitle")
 
-        let messageString = NSMutableAttributedString(string: description as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
+        let localMessage = NSLocalizedString(description, comment: "alert")
+        let messageString = NSMutableAttributedString(string: localMessage as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
         loginAlert.setValue(messageString, forKey: "attributedMessage")
 
-        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let okString = NSLocalizedString("OK", comment: "alert action")
+        let ok = UIAlertAction(title: okString, style: .default, handler: nil)
         loginAlert.addAction(ok)
 
-        vc.present(loginAlert, animated: true, completion: nil)
+        viewController.present(loginAlert, animated: true, completion: nil)
     }
 }

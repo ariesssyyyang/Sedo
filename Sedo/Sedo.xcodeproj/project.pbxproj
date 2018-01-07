@@ -31,6 +31,8 @@
 		7F6DDD2F1FE96E2A004E7898 /* PortfolioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD2E1FE96E2A004E7898 /* PortfolioController.swift */; };
 		7F6DDD311FEA049B004E7898 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DDD301FEA049B004E7898 /* RegisterController.swift */; };
 		7F9A22DE2001478100AC0C28 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A22DD2001478100AC0C28 /* AlertManager.swift */; };
+		7F9A22E32001FF2000AC0C28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A22E52001FF2000AC0C28 /* InfoPlist.strings */; };
+		7F9A22E82001FF2100AC0C28 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A22EA2001FF2100AC0C28 /* Localizable.strings */; };
 		7FA137F71FE22FEE006455B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA137F61FE22FEE006455B1 /* AppDelegate.swift */; };
 		7FA137FC1FE22FEE006455B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA137FA1FE22FEE006455B1 /* Main.storyboard */; };
 		7FA137FE1FE22FEE006455B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA137FD1FE22FEE006455B1 /* Assets.xcassets */; };
@@ -106,6 +108,10 @@
 		7F6DDD2E1FE96E2A004E7898 /* PortfolioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioController.swift; sourceTree = "<group>"; };
 		7F6DDD301FEA049B004E7898 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		7F9A22DD2001478100AC0C28 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		7F9A22DF2001FDA700AC0C28 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		7F9A22E02001FDA700AC0C28 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		7F9A22E42001FF2000AC0C28 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		7F9A22E92001FF2100AC0C28 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		7FA137F31FE22FEE006455B1 /* Sedo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sedo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA137F61FE22FEE006455B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FA137FB1FE22FEE006455B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -227,6 +233,8 @@
 		7FA137F51FE22FEE006455B1 /* Sedo */ = {
 			isa = PBXGroup;
 			children = (
+				7F9A22EA2001FF2100AC0C28 /* Localizable.strings */,
+				7F9A22E52001FF2000AC0C28 /* InfoPlist.strings */,
 				7FF937471FE3BE6D004D1D4D /* AppDelegate */,
 				7FADBF341FF510BE002A5330 /* Navigation */,
 				7FCA6E511FEA59CC00D5CFB4 /* Animation */,
@@ -492,11 +500,13 @@
 				7F363F4F1FEBF29B008CE4E2 /* NewPostView.xib in Resources */,
 				7FF937781FE8AB89004D1D4D /* MainPageCell.xib in Resources */,
 				7FF9375C1FE790DF004D1D4D /* CustomerRequestCell.xib in Resources */,
+				7F9A22E82001FF2100AC0C28 /* Localizable.strings in Resources */,
 				7F579B061FFC7217004F919E /* PortfolioContentCell.xib in Resources */,
 				7F5D6E381FF5E6330008DA2C /* ReplyRequestView.xib in Resources */,
 				7FA138011FE22FEE006455B1 /* LaunchScreen.storyboard in Resources */,
 				7FA1380A1FE24E04006455B1 /* GoogleService-Info.plist in Resources */,
 				7FA137FE1FE22FEE006455B1 /* Assets.xcassets in Resources */,
+				7F9A22E32001FF2000AC0C28 /* InfoPlist.strings in Resources */,
 				7F52AFF21FEFB10E008C59BA /* PortfolioIntroView.xib in Resources */,
 				7FA137FC1FE22FEE006455B1 /* Main.storyboard in Resources */,
 				7F697A781FFA770C0036A07E /* RegisterView.xib in Resources */,
@@ -655,10 +665,27 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		7F9A22E52001FF2000AC0C28 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7F9A22E42001FF2000AC0C28 /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7F9A22EA2001FF2100AC0C28 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7F9A22E92001FF2100AC0C28 /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		7FA137FA1FE22FEE006455B1 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7FA137FB1FE22FEE006455B1 /* Base */,
+				7F9A22DF2001FDA700AC0C28 /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -667,6 +694,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				7FA138001FE22FEE006455B1 /* Base */,
+				7F9A22E02001FDA700AC0C28 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -678,6 +706,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -735,6 +764,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

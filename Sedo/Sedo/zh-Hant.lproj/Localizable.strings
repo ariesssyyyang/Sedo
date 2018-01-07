@@ -1,0 +1,142 @@
+/* in booking page */
+"- No service -" = "沒有服務";
+
+/* reply page accept button */
+"Accept" = "接受";
+
+/* booking page navigation bar
+   main page booking button */
+"Booking" = "預約";
+
+/* No comment provided by engineer. */
+"Calendar" = "";
+
+/* alert action
+   button in alert */
+"Cancel" = "取消";
+
+/* No comment provided by engineer. */
+"Customer" = "顧客設定";
+
+/* No comment provided by engineer. */
+"Designer" = "設計師";
+
+/* alert */
+"Do you really want to log out?" = "您確定要登出嗎？";
+
+/* done button in booking page */
+"Done" = "送出";
+
+/* portfolio edit button */
+"Edit" = "編輯個人資料";
+
+/* alert */
+"Enter a correct registered email address and you will receive an email to reset password." = "請輸入已註冊電子郵件地址，並在收到信件後重置密碼。";
+
+/* textfield in alert */
+"Enter email address ..." = "請輸入電子郵件地址 ...";
+
+/* alert
+   title in alert */
+"Error" = "錯誤";
+
+/* forgot button */
+"Forgot Password" = "忘記密碼";
+
+/* No comment provided by engineer. */
+"Log Out" = "登出";
+
+/* login button */
+"Login" = "登入";
+
+/* alert */
+"Logout" = "登出";
+
+/* No comment provided by engineer. */
+"Main" = "主頁";
+
+/* newaccount button */
+"New Account" = "註冊帳戶";
+
+/* alert */
+"Notice" = "注意";
+
+/* alert
+   alert action
+   button in alert */
+"OK" = "確認";
+
+/* No comment provided by engineer. */
+"Order" = "訂單";
+
+/* customer order list */
+"Order List" = "訂單";
+
+/* customer order list
+   designer order list */
+"Orders" = "已成立";
+
+/* alert */
+"Password Reset" = "重設密碼";
+
+/* customer order list
+   designer order list */
+"Pending" = "待確認";
+
+/* title in alert */
+"Please check your email to reset the password." = "請前往信箱確認信件並重設密碼";
+
+/* alert */
+"Please enter all infomations needed." = "請輸入完整資訊";
+
+/* title in alert */
+"Please enter an registered email address." = "請輸入已註冊電子郵件地址";
+
+/* desinger portfolio page */
+"Portfolio" = "作品集";
+
+/* navigation bar */
+"Post" = "作品";
+
+/* reply page reject button */
+"Reject" = "拒絕";
+
+/* reply page nav bar */
+"Reply" = "回覆";
+
+/* alert */
+"Request become an order. Check it out!" = "訂單已成立，請前往確認。";
+
+/* alert */
+"Request is gonna deleted, do you want to continue?" = "請求將被刪除，您確定要繼續嗎？";
+
+/* button in alert
+   title in alert */
+"Send" = "送出";
+
+/* navigation bar
+   portfolio service button */
+"Service" = "服務";
+
+/* customer setting
+   designer edit profile navigation bar */
+"Setting" = "顧客設定";
+
+/* signup button */
+"Sign Up" = "註冊";
+
+/* alert */
+"Success" = "成功";
+
+/* alert action */
+"Yes" = "確定";
+
+/* booking page textfield */
+"choose a service" = "請選擇服務";
+
+/* booking page textfield */
+"select a date" = "請挑選日期";
+
+/* first row in service picker */
+"select a service" = "選擇以下服務";
+

@@ -71,7 +71,7 @@ class CustomerMainPageController: UITableViewController {
 
     func setupNavigationBar() {
 
-        self.navigationItem.title = "Main Page"
+        self.navigationItem.title = "Stylife"
 
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
@@ -243,6 +243,9 @@ class CustomerMainPageController: UITableViewController {
 
         if user.id == Auth.auth().currentUser?.uid {
             cell.bookingButton.isHidden = true
+        } else {
+            let buttonString = NSLocalizedString("Booking", comment: "main page booking button")
+            cell.bookingButton.setTitle(buttonString, for: .normal)
         }
 
         if let imageUrls = portfolios[user.id] {
@@ -377,7 +380,7 @@ class CustomerMainPageController: UITableViewController {
 
         self.present(designerController, animated: true, completion: nil)
     }
-
+/*
     @objc func handleSignOut() {
 
         let alert = UIAlertController(title: "Log out", message: "Do you really want to logout?", preferredStyle: .alert)
@@ -409,7 +412,7 @@ class CustomerMainPageController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
 
     }
-
+*/
     @objc func handleBooking(_ sender: UIButton) {
         guard
             let cell = sender.superview?.superview?.superview?.superview as? MainPageCell,

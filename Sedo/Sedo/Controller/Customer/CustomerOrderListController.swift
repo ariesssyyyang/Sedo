@@ -62,15 +62,21 @@ class CustomerOrderListController: ButtonBarPagerTabStripViewController {
 
     func setupNavigationBar() {
 
-        self.navigationItem.title = "Order List"
+        let titleString = NSLocalizedString("Order List", comment: "customer order list")
+        self.navigationItem.title = titleString
 
     }
 
     // MARK: - PageTabStripDataSource
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let approvedList = CustomerOrdersController(style: .plain, itemInfo: IndicatorInfo(title: "Orders"))
-        let pendingList = CustomerPendingController(style: .plain, itemInfo: IndicatorInfo(title: "Pending"))
+
+        let pendingString = NSLocalizedString("Pending", comment: "customer order list")
+
+        let orderString = NSLocalizedString("Orders", comment: "customer order list")
+
+        let approvedList = CustomerOrdersController(style: .plain, itemInfo: IndicatorInfo(title: orderString))
+        let pendingList = CustomerPendingController(style: .plain, itemInfo: IndicatorInfo(title: pendingString))
         return [pendingList, approvedList]
     }
 

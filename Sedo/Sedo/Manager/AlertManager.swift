@@ -13,7 +13,8 @@ class AlertManager {
 
     static func customizedTitle(title: String) -> NSMutableAttributedString {
 
-        let titleString = NSMutableAttributedString(string: title as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+        let localTitle = NSLocalizedString(title, comment: "alert")
+        let titleString = NSMutableAttributedString(string: localTitle as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
         return titleString
 
     }
@@ -21,14 +22,18 @@ class AlertManager {
     static func successTitle(title: String) -> NSMutableAttributedString {
 
         let sendGreen = UIColor(red: 42.0/255, green: 120.0/255, blue: 27.0/255, alpha: 1.0)
-        let titleString = NSMutableAttributedString(string: title as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: sendGreen])
+
+        let localTitle = NSLocalizedString(title, comment: "alert")
+        let titleString = NSMutableAttributedString(string: localTitle as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: sendGreen])
+
         return titleString
 
     }
 
     static func customizedMessage(message: String) -> NSMutableAttributedString {
 
-        let messageString = NSMutableAttributedString(string: message as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
+        let localMessage = NSLocalizedString(message, comment: "alert")
+        let messageString = NSMutableAttributedString(string: localMessage as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
         return messageString
 
     }

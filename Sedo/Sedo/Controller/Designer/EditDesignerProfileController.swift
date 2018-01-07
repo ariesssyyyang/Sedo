@@ -72,7 +72,8 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
 
     func setupNavigationBar() {
 
-        self.navigationItem.title = "Setting"
+        let titleString = NSLocalizedString("Setting", comment: "designer edit profile navigation bar")
+        self.navigationItem.title = titleString
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: #imageLiteral(resourceName: "icon-check"),

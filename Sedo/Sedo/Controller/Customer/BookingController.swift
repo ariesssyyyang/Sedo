@@ -50,13 +50,22 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
         bookingView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
         bookingView.dateTextField.inputView = datePicker
+        let datePlaceholder = NSLocalizedString("choose a service", comment: "booking page textfield")
+        bookingView.dateTextField.placeholder = datePlaceholder
+
         bookingView.serviceTextField.inputView = servicePicker
+        let servicePlaceholder = NSLocalizedString("select a date", comment: "booking page textfield")
+        bookingView.serviceTextField.placeholder = servicePlaceholder
+
+        let buttonString = NSLocalizedString("Done", comment: "done button in booking page")
+        bookingView.doneButton.setTitle(buttonString, for: .normal)
         bookingView.doneButton.addTarget(self, action: #selector(requestService), for: .touchUpInside)
     }
 
     func setupNavigationBar() {
 
-        self.navigationItem.title = "Booking"
+        let titleString = NSLocalizedString("Booking", comment: "booking page navigation bar")
+        self.navigationItem.title = titleString
 
     }
 
@@ -85,15 +94,18 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
 
         let textfieldAlert = UIAlertController(title: "", message: "", preferredStyle: .alert)
 
-        let titleString = NSMutableAttributedString(string: "Error" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.red])
+        let errorString = NSLocalizedString("Error", comment: "alert")
+        let titleString = NSMutableAttributedString(string: errorString as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.red])
 
         textfieldAlert.setValue(titleString, forKey: "attributedTitle")
 
-        let messageString = NSMutableAttributedString(string: "Please enter all infomations needed." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
+        let localMessage = NSLocalizedString("Please enter all infomations needed.", comment: "alert")
+        let messageString = NSMutableAttributedString(string: localMessage as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
 
         textfieldAlert.setValue(messageString, forKey: "attributedMessage")
 
-        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let localOk = NSLocalizedString("OK", comment: "alert")
+        let ok = UIAlertAction(title: localOk, style: .default, handler: nil)
         textfieldAlert.addAction(ok)
 
         self.present(textfieldAlert, animated: true, completion: nil)
@@ -193,10 +205,12 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
 
         if services.count == 0 {
-            return "- No service -"
+            let titleString = NSLocalizedString("- No service -", comment: "in booking page")
+            return titleString
         } else {
             if row == 0 {
-                return "select a service"
+                let titleString = NSLocalizedString("select a service", comment: "first row in service picker")
+                return titleString
             } else {
                 let service = services[row - 1]
                 return service.service + "  ($ \(service.price))"

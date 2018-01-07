@@ -48,7 +48,8 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-more"), style: .plain, target: self, action: #selector(handleMore))
 
-        self.navigationItem.title = "Picture"
+        let titleString = NSLocalizedString("Post", comment: "navigation bar")
+        self.navigationItem.title = titleString
     }
 
     func setupBackground() {

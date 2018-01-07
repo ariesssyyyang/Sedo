@@ -20,7 +20,8 @@ class CustomerSettingController: UIViewController {
             blue: 11.0/255,
             alpha: 1.0
         )
-        button.setTitle("Log Out", for: .normal)
+        let logoutString = NSLocalizedString("Log Out", comment: "")
+        button.setTitle(logoutString, for: .normal)
         button.titleLabel?.font = UIFont(name: "Kohinoor Bangla", size: 20)
         return button
     }()
@@ -56,7 +57,8 @@ class CustomerSettingController: UIViewController {
 
     func setupNavigationBar() {
 
-        self.navigationItem.title = "Setting"
+        let titleString = NSLocalizedString("Setting", comment: "customer setting")
+        self.navigationItem.title = titleString
 
 //        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-mode2"), style: .plain, target: self, action: #selector(changeMode))
 
@@ -90,20 +92,24 @@ class CustomerSettingController: UIViewController {
 
         let alert = UIAlertController(title: "Log out", message: "Do you really want to logout?", preferredStyle: .alert)
 
-        let titleString = NSMutableAttributedString(string: "Logout" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20)])
+        let localTitle = NSLocalizedString("Logout", comment: "alert")
+        let titleString = NSMutableAttributedString(string: localTitle as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20)])
 
         alert.setValue(titleString, forKey: "attributedTitle")
 
-        let messageString = NSMutableAttributedString(string: "Do you really want to log out?" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+        let localMessage = NSLocalizedString("Do you really want to log out?", comment: "alert")
+        let messageString = NSMutableAttributedString(string: localMessage as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
 
         alert.setValue(messageString, forKey: "attributedMessage")
 
-        let okAction = UIAlertAction(title: "Yes", style: .default) { (_) in
+        let yesString = NSLocalizedString("Yes", comment: "alert action")
+        let okAction = UIAlertAction(title: yesString, style: .default) { (_) in
 
             UserManager.signOut(viewController: self)
         }
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let cancelString = NSLocalizedString("Cancel", comment: "alert action")
+        let cancelAction = UIAlertAction(title: cancelString, style: .destructive, handler: nil)
 
         alert.addAction(cancelAction)
         alert.addAction(okAction)

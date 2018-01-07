@@ -52,7 +52,9 @@ class ServiceController: UITableViewController {
     func setupNavigationBar() {
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleNewService))
-        self.navigationItem.title = "Service"
+
+        let titleString = NSLocalizedString("Service", comment: "navigation bar")
+        self.navigationItem.title = titleString
 
     }
 

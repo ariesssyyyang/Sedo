@@ -56,8 +56,16 @@ class LoginController: UIViewController {
     }
 
     func setupButtons() {
+        let signinString = NSLocalizedString("Login", comment: "login button")
+        loginView.signinButton.setTitle(signinString, for: .normal)
         loginView.signinButton.addTarget(self, action: #selector(handleSignIn), for: .touchUpInside)
+
+        let newAccountString = NSLocalizedString("New Account", comment: "newaccount button")
+        loginView.newAccountButton.setTitle(newAccountString, for: .normal)
         loginView.newAccountButton.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
+
+        let forgetString = NSLocalizedString("Forgot Password", comment: "forgot button")
+        loginView.forgetButton.setTitle(forgetString, for: .normal)
         loginView.forgetButton.addTarget(self, action: #selector(handleForgotPassword), for: .touchUpInside)
     }
 
@@ -83,20 +91,26 @@ class LoginController: UIViewController {
     @objc func handleForgotPassword() {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
 
-        let titleString = NSMutableAttributedString(string: "Password Reset" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+        let localTitle = NSLocalizedString("Password Reset", comment: "alert")
+        let titleString = NSMutableAttributedString(string: localTitle as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
 
         alert.setValue(titleString, forKey: "attributedTitle")
 
-        let messageString = NSMutableAttributedString(string: "Enter a correct registered email address and you will receive an email to reset password." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
+        let localMessage = NSLocalizedString("Enter a correct registered email address and you will receive an email to reset password.", comment: "alert")
+        let messageString = NSMutableAttributedString(string: localMessage as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
 
         alert.setValue(messageString, forKey: "attributedMessage")
 
         alert.addTextField { (textfield) in
-            textfield.placeholder = "Enter ..."
+
+            let localString = NSLocalizedString("Enter email address ...", comment: "textfield in alert")
+            textfield.placeholder = localString
             textfield.keyboardType = .emailAddress
             textfield.heightAnchor.constraint(equalToConstant: 30).isActive = true
         }
-        let ok = UIAlertAction(title: "Send", style: .default) { (_) in
+
+        let sendbuttonString = NSLocalizedString("Send", comment: "button in alert")
+        let ok = UIAlertAction(title: sendbuttonString, style: .default) { (_) in
 
             if alert.textFields?.first?.text == "" {
 
@@ -110,13 +124,17 @@ class LoginController: UIViewController {
 
                 let sendAlert = UIAlertController(title: "", message: "", preferredStyle: .alert)
                 let sendGreen = UIColor(red: 42.0/255, green: 120.0/255, blue: 27.0/255, alpha: 1.0)
-                let titleString = NSMutableAttributedString(string: "Send" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: sendGreen])
+
+                let sendString = NSLocalizedString("Send", comment: "title in alert")
+                let titleString = NSMutableAttributedString(string: sendString as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: sendGreen])
                 sendAlert.setValue(titleString, forKey: "attributedTitle")
 
-                let messageString = NSMutableAttributedString(string: "Please check your email to reset the password." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
+                let localMessage = NSLocalizedString("Please check your email to reset the password.", comment: "title in alert")
+                let messageString = NSMutableAttributedString(string: localMessage as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
                 sendAlert.setValue(messageString, forKey: "attributedMessage")
 
-                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+                let localOk = NSLocalizedString("OK", comment: "button in alert")
+                let ok = UIAlertAction(title: localOk, style: .default, handler: nil)
                 sendAlert.addAction(ok)
 
                 sendAlert.view.tintColor = UIColor(
@@ -132,7 +150,8 @@ class LoginController: UIViewController {
         }
         alert.addAction(ok)
 
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let localCancel = NSLocalizedString("Cancel", comment: "button in alert")
+        let cancel = UIAlertAction(title: localCancel, style: .cancel, handler: nil)
         alert.addAction(cancel)
 
         alert.view.tintColor = UIColor(
@@ -149,15 +168,18 @@ class LoginController: UIViewController {
 
         let textfieldAlert = UIAlertController(title: "", message: "", preferredStyle: .alert)
 
-        let titleString = NSMutableAttributedString(string: "Error" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.red])
+        let localTitle = NSLocalizedString("Error", comment: "title in alert")
+        let titleString = NSMutableAttributedString(string: localTitle as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.red])
 
         textfieldAlert.setValue(titleString, forKey: "attributedTitle")
 
-        let messageString = NSMutableAttributedString(string: "Please enter an registered email address." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
+        let localMessage = NSLocalizedString("Please enter an registered email address.", comment: "title in alert")
+        let messageString = NSMutableAttributedString(string: localMessage as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
 
         textfieldAlert.setValue(messageString, forKey: "attributedMessage")
 
-        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let localOk = NSLocalizedString("OK", comment: "button in alert")
+        let ok = UIAlertAction(title: localOk, style: .default, handler: nil)
         textfieldAlert.addAction(ok)
 
         textfieldAlert.view.tintColor = UIColor(

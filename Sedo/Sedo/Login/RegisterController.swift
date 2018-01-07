@@ -58,7 +58,11 @@ class RegisterController: UIViewController {
     }
 
     func setupButtons() {
+
+        let signUpString = NSLocalizedString("Sign Up", comment: "signup button")
+        registerView.signUpButton.setTitle(signUpString, for: .normal)
         registerView.signUpButton.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+
         registerView.cancelButton.addTarget(self, action: #selector(handleCancel), for: .touchUpInside)
     }
 

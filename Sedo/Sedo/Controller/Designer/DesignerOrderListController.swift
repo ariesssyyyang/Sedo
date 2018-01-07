@@ -52,7 +52,9 @@ class DesignerOrderListController: ButtonBarPagerTabStripViewController {
 
     func setupNavigationBar() {
 
-        self.navigationItem.title = "Order List"
+        let titleString = NSLocalizedString("Order List", comment: "customer order list")
+
+        self.navigationItem.title = titleString
 
 //        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-mode"), style: .plain, target: self, action: #selector(changeMode))
 
@@ -73,8 +75,13 @@ class DesignerOrderListController: ButtonBarPagerTabStripViewController {
     // MARK: - PageTabStripDataSource
 
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-        let approvedList = DesignerOrdersController(style: .plain, itemInfo: IndicatorInfo(title: "Orders"))
-        let pendingList = DesignerPendingController(style: .plain, itemInfo: IndicatorInfo(title: "Pending"))
+
+        let pendingString = NSLocalizedString("Pending", comment: "designer order list")
+        
+        let orderString = NSLocalizedString("Orders", comment: "designer order list")
+
+        let approvedList = DesignerOrdersController(style: .plain, itemInfo: IndicatorInfo(title: orderString))
+        let pendingList = DesignerPendingController(style: .plain, itemInfo: IndicatorInfo(title: pendingString))
         return [pendingList, approvedList]
     }
 
