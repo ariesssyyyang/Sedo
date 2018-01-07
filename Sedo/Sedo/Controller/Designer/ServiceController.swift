@@ -56,6 +56,8 @@ class ServiceController: UITableViewController {
         let titleString = NSLocalizedString("Service", comment: "navigation bar")
         self.navigationItem.title = titleString
 
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
     }
 
     func setupTableView() {
@@ -91,29 +93,35 @@ class ServiceController: UITableViewController {
 
         let alertController = UIAlertController(title: "", message: "", preferredStyle: .alert)
 
-        let titleString = NSMutableAttributedString(string: "New Service" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20)])
+        let localTitle = NSLocalizedString("New Service", comment: "alert")
+        let titleString = NSMutableAttributedString(string: localTitle as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20)])
 
         alertController.setValue(titleString, forKey: "attributedTitle")
 
-        let messageString = NSMutableAttributedString(string: "Please enter service detail you gonna provide." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
+        let localMessage = NSLocalizedString("Please enter service item you gonna provide.", comment: "alert")
+        let messageString = NSMutableAttributedString(string: localMessage as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
 
         alertController.setValue(messageString, forKey: "attributedMessage")
 
         alertController.addTextField { (textfield) in
-            textfield.placeholder = "item"
+            let localString = NSLocalizedString("item", comment: "alert tf")
+            textfield.placeholder = localString
             textfield.heightAnchor.constraint(equalToConstant: 20).isActive = true
         }
 
         alertController.addTextField { (textfield) in
-            textfield.placeholder = "price"
+            let localString = NSLocalizedString("price", comment: "alert tf")
+            textfield.placeholder = localString
             textfield.heightAnchor.constraint(equalToConstant: 20).isActive = true
             textfield.keyboardType = .numberPad
         }
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let localCancel = NSLocalizedString("Cancel", comment: "alert tf")
+        let cancelAction = UIAlertAction(title: localCancel, style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
 
-        let addNewAction = UIAlertAction(title: "Add", style: .default) { (_) in
+        let localAdd = NSLocalizedString("Add", comment: "alert button")
+        let addNewAction = UIAlertAction(title: localAdd, style: .default) { (_) in
             if alertController.textFields?.first?.text == "" || alertController.textFields?.last?.text == "" {
                 self.showTextfieldAlert()
             } else {
@@ -144,15 +152,18 @@ class ServiceController: UITableViewController {
     func showTextfieldAlert() {
         let textfieldAlert = UIAlertController(title: "", message: "", preferredStyle: .alert)
 
-        let titleString = NSMutableAttributedString(string: "Error" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.red])
+        let localTitle = NSLocalizedString("Error", comment: "alert button")
+        let titleString = NSMutableAttributedString(string: localTitle as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16), NSAttributedStringKey.foregroundColor: UIColor.red])
 
         textfieldAlert.setValue(titleString, forKey: "attributedTitle")
 
-        let messageString = NSMutableAttributedString(string: "Please enter all infomations needed." as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
+        let localMessage = NSLocalizedString("Please enter all infomations needed.", comment: "alert button")
+        let messageString = NSMutableAttributedString(string: localMessage as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
 
         textfieldAlert.setValue(messageString, forKey: "attributedMessage")
 
-        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let localOk = NSLocalizedString("OK", comment: "alert button")
+        let ok = UIAlertAction(title: localOk, style: .default, handler: nil)
         textfieldAlert.addAction(ok)
 
         textfieldAlert.view.tintColor = UIColor(

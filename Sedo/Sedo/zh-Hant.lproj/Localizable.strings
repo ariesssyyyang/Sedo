@@ -4,6 +4,9 @@
 /* reply page accept button */
 "Accept" = "接受";
 
+/* alert button */
+"Add" = "新增";
+
 /* booking page navigation bar
    main page booking button */
 "Booking" = "預約";
@@ -12,6 +15,7 @@
 "Calendar" = "";
 
 /* alert action
+   alert tf
    button in alert */
 "Cancel" = "取消";
 
@@ -37,6 +41,7 @@
 "Enter email address ..." = "請輸入電子郵件地址 ...";
 
 /* alert
+   alert button
    title in alert */
 "Error" = "錯誤";
 
@@ -59,10 +64,14 @@
 "New Account" = "註冊帳戶";
 
 /* alert */
+"New Service" = "新增服務";
+
+/* alert */
 "Notice" = "注意";
 
 /* alert
    alert action
+   alert button
    button in alert */
 "OK" = "確認";
 
@@ -86,11 +95,15 @@
 /* title in alert */
 "Please check your email to reset the password." = "請前往信箱確認信件並重設密碼";
 
-/* alert */
+/* alert
+   alert button */
 "Please enter all infomations needed." = "請輸入完整資訊";
 
 /* title in alert */
 "Please enter an registered email address." = "請輸入已註冊電子郵件地址";
+
+/* alert */
+"Please enter service item you gonna provide." = "請輸入您將提供的服務";
 
 /* desinger portfolio page */
 "Portfolio" = "作品集";
@@ -133,6 +146,12 @@
 
 /* booking page textfield */
 "choose a service" = "請選擇服務";
+
+/* alert tf */
+"item" = "服務項目";
+
+/* alert tf */
+"price" = "價錢";
 
 /* booking page textfield */
 "select a date" = "請挑選日期";
