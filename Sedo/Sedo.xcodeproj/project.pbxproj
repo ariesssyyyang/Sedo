@@ -446,6 +446,7 @@
 				7D25E8D7DD2688EFA1812093 /* [CP] Embed Pods Frameworks */,
 				AF7511BF41640CB2D0B60FD5 /* [CP] Copy Pods Resources */,
 				7FA138081FE23484006455B1 /* ShellScript */,
+				7F5B2995200326D90059FA5D /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -554,6 +555,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sedo/Pods-Sedo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		7F5B2995200326D90059FA5D /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
 		};
 		7FA138081FE23484006455B1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -734,7 +749,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

@@ -81,7 +81,7 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
 
     func fetchPostDescription() {
 
-        guard let uid = Auth.auth().currentUser?.uid else {
+        guard let uid = author?.id else {
             print("fail to get user id in viewPicController!")
             return
         }

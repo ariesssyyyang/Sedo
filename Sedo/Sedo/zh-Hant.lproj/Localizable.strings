@@ -16,7 +16,8 @@
 
 /* alert action
    alert tf
-   button in alert */
+   button in alert
+   new post page */
 "Cancel" = "取消";
 
 /* No comment provided by engineer. */
@@ -28,11 +29,13 @@
 /* alert */
 "Do you really want to log out?" = "您確定要登出嗎？";
 
-/* done button in booking page */
+/* done button in booking page
+   new post page */
 "Done" = "送出";
 
-/* portfolio edit button */
-"Edit" = "編輯個人資料";
+/* new post page
+   portfolio edit button */
+"Edit" = "編輯";
 
 /* alert */
 "Enter a correct registered email address and you will receive an email to reset password." = "請輸入已註冊電子郵件地址，並在收到信件後重置密碼。";
@@ -158,4 +161,7 @@
 
 /* first row in service picker */
 "select a service" = "選擇以下服務";
+
+/* No comment provided by engineer. */
+"select image" = "更改個人圖片";
 

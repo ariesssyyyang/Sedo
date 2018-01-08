@@ -17,7 +17,7 @@ class DesignerEditView: UIView {
     @IBOutlet weak var imageButton: UIButton!
 
     @IBOutlet weak var nameTextField: UITextField!
-    
+
     @IBOutlet weak var lineIdTextField: UITextField!
 
     @IBOutlet weak var introductionTextField: UITextField!
@@ -76,6 +76,9 @@ class DesignerEditView: UIView {
     func setupButton() {
         imageButton.layer.cornerRadius = imageButton.frame.height / 2
         imageButton.layer.masksToBounds = true
+
+        let localTitle = NSLocalizedString("select image", comment: "")
+        imageSelectedButton.setTitle(localTitle, for: .normal)
     }
 
 }

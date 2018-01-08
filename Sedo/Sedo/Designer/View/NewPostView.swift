@@ -32,13 +32,27 @@ class NewPostView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
 
         placeholderImageView.image = #imageLiteral(resourceName: "placeholder").withRenderingMode(.alwaysTemplate)
-
         placeholderImageView.tintColor = UIColor.lightGray
 
         let screenSize = UIScreen.main.bounds.size
         let textfieldHeight = screenSize.height - doneButton.frame.height - selectedImage.frame.height
 
         descriptionTextField.heightAnchor.constraint(equalToConstant: textfieldHeight).isActive = true
+
+        setupButtons()
+    }
+
+    func setupButtons() {
+
+        let localDone = NSLocalizedString("Done", comment: "new post page")
+        doneButton.setTitle(localDone, for: .normal)
+
+        let localEdit = NSLocalizedString("Edit", comment: "new post page")
+        editButton.setTitle(localEdit, for: .normal)
+
+        let localCancel = NSLocalizedString("Cancel", comment: "new post page")
+        cancelButton.setTitle(localCancel, for: .normal)
+
     }
 
 }
