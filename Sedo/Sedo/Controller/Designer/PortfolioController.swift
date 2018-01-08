@@ -243,6 +243,17 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         self.navigationController?.pushViewController(serviceController, animated: true)
     }
 
+    @objc func handleLineCall(_ sender: UIButton) {
+
+        let urlString = "line://nv/addFriends"
+
+        if let url = URL(string: urlString) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+    }
+
     // MARK: - UICollectionView DataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -309,6 +320,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
             if lineId != "" {
                 header.lineIdLabel.text = lineId
+                header.lineButton.addTarget(self, action: #selector(handleLineCall), for: .touchUpInside)
             } else {
                 header.lineIdLabel.text = "N/A"
             }

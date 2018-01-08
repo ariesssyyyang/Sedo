@@ -24,6 +24,7 @@ class DesignerEditView: UIView {
 
     @IBOutlet weak var placeholderImageView: UIImageView!
 
+
     override func awakeFromNib() {
 
         super.awakeFromNib()

@@ -10,7 +10,6 @@ import UIKit
 
 class PortfolioIntroView: UICollectionReusableView {
 
-
     @IBOutlet weak var placeholderImageView: UIImageView!
 
     @IBOutlet weak var profileImageView: UIImageView!
@@ -20,8 +19,10 @@ class PortfolioIntroView: UICollectionReusableView {
     @IBOutlet weak var nameLabel: UILabel!
 
     @IBOutlet weak var lineIdLabel: UILabel!
-    
+
     @IBOutlet weak var introTextView: UITextView!
+
+    @IBOutlet weak var lineButton: UIButton!
 
     override func awakeFromNib() {
 

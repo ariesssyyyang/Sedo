@@ -77,11 +77,16 @@
                     <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gos-o9-8SC">
+                    <rect key="frame" x="173" y="52" width="147" height="27"/>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="AnB-Jq-nir" firstAttribute="leading" secondItem="NsI-9g-rGh" secondAttribute="leading" constant="5" id="2Bn-aA-Sl2"/>
                 <constraint firstItem="Mn4-Kz-LWm" firstAttribute="leading" secondItem="1Ir-9y-YyV" secondAttribute="leading" id="2c7-J6-H0k"/>
+                <constraint firstItem="gos-o9-8SC" firstAttribute="leading" secondItem="CDa-go-0Sn" secondAttribute="leading" id="4Ij-FR-4F6"/>
                 <constraint firstItem="CDa-go-0Sn" firstAttribute="top" secondItem="opG-Ic-5wH" secondAttribute="top" id="4rt-Yv-DHM"/>
+                <constraint firstItem="gos-o9-8SC" firstAttribute="trailing" secondItem="CDa-go-0Sn" secondAttribute="trailing" id="5Rs-8b-gDY"/>
                 <constraint firstItem="Mn4-Kz-LWm" firstAttribute="width" secondItem="1Ir-9y-YyV" secondAttribute="width" id="60i-CW-SAb"/>
                 <constraint firstItem="3uw-IQ-LJ9" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="10" id="70b-Cs-1eF"/>
                 <constraint firstItem="1Ir-9y-YyV" firstAttribute="top" secondItem="VXr-Tz-HHm" secondAttribute="top" constant="20" id="9GN-Kq-YG0"/>
@@ -95,10 +100,12 @@
                 <constraint firstItem="BRl-4j-G5d" firstAttribute="leading" secondItem="NsI-9g-rGh" secondAttribute="trailing" constant="20" id="WIY-SC-3sK"/>
                 <constraint firstItem="opG-Ic-5wH" firstAttribute="leading" secondItem="NsI-9g-rGh" secondAttribute="leading" id="Y3M-ei-Qdb"/>
                 <constraint firstItem="BRl-4j-G5d" firstAttribute="height" secondItem="NsI-9g-rGh" secondAttribute="height" id="ZPZ-1Z-mRi"/>
+                <constraint firstItem="gos-o9-8SC" firstAttribute="bottom" secondItem="CDa-go-0Sn" secondAttribute="bottom" id="brz-3D-hTS"/>
                 <constraint firstItem="3uw-IQ-LJ9" firstAttribute="bottom" secondItem="U6b-Vx-4bR" secondAttribute="bottom" id="ee5-PA-p9D"/>
                 <constraint firstItem="3uw-IQ-LJ9" firstAttribute="width" secondItem="U6b-Vx-4bR" secondAttribute="width" multiplier="3/4" id="fqa-FN-Tvk"/>
                 <constraint firstItem="opG-Ic-5wH" firstAttribute="top" secondItem="NsI-9g-rGh" secondAttribute="bottom" constant="5" id="gFY-eX-GzE"/>
                 <constraint firstItem="BRl-4j-G5d" firstAttribute="top" secondItem="NsI-9g-rGh" secondAttribute="top" id="gsw-ez-C2Z"/>
+                <constraint firstItem="gos-o9-8SC" firstAttribute="top" secondItem="CDa-go-0Sn" secondAttribute="top" id="kft-fD-b9c"/>
                 <constraint firstItem="AnB-Jq-nir" firstAttribute="height" secondItem="NsI-9g-rGh" secondAttribute="height" multiplier="1.2" id="odS-aV-Eib"/>
                 <constraint firstAttribute="trailing" secondItem="AnB-Jq-nir" secondAttribute="trailing" constant="20" id="qqf-9i-lLQ"/>
                 <constraint firstItem="3uw-IQ-LJ9" firstAttribute="top" secondItem="AnB-Jq-nir" secondAttribute="bottom" constant="5" id="sMX-7v-gkk"/>
@@ -110,6 +117,7 @@
             <connections>
                 <outlet property="editButton" destination="AnB-Jq-nir" id="BIA-D4-cGM"/>
                 <outlet property="introTextView" destination="3uw-IQ-LJ9" id="639-TX-DqM"/>
+                <outlet property="lineButton" destination="gos-o9-8SC" id="1U5-aG-x11"/>
                 <outlet property="lineIdLabel" destination="CDa-go-0Sn" id="6ew-EF-DvG"/>
                 <outlet property="nameLabel" destination="BRl-4j-G5d" id="tcd-tc-E1o"/>
                 <outlet property="placeholderImageView" destination="Mn4-Kz-LWm" id="0Ce-v8-JQj"/>
