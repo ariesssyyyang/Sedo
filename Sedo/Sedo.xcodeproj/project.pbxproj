@@ -47,6 +47,8 @@
 		7FA138191FE28928006455B1 /* DesignerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138181FE28928006455B1 /* DesignerTabBarController.swift */; };
 		7FA138271FE36A84006455B1 /* CustomerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138261FE36A84006455B1 /* CustomerSettingController.swift */; };
 		7FA138291FE36A95006455B1 /* DesignerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138281FE36A95006455B1 /* DesignerSettingController.swift */; };
+		7FA6D2CC2004CFC800A0244F /* ShowBigImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6D2CA2004CFC800A0244F /* ShowBigImageController.swift */; };
+		7FA6D2CD2004CFC800A0244F /* ShowBigImageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA6D2CB2004CFC800A0244F /* ShowBigImageController.xib */; };
 		7FA8177C1FEFED08001A987A /* EditDesignerProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8177B1FEFED08001A987A /* EditDesignerProfileController.swift */; };
 		7FA8177E1FF09E2D001A987A /* ServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8177D1FF09E2C001A987A /* ServiceController.swift */; };
 		7FA817821FF0A5B7001A987A /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA817811FF0A5B6001A987A /* ServiceManager.swift */; };
@@ -128,6 +130,8 @@
 		7FA138181FE28928006455B1 /* DesignerTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerTabBarController.swift; sourceTree = "<group>"; };
 		7FA138261FE36A84006455B1 /* CustomerSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSettingController.swift; sourceTree = "<group>"; };
 		7FA138281FE36A95006455B1 /* DesignerSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerSettingController.swift; sourceTree = "<group>"; };
+		7FA6D2CA2004CFC800A0244F /* ShowBigImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBigImageController.swift; sourceTree = "<group>"; };
+		7FA6D2CB2004CFC800A0244F /* ShowBigImageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowBigImageController.xib; sourceTree = "<group>"; };
 		7FA8177B1FEFED08001A987A /* EditDesignerProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDesignerProfileController.swift; sourceTree = "<group>"; };
 		7FA8177D1FF09E2C001A987A /* ServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceController.swift; sourceTree = "<group>"; };
 		7FA817811FF0A5B6001A987A /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
@@ -403,6 +407,8 @@
 				7FA138261FE36A84006455B1 /* CustomerSettingController.swift */,
 				7FF937731FE8AB49004D1D4D /* CustomerMainPageController.swift */,
 				7FA817871FF0B2EE001A987A /* BookingController.swift */,
+				7FA6D2CA2004CFC800A0244F /* ShowBigImageController.swift */,
+				7FA6D2CB2004CFC800A0244F /* ShowBigImageController.xib */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -497,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F6DDD2D1FE96DAB004E7898 /* PortfolioCell.xib in Resources */,
+				7FA6D2CD2004CFC800A0244F /* ShowBigImageController.xib in Resources */,
 				7FF937421FE3BDB6004D1D4D /* DesignerRequestCell.xib in Resources */,
 				7F363F4F1FEBF29B008CE4E2 /* NewPostView.xib in Resources */,
 				7FF937781FE8AB89004D1D4D /* MainPageCell.xib in Resources */,
@@ -632,6 +639,7 @@
 				7F5D6E3A1FF5E6560008DA2C /* ReplyRequestView.swift in Sources */,
 				7FCA6E531FEA59EB00D5CFB4 /* FadeInOutTransition.swift in Sources */,
 				7FA1380C1FE2505B006455B1 /* RequestManager.swift in Sources */,
+				7FA6D2CC2004CFC800A0244F /* ShowBigImageController.swift in Sources */,
 				7FA138151FE2869E006455B1 /* DesignerTabBarItemType.swift in Sources */,
 				7F579AFA1FFBF118004F919E /* ViewPicController.swift in Sources */,
 				7FA138111FE27179006455B1 /* CustomerTabBarItem.swift in Sources */,

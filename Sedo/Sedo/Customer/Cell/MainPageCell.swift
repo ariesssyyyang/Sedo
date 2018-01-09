@@ -14,6 +14,8 @@ class MainPageCell: UITableViewCell {
 
     @IBOutlet weak var placeholderImageView: UIImageView!
 
+    @IBOutlet weak var textButton: UIButton!
+
     @IBOutlet weak var bookingButton: UIButton!
 
     @IBOutlet weak var designerNameLabel: UILabel!
@@ -21,7 +23,13 @@ class MainPageCell: UITableViewCell {
     @IBOutlet weak var mainScrollView: UIScrollView!
 
     @IBOutlet weak var mainPageControl: UIPageControl!
-    
+
+    @IBOutlet weak var showImageButton: UIButton!
+
+    @IBOutlet weak var userImageView: UIImageView!
+
+    @IBOutlet weak var bookingLabel: UILabel!
+
     override func awakeFromNib() {
 
         super.awakeFromNib()
@@ -30,7 +38,7 @@ class MainPageCell: UITableViewCell {
 
         setupImageView()
 
-        setupNameLabel()
+        setupLabel()
 
         setupBookingButton()
     }
@@ -63,9 +71,13 @@ class MainPageCell: UITableViewCell {
 
         mainPageImageView.layer.shadowOffset = CGSize(width: 0, height: 0)
 
+        userImageView.layer.cornerRadius = userImageView.frame.height
+
+        userImageView.layer.masksToBounds = true
+
     }
 
-    func setupNameLabel() {
+    func setupLabel() {
 
         designerNameLabel.textColor = UIColor.black
 
@@ -73,29 +85,25 @@ class MainPageCell: UITableViewCell {
 
     func setupBookingButton() {
 
-        bookingButton.layer.borderWidth = 1.0
+        textButton.layer.borderWidth = 1.0
 
-        bookingButton.layer.cornerRadius = bookingButton.frame.size.height / 2
+        textButton.layer.cornerRadius = textButton.frame.size.height / 2
 
-        bookingButton.layer.masksToBounds = true
+        textButton.layer.masksToBounds = true
 
-        bookingButton.layer.borderColor = UIColor(
+        textButton.layer.borderColor = UIColor(
             red: 214.0/255,
             green: 126.0/255,
             blue: 37.0/255,
             alpha: 1.0
         ).cgColor
 
-        bookingButton.setTitleColor(
-            UIColor(
-                red: 214.0/255,
-                green: 126.0/255,
-                blue: 37.0/255,
-                alpha: 1.0
-            ),
-            for: .normal
-        )
-
+        textButton.setTitleColor(UIColor(
+            red: 214.0/255,
+            green: 126.0/255,
+            blue: 37.0/255,
+            alpha: 1.0
+        ), for: .normal)
     }
 
 }

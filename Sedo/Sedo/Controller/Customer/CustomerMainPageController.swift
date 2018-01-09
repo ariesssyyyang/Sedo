@@ -234,6 +234,7 @@ class CustomerMainPageController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: mainCellId, for: indexPath) as? MainPageCell else { return MainPageCell() }
 
         cell.mainScrollView.delegate = self
+        cell.selectionStyle = .none
 
         var contentWidth: CGFloat = 0.0
 
@@ -241,11 +242,14 @@ class CustomerMainPageController: UITableViewController {
 
         let user = users[indexPath.row]
 
+        showUserImage(cell: cell, uid: user.id)
+
         if user.id == Auth.auth().currentUser?.uid {
             cell.bookingButton.isHidden = true
+            cell.textButton.isHidden = true
         } else {
-            let buttonString = NSLocalizedString("Booking", comment: "main page booking button")
-            cell.bookingButton.setTitle(buttonString, for: .normal)
+            let buttonString = NSLocalizedString("Booking", comment: "main page booking text button")
+            cell.textButton.setTitle(buttonString, for: .normal)
         }
 
         if let imageUrls = portfolios[user.id] {
@@ -266,7 +270,7 @@ class CustomerMainPageController: UITableViewController {
 
                     cell.mainScrollView.addSubview(scrollImageView)
 
-                    scrollImageView.frame = CGRect(x:xCoordinate, y: 0, width: superImageViewFrame.width, height: superImageViewFrame.height)
+                    scrollImageView.frame = CGRect(x: xCoordinate, y: 0, width: superImageViewFrame.width, height: superImageViewFrame.height)
 
                     let urlString = imageUrls[i]
 
@@ -340,6 +344,8 @@ class CustomerMainPageController: UITableViewController {
 
         cell.bookingButton.addTarget(self, action: #selector(handleBooking), for: .touchUpInside)
 
+        cell.showImageButton.addTarget(self, action: #selector(showBigImage), for: .touchUpInside)
+
         return cell
     }
 
@@ -372,6 +378,21 @@ class CustomerMainPageController: UITableViewController {
 
     // MARK: - Actions
 
+    func showUserImage(cell: UITableViewCell, uid: String) {
+        guard let cell = cell as? MainPageCell else { return }
+        let ref = Storage.storage().reference().child("designer").child(uid)
+        ref.downloadURL { (url, err) in
+            if let error = err {
+                print(error)
+                return
+            }
+            if let url = url {
+                cell.userImageView.image = nil
+                Nuke.loadImage(with: url, into: cell.userImageView)
+            }
+        }
+    }
+
     @objc func changeMode() {
 
         let designerController = DesignerTabBarController(itemTypes: [.portfolio, .service, .profile])
@@ -380,39 +401,7 @@ class CustomerMainPageController: UITableViewController {
 
         self.present(designerController, animated: true, completion: nil)
     }
-/*
-    @objc func handleSignOut() {
 
-        let alert = UIAlertController(title: "Log out", message: "Do you really want to logout?", preferredStyle: .alert)
-
-        let titleString = NSMutableAttributedString(string: "Logout" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 16) ?? UIFont.systemFont(ofSize: 16)])
-
-        alert.setValue(titleString, forKey: "attributedTitle")
-
-        let messageString = NSMutableAttributedString(string: "Do you really want to log out?" as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
-
-        alert.setValue(messageString, forKey: "attributedMessage")
-
-        let okAction = UIAlertAction(title: "Yes", style: .default) { (_) in
-
-            UserManager.signOut(viewController: self)
-        }
-
-        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-
-        alert.addAction(cancelAction)
-        alert.addAction(okAction)
-        alert.view.tintColor = UIColor(
-            red: 24.0 / 255.0,
-            green: 79.0 / 255.0,
-            blue: 135 / 255.0,
-            alpha: 1.0
-        )
-
-        self.present(alert, animated: true, completion: nil)
-
-    }
-*/
     @objc func handleBooking(_ sender: UIButton) {
         guard
             let cell = sender.superview?.superview?.superview?.superview as? MainPageCell,
@@ -432,6 +421,20 @@ class CustomerMainPageController: UITableViewController {
         requestController.designer = Designer(name: user.username, id: user.id)
         requestController.customer = me
         self.navigationController?.pushViewController(requestController, animated: true)
+    }
+
+    @objc func showBigImage(_ sender: UIButton) {
+
+        guard
+            let cell = sender.superview?.superview?.superview as? MainPageCell,
+            let indexPath = tableView.indexPath(for: cell),
+            let imageUrls = portfolios[users[indexPath.row].id]
+        else { return }
+
+        let bigImageController = ShowBigImageController()
+        bigImageController.imageUrls = imageUrls
+
+        self.present(bigImageController, animated: true, completion: nil)
     }
 
 }

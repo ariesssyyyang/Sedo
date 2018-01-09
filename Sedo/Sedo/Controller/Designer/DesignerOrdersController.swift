@@ -72,7 +72,7 @@ class DesignerOrdersController: UITableViewController, IndicatorInfoProvider {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: orderCellId, for: indexPath) as? DesignerRequestCell else { return DesignerRequestCell() }
         let order = orders[indexPath.row]
-
+        cell.customerImageView.image = nil
         let ref = Storage.storage().reference().child("designer").child(order.customer.id)
         ref.downloadURL { (url, err) in
             if let error = err {

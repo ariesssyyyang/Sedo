@@ -119,6 +119,8 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
 
     @objc func requestService() {
 
+        self.view.endEditing(true)
+
         if bookingView.serviceTextField.text == "" || bookingView.dateTextField.text == "" {
 
             showTextfieldAlert()
@@ -133,7 +135,7 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
                 else { return }
 
             RequestManager.sendRequest(for: service, from: customer, to: designer, date: date)
-            self.navigationController?.popViewController(animated: true)
+            doneAlert()
 
         }
 
@@ -141,6 +143,60 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
 
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+
+    func doneAlert() {
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        let title = AlertManager.customizedTitle(title: "Notice")
+        alert.setValue(title, forKey: "attributedTitle")
+
+        let message = AlertManager.customizedMessage(message: "Press yes to book the service.")
+        alert.setValue(message, forKey: "attributedMessage")
+
+        let localYes = NSLocalizedString("Yes", comment: "")
+        let yesAction = UIAlertAction(title: localYes, style: .default) { (_) in
+            self.bookingSuccessAlert()
+        }
+        alert.addAction(yesAction)
+
+        let localCancel = NSLocalizedString("Cancel", comment: "")
+        let cancelAction = UIAlertAction(title: localCancel, style: .default, handler: nil)
+        alert.addAction(cancelAction)
+
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func bookingSuccessAlert() {
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+
+        let title = AlertManager.successTitle(title: "Success")
+        alert.setValue(title, forKey: "attributedTitle")
+
+        let message = AlertManager.customizedMessage(message: "Booking successfully, you can check it out in pending page.")
+        alert.setValue(message, forKey: "attributedMessage")
+
+        let localOk = NSLocalizedString("OK", comment: "")
+        let okAction = UIAlertAction(title: localOk, style: .default) { (_) in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okAction)
+
+        let localCheckout = NSLocalizedString("Check order", comment: "")
+        let checkAction = UIAlertAction(title: localCheckout, style: .destructive) { (_) in
+
+            self.navigationController?.popViewController(animated: true)
+
+            guard let rootVC = self.navigationController?.viewControllers[0] as? CustomerMainPageController
+            else {
+                print("fail to get root VC in bookingPage")
+                return
+            }
+
+            rootVC.tabBarController?.selectedIndex = 1
+        }
+        alert.addAction(checkAction)
+
+        self.present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Fetch Services
@@ -226,11 +282,6 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
         } else {
             bookingView.serviceTextField.text = nil
         }
-//        if services.count == 0 {
-//            bookingView.serviceTextField.text = nil
-//        } else {
-//            bookingView.serviceTextField.text = services[row].service
-//        }
 
     }
 

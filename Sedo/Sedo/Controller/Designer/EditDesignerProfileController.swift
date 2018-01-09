@@ -99,6 +99,9 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
         editView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
 
         editView.imageButton.addTarget(self, action: #selector(selectImage), for: .touchUpInside)
+
+        let selectString = NSLocalizedString("select image", comment: "")
+        editView.imageSelectedButton.setTitle(selectString, for: .normal)
         editView.imageSelectedButton.addTarget(self, action: #selector(selectImage), for: .touchUpInside)
     }
 

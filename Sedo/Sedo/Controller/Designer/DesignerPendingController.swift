@@ -71,7 +71,7 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
 
         let request = requests[indexPath.row]
         let time = createdTime(request.createdDate)
-
+        cell.customerImageView.image = nil
         let ref = Storage.storage().reference().child("designer").child(request.customer.id)
         ref.downloadURL { (url, err) in
             if let error = err {
