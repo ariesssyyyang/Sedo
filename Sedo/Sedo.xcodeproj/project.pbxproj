@@ -48,7 +48,9 @@
 		7FA138271FE36A84006455B1 /* CustomerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138261FE36A84006455B1 /* CustomerSettingController.swift */; };
 		7FA138291FE36A95006455B1 /* DesignerSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA138281FE36A95006455B1 /* DesignerSettingController.swift */; };
 		7FA6D2CC2004CFC800A0244F /* ShowBigImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6D2CA2004CFC800A0244F /* ShowBigImageController.swift */; };
-		7FA6D2CD2004CFC800A0244F /* ShowBigImageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA6D2CB2004CFC800A0244F /* ShowBigImageController.xib */; };
+		7FA6D2CD2004CFC800A0244F /* ShowBigImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FA6D2CB2004CFC800A0244F /* ShowBigImageView.xib */; };
+		7FA6D2CF2005B6DA00A0244F /* ShowBigImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6D2CE2005B6DA00A0244F /* ShowBigImageView.swift */; };
+		7FA6D2D12006205D00A0244F /* MainPageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA6D2D02006205D00A0244F /* MainPageScrollView.swift */; };
 		7FA8177C1FEFED08001A987A /* EditDesignerProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8177B1FEFED08001A987A /* EditDesignerProfileController.swift */; };
 		7FA8177E1FF09E2D001A987A /* ServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA8177D1FF09E2C001A987A /* ServiceController.swift */; };
 		7FA817821FF0A5B7001A987A /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA817811FF0A5B6001A987A /* ServiceManager.swift */; };
@@ -131,7 +133,9 @@
 		7FA138261FE36A84006455B1 /* CustomerSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSettingController.swift; sourceTree = "<group>"; };
 		7FA138281FE36A95006455B1 /* DesignerSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignerSettingController.swift; sourceTree = "<group>"; };
 		7FA6D2CA2004CFC800A0244F /* ShowBigImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBigImageController.swift; sourceTree = "<group>"; };
-		7FA6D2CB2004CFC800A0244F /* ShowBigImageController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowBigImageController.xib; sourceTree = "<group>"; };
+		7FA6D2CB2004CFC800A0244F /* ShowBigImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowBigImageView.xib; sourceTree = "<group>"; };
+		7FA6D2CE2005B6DA00A0244F /* ShowBigImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowBigImageView.swift; sourceTree = "<group>"; };
+		7FA6D2D02006205D00A0244F /* MainPageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageScrollView.swift; sourceTree = "<group>"; };
 		7FA8177B1FEFED08001A987A /* EditDesignerProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDesignerProfileController.swift; sourceTree = "<group>"; };
 		7FA8177D1FF09E2C001A987A /* ServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceController.swift; sourceTree = "<group>"; };
 		7FA817811FF0A5B6001A987A /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
@@ -273,6 +277,8 @@
 			children = (
 				7FA8178A1FF0B3B5001A987A /* BookingView.swift */,
 				7FA8178C1FF0B3C6001A987A /* BookingView.xib */,
+				7FA6D2CE2005B6DA00A0244F /* ShowBigImageView.swift */,
+				7FA6D2CB2004CFC800A0244F /* ShowBigImageView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				7FF937491FE3BEF8004D1D4D /* UINibExtensions.swift */,
+				7FA6D2D02006205D00A0244F /* MainPageScrollView.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -408,7 +415,6 @@
 				7FF937731FE8AB49004D1D4D /* CustomerMainPageController.swift */,
 				7FA817871FF0B2EE001A987A /* BookingController.swift */,
 				7FA6D2CA2004CFC800A0244F /* ShowBigImageController.swift */,
-				7FA6D2CB2004CFC800A0244F /* ShowBigImageController.xib */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -503,7 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F6DDD2D1FE96DAB004E7898 /* PortfolioCell.xib in Resources */,
-				7FA6D2CD2004CFC800A0244F /* ShowBigImageController.xib in Resources */,
+				7FA6D2CD2004CFC800A0244F /* ShowBigImageView.xib in Resources */,
 				7FF937421FE3BDB6004D1D4D /* DesignerRequestCell.xib in Resources */,
 				7F363F4F1FEBF29B008CE4E2 /* NewPostView.xib in Resources */,
 				7FF937781FE8AB89004D1D4D /* MainPageCell.xib in Resources */,
@@ -665,6 +671,7 @@
 				7FF9375B1FE790DF004D1D4D /* CustomerRequestCell.swift in Sources */,
 				7FA137F71FE22FEE006455B1 /* AppDelegate.swift in Sources */,
 				7FA138191FE28928006455B1 /* DesignerTabBarController.swift in Sources */,
+				7FA6D2D12006205D00A0244F /* MainPageScrollView.swift in Sources */,
 				7FA8177C1FEFED08001A987A /* EditDesignerProfileController.swift in Sources */,
 				7F9A22DE2001478100AC0C28 /* AlertManager.swift in Sources */,
 				7FA138271FE36A84006455B1 /* CustomerSettingController.swift in Sources */,
@@ -674,6 +681,7 @@
 				7FF937501FE3D239004D1D4D /* ReplyRequestController.swift in Sources */,
 				7F6DDD2F1FE96E2A004E7898 /* PortfolioController.swift in Sources */,
 				7F52AFF11FEFB10E008C59BA /* PortfolioIntroView.swift in Sources */,
+				7FA6D2CF2005B6DA00A0244F /* ShowBigImageView.swift in Sources */,
 				7FF9376E1FE7F289004D1D4D /* DesignerOrdersController.swift in Sources */,
 				7F6DDD311FEA049B004E7898 /* RegisterController.swift in Sources */,
 				7FA138171FE28870006455B1 /* DesignerTabBarItem.swift in Sources */,

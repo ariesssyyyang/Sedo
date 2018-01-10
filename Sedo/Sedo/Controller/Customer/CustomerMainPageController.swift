@@ -316,7 +316,7 @@ class CustomerMainPageController: UITableViewController {
 
                     cell.mainScrollView.addSubview(scrollImageView)
 
-                    scrollImageView.frame = CGRect(x:xCoordinate, y: 0, width: superImageViewFrame.width, height: superImageViewFrame.height)
+                    scrollImageView.frame = CGRect(x: xCoordinate, y: 0, width: superImageViewFrame.width, height: superImageViewFrame.height)
 
                     let urlString = imageUrls[i]
 
@@ -433,7 +433,7 @@ class CustomerMainPageController: UITableViewController {
 
         let bigImageController = ShowBigImageController()
         bigImageController.imageUrls = imageUrls
-
+        bigImageController.modalPresentationStyle = .overFullScreen
         self.present(bigImageController, animated: true, completion: nil)
     }
 

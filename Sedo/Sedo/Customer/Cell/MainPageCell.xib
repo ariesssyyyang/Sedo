@@ -93,7 +93,7 @@
                                 <color key="pageIndicatorTintColor" red="0.1450980392" green="0.36862745099999999" blue="0.5450980392" alpha="0.41630993150684931" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.1450980392" green="0.36862745099999999" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MtU-gX-Kt9">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MtU-gX-Kt9" customClass="MainPageScrollView" customModule="Sedo" customModuleProvider="target">
                                 <rect key="frame" x="5" y="5" width="254" height="117.5"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cZ-r0-MkX">
@@ -105,24 +105,24 @@
                             <constraint firstItem="Ee5-rB-qTm" firstAttribute="leading" secondItem="bxn-YT-vXo" secondAttribute="leading" constant="5" id="1bw-Di-i2A"/>
                             <constraint firstItem="o73-PB-9S6" firstAttribute="height" secondItem="Ee5-rB-qTm" secondAttribute="height" id="1m6-nE-uzC"/>
                             <constraint firstItem="Rzp-jQ-232" firstAttribute="top" secondItem="ttj-PA-7Ff" secondAttribute="top" id="545-tZ-COF"/>
-                            <constraint firstItem="7cZ-r0-MkX" firstAttribute="leading" secondItem="MtU-gX-Kt9" secondAttribute="leading" id="54O-sw-NSc"/>
                             <constraint firstItem="o73-PB-9S6" firstAttribute="leading" secondItem="Ee5-rB-qTm" secondAttribute="leading" id="5cC-Jg-UWF"/>
                             <constraint firstItem="ttj-PA-7Ff" firstAttribute="top" secondItem="Ee5-rB-qTm" secondAttribute="bottom" id="6dj-ov-n9K"/>
                             <constraint firstItem="o73-PB-9S6" firstAttribute="trailing" secondItem="Ee5-rB-qTm" secondAttribute="trailing" id="96S-T9-XGm"/>
-                            <constraint firstItem="7cZ-r0-MkX" firstAttribute="bottom" secondItem="MtU-gX-Kt9" secondAttribute="bottom" id="KLv-Nw-Hm2"/>
                             <constraint firstItem="MtU-gX-Kt9" firstAttribute="bottom" secondItem="o73-PB-9S6" secondAttribute="bottom" id="LU7-Nq-OaJ"/>
+                            <constraint firstItem="7cZ-r0-MkX" firstAttribute="leading" secondItem="o73-PB-9S6" secondAttribute="leading" id="S6e-fA-1ct"/>
                             <constraint firstItem="MtU-gX-Kt9" firstAttribute="trailing" secondItem="o73-PB-9S6" secondAttribute="trailing" id="Tfc-am-cHt"/>
-                            <constraint firstItem="7cZ-r0-MkX" firstAttribute="trailing" secondItem="MtU-gX-Kt9" secondAttribute="trailing" id="aXI-gn-uhH"/>
                             <constraint firstItem="Ee5-rB-qTm" firstAttribute="height" secondItem="bxn-YT-vXo" secondAttribute="height" multiplier="3/4" id="akg-DE-ylA"/>
                             <constraint firstAttribute="bottom" secondItem="ttj-PA-7Ff" secondAttribute="bottom" constant="5" id="dJy-1r-zsb"/>
                             <constraint firstItem="o73-PB-9S6" firstAttribute="top" secondItem="Ee5-rB-qTm" secondAttribute="top" id="dd9-1O-RSE"/>
                             <constraint firstItem="MtU-gX-Kt9" firstAttribute="top" secondItem="o73-PB-9S6" secondAttribute="top" id="lCC-Z6-UIU"/>
-                            <constraint firstItem="7cZ-r0-MkX" firstAttribute="top" secondItem="MtU-gX-Kt9" secondAttribute="top" id="lDf-gK-r9H"/>
                             <constraint firstItem="ttj-PA-7Ff" firstAttribute="leading" secondItem="bxn-YT-vXo" secondAttribute="leading" constant="5" id="lJ0-5o-u3I"/>
                             <constraint firstAttribute="trailing" secondItem="ttj-PA-7Ff" secondAttribute="trailing" constant="5" id="lo6-nb-BWs"/>
+                            <constraint firstItem="7cZ-r0-MkX" firstAttribute="bottom" secondItem="o73-PB-9S6" secondAttribute="bottom" id="lyh-0e-8Xo"/>
+                            <constraint firstItem="7cZ-r0-MkX" firstAttribute="trailing" secondItem="o73-PB-9S6" secondAttribute="trailing" id="nnp-3b-I1B"/>
                             <constraint firstAttribute="trailing" secondItem="Ee5-rB-qTm" secondAttribute="trailing" constant="5" id="oih-eR-u91"/>
                             <constraint firstItem="Rzp-jQ-232" firstAttribute="centerX" secondItem="o73-PB-9S6" secondAttribute="centerX" id="pd9-zX-tgX"/>
                             <constraint firstItem="MtU-gX-Kt9" firstAttribute="leading" secondItem="o73-PB-9S6" secondAttribute="leading" id="qW0-Ws-xYw"/>
+                            <constraint firstItem="7cZ-r0-MkX" firstAttribute="top" secondItem="o73-PB-9S6" secondAttribute="top" id="sZK-Ao-B5h"/>
                             <constraint firstItem="Ee5-rB-qTm" firstAttribute="top" secondItem="bxn-YT-vXo" secondAttribute="top" constant="5" id="wvL-zj-O66"/>
                         </constraints>
                     </view>
@@ -142,7 +142,7 @@
                 <outlet property="mainPageImageView" destination="Ee5-rB-qTm" id="VDa-Qc-9wZ"/>
                 <outlet property="mainScrollView" destination="MtU-gX-Kt9" id="LhG-Lb-iDf"/>
                 <outlet property="placeholderImageView" destination="o73-PB-9S6" id="1EE-X5-oLY"/>
-                <outlet property="showImageButton" destination="7cZ-r0-MkX" id="JSU-oK-qlV"/>
+                <outlet property="showImageButton" destination="7cZ-r0-MkX" id="Dzx-vX-Jtm"/>
                 <outlet property="textButton" destination="bAB-xz-lzf" id="wCI-Kz-3fZ"/>
                 <outlet property="userImageView" destination="33j-f2-qkR" id="nPS-EV-bCA"/>
             </connections>
