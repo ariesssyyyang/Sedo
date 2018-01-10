@@ -20,15 +20,11 @@ class MainPageCell: UITableViewCell {
 
     @IBOutlet weak var designerNameLabel: UILabel!
 
-    @IBOutlet weak var mainScrollView: UIScrollView!
+    @IBOutlet weak var mainScrollView: MainPageScrollView!
 
     @IBOutlet weak var mainPageControl: UIPageControl!
 
-    @IBOutlet weak var showImageButton: UIButton!
-
     @IBOutlet weak var userImageView: UIImageView!
-
-    @IBOutlet weak var bookingLabel: UILabel!
 
     override func awakeFromNib() {
 

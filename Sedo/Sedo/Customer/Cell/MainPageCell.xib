@@ -96,9 +96,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MtU-gX-Kt9" customClass="MainPageScrollView" customModule="Sedo" customModuleProvider="target">
                                 <rect key="frame" x="5" y="5" width="254" height="117.5"/>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cZ-r0-MkX">
-                                <rect key="frame" x="5" y="5" width="254" height="117.5"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.80409888698630139" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -109,7 +106,6 @@
                             <constraint firstItem="ttj-PA-7Ff" firstAttribute="top" secondItem="Ee5-rB-qTm" secondAttribute="bottom" id="6dj-ov-n9K"/>
                             <constraint firstItem="o73-PB-9S6" firstAttribute="trailing" secondItem="Ee5-rB-qTm" secondAttribute="trailing" id="96S-T9-XGm"/>
                             <constraint firstItem="MtU-gX-Kt9" firstAttribute="bottom" secondItem="o73-PB-9S6" secondAttribute="bottom" id="LU7-Nq-OaJ"/>
-                            <constraint firstItem="7cZ-r0-MkX" firstAttribute="leading" secondItem="o73-PB-9S6" secondAttribute="leading" id="S6e-fA-1ct"/>
                             <constraint firstItem="MtU-gX-Kt9" firstAttribute="trailing" secondItem="o73-PB-9S6" secondAttribute="trailing" id="Tfc-am-cHt"/>
                             <constraint firstItem="Ee5-rB-qTm" firstAttribute="height" secondItem="bxn-YT-vXo" secondAttribute="height" multiplier="3/4" id="akg-DE-ylA"/>
                             <constraint firstAttribute="bottom" secondItem="ttj-PA-7Ff" secondAttribute="bottom" constant="5" id="dJy-1r-zsb"/>
@@ -117,12 +113,9 @@
                             <constraint firstItem="MtU-gX-Kt9" firstAttribute="top" secondItem="o73-PB-9S6" secondAttribute="top" id="lCC-Z6-UIU"/>
                             <constraint firstItem="ttj-PA-7Ff" firstAttribute="leading" secondItem="bxn-YT-vXo" secondAttribute="leading" constant="5" id="lJ0-5o-u3I"/>
                             <constraint firstAttribute="trailing" secondItem="ttj-PA-7Ff" secondAttribute="trailing" constant="5" id="lo6-nb-BWs"/>
-                            <constraint firstItem="7cZ-r0-MkX" firstAttribute="bottom" secondItem="o73-PB-9S6" secondAttribute="bottom" id="lyh-0e-8Xo"/>
-                            <constraint firstItem="7cZ-r0-MkX" firstAttribute="trailing" secondItem="o73-PB-9S6" secondAttribute="trailing" id="nnp-3b-I1B"/>
                             <constraint firstAttribute="trailing" secondItem="Ee5-rB-qTm" secondAttribute="trailing" constant="5" id="oih-eR-u91"/>
                             <constraint firstItem="Rzp-jQ-232" firstAttribute="centerX" secondItem="o73-PB-9S6" secondAttribute="centerX" id="pd9-zX-tgX"/>
                             <constraint firstItem="MtU-gX-Kt9" firstAttribute="leading" secondItem="o73-PB-9S6" secondAttribute="leading" id="qW0-Ws-xYw"/>
-                            <constraint firstItem="7cZ-r0-MkX" firstAttribute="top" secondItem="o73-PB-9S6" secondAttribute="top" id="sZK-Ao-B5h"/>
                             <constraint firstItem="Ee5-rB-qTm" firstAttribute="top" secondItem="bxn-YT-vXo" secondAttribute="top" constant="5" id="wvL-zj-O66"/>
                         </constraints>
                     </view>
@@ -140,9 +133,8 @@
                 <outlet property="designerNameLabel" destination="7UH-7D-RLg" id="VpJ-wS-jxK"/>
                 <outlet property="mainPageControl" destination="Rzp-jQ-232" id="7rI-hl-8XU"/>
                 <outlet property="mainPageImageView" destination="Ee5-rB-qTm" id="VDa-Qc-9wZ"/>
-                <outlet property="mainScrollView" destination="MtU-gX-Kt9" id="LhG-Lb-iDf"/>
+                <outlet property="mainScrollView" destination="MtU-gX-Kt9" id="xBU-mi-g3o"/>
                 <outlet property="placeholderImageView" destination="o73-PB-9S6" id="1EE-X5-oLY"/>
-                <outlet property="showImageButton" destination="7cZ-r0-MkX" id="Dzx-vX-Jtm"/>
                 <outlet property="textButton" destination="bAB-xz-lzf" id="wCI-Kz-3fZ"/>
                 <outlet property="userImageView" destination="33j-f2-qkR" id="nPS-EV-bCA"/>
             </connections>

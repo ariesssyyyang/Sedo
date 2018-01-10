@@ -158,67 +158,7 @@ class CustomerMainPageController: UITableViewController {
             }
         }
     }
-/*
-    func fetchUsers() {
 
-        let ref = Database.database().reference()
-
-        let userRef = ref.child("user")
-
-        userRef.observe(.value) { (snapshot) in
-
-            self.users = []
-
-            for child in snapshot.children {
-
-                guard
-                    let child = child as? DataSnapshot else { return }
-
-                let id = child.key
-
-                guard
-                    let dictionary = child.value as? [String: AnyObject],
-                    let username = dictionary["name"] as? String
-                else {
-                    print("fail to transform type to dictionary")
-                    return
-                }
-
-                let portfolioRef = ref.child("portfolio").child(id)
-
-                portfolioRef.observe(.value, with: { (portfolioShot) in
-                    var imageUrls: [String] = []
-                    for child in portfolioShot.children {
-
-                        guard let child = child as? DataSnapshot else { return }
-
-                        let portfolioId = child.key
-
-                        guard
-                            let portfolioDict = child.value as? [String: String],
-                            let imageUrl = portfolioDict["imageUrl"]
-                        else {
-                            print("fail to get portfolio detail in main page!")
-                            return
-                        }
-
-                        imageUrls.append(imageUrl)
-
-                    }
-
-                    self.portfolios.updateValue(imageUrls, forKey: id)
-
-                    self.tableView.reloadData()
-
-                })
-
-                self.users.append(User(id: id, username: username))
-            }
-
-            self.tableView.reloadData()
-        }
-    }
-*/
     // MARK: - UITableViewDataSource
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -265,18 +205,24 @@ class CustomerMainPageController: UITableViewController {
                     contentWidth += superImageViewFrame.width
 
                     let scrollImageView = UIImageView()
+                    let showBigButton = UIButton()
 
                     scrollImageView.contentMode = .scaleAspectFill
 
                     cell.mainScrollView.addSubview(scrollImageView)
+                    cell.mainScrollView.addSubview(showBigButton)
 
                     scrollImageView.frame = CGRect(x: xCoordinate, y: 0, width: superImageViewFrame.width, height: superImageViewFrame.height)
+                    showBigButton.frame = CGRect(x: xCoordinate, y: 0, width: superImageViewFrame.width, height: superImageViewFrame.height)
+
+                    showBigButton.addTarget(self, action: #selector(showBigImage), for: .touchUpInside)
 
                     let urlString = imageUrls[i]
 
                     if let imageURL = URL(string: urlString) {
 
                         cell.mainPageImageView.image = nil
+                        scrollImageView.image = nil
 
                         Nuke.loadImage(with: imageURL, into: scrollImageView)
 
@@ -290,13 +236,26 @@ class CustomerMainPageController: UITableViewController {
 
                 cell.mainPageControl.isHidden = true
 
+                let scrollImageView = UIImageView()
+                let showBigButton = UIButton()
+
+                scrollImageView.contentMode = .scaleAspectFill
+
+                cell.mainScrollView.addSubview(scrollImageView)
+                cell.mainScrollView.addSubview(showBigButton)
+
+                scrollImageView.frame = CGRect(x: 0, y: 0, width: superImageViewFrame.width, height: superImageViewFrame.height)
+                showBigButton.frame = CGRect(x: 0, y: 0, width: superImageViewFrame.width, height: superImageViewFrame.height)
+
+                showBigButton.addTarget(self, action: #selector(showBigImage), for: .touchUpInside)
+
                 let url = imageUrls[0]
 
                 if let imageURL = URL(string: url) {
 
-                    cell.mainPageImageView.image = nil
+                    scrollImageView.image = nil
 
-                    Nuke.loadImage(with: imageURL, into: cell.mainPageImageView)
+                    Nuke.loadImage(with: imageURL, into: scrollImageView)
 
                 }
 
@@ -311,18 +270,24 @@ class CustomerMainPageController: UITableViewController {
                     contentWidth += superImageViewFrame.width
 
                     let scrollImageView = UIImageView()
+                    let showBigButton = UIButton()
 
                     scrollImageView.contentMode = .scaleAspectFill
 
                     cell.mainScrollView.addSubview(scrollImageView)
+                    cell.mainScrollView.addSubview(showBigButton)
 
                     scrollImageView.frame = CGRect(x: xCoordinate, y: 0, width: superImageViewFrame.width, height: superImageViewFrame.height)
+                    showBigButton.frame = CGRect(x: xCoordinate, y: 0, width: superImageViewFrame.width, height: superImageViewFrame.height)
+
+                    showBigButton.addTarget(self, action: #selector(showBigImage), for: .touchUpInside)
 
                     let urlString = imageUrls[i]
 
                     if let imageURL = URL(string: urlString) {
 
                         cell.mainPageImageView.image = nil
+                        scrollImageView.image = nil
 
                         Nuke.loadImage(with: imageURL, into: scrollImageView)
 
@@ -331,7 +296,6 @@ class CustomerMainPageController: UITableViewController {
                 }
 
                 cell.mainScrollView.contentSize = CGSize(width: contentWidth, height: superImageViewFrame.height)
-
             }
 
         } else {
@@ -343,8 +307,6 @@ class CustomerMainPageController: UITableViewController {
         cell.designerNameLabel.text = user.username
 
         cell.bookingButton.addTarget(self, action: #selector(handleBooking), for: .touchUpInside)
-
-        cell.showImageButton.addTarget(self, action: #selector(showBigImage), for: .touchUpInside)
 
         return cell
     }
@@ -426,7 +388,7 @@ class CustomerMainPageController: UITableViewController {
     @objc func showBigImage(_ sender: UIButton) {
 
         guard
-            let cell = sender.superview?.superview?.superview as? MainPageCell,
+            let cell = sender.superview?.superview?.superview?.superview as? MainPageCell,
             let indexPath = tableView.indexPath(for: cell),
             let imageUrls = portfolios[users[indexPath.row].id]
         else { return }

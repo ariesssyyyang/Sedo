@@ -10,13 +10,7 @@ import UIKit
 import Nuke
 
 class ShowBigImageController: UIViewController, UIScrollViewDelegate {
-/*
-    @IBOutlet weak var placeholderImageView: UIImageView!
 
-    @IBOutlet weak var imageScrollView: UIScrollView!
-
-    @IBOutlet weak var imagePageControl: UIPageControl!
-*/
     var imageUrls: [String] = []
     var pageIndex: Int = 1
 
