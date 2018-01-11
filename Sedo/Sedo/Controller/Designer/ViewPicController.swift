@@ -292,7 +292,16 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
                 return contentCell
             }
 
-            contentCell.contentTextView.text = content
+            let textShadow = NSShadow()
+            textShadow.shadowColor = UIColor.gray
+            textShadow.shadowOffset = CGSize(width: 1.0, height: 2.0)
+            textShadow.shadowBlurRadius = 2
+
+            let attribute = [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20), NSAttributedStringKey.shadow: textShadow, NSAttributedStringKey.foregroundColor: UIColor.white]
+
+            let attributedString = NSAttributedString(string: content, attributes: attribute)
+
+            contentCell.contentTextView.attributedText = attributedString
 
             return contentCell
         }

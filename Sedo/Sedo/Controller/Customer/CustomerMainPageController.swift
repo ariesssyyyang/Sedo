@@ -64,6 +64,7 @@ class CustomerMainPageController: UITableViewController {
         )
 
         blackView.frame = backgroundImageView.frame
+        blackView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
 
         backgroundImageView.addSubview(blackView)
 
