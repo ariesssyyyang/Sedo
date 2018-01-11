@@ -21,24 +21,38 @@
                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gZp-cI-Gzh">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="COg-Fv-jbc">
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RM2-gr-yA7">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                    </imageView>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="COg-Fv-jbc">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="COg-Fv-jbc" firstAttribute="centerY" secondItem="RM2-gr-yA7" secondAttribute="centerY" id="0dU-tk-yeL"/>
+                            <constraint firstAttribute="trailing" secondItem="COg-Fv-jbc" secondAttribute="trailing" id="Jnu-vn-F9y"/>
+                            <constraint firstItem="COg-Fv-jbc" firstAttribute="centerX" secondItem="RM2-gr-yA7" secondAttribute="centerX" id="M3g-XV-ReR"/>
+                            <constraint firstItem="COg-Fv-jbc" firstAttribute="top" secondItem="RM2-gr-yA7" secondAttribute="top" id="SF8-hN-A3m"/>
+                            <constraint firstAttribute="bottom" secondItem="COg-Fv-jbc" secondAttribute="bottom" id="dGN-BS-Nm4"/>
+                            <constraint firstItem="COg-Fv-jbc" firstAttribute="leading" secondItem="RM2-gr-yA7" secondAttribute="leading" id="fPl-JU-4aT"/>
+                        </constraints>
+                    </scrollView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="COg-Fv-jbc" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="687-ml-LWQ"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="leading" secondItem="RM2-gr-yA7" secondAttribute="leading" id="6Wt-7B-ocO"/>
                 <constraint firstItem="gZp-cI-Gzh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="BNy-ls-5E7"/>
                 <constraint firstItem="gZp-cI-Gzh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Pz7-Gc-ORb"/>
                 <constraint firstAttribute="bottom" secondItem="gZp-cI-Gzh" secondAttribute="bottom" id="Qpo-EP-0SI"/>
-                <constraint firstItem="COg-Fv-jbc" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="SFw-Ij-tCe"/>
                 <constraint firstAttribute="trailing" secondItem="gZp-cI-Gzh" secondAttribute="trailing" id="VGs-M9-70J"/>
-                <constraint firstAttribute="trailing" secondItem="COg-Fv-jbc" secondAttribute="trailing" id="XmS-MW-aAs"/>
-                <constraint firstAttribute="bottom" secondItem="COg-Fv-jbc" secondAttribute="bottom" id="geU-L0-Tx1"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="RM2-gr-yA7" secondAttribute="top" id="d4T-EI-yT0"/>
+                <constraint firstItem="RM2-gr-yA7" firstAttribute="bottom" secondItem="ZTg-uK-7eu" secondAttribute="bottom" id="fKv-NH-j8T"/>
+                <constraint firstItem="RM2-gr-yA7" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" id="xxu-i8-a4D"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
                 <outlet property="placeholderImageView" destination="gZp-cI-Gzh" id="ltg-7B-6fG"/>
+                <outlet property="scrollView" destination="RM2-gr-yA7" id="VqE-rt-VOr"/>
                 <outlet property="selectedImageView" destination="COg-Fv-jbc" id="eCe-Lk-uvc"/>
             </connections>
         </collectionViewCell>

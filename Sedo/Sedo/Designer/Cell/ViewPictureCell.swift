@@ -8,16 +8,23 @@
 
 import UIKit
 
-class ViewPictureCell: UICollectionViewCell {
+class ViewPictureCell: UICollectionViewCell, UIScrollViewDelegate {
     @IBOutlet weak var placeholderImageView: UIImageView!
 
     @IBOutlet weak var selectedImageView: UIImageView!
-    
+
+    @IBOutlet weak var scrollView: UIScrollView!
+
     override func awakeFromNib() {
 
         super.awakeFromNib()
 
         setupImageViews()
+
+        scrollView.delegate = self
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 3.0
+        scrollView.zoomScale = 1.0
     }
 
     func setupImageViews() {
@@ -27,4 +34,11 @@ class ViewPictureCell: UICollectionViewCell {
         placeholderImageView.tintColor = .lightGray
     }
 
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return selectedImageView
+    }
+
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        scrollView.zoomScale = 1.0
+    }
 }

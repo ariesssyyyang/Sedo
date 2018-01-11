@@ -275,6 +275,7 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
         case 0:
             guard let pictureCell = collectionView.dequeueReusableCell(withReuseIdentifier: "picCell", for: indexPath) as? ViewPictureCell
             else { return ViewPictureCell() }
+
             if let urlString = imageUrlString, let url = URL(string: urlString) {
                 pictureCell.selectedImageView.image = nil
                 Nuke.loadImage(with: url, into: pictureCell.selectedImageView)
