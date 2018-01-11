@@ -26,6 +26,8 @@ class MainPageCell: UITableViewCell {
 
     @IBOutlet weak var userImageView: UIImageView!
 
+    @IBOutlet weak var userPlaceholderImageView: UIImageView!
+    
     override func awakeFromNib() {
 
         super.awakeFromNib()
@@ -71,6 +73,16 @@ class MainPageCell: UITableViewCell {
 
         userImageView.layer.masksToBounds = true
 
+        userPlaceholderImageView.layer.cornerRadius = userImageView.frame.height
+
+        userPlaceholderImageView.layer.masksToBounds = true
+
+        userPlaceholderImageView.contentMode = .center
+
+        userPlaceholderImageView.image = #imageLiteral(resourceName: "icon-alien").withRenderingMode(.alwaysTemplate)
+
+        userPlaceholderImageView.tintColor = UIColor.lightGray
+
     }
 
     func setupLabel() {
@@ -100,6 +112,14 @@ class MainPageCell: UITableViewCell {
             blue: 37.0/255,
             alpha: 1.0
         ), for: .normal)
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        userImageView.image = nil
+
+        mainScrollView.contentSize = CGSize(width: 0, height: 0)
     }
 
 }

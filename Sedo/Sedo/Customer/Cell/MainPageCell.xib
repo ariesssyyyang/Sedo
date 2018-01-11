@@ -61,6 +61,12 @@
                                             <color key="titleColor" red="0.83921568627450982" green="0.49411764705882355" blue="0.14509803921568626" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="77g-Et-zfz">
+                                        <rect key="frame" x="10" y="5" width="19.5" height="19.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="77g-Et-zfz" secondAttribute="height" id="W2G-e5-Xbt"/>
+                                        </constraints>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="33j-f2-qkR">
                                         <rect key="frame" x="10" y="5" width="19.5" height="19.5"/>
                                         <constraints>
@@ -79,8 +85,11 @@
                                     <constraint firstItem="pqJ-mM-xUh" firstAttribute="leading" secondItem="bAB-xz-lzf" secondAttribute="leading" constant="-10" id="d9m-iJ-5TT"/>
                                     <constraint firstItem="33j-f2-qkR" firstAttribute="height" secondItem="ttj-PA-7Ff" secondAttribute="height" multiplier="2/3" id="j2U-Pv-tQN"/>
                                     <constraint firstItem="33j-f2-qkR" firstAttribute="centerY" secondItem="ttj-PA-7Ff" secondAttribute="centerY" id="nVS-ri-hTf"/>
+                                    <constraint firstItem="77g-Et-zfz" firstAttribute="height" secondItem="33j-f2-qkR" secondAttribute="height" id="naf-r9-6FK"/>
                                     <constraint firstItem="7UH-7D-RLg" firstAttribute="height" secondItem="ttj-PA-7Ff" secondAttribute="height" multiplier="1/2" id="sgU-BW-vvO"/>
+                                    <constraint firstItem="77g-Et-zfz" firstAttribute="leading" secondItem="33j-f2-qkR" secondAttribute="leading" id="tWi-05-6vT"/>
                                     <constraint firstItem="pqJ-mM-xUh" firstAttribute="trailing" secondItem="ttj-PA-7Ff" secondAttribute="trailing" id="tl6-6C-JF2"/>
+                                    <constraint firstItem="77g-Et-zfz" firstAttribute="centerY" secondItem="33j-f2-qkR" secondAttribute="centerY" id="vxR-OM-61u"/>
                                     <constraint firstItem="7UH-7D-RLg" firstAttribute="centerY" secondItem="ttj-PA-7Ff" secondAttribute="centerY" id="wHB-ys-KxO"/>
                                     <constraint firstItem="bAB-xz-lzf" firstAttribute="centerY" secondItem="ttj-PA-7Ff" secondAttribute="centerY" id="wq8-vX-fjt"/>
                                 </constraints>
@@ -137,6 +146,7 @@
                 <outlet property="placeholderImageView" destination="o73-PB-9S6" id="1EE-X5-oLY"/>
                 <outlet property="textButton" destination="bAB-xz-lzf" id="wCI-Kz-3fZ"/>
                 <outlet property="userImageView" destination="33j-f2-qkR" id="nPS-EV-bCA"/>
+                <outlet property="userPlaceholderImageView" destination="77g-Et-zfz" id="SUg-qN-m3Q"/>
             </connections>
             <point key="canvasLocation" x="22" y="159.5"/>
         </tableViewCell>

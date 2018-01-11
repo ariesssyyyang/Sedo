@@ -72,7 +72,7 @@ class CustomerMainPageController: UITableViewController {
 
     func setupNavigationBar() {
 
-        self.navigationItem.title = "Stylife"
+        self.navigationItem.title = "StyLife"
 
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
@@ -254,6 +254,7 @@ class CustomerMainPageController: UITableViewController {
 
                 if let imageURL = URL(string: url) {
 
+                    cell.mainPageImageView.image = nil
                     scrollImageView.image = nil
 
                     Nuke.loadImage(with: imageURL, into: scrollImageView)

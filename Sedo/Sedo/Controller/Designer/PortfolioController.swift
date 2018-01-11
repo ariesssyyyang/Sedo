@@ -353,7 +353,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
             } else {
 
-                let titleString = NSLocalizedString("Edit", comment: "portfolio edit button")
+                let titleString = NSLocalizedString("Edit Profile", comment: "portfolio edit button")
                 header.editButton.setTitle(titleString, for: .normal)
                 header.editButton.addTarget(self, action: #selector(handleEdit(_:)), for: .touchUpInside)
                 return header

@@ -8,7 +8,7 @@
 "Add" = "新增";
 
 /* booking page navigation bar
-   main page booking button */
+   main page booking text button */
 "Booking" = "預約";
 
 /* No comment provided by engineer. */
@@ -36,9 +36,11 @@
    new post page */
 "Done" = "送出";
 
-/* new post page
-   portfolio edit button */
+/* new post page */
 "Edit" = "編輯";
+
+/* portfolio edit button */
+"Edit Profile" = "編輯基本資料";
 
 /* alert */
 "Enter a correct registered email address and you will receive an email to reset password." = "請輸入已註冊電子郵件地址，並在收到信件後重置密碼。";
