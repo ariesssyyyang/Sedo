@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let window = UIWindow(frame: UIScreen.main.bounds)
         let landing = CoverController()
-        let loginController = LoginController()
         window.rootViewController = landing
         window.makeKeyAndVisible()
         self.window = window

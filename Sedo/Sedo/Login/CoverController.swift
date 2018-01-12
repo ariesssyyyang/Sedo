@@ -22,7 +22,7 @@ class CoverController: UIViewController {
 
         setupBackground()
 
-        setupLogo()
+//        setupLogo()
 
     }
 

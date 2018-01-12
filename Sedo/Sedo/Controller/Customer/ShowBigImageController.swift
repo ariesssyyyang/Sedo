@@ -40,10 +40,6 @@ class ShowBigImageController: UIViewController, UIScrollViewDelegate {
 
     // MARK: - Set Up
 
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-
     func setupBigView() {
 
         view.addSubview(bigView)
