@@ -79,7 +79,9 @@ class NewPostController: UIViewController, UITextFieldDelegate {
 
     @objc func showImagePicker() {
 
-        let alert = UIAlertController(title: "Choose a method", message: "choose a method to select image", preferredStyle: .actionSheet)
+        let localTitle = NSLocalizedString("Select photo", comment: "new post page")
+        let localMessage = NSLocalizedString("Choose a method to select photo.", comment: "new post page")
+        let alert = UIAlertController(title: localTitle, message: localMessage, preferredStyle: .actionSheet)
 
         let shot = UIAlertAction(title: "Camera", style: .default) { (_) in
             print("open camera")
@@ -119,7 +121,23 @@ class NewPostController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func handleCancel() {
-        self.dismiss(animated: true, completion: nil)
+        let localTitle = NSLocalizedString("Notice", comment: "cancel new post")
+        let title = NSMutableAttributedString(string: localTitle as String, attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
+        let localMessage = NSLocalizedString("If you close now, your edits will be discarded.", comment: "cancel new post")
+        let alert = UIAlertController(title: "", message: localMessage, preferredStyle: .alert)
+
+        alert.setValue(title, forKey: "attributedTitle")
+        let localExit = NSLocalizedString("Exit", comment: "cancel new post")
+        let close = UIAlertAction(title: localExit, style: .destructive) { (_) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(close)
+        let localCancel = NSLocalizedString("Cancel", comment: "cancel new post")
+        let cancel = UIAlertAction(title: localCancel, style: .cancel, handler: nil)
+        alert.addAction(cancel)
+
+        self.present(alert, animated: true, completion: nil)
+
     }
 
     @objc func handleDone() {
@@ -129,6 +147,7 @@ class NewPostController: UIViewController, UITextFieldDelegate {
             let text = inputContainerView.descriptionTextField.text
         else {
             print("invalid portfolio data")
+            showNoImageAlert()
             return
         }
 
@@ -140,6 +159,17 @@ class NewPostController: UIViewController, UITextFieldDelegate {
         PortfolioManager.uploadImage(selectedImage: image, description: text, uid: uid)
 
         self.dismiss(animated: true, completion: nil)
+    }
+
+    func showNoImageAlert() {
+        let localTitle = NSLocalizedString("Error", comment: "no image in new post")
+        let title = NSMutableAttributedString(string: localTitle as String, attributes: [NSAttributedStringKey.foregroundColor: UIColor.red])
+        let localMessage = NSLocalizedString("Please choose a picture to upload.", comment: "no image in new post")
+        let alert = UIAlertController(title: "", message: localMessage, preferredStyle: .alert)
+        alert.setValue(title, forKey: "attributedTitle")
+        let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
     }
 
 }

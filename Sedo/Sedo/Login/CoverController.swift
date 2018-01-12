@@ -22,7 +22,7 @@ class CoverController: UIViewController {
 
         setupBackground()
 
-//        setupLogo()
+        setupLogo()
 
     }
 
@@ -85,7 +85,7 @@ class CoverController: UIViewController {
         logo.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -50).isActive = true
         logo.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1/3).isActive = true
         logo.font = UIFont(name: "Copperplate-Light", size: 36)
-        logo.text = "s t y l i f e"
+        logo.text = "S t y L i f e"
         logo.textColor = .white
 
     }

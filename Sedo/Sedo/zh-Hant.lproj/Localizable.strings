@@ -17,11 +17,15 @@
 /* alert action
    alert tf
    button in alert
+   cancel new post
    new post page */
 "Cancel" = "取消";
 
 /* No comment provided by engineer. */
 "Check order" = "查看訂單";
+
+/* new post page */
+"Choose a method to select photo." = "選擇一個方式挑選照片";
 
 /* No comment provided by engineer. */
 "Customer" = "顧客設定";
@@ -50,11 +54,18 @@
 
 /* alert
    alert button
+   no image in new post
    title in alert */
 "Error" = "錯誤";
 
+/* cancel new post */
+"Exit" = "離開";
+
 /* forgot button */
 "Forgot Password" = "忘記密碼";
+
+/* cancel new post */
+"If you close now, your edits will be discarded." = "如果現在離開，編輯將會遺失";
 
 /* No comment provided by engineer. */
 "Log Out" = "登出";
@@ -74,7 +85,8 @@
 /* alert */
 "New Service" = "新增服務";
 
-/* alert */
+/* alert
+   cancel new post */
 "Notice" = "注意";
 
 /* alert
@@ -103,6 +115,9 @@
 /* title in alert */
 "Please check your email to reset the password." = "請前往信箱確認信件並重設密碼";
 
+/* no image in new post */
+"Please choose a picture to upload." = "請選擇一張照片上傳";
+
 /* alert
    alert button */
 "Please enter all infomations needed." = "請輸入完整資訊";
@@ -130,6 +145,9 @@
 
 /* alert */
 "Request is gonna deleted, do you want to continue?" = "請求將被刪除，您確定要繼續嗎？";
+
+/* new post page */
+"Select photo" = "選擇照片";
 
 /* button in alert
    title in alert */
