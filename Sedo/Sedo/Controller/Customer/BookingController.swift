@@ -147,10 +147,12 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
 
     func doneAlert() {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
-        let title = AlertManager.customizedTitle(title: "Notice")
+        let localTitle = NSLocalizedString("Notice", comment: "")
+        let title = AlertManager.customizedTitle(title: localTitle)
         alert.setValue(title, forKey: "attributedTitle")
 
-        let message = AlertManager.customizedMessage(message: "Press yes to book the service.")
+        let localMessage = NSLocalizedString("Press yes to book the service.", comment: "")
+        let message = AlertManager.customizedMessage(message: localMessage)
         alert.setValue(message, forKey: "attributedMessage")
 
         let localYes = NSLocalizedString("Yes", comment: "")
@@ -169,10 +171,12 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
     func bookingSuccessAlert() {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
 
-        let title = AlertManager.successTitle(title: "Success")
+        let localTitle = NSLocalizedString("Success", comment: "")
+        let title = AlertManager.successTitle(title: localTitle)
         alert.setValue(title, forKey: "attributedTitle")
 
-        let message = AlertManager.customizedMessage(message: "Booking successfully, you can check it out in pending page.")
+        let localMessage = NSLocalizedString("Booking successfully, you can check it out in pending page.", comment: "")
+        let message = AlertManager.customizedMessage(message: localMessage)
         alert.setValue(message, forKey: "attributedMessage")
 
         let localOk = NSLocalizedString("OK", comment: "")

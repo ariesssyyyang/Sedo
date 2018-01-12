@@ -12,6 +12,9 @@
 "Booking" = "預約";
 
 /* No comment provided by engineer. */
+"Booking successfully, you can check it out in pending page." = "預約成功！您可以前往訂單頁確認。";
+
+/* No comment provided by engineer. */
 "Calendar" = "";
 
 /* alert action
@@ -133,6 +136,9 @@
 
 /* navigation bar */
 "Post" = "作品";
+
+/* No comment provided by engineer. */
+"Press yes to book the service." = "按下確認後送出服務預約";
 
 /* reply page reject button */
 "Reject" = "拒絕";

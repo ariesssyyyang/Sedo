@@ -13,8 +13,7 @@ class AlertManager {
 
     static func customizedTitle(title: String) -> NSMutableAttributedString {
 
-        let localTitle = NSLocalizedString(title, comment: "alert")
-        let titleString = NSMutableAttributedString(string: localTitle as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 18) ?? UIFont.systemFont(ofSize: 18)])
+        let titleString = NSMutableAttributedString(string: title as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 18) ?? UIFont.systemFont(ofSize: 18)])
         return titleString
 
     }
@@ -23,8 +22,7 @@ class AlertManager {
 
         let sendGreen = UIColor(red: 42.0/255, green: 120.0/255, blue: 27.0/255, alpha: 1.0)
 
-        let localTitle = NSLocalizedString(title, comment: "alert")
-        let titleString = NSMutableAttributedString(string: localTitle as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20), NSAttributedStringKey.foregroundColor: sendGreen])
+        let titleString = NSMutableAttributedString(string: title as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 20) ?? UIFont.systemFont(ofSize: 20), NSAttributedStringKey.foregroundColor: sendGreen])
 
         return titleString
 
@@ -32,8 +30,7 @@ class AlertManager {
 
     static func customizedMessage(message: String) -> NSMutableAttributedString {
 
-        let localMessage = NSLocalizedString(message, comment: "alert")
-        let messageString = NSMutableAttributedString(string: localMessage as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
+        let messageString = NSMutableAttributedString(string: message as String, attributes: [NSAttributedStringKey.font: UIFont(name: "Kohinoor Bangla", size: 12) ?? UIFont.systemFont(ofSize: 12)])
         return messageString
 
     }
