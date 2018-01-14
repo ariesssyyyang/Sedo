@@ -117,6 +117,8 @@ class MainPageCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
+        mainPageControl.numberOfPages = 0
+
         userImageView.image = nil
 
         mainScrollView.contentSize = CGSize(width: 0, height: 0)

@@ -361,7 +361,6 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
         default:
             return header
-//            assert(false, "Unexpected element kind")
         }
     }
 

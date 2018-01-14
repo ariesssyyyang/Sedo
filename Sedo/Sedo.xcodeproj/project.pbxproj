@@ -64,6 +64,8 @@
 		7FB335CB1FFA44F9007F1118 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB335CA1FFA44F9007F1118 /* LoginView.xib */; };
 		7FB335CD1FFA45FB007F1118 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB335CC1FFA45FB007F1118 /* LoginView.swift */; };
 		7FBE2E742008623A002D3B45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE2E732008623A002D3B45 /* LaunchScreen.storyboard */; };
+		7FBE2E7720089EB8002D3B45 /* CustomerSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2E7520089EB8002D3B45 /* CustomerSettingCell.swift */; };
+		7FBE2E7820089EB8002D3B45 /* CustomerSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE2E7620089EB8002D3B45 /* CustomerSettingCell.xib */; };
 		7FCA6E4D1FEA56BD00D5CFB4 /* AppDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E4C1FEA56BD00D5CFB4 /* AppDelegateExtension.swift */; };
 		7FCA6E501FEA57A100D5CFB4 /* UIWindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E4F1FEA57A100D5CFB4 /* UIWindowExtension.swift */; };
 		7FCA6E531FEA59EB00D5CFB4 /* FadeInOutTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FCA6E521FEA59EB00D5CFB4 /* FadeInOutTransition.swift */; };
@@ -148,6 +150,8 @@
 		7FB335CA1FFA44F9007F1118 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		7FB335CC1FFA45FB007F1118 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7FBE2E732008623A002D3B45 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7FBE2E7520089EB8002D3B45 /* CustomerSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSettingCell.swift; sourceTree = "<group>"; };
+		7FBE2E7620089EB8002D3B45 /* CustomerSettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerSettingCell.xib; sourceTree = "<group>"; };
 		7FCA6E4C1FEA56BD00D5CFB4 /* AppDelegateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
 		7FCA6E4F1FEA57A100D5CFB4 /* UIWindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindowExtension.swift; sourceTree = "<group>"; };
 		7FCA6E521FEA59EB00D5CFB4 /* FadeInOutTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeInOutTransition.swift; sourceTree = "<group>"; };
@@ -400,6 +404,8 @@
 				7FF9375A1FE790DF004D1D4D /* CustomerRequestCell.xib */,
 				7FF937751FE8AB89004D1D4D /* MainPageCell.swift */,
 				7FF937761FE8AB89004D1D4D /* MainPageCell.xib */,
+				7FBE2E7520089EB8002D3B45 /* CustomerSettingCell.swift */,
+				7FBE2E7620089EB8002D3B45 /* CustomerSettingCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 			files = (
 				7F6DDD2D1FE96DAB004E7898 /* PortfolioCell.xib in Resources */,
 				7FA6D2CD2004CFC800A0244F /* ShowBigImageView.xib in Resources */,
+				7FBE2E7820089EB8002D3B45 /* CustomerSettingCell.xib in Resources */,
 				7FF937421FE3BDB6004D1D4D /* DesignerRequestCell.xib in Resources */,
 				7F363F4F1FEBF29B008CE4E2 /* NewPostView.xib in Resources */,
 				7FF937781FE8AB89004D1D4D /* MainPageCell.xib in Resources */,
@@ -683,6 +690,7 @@
 				7FA6D2CF2005B6DA00A0244F /* ShowBigImageView.swift in Sources */,
 				7FF9376E1FE7F289004D1D4D /* DesignerOrdersController.swift in Sources */,
 				7F6DDD311FEA049B004E7898 /* RegisterController.swift in Sources */,
+				7FBE2E7720089EB8002D3B45 /* CustomerSettingCell.swift in Sources */,
 				7FA138171FE28870006455B1 /* DesignerTabBarItem.swift in Sources */,
 				7FF937771FE8AB89004D1D4D /* MainPageCell.swift in Sources */,
 				7FCA6E4D1FEA56BD00D5CFB4 /* AppDelegateExtension.swift in Sources */,

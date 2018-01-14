@@ -235,7 +235,7 @@ class CustomerMainPageController: UITableViewController {
 
             } else if imageUrls.count == 1 {
 
-                cell.mainPageControl.isHidden = true
+//                cell.mainPageControl.isHidden = true
 
                 let scrollImageView = UIImageView()
                 let showBigButton = UIButton()

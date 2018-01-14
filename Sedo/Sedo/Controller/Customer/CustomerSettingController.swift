@@ -9,7 +9,7 @@
 import UIKit
 import Crashlytics
 
-class CustomerSettingController: UIViewController {
+class CustomerSettingController: UITableViewController {
 
     let logoutButton: UIButton = {
         let button = UIButton()
@@ -26,6 +26,11 @@ class CustomerSettingController: UIViewController {
         return button
     }()
 
+    let settingCellId = "settingCell"
+    let helps: [String] = ["Help", "Contact us"]
+    let abouts: [String] = ["About", "Privacy Policy"]
+    let components: [String] = ["About", "Help", "Account"]
+
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -34,7 +39,11 @@ class CustomerSettingController: UIViewController {
 
         setupBackground()
 
-        setupButton()
+        tableView.register(UINib(nibName: "CustomerSettingCell", bundle: nil), forCellReuseIdentifier: settingCellId)
+
+        tableView.separatorStyle = .none
+
+//        setupButton()
 
 //        let button = UIButton(type: .roundedRect)
 //        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
@@ -56,7 +65,7 @@ class CustomerSettingController: UIViewController {
         logoutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         logoutButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3).isActive = true
-        logoutButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        logoutButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
 
         logoutButton.layer.cornerRadius = 20
         logoutButton.layer.masksToBounds = true
@@ -69,18 +78,13 @@ class CustomerSettingController: UIViewController {
         let titleString = NSLocalizedString("Setting", comment: "customer setting")
         self.navigationItem.title = titleString
 
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-mode2"), style: .plain, target: self, action: #selector(changeMode))
-
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-exit"), style: .plain, target: self, action: #selector(handleSignOut))
-
     }
 
     func setupBackground() {
 
-        let backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImageView.image = #imageLiteral(resourceName: "back-woman")
+        let backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "back-woman"))
         backgroundImageView.contentMode = .scaleAspectFill
-        view.addSubview(backgroundImageView)
+        tableView.backgroundView = backgroundImageView
 
         let blurEffect = UIBlurEffect(style: .dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -90,12 +94,6 @@ class CustomerSettingController: UIViewController {
     }
 
     // MARK: - Actions
-
-    @objc func changeMode() {
-        let designerController = DesignerTabBarController(itemTypes: [.portfolio, .service, .profile])
-        designerController.selectedIndex = 0
-        self.present(designerController, animated: true, completion: nil)
-    }
 
     @objc func handleSignOut() {
 
@@ -131,6 +129,157 @@ class CustomerSettingController: UIViewController {
 
         self.present(alert, animated: true, completion: nil)
 
+    }
+
+    func goFanPage() {
+
+        let urlString = "fb://profile?id=styolife"
+        let webString = "http://www.facebook.com/styolife"
+
+        if let url = URL(string: urlString) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.open(URL(string: webString)!, options: [:], completionHandler: nil)
+            }
+        }
+    }
+
+    // MARK: - UITableView DataSource
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return components.count
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch components[section] {
+        case "About":
+            return abouts.count
+        case "Help":
+            return helps.count
+        default:
+            return 1
+        }
+/*
+        switch section {
+        case 0:
+            return 1
+        case numberOfSections(in: tableView) - 1:
+            return 1
+        default:
+            return 2
+        }
+ */
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: settingCellId, for: indexPath) as? CustomerSettingCell
+        else { return CustomerSettingCell() }
+
+        let component = components[indexPath.section]
+        switch component {
+        case "About":
+            if indexPath.row == 0 {
+                cell.goImageView.isHidden = true
+                cell.separatorView.backgroundColor = UIColor(
+                    red: 219.0/255,
+                    green: 219.0/255,
+                    blue: 219.0/255,
+                    alpha: 1.0
+                )
+
+                cell.optionLabel.text = component
+                cell.optionLabel.font = UIFont.systemFont(ofSize: 18
+                    , weight: .bold)
+                cell.selectionStyle = .none
+                return cell
+            } else {
+                cell.optionLabel.text = abouts[indexPath.row]
+                return cell
+            }
+        case "Help":
+            if indexPath.row == 0 {
+                cell.goImageView.isHidden = true
+                cell.separatorView.backgroundColor = UIColor(
+                    red: 219.0/255,
+                    green: 219.0/255,
+                    blue: 219.0/255,
+                    alpha: 1.0
+                )
+
+                cell.optionLabel.text = component
+                cell.optionLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+                cell.selectionStyle = .none
+                return cell
+            } else {
+                cell.optionLabel.text = helps[indexPath.row]
+                return cell
+            }
+        default:
+            cell.selectionStyle = .none
+            cell.optionLabel.text = "Log Out"
+            cell.backView.backgroundColor = UIColor(
+                red: 133.0/255,
+                green: 53.0/255,
+                blue: 11.0/255,
+                alpha: 1.0
+            )
+            cell.backgroundColor = UIColor.clear
+            cell.goImageView.image = nil
+            cell.optionLabel.textColor = UIColor.white
+            cell.optionLabel.font = UIFont(name: "Kohinoor Bangla", size: 20)
+            cell.optionLabel.textAlignment = .center
+            return cell
+        }
+/*
+        switch indexPath.section {
+        case 0:
+            cell.goImageView.isHidden = true
+            cell.separatorView.backgroundColor = UIColor(
+                red: 219.0/255,
+                green: 219.0/255,
+                blue: 219.0/255,
+                alpha: 1.0
+            )
+            cell.optionLabel.text = "Options"
+            return cell
+        case numberOfSections(in: tableView) - 1:
+            cell.optionLabel.text = "Log Out"
+            cell.backView.backgroundColor = UIColor(
+                red: 133.0/255,
+                green: 53.0/255,
+                blue: 11.0/255,
+                alpha: 1.0
+            )
+            cell.backgroundColor = UIColor.clear
+            cell.goImageView.image = nil
+            cell.optionLabel.textColor = UIColor.white
+            cell.optionLabel.textAlignment = .center
+            return cell
+        default:
+            cell.optionLabel.text = options[indexPath.row]
+            return cell
+        }
+ */
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let component = components[indexPath.section]
+        switch component {
+        case "About":
+            if indexPath.row != 0 {
+            }
+        case "Help":
+            if indexPath.row != 0 {
+                goFanPage()
+            }
+        default:
+            handleSignOut()
+        }
     }
 
 }

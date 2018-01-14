@@ -26,10 +26,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="back-blurcity" translatesAutoresizingMaskIntoConstraints="NO" id="j8v-vV-gYq">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back-blurcity" translatesAutoresizingMaskIntoConstraints="NO" id="j8v-vV-gYq">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XFz-Ww-SWN">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30399186643835618" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2018年 Aries Yang. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
                                 <rect key="frame" x="0.0" y="628.5" width="375" height="18.5"/>
                                 <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="13"/>
@@ -46,12 +49,20 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
+                            <constraint firstItem="XFz-Ww-SWN" firstAttribute="bottom" secondItem="j8v-vV-gYq" secondAttribute="bottom" id="8rQ-Zj-sQM"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="j8v-vV-gYq" secondAttribute="bottom" id="BWQ-A1-CVj"/>
+                            <constraint firstItem="XFz-Ww-SWN" firstAttribute="leading" secondItem="j8v-vV-gYq" secondAttribute="leading" id="KXa-tA-Czn"/>
                             <constraint firstAttribute="trailing" secondItem="GJd-Yh-RWb" secondAttribute="trailing" constant="60" id="M8M-2s-9oX"/>
                             <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
                             <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="1/3" id="g0Y-pH-ZCY"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-50" id="moa-c2-u7t"/>
+                            <constraint firstItem="j8v-vV-gYq" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="pDC-9k-pNc"/>
+                            <constraint firstItem="XFz-Ww-SWN" firstAttribute="trailing" secondItem="j8v-vV-gYq" secondAttribute="trailing" id="qwg-yq-Ws6"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="top" secondItem="j8v-vV-gYq" secondAttribute="top" id="vWc-R0-D4X"/>
                             <constraint firstItem="GJd-Yh-RWb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="60" id="x7j-FC-K8j"/>
+                            <constraint firstItem="j8v-vV-gYq" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="y3F-BJ-TRU"/>
+                            <constraint firstItem="XFz-Ww-SWN" firstAttribute="top" secondItem="j8v-vV-gYq" secondAttribute="top" id="zVY-r4-sNL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                     </view>

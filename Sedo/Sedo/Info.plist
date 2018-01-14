@@ -22,6 +22,7 @@
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>fb</string>
 		<string>line</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
