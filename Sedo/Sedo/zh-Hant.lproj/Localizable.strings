@@ -1,11 +1,17 @@
 /* in booking page */
 "- No service -" = "沒有服務";
 
+/* No comment provided by engineer. */
+"About" = "關於";
+
 /* reply page accept button */
 "Accept" = "接受";
 
 /* alert button */
 "Add" = "新增";
+
+/* No comment provided by engineer. */
+"Album" = "從相簿選擇";
 
 /* booking page navigation bar
    main page booking text button */
@@ -16,6 +22,9 @@
 
 /* No comment provided by engineer. */
 "Calendar" = "";
+
+/* No comment provided by engineer. */
+"Camera" = "開啟相機";
 
 /* alert action
    alert tf
@@ -29,6 +38,9 @@
 
 /* new post page */
 "Choose a method to select photo." = "選擇一個方式挑選照片";
+
+/* No comment provided by engineer. */
+"Contact us" = "聯絡我們";
 
 /* No comment provided by engineer. */
 "Customer" = "顧客設定";
@@ -66,6 +78,9 @@
 
 /* forgot button */
 "Forgot Password" = "忘記密碼";
+
+/* No comment provided by engineer. */
+"Help" = "幫助";
 
 /* cancel new post */
 "If you close now, your edits will be discarded." = "如果現在離開，編輯將會遺失";
@@ -140,6 +155,9 @@
 /* No comment provided by engineer. */
 "Press yes to book the service." = "按下確認後送出服務預約";
 
+/* No comment provided by engineer. */
+"Privacy Policy" = "隱私權政策";
+
 /* reply page reject button */
 "Reject" = "拒絕";
 
@@ -169,6 +187,9 @@
 
 /* signup button */
 "Sign Up" = "註冊";
+
+/* No comment provided by engineer. */
+"Social Media" = "社群平台";
 
 /* alert */
 "Success" = "成功";

@@ -12,9 +12,9 @@ import Crashlytics
 class CustomerSettingController: UITableViewController {
 
     let settingCellId = "settingCell"
-    let helps: [String] = ["Help", "Contact us"]
-    let abouts: [String] = ["About", "Privacy Policy"]
-    let components: [String] = ["About", "Help", "Account"]
+    let helps: [String] = [NSLocalizedString("Help", comment: ""), NSLocalizedString("Contact us", comment: "")]
+    let abouts: [String] = [NSLocalizedString("About", comment: ""), NSLocalizedString("Social Media", comment: ""), NSLocalizedString("Privacy Policy", comment: "")]
+    let components: [String] = [NSLocalizedString("About", comment: ""), NSLocalizedString("Help", comment: ""), "Account"]
 
     override func viewDidLoad() {
 
@@ -36,6 +36,7 @@ class CustomerSettingController: UITableViewController {
 
         let titleString = NSLocalizedString("Setting", comment: "customer setting")
         self.navigationItem.title = titleString
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
 
     }
 
@@ -90,11 +91,24 @@ class CustomerSettingController: UITableViewController {
 
     }
 
+    func goMessenger() {
+
+        let urlString = "fb://messaging?id=styolife"
+        let webString = "https://www.facebook.com/messages/t/styolife"
+
+        if let url = URL(string: urlString) {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.open(URL(string: webString)!, options: [:], completionHandler: nil)
+            }
+        }
+    }
+
     func goFanPage() {
-
         let urlString = "fb://profile?id=styolife"
-        let webString = "http://www.facebook.com/styolife"
-
+        let webString = "https://www.facebook.com/styolife/"
+        
         if let url = URL(string: urlString) {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -112,23 +126,13 @@ class CustomerSettingController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch components[section] {
-        case "About":
+        case NSLocalizedString("About", comment: ""):
             return abouts.count
-        case "Help":
+        case NSLocalizedString("Help", comment: ""):
             return helps.count
         default:
             return 1
         }
-/*
-        switch section {
-        case 0:
-            return 1
-        case numberOfSections(in: tableView) - 1:
-            return 1
-        default:
-            return 2
-        }
- */
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -137,7 +141,7 @@ class CustomerSettingController: UITableViewController {
 
         let component = components[indexPath.section]
         switch component {
-        case "About":
+        case NSLocalizedString("About", comment: ""):
             if indexPath.row == 0 {
                 cell.goImageView.isHidden = true
                 cell.optionLabel.text = component
@@ -147,7 +151,7 @@ class CustomerSettingController: UITableViewController {
                 cell.optionLabel.text = abouts[indexPath.row]
                 return cell
             }
-        case "Help":
+        case NSLocalizedString("Help", comment: ""):
             if indexPath.row == 0 {
                 cell.goImageView.isHidden = true
                 cell.optionLabel.text = component
@@ -164,48 +168,18 @@ class CustomerSettingController: UITableViewController {
             cell.logoutButton.addTarget(self, action: #selector(handleSignOut), for: .touchUpInside)
             return cell
         }
-/*
-        switch indexPath.section {
-        case 0:
-            cell.goImageView.isHidden = true
-            cell.separatorView.backgroundColor = UIColor(
-                red: 219.0/255,
-                green: 219.0/255,
-                blue: 219.0/255,
-                alpha: 1.0
-            )
-            cell.optionLabel.text = "Options"
-            return cell
-        case numberOfSections(in: tableView) - 1:
-            cell.optionLabel.text = "Log Out"
-            cell.backView.backgroundColor = UIColor(
-                red: 133.0/255,
-                green: 53.0/255,
-                blue: 11.0/255,
-                alpha: 1.0
-            )
-            cell.backgroundColor = UIColor.clear
-            cell.goImageView.image = nil
-            cell.optionLabel.textColor = UIColor.white
-            cell.optionLabel.textAlignment = .center
-            return cell
-        default:
-            cell.optionLabel.text = options[indexPath.row]
-            return cell
-        }
- */
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let component = components[indexPath.section]
         switch component {
-        case "About":
+        case NSLocalizedString("About", comment: ""):
             if indexPath.row == 0 {
                 return 50
             } else {
                 return 60
             }
-        case "Help":
+        case NSLocalizedString("Help", comment: ""):
             if indexPath.row == 0 {
                 return 50
             } else {
@@ -219,14 +193,16 @@ class CustomerSettingController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let component = components[indexPath.section]
         switch component {
-        case "About":
-            if indexPath.row != 0 {
+        case NSLocalizedString("About", comment: ""):
+            if indexPath.row == 1 {
+                goFanPage()
+            } else if indexPath.row == 2 {
                 let policycontroller = PrivacyPolicyController()
                 self.navigationController?.pushViewController(policycontroller, animated: true)
             }
-        case "Help":
+        case NSLocalizedString("Help", comment: ""):
             if indexPath.row != 0 {
-                goFanPage()
+                goMessenger()
             }
         default:
             return

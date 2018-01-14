@@ -83,8 +83,8 @@ class NewPostController: UIViewController, UITextFieldDelegate {
         let localMessage = NSLocalizedString("Choose a method to select photo.", comment: "new post page")
         let alert = UIAlertController(title: localTitle, message: localMessage, preferredStyle: .actionSheet)
 
-        let shot = UIAlertAction(title: "Camera", style: .default) { (_) in
-            print("open camera")
+        let localShot = NSLocalizedString("Camera", comment: "")
+        let shot = UIAlertAction(title: localShot, style: .default) { (_) in
 
             let cameraViewController = CameraViewController(croppingParameters: self.croppingParameters, allowsLibraryAccess: false, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: true, completion: { [weak self] image, _ in
 
@@ -99,8 +99,8 @@ class NewPostController: UIViewController, UITextFieldDelegate {
         }
         alert.addAction(shot)
 
-        let library = UIAlertAction(title: "Album", style: .default) { (_) in
-            print("open photo library")
+        let localAlbum = NSLocalizedString("Album", comment: "")
+        let library = UIAlertAction(title: localAlbum, style: .default) { (_) in
 
             let librartViewController = CameraViewController.imagePickerViewController(croppingParameters: self.croppingParameters) { [weak self] image, _ in
                 self?.inputContainerView.selectedImage.image = image
@@ -113,7 +113,8 @@ class NewPostController: UIViewController, UITextFieldDelegate {
         }
         alert.addAction(library)
 
-        let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        let localCancel = NSLocalizedString("Cancel", comment: "")
+        let cancel = UIAlertAction(title: localCancel, style: .cancel, handler: nil)
         alert.addAction(cancel)
 
         self.present(alert, animated: true, completion: nil)
@@ -128,7 +129,7 @@ class NewPostController: UIViewController, UITextFieldDelegate {
 
         alert.setValue(title, forKey: "attributedTitle")
         let localExit = NSLocalizedString("Exit", comment: "cancel new post")
-        let close = UIAlertAction(title: localExit, style: .destructive) { (_) in
+        let close = UIAlertAction(title: localExit, style: .default) { (_) in
             self.dismiss(animated: true, completion: nil)
         }
         alert.addAction(close)

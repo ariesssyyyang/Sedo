@@ -135,9 +135,12 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func selectImage() {
-        let alert = UIAlertController(title: "Choose a method", message: "choose a method to select image", preferredStyle: .actionSheet)
+        let localTitle = NSLocalizedString("Choose a method", comment: "edit profile")
+        let localMessage = NSLocalizedString("choose a method to select image", comment: "edit profile.")
+        let alert = UIAlertController(title: localTitle, message: localMessage, preferredStyle: .actionSheet)
 
-        let shot = UIAlertAction(title: "Camera", style: .default) { (_) in
+        let localShot = NSLocalizedString("Camera", comment: "")
+        let shot = UIAlertAction(title: localShot, style: .default) { (_) in
             print("open camera")
 
             let cameraViewController = CameraViewController(croppingParameters: self.croppingParameters, allowsLibraryAccess: false, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: true, completion: { [weak self] image, _ in
@@ -153,7 +156,8 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
         }
         alert.addAction(shot)
 
-        let library = UIAlertAction(title: "Album", style: .default) { (_) in
+        let localAlbum = NSLocalizedString("Album", comment: "")
+        let library = UIAlertAction(title: localAlbum, style: .default) { (_) in
             print("open photo library")
 
             let librartViewController = CameraViewController.imagePickerViewController(croppingParameters: self.croppingParameters) { [weak self] image, _ in
@@ -167,7 +171,8 @@ class EditDesignerProfileController: UIViewController, UITextFieldDelegate {
         }
         alert.addAction(library)
 
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let localCancel = NSLocalizedString("Cancel", comment: "")
+        let cancel = UIAlertAction(title: localCancel, style: .cancel, handler: nil)
         alert.addAction(cancel)
 
         self.present(alert, animated: true, completion: nil)
