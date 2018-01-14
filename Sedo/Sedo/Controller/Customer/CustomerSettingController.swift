@@ -11,21 +11,6 @@ import Crashlytics
 
 class CustomerSettingController: UITableViewController {
 
-    let logoutButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(
-            red: 133.0/255,
-            green: 53.0/255,
-            blue: 11.0/255,
-            alpha: 1.0
-        )
-        let logoutString = NSLocalizedString("Log Out", comment: "")
-        button.setTitle(logoutString, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Kohinoor Bangla", size: 20)
-        return button
-    }()
-
     let settingCellId = "settingCell"
     let helps: [String] = ["Help", "Contact us"]
     let abouts: [String] = ["About", "Privacy Policy"]
@@ -43,35 +28,9 @@ class CustomerSettingController: UITableViewController {
 
         tableView.separatorStyle = .none
 
-//        setupButton()
-
-//        let button = UIButton(type: .roundedRect)
-//        button.frame = CGRect(x: 20, y: 50, width: 100, height: 30)
-//        button.setTitle("Crash", for: [])
-//        button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
-//        view.addSubview(button)
-//    }
-//
-//    @IBAction func crashButtonTapped(_ sender: AnyObject) {
-//        Crashlytics.sharedInstance().crash()
     }
 
     // MARK: - Set Up
-
-    func setupButton() {
-
-        view.addSubview(logoutButton)
-
-        logoutButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
-        logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        logoutButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 2/3).isActive = true
-        logoutButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-
-        logoutButton.layer.cornerRadius = 20
-        logoutButton.layer.masksToBounds = true
-
-        logoutButton.addTarget(self, action: #selector(handleSignOut), for: .touchUpInside)
-    }
 
     func setupNavigationBar() {
 
@@ -181,17 +140,8 @@ class CustomerSettingController: UITableViewController {
         case "About":
             if indexPath.row == 0 {
                 cell.goImageView.isHidden = true
-                cell.separatorView.backgroundColor = UIColor(
-                    red: 219.0/255,
-                    green: 219.0/255,
-                    blue: 219.0/255,
-                    alpha: 1.0
-                )
-
                 cell.optionLabel.text = component
-                cell.optionLabel.font = UIFont.systemFont(ofSize: 18
-                    , weight: .bold)
-                cell.selectionStyle = .none
+                cell.optionLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
                 return cell
             } else {
                 cell.optionLabel.text = abouts[indexPath.row]
@@ -200,35 +150,18 @@ class CustomerSettingController: UITableViewController {
         case "Help":
             if indexPath.row == 0 {
                 cell.goImageView.isHidden = true
-                cell.separatorView.backgroundColor = UIColor(
-                    red: 219.0/255,
-                    green: 219.0/255,
-                    blue: 219.0/255,
-                    alpha: 1.0
-                )
-
                 cell.optionLabel.text = component
-                cell.optionLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-                cell.selectionStyle = .none
+                cell.optionLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
                 return cell
             } else {
                 cell.optionLabel.text = helps[indexPath.row]
                 return cell
             }
         default:
-            cell.selectionStyle = .none
-            cell.optionLabel.text = "Log Out"
-            cell.backView.backgroundColor = UIColor(
-                red: 133.0/255,
-                green: 53.0/255,
-                blue: 11.0/255,
-                alpha: 1.0
-            )
-            cell.backgroundColor = UIColor.clear
-            cell.goImageView.image = nil
-            cell.optionLabel.textColor = UIColor.white
-            cell.optionLabel.font = UIFont(name: "Kohinoor Bangla", size: 20)
-            cell.optionLabel.textAlignment = .center
+            cell.optionLabel.text = ""
+            cell.goImageView.isHidden = true
+            cell.logoutButton.isHidden = false
+            cell.logoutButton.addTarget(self, action: #selector(handleSignOut), for: .touchUpInside)
             return cell
         }
 /*
@@ -264,7 +197,23 @@ class CustomerSettingController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        let component = components[indexPath.section]
+        switch component {
+        case "About":
+            if indexPath.row == 0 {
+                return 50
+            } else {
+                return 60
+            }
+        case "Help":
+            if indexPath.row == 0 {
+                return 50
+            } else {
+                return 60
+            }
+        default:
+            return 70
+        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -272,13 +221,15 @@ class CustomerSettingController: UITableViewController {
         switch component {
         case "About":
             if indexPath.row != 0 {
+                let policycontroller = PrivacyPolicyController()
+                self.navigationController?.pushViewController(policycontroller, animated: true)
             }
         case "Help":
             if indexPath.row != 0 {
                 goFanPage()
             }
         default:
-            handleSignOut()
+            return
         }
     }
 

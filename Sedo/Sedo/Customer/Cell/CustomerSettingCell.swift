@@ -10,20 +10,22 @@ import UIKit
 
 class CustomerSettingCell: UITableViewCell {
 
-    @IBOutlet weak var separatorView: UIView!
-
     @IBOutlet weak var goImageView: UIImageView!
 
     @IBOutlet weak var backView: UIView!
 
     @IBOutlet weak var optionLabel: UILabel!
 
+    @IBOutlet weak var logoutButton: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
         self.backgroundColor = UIColor.clear
-//            UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+
         setupcell()
+
+        setupButton()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,8 +36,6 @@ class CustomerSettingCell: UITableViewCell {
 
     func setupcell() {
 
-        separatorView.backgroundColor = UIColor.clear
-
         backView.backgroundColor = UIColor.clear
 
         backView.layer.cornerRadius = 10
@@ -44,7 +44,24 @@ class CustomerSettingCell: UITableViewCell {
 
         goImageView.tintColor = UIColor.gray
 
-        self.selectionStyle = .gray
+        self.selectionStyle = .none
 
+    }
+
+    func setupButton() {
+
+        logoutButton.isHidden = true
+
+        logoutButton.backgroundColor = UIColor(
+            red: 133.0/255,
+            green: 53.0/255,
+            blue: 11.0/255,
+            alpha: 1.0
+        )
+        let logoutString = NSLocalizedString("Log Out", comment: "")
+        logoutButton.setTitle(logoutString, for: .normal)
+        logoutButton.titleLabel?.font = UIFont(name: "Kohinoor Bangla", size: 20)
+        logoutButton.layer.cornerRadius = 14
+        logoutButton.layer.masksToBounds = true
     }
 }

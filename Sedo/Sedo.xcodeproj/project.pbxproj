@@ -63,6 +63,8 @@
 		7FB335C91FFA3E43007F1118 /* CoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB335C81FFA3E43007F1118 /* CoverController.swift */; };
 		7FB335CB1FFA44F9007F1118 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FB335CA1FFA44F9007F1118 /* LoginView.xib */; };
 		7FB335CD1FFA45FB007F1118 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB335CC1FFA45FB007F1118 /* LoginView.swift */; };
+		7FB4ED95200B8D4E00C0B787 /* PrivacyPolicyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4ED94200B8D4E00C0B787 /* PrivacyPolicyController.swift */; };
+		7FB4ED97200B8E2D00C0B787 /* PrivacyPolicyText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB4ED96200B8E2D00C0B787 /* PrivacyPolicyText.swift */; };
 		7FBE2E742008623A002D3B45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE2E732008623A002D3B45 /* LaunchScreen.storyboard */; };
 		7FBE2E7720089EB8002D3B45 /* CustomerSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBE2E7520089EB8002D3B45 /* CustomerSettingCell.swift */; };
 		7FBE2E7820089EB8002D3B45 /* CustomerSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FBE2E7620089EB8002D3B45 /* CustomerSettingCell.xib */; };
@@ -149,6 +151,8 @@
 		7FB335C81FFA3E43007F1118 /* CoverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverController.swift; sourceTree = "<group>"; };
 		7FB335CA1FFA44F9007F1118 /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		7FB335CC1FFA45FB007F1118 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		7FB4ED94200B8D4E00C0B787 /* PrivacyPolicyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyController.swift; sourceTree = "<group>"; };
+		7FB4ED96200B8E2D00C0B787 /* PrivacyPolicyText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyText.swift; sourceTree = "<group>"; };
 		7FBE2E732008623A002D3B45 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FBE2E7520089EB8002D3B45 /* CustomerSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerSettingCell.swift; sourceTree = "<group>"; };
 		7FBE2E7620089EB8002D3B45 /* CustomerSettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomerSettingCell.xib; sourceTree = "<group>"; };
@@ -420,6 +424,8 @@
 				7FF937731FE8AB49004D1D4D /* CustomerMainPageController.swift */,
 				7FA817871FF0B2EE001A987A /* BookingController.swift */,
 				7FA6D2CA2004CFC800A0244F /* ShowBigImageController.swift */,
+				7FB4ED94200B8D4E00C0B787 /* PrivacyPolicyController.swift */,
+				7FB4ED96200B8E2D00C0B787 /* PrivacyPolicyText.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -660,6 +666,7 @@
 				7FF9374A1FE3BEF8004D1D4D /* UINibExtensions.swift in Sources */,
 				7FB335C91FFA3E43007F1118 /* CoverController.swift in Sources */,
 				7FF937741FE8AB49004D1D4D /* CustomerMainPageController.swift in Sources */,
+				7FB4ED95200B8D4E00C0B787 /* PrivacyPolicyController.swift in Sources */,
 				7FB335CD1FFA45FB007F1118 /* LoginView.swift in Sources */,
 				7FA138291FE36A95006455B1 /* DesignerSettingController.swift in Sources */,
 				7F579B011FFBF41E004F919E /* ViewPictureCell.swift in Sources */,
@@ -680,6 +687,7 @@
 				7FA6D2D12006205D00A0244F /* MainPageScrollView.swift in Sources */,
 				7FA8177C1FEFED08001A987A /* EditDesignerProfileController.swift in Sources */,
 				7F9A22DE2001478100AC0C28 /* AlertManager.swift in Sources */,
+				7FB4ED97200B8E2D00C0B787 /* PrivacyPolicyText.swift in Sources */,
 				7FA138271FE36A84006455B1 /* CustomerSettingController.swift in Sources */,
 				7FADBF381FF51615002A5330 /* CustomerNavigationController.swift in Sources */,
 				7FF9376C1FE7F25B004D1D4D /* DesignerOrderListController.swift in Sources */,
