@@ -1,4 +1,4 @@
-# StyLife [<img src="https://github.com/ariesssyyyang/Sedo/blob/master/DemoShot/availableOnTheAppStore.png" width = "160" height = "50" alt="StyLife" align=center />](https://itunes.apple.com/tw/app/stylife/id1332467556)
+# StyLife &ensp;<img src="https://github.com/ariesssyyyang/Sedo/blob/master/Sedo/Sedo/Assets.xcassets/AppIcon.appiconset/iTunesArtwork%402x.png" width = "40" height = "40" alt="StyLife" align=center />&ensp;[<img src="https://github.com/ariesssyyyang/Sedo/blob/master/DemoShot/availableOnTheAppStore.png" width = "135" height = "40" alt="StyLife" align=center />](https://itunes.apple.com/tw/app/stylife/id1332467556)
 
 屬於設計師與顧客的造型媒合平台，一個App就能帶來兩種模式的享受。<br />
 
