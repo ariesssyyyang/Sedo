@@ -106,8 +106,6 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
             self.requests = []
             for child in snapshot.children {
                 guard let child = child as? DataSnapshot else { return }
-                print(child.key)
-                print(child.value)
                 let id = child.key
                 guard
                     let dictionary = child.value as? [String: String],

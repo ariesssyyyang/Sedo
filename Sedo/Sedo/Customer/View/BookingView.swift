@@ -13,9 +13,9 @@ class BookingView: UIView {
     @IBOutlet weak var serviceTextField: UITextField!
 
     @IBOutlet weak var dateTextField: UITextField!
-    
+
     @IBOutlet weak var doneButton: UIButton!
-    
+
     override func awakeFromNib() {
 
         super.awakeFromNib()

@@ -17,5 +17,5 @@ extension AppDelegate {
 
     }
     // swiftlint:enable force_cast
-    
+
 }

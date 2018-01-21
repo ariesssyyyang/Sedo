@@ -19,7 +19,7 @@ class DesignerRequestCell: UITableViewCell {
     @IBOutlet weak var serviceLabel: UILabel!
 
     @IBOutlet weak var dateLabel: UILabel!
-    
+
     @IBOutlet weak var timeLabel: UILabel!
 
     override func awakeFromNib() {
@@ -53,10 +53,6 @@ class DesignerRequestCell: UITableViewCell {
 
         customerImageView.clipsToBounds = true
 
-    }
-
-    func setupLabel() {
-        
     }
 
     func setupBackView() {

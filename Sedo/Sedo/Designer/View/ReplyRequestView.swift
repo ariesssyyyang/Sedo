@@ -11,7 +11,7 @@ import UIKit
 class ReplyRequestView: UIView {
 
     @IBOutlet weak var customerImageView: UIImageView!
-    
+
     @IBOutlet weak var bubbleImageView: UIImageView!
 
     @IBOutlet weak var leftButton: UIButton!
@@ -23,9 +23,9 @@ class ReplyRequestView: UIView {
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var noteLabel: UILabel!
-    
+
     @IBOutlet weak var nameLabel: UILabel!
-    
+
     @IBOutlet weak var timeLabel: UILabel!
     
     /*
@@ -59,10 +59,6 @@ class ReplyRequestView: UIView {
 //            blue: 208 / 255.0,
 //            alpha: 0.5
 //        )
-    }
-
-    func setupLabels() {
-        
     }
 
     func setupButtons() {

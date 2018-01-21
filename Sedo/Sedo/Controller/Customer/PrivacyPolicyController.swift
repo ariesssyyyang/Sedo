@@ -20,8 +20,6 @@ class PrivacyPolicyController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-
         setupTextView()
     }
 

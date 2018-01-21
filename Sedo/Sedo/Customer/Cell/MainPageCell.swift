@@ -27,7 +27,7 @@ class MainPageCell: UITableViewCell {
     @IBOutlet weak var userImageView: UIImageView!
 
     @IBOutlet weak var userPlaceholderImageView: UIImageView!
-    
+
     override func awakeFromNib() {
 
         super.awakeFromNib()
@@ -112,16 +112,6 @@ class MainPageCell: UITableViewCell {
             blue: 37.0/255,
             alpha: 1.0
         ), for: .normal)
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        mainPageControl.numberOfPages = 0
-
-        userImageView.image = nil
-
-        mainScrollView.contentSize = CGSize(width: 0, height: 0)
     }
 
 }

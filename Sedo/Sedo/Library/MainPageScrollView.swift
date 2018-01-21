@@ -21,7 +21,7 @@ class MainPageScrollView: UIScrollView {
         if view.isKind(of: UIButton.self) {
             return true
         }
-        
+
         return super.touchesShouldCancel(in: view)
     }
 

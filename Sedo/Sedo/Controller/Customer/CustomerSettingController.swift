@@ -108,7 +108,7 @@ class CustomerSettingController: UITableViewController {
     func goFanPage() {
         let urlString = "fb://profile?id=styolife"
         let webString = "https://www.facebook.com/styolife/"
-        
+
         if let url = URL(string: urlString) {
             if UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)

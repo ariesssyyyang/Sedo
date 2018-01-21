@@ -129,7 +129,7 @@ class NewPostController: UIViewController, UITextFieldDelegate {
 
         alert.setValue(title, forKey: "attributedTitle")
         let localExit = NSLocalizedString("Exit", comment: "cancel new post")
-        let close = UIAlertAction(title: localExit, style: .default) { (_) in
+        let close = UIAlertAction(title: localExit, style: .destructive) { (_) in
             self.dismiss(animated: true, completion: nil)
         }
         alert.addAction(close)

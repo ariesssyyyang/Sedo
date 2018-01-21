@@ -77,7 +77,7 @@ class DesignerOrderListController: ButtonBarPagerTabStripViewController {
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
 
         let pendingString = NSLocalizedString("Pending", comment: "designer order list")
-        
+
         let orderString = NSLocalizedString("Orders", comment: "designer order list")
 
         let approvedList = DesignerOrdersController(style: .plain, itemInfo: IndicatorInfo(title: orderString))

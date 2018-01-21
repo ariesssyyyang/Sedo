@@ -24,11 +24,11 @@ extension UIWindow {
         duration: Double,
         completion: UpdateRootCompletion?
         ) {
-        
+
         let fromViewController = rootViewController
         
         let toViewController = newViewController
-        
+
         rootViewController = toViewController
 
         animation(

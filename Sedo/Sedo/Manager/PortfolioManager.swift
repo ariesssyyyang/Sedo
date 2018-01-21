@@ -35,7 +35,6 @@ class PortfolioManager {
         storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
 
             if error != nil {
-                print(error)
                 return
             }
 

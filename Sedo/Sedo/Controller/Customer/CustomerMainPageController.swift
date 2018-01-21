@@ -78,8 +78,6 @@ class CustomerMainPageController: UITableViewController {
 
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-mode2"), style: .plain, target: self, action: #selector(changeMode))
 
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "icon-exit"), style: .plain, target: self, action: #selector(handleSignOut))
-
     }
 
     // MARK: - Fetch Data
@@ -183,6 +181,7 @@ class CustomerMainPageController: UITableViewController {
 
         let user = users[indexPath.row]
 
+        cell.userImageView.image = nil
         showUserImage(cell: cell, uid: user.id)
 
         if user.id == Auth.auth().currentUser?.uid {
@@ -235,8 +234,6 @@ class CustomerMainPageController: UITableViewController {
 
             } else if imageUrls.count == 1 {
 
-//                cell.mainPageControl.isHidden = true
-
                 let scrollImageView = UIImageView()
                 let showBigButton = UIButton()
 
@@ -254,8 +251,8 @@ class CustomerMainPageController: UITableViewController {
 
                 if let imageURL = URL(string: url) {
 
-                    cell.mainPageImageView.image = nil
-                    scrollImageView.image = nil
+//                    cell.mainPageImageView.image = nil
+//                    scrollImageView.image = nil
 
                     Nuke.loadImage(with: imageURL, into: scrollImageView)
 
