@@ -15,7 +15,7 @@ class DesignerRequestCell: UITableViewCell {
     @IBOutlet weak var customerImageView: UIImageView!
 
     @IBOutlet weak var placeholderImageView: UIImageView!
-    
+
     @IBOutlet weak var serviceLabel: UILabel!
 
     @IBOutlet weak var dateLabel: UILabel!

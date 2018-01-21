@@ -101,9 +101,9 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
         }
 
         let ref = Database.database().reference().child("request-designer").child(uid)
-        ref.observe(.value, with: { (snapshot) in
+        ref.observe(.value, with: { [weak self] (snapshot) in
 
-            self.requests = []
+            self?.requests = []
             for child in snapshot.children {
                 guard let child = child as? DataSnapshot else { return }
                 let id = child.key
@@ -117,9 +117,9 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
                     print("fail to transform type to dictionary")
                     return
                 }
- 
+
                 let userRef = Database.database().reference().child("user")
-                userRef.observe(.value, with: { (userSnapshot) in
+                userRef.observe(.value, with: { [weak self] (userSnapshot) in
                     guard
                         let userDict = userSnapshot.value as? [String: AnyObject],
                         let customerInfo = userDict[customerId] as? [String: AnyObject],
@@ -134,14 +134,17 @@ class DesignerPendingController: UITableViewController, IndicatorInfoProvider {
                     let customer = Customer(name: customerName, id: customerId)
                     let designer = Designer(name: designerName, id: uid)
 
-                    self.requests.append(Request(service: service, id: id, customer: customer, designer: designer, createdDate: createdDate, date: date))
+                    self?.requests.append(Request(service: service, id: id, customer: customer, designer: designer, createdDate: createdDate, date: date))
 
-                    self.tableView.reloadData()
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
+
                 })
 
             }
 
-            self.tableView.reloadData()
+            self?.tableView.reloadData()
 
         }, withCancel: nil)
     }

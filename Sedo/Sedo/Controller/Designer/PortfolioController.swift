@@ -77,7 +77,7 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         guard let myUid = Auth.auth().currentUser?.uid else { return }
 
         let ref = Database.database().reference().child("user").child(myUid)
-        ref.observe(.value) { (mySnapshot) in
+        ref.observe(.value) { [weak self] (mySnapshot) in
             guard
                 let nameDict = mySnapshot.value as? [String: String],
                 let myName = nameDict["name"]
@@ -86,8 +86,8 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
                 return
             }
 
-            self.author = Designer(name: myName, id: myUid)
-            self.currentMe = Customer(name: myName, id: myUid)
+            self?.author = Designer(name: myName, id: myUid)
+            self?.currentMe = Customer(name: myName, id: myUid)
 
         }
     }
@@ -96,11 +96,11 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         let ref = Database.database().reference()
         let userRef = ref.child("user")
 
-        userRef.observe(.value) { (userSnapshot) in
+        userRef.observe(.value) { [weak self] (userSnapshot) in
 
             guard
                 let userDict = userSnapshot.value as? [String: AnyObject],
-                let uid = self.author?.id,
+                let uid = self?.author?.id,
                 let user = userDict[uid] as? [String: String]
             else {
                 print("fail to get basic user info!")
@@ -108,25 +108,25 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
             }
 
             if let name = user["name"] {
-                self.headerInfo.updateValue(name, forKey: "name")
+                self?.headerInfo.updateValue(name, forKey: "name")
             } else {
                 print("fail to get designer name")
             }
 
             if let lineId = user["lineId"] {
-                self.headerInfo.updateValue(lineId, forKey: "lineId")
+                self?.headerInfo.updateValue(lineId, forKey: "lineId")
             } else {
                 print("fail to get designer lineId")
             }
 
             if let profileImageUrl = user["profileImageUrl"] {
-                self.headerInfo.updateValue(profileImageUrl, forKey: "imageUrl")
+                self?.headerInfo.updateValue(profileImageUrl, forKey: "imageUrl")
             } else {
                 print("fail to get designer profile image!")
             }
 
             if let introduction = user["introduction"] {
-                self.headerInfo.updateValue(introduction, forKey: "introduction")
+                self?.headerInfo.updateValue(introduction, forKey: "introduction")
             }
             else {
                 print("fail to get designer introduction!")
@@ -140,17 +140,17 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
         let ref = Database.database().reference()
         let userRef = ref.child("user")
 
-        userRef.observe(.value) { (userSnapshot) in
+        userRef.observe(.value) { [weak self] (userSnapshot) in
             guard
-                let uid = self.author?.id
+                let uid = self?.author?.id
             else {
                 print("fail get user id in portfolio page!")
                 return
             }
- 
+
             let portfolioRef = ref.child("portfolio").child(uid)
-            portfolioRef.observe(.value, with: { (portfolioSnapshot) in
-                self.images = []
+            portfolioRef.observe(.value, with: { [weak self] (portfolioSnapshot) in
+                self?.images = []
                 for child in portfolioSnapshot.children {
 
                     guard let child = child as? DataSnapshot else { return }
@@ -178,10 +178,14 @@ class PortfolioController: UICollectionViewController, UICollectionViewDelegateF
 
                     let post = ["postId": postKey, "content": imageDescription]
 
-                    self.postInfo.updateValue(post, forKey: imageUrl)
-                    self.images.insert(imageUrl, at: 0)
+                    self?.postInfo.updateValue(post, forKey: imageUrl)
+                    self?.images.insert(imageUrl, at: 0)
                 }
-                self.collectionView?.reloadData()
+
+                DispatchQueue.main.async {
+                    self?.collectionView?.reloadData()
+                }
+
             })
         }
     }

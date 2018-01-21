@@ -92,7 +92,7 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
         }
 
         let portfolioRef = Database.database().reference().child("portfolio").child(uid).child(postId)
-        portfolioRef.observe(.value) { (postSnapshot) in
+        portfolioRef.observe(.value) { [weak self] (postSnapshot) in
             guard let postDict = postSnapshot.value as? [String: String] else {
                 print("fail to get post dictionary in viewPicController!")
                 return
@@ -103,7 +103,7 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
                 return
             }
 
-            self.content = description
+            self?.content = description
         }
     }
 

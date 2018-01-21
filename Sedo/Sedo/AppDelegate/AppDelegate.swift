@@ -20,7 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
 
+        // Initialize Firebase service
         FirebaseApp.configure()
+        Fabric.sharedSDK().debug = true
+        let queue = DispatchQueue.global()
+        Database.database().callbackQueue = queue
 
         let window = UIWindow(frame: UIScreen.main.bounds)
         let landing = CoverController()

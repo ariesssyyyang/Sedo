@@ -28,12 +28,12 @@ class CustomerMainPageController: UITableViewController {
 
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let ref = Database.database().reference().child("user").child(uid)
-        ref.observe(.value) { (snapshot) in
+        ref.observe(.value) { [weak self] (snapshot) in
             guard
                 let currentUser = snapshot.value as? [String: AnyObject],
                 let name = currentUser["name"] as? String
             else { return }
-            self.currentMe = Customer(name: name, id: uid)
+            self?.currentMe = Customer(name: name, id: uid)
         }
 
         fetchPosts()
@@ -85,7 +85,7 @@ class CustomerMainPageController: UITableViewController {
     func fetchUsers(uid: String) {
 
         let userRef = Database.database().reference().child("user").child(uid)
-        userRef.observeSingleEvent(of: .value) { (userSnapshot) in
+        userRef.observeSingleEvent(of: .value) { [weak self] (userSnapshot) in
             guard
                 let userDict = userSnapshot.value as? [String: String],
                 let username = userDict["name"]
@@ -94,8 +94,11 @@ class CustomerMainPageController: UITableViewController {
                 return
             }
 
-            self.users.append(User(id: uid, username: username))
-            self.tableView.reloadData()
+            self?.users.append(User(id: uid, username: username))
+
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
     }
 
@@ -104,23 +107,27 @@ class CustomerMainPageController: UITableViewController {
 
         let portfolioRef = ref.child("portfolio")
 
-        portfolioRef.observe(.value) { (portfolioSnapshot) in
-            self.users = []
+        portfolioRef.observe(.value) { [weak self] (portfolioSnapshot) in
+            self?.users = []
 
             for child in portfolioSnapshot.children {
 
-                guard let child = child as? DataSnapshot else {
+                guard
+                    let child = child as? DataSnapshot
+                else {
                     print("can't get portfolio children!")
                     return
                 }
 
                 let userId = child.key
-                self.fetchUsers(uid: userId)
+                self?.fetchUsers(uid: userId)
 
                 var imageUrls: [String] = []
 
                 for post in child.children {
-                    guard let post = post as? DataSnapshot else {
+                    guard
+                        let post = post as? DataSnapshot
+                    else {
                         print("can't get each designer's children")
                         return
                     }
@@ -152,7 +159,11 @@ class CustomerMainPageController: UITableViewController {
 
                 }
 
-                self.portfolios.updateValue(imageUrls, forKey: userId)
+                self?.portfolios.updateValue(imageUrls, forKey: userId)
+
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
 
             }
         }
@@ -173,7 +184,6 @@ class CustomerMainPageController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: mainCellId, for: indexPath) as? MainPageCell else { return MainPageCell() }
 
         cell.mainScrollView.delegate = self
-        cell.selectionStyle = .none
 
         var contentWidth: CGFloat = 0.0
 
@@ -329,7 +339,6 @@ class CustomerMainPageController: UITableViewController {
         guard
             let cell = scrollView.superview?.superview?.superview as? MainPageCell
         else {
-            print("fail to get scrollView of scrollViewDidScroll!")
             return
         }
 

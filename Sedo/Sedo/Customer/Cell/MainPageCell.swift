@@ -32,6 +32,8 @@ class MainPageCell: UITableViewCell {
 
         super.awakeFromNib()
 
+        self.selectionStyle = .none
+
         self.backgroundColor = UIColor.clear
 
         setupImageView()

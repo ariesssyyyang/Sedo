@@ -87,9 +87,9 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
         }
 
         let ref = Database.database().reference().child("request-customer").child(uid)
-        ref.observe(.value, with: { (snapshot) in
+        ref.observe(.value, with: { [weak self] (snapshot) in
 
-            self.requests = []
+            self?.requests = []
 
             for child in snapshot.children {
                 guard let child = child as? DataSnapshot else { return }
@@ -106,7 +106,7 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
                 }
 
                 let userRef = Database.database().reference().child("user")
-                userRef.observe(.value, with: { (userSnapshot) in
+                userRef.observe(.value, with: { [weak self] (userSnapshot) in
 
                     guard
                         let userDict = userSnapshot.value as? [String: AnyObject],
@@ -122,13 +122,17 @@ class CustomerPendingController: UITableViewController, IndicatorInfoProvider {
                     let customer = Customer(name: customerName, id: uid)
                     let designer = Designer(name: designerName, id: designerId)
 
-                    self.requests.append(Request(service: service, id: id, customer: customer, designer: designer, createdDate: createdDate, date: date))
-                    self.tableView.reloadData()
+                    self?.requests.append(Request(service: service, id: id, customer: customer, designer: designer, createdDate: createdDate, date: date))
+
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
+
                 })
 
             }
 
-            self.tableView.reloadData()
+            self?.tableView.reloadData()
 
         }, withCancel: nil)
     }

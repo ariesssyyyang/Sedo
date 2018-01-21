@@ -155,15 +155,15 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
         let message = AlertManager.customizedMessage(message: localMessage)
         alert.setValue(message, forKey: "attributedMessage")
 
+        let localCancel = NSLocalizedString("Cancel", comment: "")
+        let cancelAction = UIAlertAction(title: localCancel, style: .default, handler: nil)
+        alert.addAction(cancelAction)
+
         let localYes = NSLocalizedString("Yes", comment: "")
         let yesAction = UIAlertAction(title: localYes, style: .default) { (_) in
             self.bookingSuccessAlert()
         }
         alert.addAction(yesAction)
-
-        let localCancel = NSLocalizedString("Cancel", comment: "")
-        let cancelAction = UIAlertAction(title: localCancel, style: .default, handler: nil)
-        alert.addAction(cancelAction)
 
         self.present(alert, animated: true, completion: nil)
     }
@@ -213,8 +213,8 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
         }
 
         let ref = Database.database().reference().child("service").child(designerId)
-        ref.observe(.value) { (snapshot) in
-            self.services = []
+        ref.observe(.value) { [weak self] (snapshot) in
+            self?.services = []
 
             for child in snapshot.children {
 
@@ -230,7 +230,7 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
                         return
                 }
 
-                self.services.append(Service(service: service, price: price))
+                self?.services.append(Service(service: service, price: price))
 
             }
 

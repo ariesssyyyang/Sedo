@@ -181,9 +181,9 @@ class ServiceController: UITableViewController {
     func fetchService(uid: String) {
 
         let ref = Database.database().reference().child("service").child(uid)
-        ref.observe(.value) { (snapshot) in
+        ref.observe(.value) { [weak self] (snapshot) in
 
-            self.services = []
+            self?.services = []
 
             for child in snapshot.children {
 
@@ -199,11 +199,13 @@ class ServiceController: UITableViewController {
                     return
                 }
 
-                self.services.append(Service(service: service, price: price))
+                self?.services.append(Service(service: service, price: price))
 
             }
 
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
 
         }
     }
