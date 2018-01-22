@@ -59,7 +59,7 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
 
         let buttonString = NSLocalizedString("Done", comment: "done button in booking page")
         bookingView.doneButton.setTitle(buttonString, for: .normal)
-        bookingView.doneButton.addTarget(self, action: #selector(requestService), for: .touchUpInside)
+        bookingView.doneButton.addTarget(self, action: #selector(showDoubleCheckAlert), for: .touchUpInside)
     }
 
     func setupNavigationBar() {
@@ -117,7 +117,7 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
         bookingView.dateTextField.text = formatter.string(from: picker.date)
     }
 
-    @objc func requestService() {
+    @objc func showDoubleCheckAlert() {
 
         self.view.endEditing(true)
 
@@ -127,7 +127,14 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
 
         } else {
 
-            guard
+            doneAlert()
+
+        }
+    }
+
+    func requestService() {
+
+        guard
                 let customer = customer,
                 let designer = designer,
                 let service = bookingView.serviceTextField.text,
@@ -135,10 +142,7 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
                 else { return }
 
             RequestManager.sendRequest(for: service, from: customer, to: designer, date: date)
-            doneAlert()
-
-        }
-
+            self.bookingSuccessAlert()
     }
 
     @objc func dismissKeyboard() {
@@ -161,7 +165,7 @@ class BookingController: UIViewController, UITextFieldDelegate, UIPickerViewData
 
         let localYes = NSLocalizedString("Yes", comment: "")
         let yesAction = UIAlertAction(title: localYes, style: .default) { (_) in
-            self.bookingSuccessAlert()
+            self.requestService()
         }
         alert.addAction(yesAction)
 
