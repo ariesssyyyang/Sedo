@@ -20,7 +20,9 @@ class ViewPicController: UICollectionViewController, UICollectionViewDelegateFlo
     var editImage: UIImage?
     var content: String? {
         didSet {
-            self.collectionView?.reloadData()
+            DispatchQueue.main.async {
+                self.collectionView?.reloadData()
+            }
         }
     }
 
