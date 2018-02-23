@@ -72,6 +72,8 @@ class LoginController: UIViewController {
     // MARK: - Actions
 
     @objc func handleSignIn() {
+        self.view.endEditing(true)
+
         guard
             let email = loginView.emailTextField.text,
             let password = loginView.passwordTextField.text

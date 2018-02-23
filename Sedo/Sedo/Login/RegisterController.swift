@@ -69,6 +69,8 @@ class RegisterController: UIViewController {
     // MARK: - Actions
 
     @objc func handleSignUp() {
+        self.view.endEditing(true)
+
         guard
             let email = registerView.emailTextField.text,
             let password = registerView.passwordTextField.text,
