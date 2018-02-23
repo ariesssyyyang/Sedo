@@ -35,12 +35,14 @@ class UserManager {
 
                 let customerTabBarController = CustomerTabBarController(itemTypes: [.main, .order, .profile])
 
-                AppDelegate.shared.window?.updateRoot(
-                    to: customerTabBarController,
-                    animation: crossDissolve,
-                    duration: 1.0,
-                    completion: nil
-                )
+                DispatchQueue.main.async {
+                    AppDelegate.shared.window?.updateRoot(
+                        to: customerTabBarController,
+                        animation: crossDissolve,
+                        duration: 1.0,
+                        completion: nil
+                    )
+                }
 
             }
 
